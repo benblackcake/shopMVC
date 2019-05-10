@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "center";
+}
+
+@section topCSS {
+    <style>
+        .login-container {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .login-form-1 {
+            padding: 5%;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-1 h3 {
+                text-align: center;
+                color: #333;
+            }
+
+        .login-form-2 {
+            padding: 5%;
+            background: #0062cc;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-2 h3 {
+                text-align: center;
+                color: #fff;
+            }
+
+            .login-form-2 h1 {
+                text-align: center;
+                color: #fff;
+            }
+
+        .login-container form {
+            padding: 10%;
+        }
+
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-form-1 .btnSubmit {
+            font-weight: 600;
+            color: #fff;
+            background-color: #0062cc;
+        }
+
+        .login-form-2 .btnSubmit {
+            font-weight: 600;
+            color: #0062cc;
+            background-color: #fff;
+        }
+
+        .login-form-2 .ForgetPwd {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-form-1 .ForgetPwd {
+            color: #0062cc;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .or_box {
+            position: relative;
+            float: left;
+            width: 100%;
+            margin-top: -10px;
+        }
+
+        .or {
+            position: relative;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .or_box:before {
+            content: " ";
+            border-bottom: 1px solid #d0d0d0;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 56%;
+        }
+
+        .or_box:after {
+            content: " ";
+            border-bottom: 1px solid #d0d0d0;
+            position: absolute;
+            top: 50%;
+            left: 56%;
+            right: 0;
+        }
+    </style>
+}
+
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h1 class="text-center">登入</h1>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="你的 Email *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="你的 Password *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit btn-block" value="登入" />
+                </div>
+                <div class="or_box">
+
+                    <div class="or">or</div>
+
+                </div>
+                <div class="form-group mt-4">
+                    <input type="submit" class="btnSubmit btn-block" value="FaceBook登入" />
+                </div>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd">忘記密碼?</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h1>註冊</h1>
+            <form>
+                <div class="form-group">
+                    <h3>還未註冊成為我們的會員?</h3>
+                </div>
+                <div class="form-group">
+                    <h3>加入我們，享有更多的優惠</h3>
+                </div>
+                <div class="form-group mt-5">
+                    <input type="submit" class="btnSubmit btn-block" value="註冊" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

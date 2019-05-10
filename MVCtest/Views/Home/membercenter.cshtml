@@ -1,0 +1,268 @@
+﻿
+
+@model MVCtest.ViewModels.CustomerViewModel
+@{
+    ViewBag.Title = "membercenter";
+}
+
+@section topCSS {
+    <style>
+        .login-container {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .login-form-1 {
+            padding: 5%;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-1 h3 {
+                text-align: center;
+                color: #333;
+            }
+
+        .login-form-2 {
+            padding: 5%;
+            background: #0062cc;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-2 h3 {
+                text-align: center;
+                color: #fff;
+            }
+
+            .login-form-2 h1 {
+                text-align: center;
+                color: #fff;
+            }
+
+        .login-container form {
+            padding: 10%;
+        }
+
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-form-1 .btnSubmit {
+            font-weight: 600;
+            color: #fff;
+            background-color: #0062cc;
+        }
+
+        .login-form-2 .btnSubmit {
+            font-weight: 600;
+            color: #0062cc;
+            background-color: #fff;
+        }
+
+        .login-form-2 .ForgetPwd {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-form-1 .ForgetPwd {
+            color: #0062cc;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .or_box {
+            position: relative;
+            float: left;
+            width: 100%;
+            margin-top: -10px;
+        }
+
+        .or {
+            position: relative;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .or_box:before {
+            content: " ";
+            border-bottom: 1px solid #d0d0d0;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 56%;
+        }
+
+        .or_box:after {
+            content: " ";
+            border-bottom: 1px solid #d0d0d0;
+            position: absolute;
+            top: 50%;
+            left: 56%;
+            right: 0;
+        }
+    </style>
+}
+
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h1 class="text-center">登入</h1>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="你的 Email *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="你的 Password *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit btn-block" value="登入" />
+                </div>
+                <div class="or_box">
+
+                    <div class="or">or</div>
+
+                </div>
+                <div class="form-group mt-4">
+                    <input type="submit" class="btnSubmit btn-block" value="FaceBook登入" />
+                </div>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd">忘記密碼?</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h1>註冊</h1>
+            <form>
+                <div class="form-group">
+                    <h3>還未註冊成為我們的會員?</h3>
+                </div>
+                <div class="form-group">
+                    <h3>加入我們，享有更多的優惠</h3>
+                </div>
+                <div class="form-group mt-5">
+                    <input type="button" class="btnSubmit btn-block" data-toggle="modal" data-target="#exampleModal" value="註冊" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">註冊</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body container">
+                <div id="signupbox" style="" class="">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title text-center">成為會員</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                        </div>
+                        <div class="panel-body">
+                            <!--comment-->
+                            @using (Html.BeginForm("membercenter", "Home", FormMethod.Post))
+                            {
+
+                                <form id="signupform" class="form-horizontal" role="form">
+
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="id" class="col-md-3 control-label">ID</label>
+                                        <div class="col-md-9">
+                                            @*<input type="text" class="form-control" name="email" placeholder="電子信箱">*@
+                                            @Html.EditorFor(x => x.Customer_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">Email</label>
+                                        <div class="col-md-9">
+                                            @*<input type="text" class="form-control" name="email" placeholder="電子信箱">*@
+                                            @Html.EditorFor(x => x.Customer_E_mail, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+
+                                    @*<div class="form-group">
+                                        @Html.LabelFor(model => model.Customer_Name, htmlAttributes: new { @class = "col-md-3 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Customer_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Customer_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>*@
+
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-3 control-label">Password</label>
+                                        <div class="col-md-9">
+                                            <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- Button -->
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button id="btn-signup" type="submit" class="btn btn-info">
+                                                <i class="icon-hand-right"></i> &nbsp Sign Up
+                                            </button>
+                                            <span style="margin-left:8px;">or</span>
+                                        </div>
+                                    </div>
+                                    <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button id="btn-fbsignup" type="button" class="btn btn-primary">
+                                                <i class="icon-facebook"></i>   Sign Up with Facebook
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            }
+
+                            <!--comment-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section endJS {
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+}
+
+

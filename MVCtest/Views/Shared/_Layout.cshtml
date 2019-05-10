@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    @Styles.Render("~/Assest/css/NavStyle.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="top-menu">
+            <img src="~/Assest/images/bg-2.jpg" id="myPhoto">
+            <ul class="nav justify-content-around" id="nav">
+
+                <li class="nav-item">
+                    <a href="#" id="">NEW IN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="">CLOTHES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="">PANTS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="">SHOES</a>
+                </li>
+            </ul>
+            <div class="user">
+                <div class="search-block">
+                    <form action="#" class="search">
+                        <img src="~/Assest/images/search.png" id="search-img">
+                        <input type="text" />
+                    </form>
+                </div>
+                <div class="row mt-2" id="two-btn">
+                    Account<a href="~/Home/membercenter" id="">
+                    <img src="~/Assest/images/profile.png" id="user-img">
+                    </a>
+    
+    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+</div>
+
+            </div>
+        </div>
+        <div class="idk">
+            @RenderBody()
+        </div>
+        <div class="container">
+            <div class="footer">
+                <div class="row justify-content-around mt-5 mb-5">
+                    <div class="col-4" id="contact">
+
+                        <div>
+                            <a href="#" id="">
+                                <img src="~/Assest/images/line.png">
+                            </a>
+
+                            <a href="#" id="">
+                                <img src="~/Assest/images/instagram.png">
+                            </a>
+
+                            <a href="#" id="">
+                                <img src="~/Assest/images/facebook-logo.png">
+                            </a>
+
+                        </div>
+                        <div>
+                            <p>© 2019 eyescream all rights reserved </p>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <form action="#" class="send-email">
+                            <div class="email-sub mt-3">
+                                <input id="sub-email" type="text" placeholder="e-mail" />
+                                <div class="subscribe mt-4">
+                                    <button class="subscribe-btn">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-4">
+                        <div class="footer-title">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="footer-body">
+                            <h5>客服信箱:abc@gmail.com</h5>
+                            <h5>客服專線:0912-345678</h5>
+                            <h5>服務時間:週一至週五 08:30 ~ 20:30</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- <script> -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @RenderSection("endCSS", required: false)
+    @RenderSection("endJS", required: false)
+</body>
+</html>
