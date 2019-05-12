@@ -17,7 +17,7 @@ namespace MVCtest.Service
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
             Customer entity = new Customer()
             {
-                Customer_ID = input.Customer_ID,
+                //Customer_ID = input.Customer_ID,
                 Customer_Name = input.Customer_Name,
                 Customer_E_mail = input.Customer_E_mail,
                 Customer_BirDate = input.Customer_BirDate,

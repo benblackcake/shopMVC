@@ -43,7 +43,7 @@ namespace MVCtest.Controllers
             Debug.WriteLine(input.Customer_E_mail.ToString());
             CustomerViewModel cvm = new CustomerViewModel();
 
-            cvm.Customer_ID = input.Customer_ID;
+            //cvm.Customer_ID = input.Customer_ID;
             cvm.Customer_E_mail = input.Customer_E_mail;
             cvm.Customer_Name = input.Customer_Name;
             cvm.User_Password = Helper.EncodePassword(input.User_Password);
