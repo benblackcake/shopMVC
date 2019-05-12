@@ -36,7 +36,7 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string Customer_Phone { get; set; }
 
-        [StringLength(100)]
+        [StringLength(300)]
         public string User_Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

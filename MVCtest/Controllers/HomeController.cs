@@ -45,10 +45,12 @@ namespace MVCtest.Controllers
 
             cvm.Customer_ID = input.Customer_ID;
             cvm.Customer_E_mail = input.Customer_E_mail;
-
+            cvm.Customer_Name = input.Customer_Name;
+            cvm.User_Password = Helper.EncodePassword(input.User_Password);
             CustomerService service = new CustomerService();
             service.Create(cvm);
 
+            Debug.WriteLine(Helper.EncodePassword(input.User_Password));
             Debug.WriteLine("POST");
             
             return View();
