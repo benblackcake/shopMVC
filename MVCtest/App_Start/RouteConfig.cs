@@ -18,6 +18,12 @@ namespace MVCtest
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Home",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "MemberCenterController", action = "index", id = UrlParameter.Optional }
+            );
         }
     }
 }
