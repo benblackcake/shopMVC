@@ -20,7 +20,7 @@ namespace MVCtest
             );
 
             routes.MapRoute(
-                name: "Home",
+                name: "MemberCenter",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "MemberCenterController", action = "index", id = UrlParameter.Optional }
             );
