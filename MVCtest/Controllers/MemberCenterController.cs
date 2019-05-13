@@ -37,5 +37,26 @@ namespace MVCtest.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult login(CustomerViewModel login)
+        {
+            CustomerViewModel cvm = new CustomerViewModel();
+            cvm.Customer_E_mail = login.Customer_E_mail;
+            cvm.User_Password = Helper.EncodePassword(login.User_Password);
+            LoginService service = new LoginService();
+            if(cvm.Customer_E_mail==login.Customer_E_mail&&cvm.User_Password==Helper.EncodePassword(login.User_Password))
+            {
+                TempData["message"] = "登入成功";
+                Debug.WriteLine("POST");
+                return RedirectToAction("index", "MemberCenter");
+                
+            }
+            else
+            {
+                TempData["message"] = "帳號密碼錯誤。登入失敗";
+                Debug.WriteLine("POST");
+                return RedirectToAction("index", "MemberCenter");
+            }  
+        }
     }
 }
