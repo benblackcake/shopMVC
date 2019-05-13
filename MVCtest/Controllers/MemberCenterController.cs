@@ -20,7 +20,7 @@ namespace MVCtest.Controllers
         }
 
         [HttpPost]
-        public ActionResult membercenter(CustomerViewModel input)
+        public ActionResult index(CustomerViewModel input)
         {
             Debug.WriteLine(input.Customer_E_mail.ToString());
             CustomerViewModel cvm = new CustomerViewModel();

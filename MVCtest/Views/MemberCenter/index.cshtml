@@ -1,6 +1,5 @@
 ﻿
 
-
 @model MVCtest.ViewModels.CustomerViewModel
 @{
     ViewBag.Title = "membercenter";
@@ -170,7 +169,7 @@
                         </div>
                         <div class="panel-body">
                             <!--comment-->
-                            @using (Html.BeginForm("membercenter", "Home", FormMethod.Post))
+                            @using (Html.BeginForm("index", "MemberCenter", FormMethod.Post))
                             {
 
                                 <form id="signupform" class="form-horizontal" role="form">
