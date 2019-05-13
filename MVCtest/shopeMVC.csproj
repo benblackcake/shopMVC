@@ -277,6 +277,8 @@
     <Content Include="Views\Home\membercenter.cshtml" />
     <Content Include="Views\Home\loginView.cshtml" />
     <Content Include="Views\Home\t1.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Shared\ProductParticial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
