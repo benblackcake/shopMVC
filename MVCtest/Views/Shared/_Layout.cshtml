@@ -10,15 +10,47 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("topCSS", required: false)
     @RenderSection("topJS", required: false)
+    
 </head>
 <body>
     <div class="container-fluid">
         <div class="top-menu">
-            <img src="~/Assest/images/bg-2.jpg" id="myPhoto">
+           
+
+            <a href="@Url.Action("Index", "Home")" class="logo">
+                <img src="~/Assest/images/bg-2.jpg" id="myPhoto">
+            </a>
             <ul class="nav justify-content-around" id="nav">
 
                 <li class="nav-item">
-                    <a href="#" id="">NEW IN</a>
+                    @*<a href="#" id="">NEW IN</a>*@
+                    @Html.ActionLink("NEW IN", "Product", "Home")
+                    @*<div class="subnav-content">
+                        <div class="subnav-content-all">
+                            <div class="subnav-content-left">
+                                <ul>
+                                    <h4>新品上市</h4>
+                                    <hr>
+                                    <li>
+                                        <a class="d-block" href="#company" style="font-size:20px;">Company</a>
+                                    </li>
+                                    <li>
+                                        <a class="d-block" href="#team" style="font-size:20px;">Team</a>
+                                    </li>
+                                    <li>
+                                        <a class="d-block" href="#careers" style="font-size:20px;">Careers</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="subnav-content-right">
+                                <img src="images/bg-2.jpg" id="trytry">
+                            </div>
+                        </div>
+
+
+                    </div>*@
                 </li>
                 <li class="nav-item">
                     <a href="#" id="">CLOTHES</a>
@@ -39,11 +71,11 @@
                 </div>
                 <div class="row mt-2" id="two-btn">
                     Account<a href="~/Home/membercenter" id="">
-                    <img src="~/Assest/images/profile.png" id="user-img">
+                        <img src="~/Assest/images/profile.png" id="user-img">
                     </a>
-    
-    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-</div>
+
+                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                </div>
 
             </div>
         </div>
