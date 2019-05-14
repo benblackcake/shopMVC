@@ -30,9 +30,9 @@ namespace MVCtest.Controllers
             CustomerService service = new CustomerService();
             service.Create(cvm);
 
-            //Debug.WriteLine(input.Customer_E_mail.ToString());
-            //Debug.WriteLine(Helper.EncodePassword(input.User_Password));
-            //Debug.WriteLine("POST");
+            Debug.WriteLine(input.Customer_E_mail.ToString());
+            Debug.WriteLine(Helper.EncodePassword(input.User_Password));
+            Debug.WriteLine("POST");
 
             return View();
         }

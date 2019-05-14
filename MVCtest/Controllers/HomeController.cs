@@ -13,7 +13,13 @@ namespace MVCtest.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ProductService ps = new ProductService();
+            ProductListViewModel psv = ps.GetProducts();
+            foreach (var i in psv.Items)
+            {
+                Debug.Print(i.Product_Image);
+            }
+            return View(psv);
         }
 
         public ActionResult About()

@@ -32,7 +32,7 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string Stock { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string Product_Image { get; set; }
 
         [StringLength(10)]
