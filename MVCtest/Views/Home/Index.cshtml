@@ -1,5 +1,5 @@
 ﻿
-@*@model List<MVCtest.ViewModels.ProductListViewModel>*@
+@model  MVCtest.ViewModels.ProductListViewModel
 
 @{
     ViewBag.Title = "Home Page";
@@ -126,14 +126,15 @@
 
 <div class="container">
     <div class="row mt-4" id="product">
-        <img class="col-3" src="~/Assest/images/c/70429.jpg" />
+        @*<img class="col-3" src="~/Assest/images/c/70429.jpg" />
         <img class="col-3" src="" />
         <img class="col-3" src="" />
-        <img class="col-3" src="" />
-        @*@foreach (var item in Model)
+        <img class="col-3" src="" />*@
+        
+        @foreach (var item in Model.Items)
         {
-            <img class="col-3" src="@item.Items[0].Product_Image" />
-        }*@
+            <img class="col-3" src="@item.Product_Image" />
+        }
 
     </div>
 

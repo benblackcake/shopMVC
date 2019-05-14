@@ -26,7 +26,9 @@ namespace MVCtest.Service
                     UnitPrice = item.UnitPrice,
                     Size = item.Size,
                     Stock = item.Stock,
-                    Category_Id = item.Category_Id
+                    Category_Id = item.Category_Id,
+                    Product_Image=item.Product_Image
+                    
                 };
                 result.Items.Add(p);
             }
