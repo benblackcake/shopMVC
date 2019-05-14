@@ -24,7 +24,7 @@ namespace MVCtest.Models
         [StringLength(20)]
         public string Product_Name { get; set; }
 
-        public int Category_Id { get; set; }
+        public int? Category_Id { get; set; }
 
         [StringLength(10)]
         public string UnitPrice { get; set; }
