@@ -13,7 +13,9 @@ namespace MVCtest.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ProductService ps = new ProductService();
+            ps.GetProducts();
+            return View(ps.GetProducts());
         }
 
         public ActionResult About()
