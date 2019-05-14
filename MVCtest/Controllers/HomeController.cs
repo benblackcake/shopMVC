@@ -33,7 +33,7 @@ namespace MVCtest.Controllers
         //public ActionResult membercenter()
         //{
         //    Debug.WriteLine("GET");
-            
+
         //    return View();
         //}
 
@@ -52,9 +52,16 @@ namespace MVCtest.Controllers
 
         //    Debug.WriteLine(Helper.EncodePassword(input.User_Password));
         //    Debug.WriteLine("POST");
-            
+
         //    return View();
         //}
+
+        public ActionResult center()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
 
         public ActionResult Product()
         {
