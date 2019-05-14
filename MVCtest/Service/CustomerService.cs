@@ -1,11 +1,9 @@
-﻿using MVCtest.Models;
+﻿using MVCtest.Controllers;
+using MVCtest.Models;
 using MVCtest.Repository;
 using MVCtest.ViewModels;
-using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Web;
-using System.Web.Optimization;
 
 namespace MVCtest.Service
 {
@@ -29,6 +27,22 @@ namespace MVCtest.Service
             repo.Create(entity);
             context.SaveChanges();
             
+        }
+
+        public bool GetMember(string email,string password) {
+            
+            DBModel context = new DBModel();
+            DbRepository<Customer> repo = new DbRepository<Customer>(context);
+            Debug.Print(email);
+            Debug.Print(password);
+            string pwd = Helper.EncodePassword(password);
+            var customer = repo.GetAll().Where((x) => x.Customer_E_mail == email & x.User_Password == pwd);
+            //foreach(var item in customer)
+            //{
+            //    Debug.Print(item.Customer_Name);
+            //}
+            if (customer .Count()>0 )return true;
+            else return false;
         }
     }
 }

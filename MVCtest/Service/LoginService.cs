@@ -14,6 +14,8 @@ namespace MVCtest.Service
         {
             DBModel context = new DBModel();
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
+
+            repo.GetAll();
             Customer c = new Customer();
             if (c.Customer_E_mail == input.Customer_E_mail && c.User_Password == input.User_Password)
             {
