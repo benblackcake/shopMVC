@@ -62,5 +62,12 @@ namespace MVCtest.Controllers
 
             return View();
         }
+
+        public ActionResult memberlist()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
