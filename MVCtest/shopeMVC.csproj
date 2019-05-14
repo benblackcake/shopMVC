@@ -214,6 +214,7 @@
     <Content Include="Assest\images\profile.png" />
     <Content Include="Assest\images\search.png" />
     <Content Include="Assest\images\shopping-cart.png" />
+    <Content Include="Assest\images\style%27G.png" />
     <Content Include="Assest\images\up.png" />
     <Content Include="Assest\js\NavJS.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -278,6 +279,7 @@
     <Content Include="Views\Home\t1.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
+    <Content Include="Views\Home\memberlist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

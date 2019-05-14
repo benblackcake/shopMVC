@@ -54,9 +54,21 @@
     margin-right: 30px;
 }
 
+#two-btn a {
+    text-decoration: none;
+}
+   
+
+#sign {
+    color: black;
+    margin: 0;
+
+ }   
+
 #user-img {
     width: 25px;
     height: 25px;
+    margin-left: 10px;
 }
 
 #cart-img {
@@ -122,3 +134,137 @@ input {
     #contact p {
         margin-top: 20px;
     }
+
+.subnav-content {
+    display: none;
+    position: absolute;
+    line-height: 30px;
+    left: 210px;
+    background-color: white;
+    width: 40%;
+    z-index: 1;
+    border: 2px;
+    border-style: solid;
+}
+
+
+
+
+.subnav-content-all {
+    display: flex;
+}
+
+.subnav-content-left {
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 300px;
+}
+
+.subnav-content-left ul {
+    list-style: none;
+}
+
+
+.subnav-content a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.subnav-content a:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.subnav:hover .subnav-content {
+    display: block;
+}
+
+#trytry {
+    width: 300px;
+    height: 200px;
+}
+
+
+.subnav-content2 {
+    display: none;
+    position: absolute;
+    line-height: 30px;
+    left: 370px;
+    background-color: white;
+    width: 40%;
+    z-index: 1;
+    border: 2px;
+    border-style: solid;
+}
+
+.subnav-content2 a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+    .subnav-content2 a:hover {
+        background-color: #eee;
+        color: black;
+    }
+
+.subnav:hover .subnav-content2 {
+    display: block;
+}
+
+.subnav-content3 {
+    display: none;
+    position: absolute;
+    line-height: 30px;
+    left: 520px;
+    background-color: white;
+    width: 40%;
+    z-index: 1;
+    border: 2px;
+    border-style: solid;
+}
+.subnav-content3 a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+    .subnav-content3 a:hover {
+        background-color: #eee;
+        color: black;
+    }
+
+.subnav:hover .subnav-content3 {
+    display: block;
+}
+
+.subnav-content4 {
+    display: none;
+    position: absolute;
+    line-height: 30px;
+    left: 650px;
+    background-color: white;
+    width: 40%;
+    z-index: 1;
+    border: 2px;
+    border-style: solid;
+}
+.subnav-content4 a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+    .subnav-content4 a:hover {
+        background-color: #eee;
+        color: black;
+    }
+
+.subnav:hover .subnav-content4 {
+    display: block;
+}
