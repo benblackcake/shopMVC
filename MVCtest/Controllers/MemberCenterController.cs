@@ -24,17 +24,24 @@ namespace MVCtest.Controllers
         {
             CustomerViewModel cvm = new CustomerViewModel();
             //cvm.Customer_ID = input.Customer_ID;
-            cvm.Customer_E_mail = input.Customer_E_mail;
+            cvm.Customer_Email = input.Customer_Email;
             cvm.Customer_Name = input.Customer_Name;
             cvm.User_Password = Helper.EncodePassword(input.User_Password);
             CustomerService service = new CustomerService();
-            service.Create(cvm);
+            if (service.Create(cvm))
+            {
+                TempData["message"] = "註冊成功";
+                return RedirectToAction("index", "MemberCenter");
+            }
+            else
+            {
+                TempData["message"] = "註冊失敗";
+                return RedirectToAction("index", "MemberCenter");
+            }
 
-            Debug.WriteLine(input.Customer_E_mail.ToString());
+            Debug.WriteLine(input.Customer_Email.ToString());
             Debug.WriteLine(Helper.EncodePassword(input.User_Password));
             Debug.WriteLine("POST");
-
-            return View();
         }
         [HttpPost]
         public ActionResult login(CustomerViewModel login)
@@ -57,7 +64,7 @@ namespace MVCtest.Controllers
             //    return RedirectToAction("index", "MemberCenter");
             //}  
             CustomerService cs = new CustomerService();
-            CustomerViewModel cvm = cs.GetMember(login.Customer_E_mail, login.User_Password);
+            CustomerViewModel cvm = cs.GetMember(login.Customer_Email, login.User_Password);
             if (cvm != null){
                 Debug.Print(cvm.Customer_Name);
 
