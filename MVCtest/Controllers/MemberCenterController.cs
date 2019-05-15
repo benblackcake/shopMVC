@@ -60,6 +60,11 @@ namespace MVCtest.Controllers
             CustomerViewModel cvm = cs.GetMember(login.Customer_E_mail, login.User_Password);
             if (cvm != null){
                 Debug.Print(cvm.Customer_Name);
+
+                string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
+                Session["Name"] = name;
+                Debug.WriteLine(name);
+
                 TempData["message"] = "登入成功";
                 return RedirectToAction("index", "MemberCenter");
             }else{
