@@ -23,9 +23,12 @@
     display: flex;
     justify-content: center;
     width: 25%;
-    height: 50px;
+    height: 40px;
     margin: 0 auto;
-    line-height: 30px;
+}
+
+.delete {
+    height: 40px;
 }
 
 .process .done {
@@ -76,3 +79,4 @@
     height: 40px;
     user-select: none;
 }
+
