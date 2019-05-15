@@ -37,7 +37,6 @@ namespace MVCtest.Service
             Debug.Print(password);
             string pwd = Helper.EncodePassword(password);
             var customer = repo.GetAll().Where((x) => x.Customer_E_mail == email & x.User_Password == pwd);
-
             if (customer .Count()>0 )return true;
             else return false;
         }
