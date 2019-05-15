@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCtest.Models.Cart>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Product_Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Product.Product_Image)" height="100px" width="50px" style="display:block; margin-left:30px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Product_Name)
+            </td>
+            <td>
+                <input type="button" class="btn btn-light" value="+" style="width:40px;height:40px;">
+                @Html.DisplayFor(modelItem => item.Quantity)
+                <input type="button" class="btn btn-light" value="-" style="width:40px;height:40px;">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.UnitPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
