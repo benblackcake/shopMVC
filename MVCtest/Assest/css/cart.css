@@ -1,0 +1,78 @@
+﻿.cart {
+    border: 1px solid #d0d0d0;
+}
+
+.cart_header {
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+}
+
+.commodity {
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+}
+
+.c_1, 
+.c_2, 
+.c_3, 
+.c_4, 
+.c_5, 
+.c_6, 
+.c_7, 
+.c_8 {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+
+.process .done {
+    color: #000;
+    font-weight: bold;
+}
+
+.process span {
+    color: #aaa;
+}
+
+.total_left {
+    justify-content: flex-end;
+    width: 86%;
+}
+
+.input-number {
+    outline: none;
+    padding: 0 12px;
+    text-align: center;
+    vertical-align: top;
+    width: 80px;
+}
+
+.input-number-decrement,
+.input-number-increment {
+    background: #f1f1f1;
+    border-radius: 0px 0 0 0px;
+    border-right: none;
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 38px;
+    text-align: center;
+    width: 30px;
+}
+
+.input-number-decrement:active,
+.input-number-increment:active {
+    background: #dddddd;
+}
+
+.input-number,
+.input-number-decrement,
+.input-number-increment {
+    border: 1px #cccccc;
+    height: 40px;
+    user-select: none;
+}

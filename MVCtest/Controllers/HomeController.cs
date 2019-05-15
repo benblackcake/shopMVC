@@ -53,5 +53,10 @@ namespace MVCtest.Controllers
             
             return View();
         }
+
+        public ActionResult cart()
+        {
+            return View();
+        }
     }
 }
