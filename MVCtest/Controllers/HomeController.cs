@@ -1,4 +1,5 @@
-﻿using MVCtest.Service;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace MVCtest.Controllers
 {
     public class HomeController : Controller
     {
+        [AuthorizePlus]
         public ActionResult Index()
         {
             ProductService ps = new ProductService();

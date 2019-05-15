@@ -1,4 +1,5 @@
-﻿using MVCtest.Service;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ namespace MVCtest.Controllers
     public class MemberCenterController : Controller
     {
         // GET: MemberCenter
+        [AuthorizePlus]
         public ActionResult index()
         {
             Debug.WriteLine("GET");
-
             return View();
         }
 
@@ -69,10 +70,10 @@ namespace MVCtest.Controllers
                 Debug.Print(cvm.Customer_Name);
 
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
-                Session["Name"] = name;
+                
                 Debug.WriteLine(name);
-
-                TempData["message"] = "登入成功";
+                Session["auth"] = true;
+                Session["Name"] = name;
                 return RedirectToAction("index", "MemberCenter");
 
             }else{

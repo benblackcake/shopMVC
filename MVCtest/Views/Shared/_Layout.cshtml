@@ -428,22 +428,26 @@
                 </div>
                 <div class="row mt-2" id="two-btn">
 
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">@ViewBag.Name</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">SIGN IN</p>
+                            </a>
+                        }
+                    }
 
+                    <a href="~/Home/memberlist">
 
-                    <a href="~/membercenter/index">
-                        <p id="sign">SIGN IN</p>
-
-
-
-                        <a href="~/Home/center">
-                            <p id="sign">我是昱翔</p>
-
-                        </a>
-                        <a href="~/Home/memberlist">
-
-                            <img src="~/Assest/images/profile.png" id="user-img">
-                        </a>
-                        <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                        <img src="~/Assest/images/profile.png" id="user-img">
+                    </a>
+                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                 </div>
 
             </div>
