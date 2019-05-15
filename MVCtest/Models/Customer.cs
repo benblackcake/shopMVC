@@ -29,9 +29,9 @@ namespace MVCtest.Models
         [Column(TypeName = "date")]
         public DateTime? Customer_BirDate { get; set; }
 
-        [Column("Customer_E-mail")]
+        [Column("Customer_Email")]
         [StringLength(100)]
-        public string Customer_E_mail { get; set; }
+        public string Customer_Email { get; set; }
 
         [StringLength(10)]
         public string Customer_Phone { get; set; }

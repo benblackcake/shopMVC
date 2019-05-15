@@ -11,22 +11,25 @@ namespace MVCtest.Service
         /*        DBModel context = new DBModel();
         DbRepository<Customer> repo = new DbRepository<Customer>(context);
         */
-        public void Create(CustomerViewModel input) {
+        public bool Create(CustomerViewModel input) {
             DBModel context = new DBModel();
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
-            Customer entity = new Customer()
+            if (repo.GetAll().FirstOrDefault((x) => x.Customer_Email == input.Customer_Email) == null)
             {
-                //Customer_ID = input.Customer_ID,
-                Customer_Name = input.Customer_Name,
-                Customer_E_mail = input.Customer_E_mail,
-                Customer_BirDate = input.Customer_BirDate,
-                Customer_Phone =input.Customer_Phone,
-                User_Password=input.User_Password
-            };
+                Customer entity = new Customer()
+                {
+                    Customer_Name = input.Customer_Name,
+                    Customer_Email = input.Customer_Email,
+                    Customer_BirDate = input.Customer_BirDate,
+                    Customer_Phone = input.Customer_Phone,
+                    User_Password = input.User_Password
+                };
+                repo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
 
-            repo.Create(entity);
-            context.SaveChanges();
-            
         }
 
         public CustomerViewModel GetMember(string email,string password) {
@@ -35,14 +38,14 @@ namespace MVCtest.Service
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
 
             string pwd = Helper.EncodePassword(password);
-            Customer customer = repo.GetAll().FirstOrDefault((x) => x.Customer_E_mail == email & x.User_Password == pwd);
+            Customer entity = repo.GetAll().FirstOrDefault((x) => x.Customer_Email == email & x.User_Password == pwd);
 
-            if (customer != null) {
+            if (entity != null) {
                 CustomerViewModel cvm = new CustomerViewModel()
                 {
-                    Customer_ID = customer.Customer_ID,
-                    Customer_Name = customer.Customer_Name,
-                    Customer_E_mail = customer.Customer_E_mail,
+                    Customer_ID = entity.Customer_ID,
+                    Customer_Name = entity.Customer_Name,
+                    Customer_Email = entity.Customer_Email,
 
                 };
                 return cvm;
