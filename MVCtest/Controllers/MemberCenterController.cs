@@ -57,7 +57,9 @@ namespace MVCtest.Controllers
             //    return RedirectToAction("index", "MemberCenter");
             //}  
             CustomerService cs = new CustomerService();
-            if (cs.GetMember(login.Customer_E_mail, login.User_Password)){
+            CustomerViewModel cvm = cs.GetMember(login.Customer_E_mail, login.User_Password);
+            if (cvm != null){
+                Debug.Print(cvm.Customer_Name);
                 TempData["message"] = "登入成功";
                 return RedirectToAction("index", "MemberCenter");
             }else{

@@ -29,17 +29,25 @@ namespace MVCtest.Service
             
         }
 
-        public bool GetMember(string email,string password) {
+        public CustomerViewModel GetMember(string email,string password) {
             
             DBModel context = new DBModel();
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
-            Debug.Print(email);
-            Debug.Print(password);
-            string pwd = Helper.EncodePassword(password);
-            var customer = repo.GetAll().Where((x) => x.Customer_E_mail == email & x.User_Password == pwd);
 
-            if (customer .Count()>0 )return true;
-            else return false;
+            string pwd = Helper.EncodePassword(password);
+            Customer customer = repo.GetAll().FirstOrDefault((x) => x.Customer_E_mail == email & x.User_Password == pwd);
+
+            if (customer != null) {
+                CustomerViewModel cvm = new CustomerViewModel()
+                {
+                    Customer_ID = customer.Customer_ID,
+                    Customer_Name = customer.Customer_Name,
+                    Customer_E_mail = customer.Customer_E_mail,
+
+                };
+                return cvm;
+            } 
+            else return null;
         }
     }
 }
