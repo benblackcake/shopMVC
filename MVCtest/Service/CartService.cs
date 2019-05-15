@@ -9,19 +9,34 @@ namespace MVCtest.Service
     public class CartService
     {
        private DBModel db = new DBModel();
-       private List<Product> products;
+       private Product products;
+       private Cart carts;
+       private List<Cart> listcart;
 
-        public List<Product> GetProducts(int? productID)
+
+        public void SaveCartDB(string productName,int quantity)
         {
-            if(productID ==null)
+            if(productName ==null)
             {
-                products = null;
+                carts = null;
             }
             else
             {
-                products = db.Products.Where(x => x.Product_Id == productID).ToList();
+                products = db.Products.Where(x => x.Product_Name == productName).FirstOrDefault();
+                carts = new Cart()
+                {
+                    Product_ID = products.Product_Id,
+                    Customer = products.Customer,
+                    Quantity = quantity
+                };
+                db.Carts.Add(carts);
+                db.SaveChanges();
             }
-            return products;
+        }
+        public List<Cart> GetListCart()
+        {
+            listcart = db.Carts.ToList();
+            return listcart;
         }
     }
 }

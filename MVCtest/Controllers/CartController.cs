@@ -15,10 +15,11 @@ namespace MVCtest.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Cart(string productName)
+        public ActionResult Cart(string productName,int quantity)
         {
             CartService cartService = new CartService();
-            return View(cartService.GetProducts(productName));
+            cartService.SaveCartDB(productName,quantity);
+            return View(cartService.GetListCart());
         }
     }
 }
