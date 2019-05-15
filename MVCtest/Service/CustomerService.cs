@@ -40,5 +40,16 @@ namespace MVCtest.Service
             if (customer .Count()>0 )return true;
             else return false;
         }
+        //public void GetName()
+        //{
+        //    ProductListViewModel result = new ProductListViewModel();
+        //    DBModel context = new DBModel();
+        //    DbRepository<Customer> repo = new DbRepository<Customer>(context);
+        //    foreach (var name in repo.GetAll().OrderBy(x=>x.Customer_Name))
+        //    {
+        //        if
+
+        //    }
+        //}
     }
 }

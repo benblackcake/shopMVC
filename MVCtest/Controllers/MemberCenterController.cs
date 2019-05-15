@@ -39,7 +39,7 @@ namespace MVCtest.Controllers
         [HttpPost]
         public ActionResult login(CustomerViewModel login)
         {
-            //CustomerViewModel cvm = new CustomerViewModel();
+            CustomerViewModel cvm = new CustomerViewModel();
             //cvm.Customer_E_mail = login.Customer_E_mail;
             //cvm.User_Password = Helper.EncodePassword(login.User_Password);
             //LoginService service = new LoginService();
@@ -59,16 +59,20 @@ namespace MVCtest.Controllers
             CustomerService cs = new CustomerService();
             if (cs.GetMember(login.Customer_E_mail, login.User_Password))
             {
-                var name = login.Customer_E_mail;
-                Session["Name"] = name;
-                Debug.WriteLine(name);
-                TempData["message"] = "登入成功";
-                return RedirectToAction("index", "MemberCenter");
+                cvm.Customer_E_mail = login.Customer_E_mail;
+                var name = cvm.Customer_Name;
+                Session["Name"] = cvm.Customer_E_mail;
+                Debug.WriteLine(cvm.Customer_E_mail);
+                TempData["message"] = name;
+               return RedirectToAction("index", "MemberCenter");
+                 
+                
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
                 return RedirectToAction("index", "MemberCenter");
             }
 
         }
+
     }
 }
