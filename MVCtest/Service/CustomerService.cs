@@ -53,5 +53,16 @@ namespace MVCtest.Service
             else return null;
 
         }
+        //public void GetName()
+        //{
+        //    ProductListViewModel result = new ProductListViewModel();
+        //    DBModel context = new DBModel();
+        //    DbRepository<Customer> repo = new DbRepository<Customer>(context);
+        //    foreach (var name in repo.GetAll().OrderBy(x=>x.Customer_Name))
+        //    {
+        //        if
+
+        //    }
+        //}
     }
 }

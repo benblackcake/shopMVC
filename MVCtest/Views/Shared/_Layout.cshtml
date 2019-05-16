@@ -431,6 +431,23 @@
                         <p id="sign">SIGN IN</p>
                     </a>
                     <a href="~/Home/memberlist">
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">@ViewBag.Name</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">SIGN IN</p>
+                            </a>
+                        }
+                    }
+
+                    <a href="~/Home/memberlist">
                         <img src="~/Assest/images/profile.png" id="user-img">
                     </a>
                     <img src="~/Assest/images/shopping-cart.png" id="cart-img">

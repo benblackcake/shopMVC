@@ -180,7 +180,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberCenterController.cs" />
+
     <Compile Include="Controllers\ProductController.cs" />
+
+    <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,7 +290,6 @@
     <Content Include="Views\Product\index.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Home\memberlist.cshtml" />
-    <Content Include="Views\MemberCenter\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
