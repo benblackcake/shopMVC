@@ -74,7 +74,7 @@ namespace MVCtest.Controllers
                 Debug.WriteLine(name);
                 Session["auth"] = true;
                 Session["Name"] = name;
-                return RedirectToAction("index", "MemberCenter");
+                return RedirectToAction("memberlist", "Home");
 
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
@@ -88,7 +88,7 @@ namespace MVCtest.Controllers
             Debug.Print("GET");
             Session["auth"] = false;
             Session["Name"] = "Logout";
-            return View();
+            return RedirectToAction("index", "MemberCenter");
 
         }
 

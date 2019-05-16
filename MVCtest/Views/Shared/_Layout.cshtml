@@ -427,20 +427,17 @@
                     </form>
                 </div>
                 <div class="row mt-2" id="two-btn">
-                    @*<a href="~/membercenter/index">
-                        <p id="sign">SIGN IN</p>
-                    </a>*@
-                    @*<a href="~/Home/memberlist">*@
+
 
 
                     @{
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
-                            using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Get))
+                            using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
                             {
                             <from>
                             <a href="~/Home/index">
-                                <input type="submit" class="btnSubmit btn-block" value="Logout" />
+                                <input type="submit" class="text-primary" value="[Logout]" />
                             </a>
                             </from>
                             }
