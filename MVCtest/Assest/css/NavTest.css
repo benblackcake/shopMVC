@@ -270,9 +270,46 @@ input {
 }
 
 
+/*更動*/
+.btn-mobile {
+    width: 45px;
+    height: 50px;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    display: block;
+    float: right;
+
+}
+
+.btn-mobile span {
+    width: 1.6em;
+    height: .2em;
+    top: 50%;
+    left: 50%;
+    background: #262626;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.btn-mobile span::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: #808080;
+    transition: all 0.3s linear;
+}
 
 @media screen and (max-width: "1040px") {
-    .user {
-
+    .container {
+        width: 100px;
     }
 }
