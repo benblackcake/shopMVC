@@ -82,6 +82,15 @@ namespace MVCtest.Controllers
             }
 
         }
+        
+        public ActionResult Logout ()
+        {
+            Debug.Print("GET");
+            Session["auth"] = false;
+            Session["Name"] = "Logout";
+            return View();
+
+        }
 
     }
 }
