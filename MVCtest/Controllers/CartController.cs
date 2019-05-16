@@ -32,5 +32,12 @@ namespace MVCtest.Controllers
             cartService = new CartService();
             return View(cartService.GetListCart(id));
         }   
+        public ActionResult DeleteCart(int cartID)
+        {
+
+            cartService = new CartService();
+            cartService.Delete(cartID);
+            return RedirectToAction("Cart");
+        }
     }
 }

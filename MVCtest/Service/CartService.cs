@@ -10,9 +10,10 @@ namespace MVCtest.Service
 {
     public class CartService
     {
-       private DBModel db = new DBModel();
-       private Product products;
-       private Cart carts;
+
+        private DBModel db = new DBModel();
+        private Product products;
+        private Cart carts;
 
         public void SaveCartDB(string productName,int quantity)
         {
@@ -49,6 +50,12 @@ namespace MVCtest.Service
                 { CartId = c.Cart_ID,ProductName=p.Product_Name ,ProductNo = p.Product_Id,Unitprice=p.UnitPrice,Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
             cartRepos = result.ToList();
             return cartRepos;
+        }
+        public void Delete(int id)
+        {
+            carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
+            db.Carts.Remove(carts);
+            db.SaveChanges();
         }
     }
 }
