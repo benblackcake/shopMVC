@@ -68,15 +68,15 @@ namespace MVCtest.Controllers
         //{
         //    ViewBag.Message = "Your contact page.";
 
-<<<<<<< HEAD
-            return View();
-        }
 
-        public ActionResult cart()
-        {
-            return View();
-        }
-=======
+        //    return View();
+        //}
+
+        //public ActionResult cart()
+        //{
+        //    return View();
+        //}
+
         //    return View();
         //}
 
@@ -93,6 +93,6 @@ namespace MVCtest.Controllers
 
         //    return View();
         //}
->>>>>>> login_b
+//>>>>>>> login_b
     }
 }
