@@ -2,6 +2,7 @@ namespace MVCtest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -33,6 +34,7 @@ namespace MVCtest.Models
         public string Stock { get; set; }
 
         [StringLength(10)]
+        [DisplayName("°Ó«~¹Ï")]
         public string Product_Image { get; set; }
 
         [StringLength(10)]

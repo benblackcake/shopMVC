@@ -124,6 +124,21 @@ namespace MVCtest.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ListAllCarts(int id,string add , string less)
+        {
+            var user = db.Carts.Find(id);
+            if (add == "+")
+            {
+                user.Quantity += 1;
+            }
+            else if(less == "-")
+            {
+                user.Quantity -= 1;
+            }
+            db.SaveChanges();
+            return View(user);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Product.UnitPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.DisplayNameFor(model => model.Quantity))
         </th>
     </tr>
 
@@ -29,23 +29,23 @@
     {
         <tr>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Product.Product_Image)" height="100px" width="50px" style="display:block; margin-left:30px;" />
+                <img src="@Html.DisplayFor(modelItem => item.Product.Product_Image)" height="90px" width="60px" style="display:block; margin-left:30px;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.Product_Name)
             </td>
             <td>
-                <input type="button" class="btn btn-light" value="+" style="width:40px;height:40px;">
-                @Html.DisplayFor(modelItem => item.Quantity)
-                <input type="button" class="btn btn-light" value="-" style="width:40px;height:40px;">
+                <form>
+                    <input type="button" class="btn btn-light" name="add" value="+" style="width:40px;height:40px;">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                    <input type="button" class="btn btn-light" name="less" value="-" style="width:40px;height:40px;">
+                </form>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.UnitPrice)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("X", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }
