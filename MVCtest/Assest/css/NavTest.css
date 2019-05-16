@@ -134,6 +134,10 @@ input {
         margin-top: 20px;
     }
 
+
+
+
+
 .subnav-content {
     display: none;
     position: absolute;
@@ -145,8 +149,6 @@ input {
     border: 2px;
     border-style: solid;
 }
-
-
 
 
 .subnav-content-all {
@@ -272,29 +274,9 @@ input {
 
 /*更動*/
 
-
-/*#nav .subnav {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}*/
-.btn-mobile {
+.icon {
     display: none;
-    /*width: 50px;
-    height: 50px;
-    margin-right: 10px*/;
-    /*transform: translate(-50%,-50%);
-    
-    background: transparent;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    display: block;
-    float: right;*/
+
 }
 .sidenav {
     height: 100%;
@@ -317,6 +299,11 @@ input {
         color: #818181;
         display: block;
     }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
     .sidenav .closebtn {
         position: absolute;
         top: 0;
@@ -326,70 +313,107 @@ input {
     }
 
 
+
+
+
+.hidden1 {
+    list-style: none;
+    display: none;
+}
+.hidden2 {
+    list-style: none;
+    display: none;
+}
+.hidden3 {
+    list-style: none;
+    display: none;
+}
+.hidden4 {
+    list-style: none;
+    display: none;
+}
+
+.hidden-list {
+    display:block;
+}
+
+@media only screen and (max-width:1200px) {  /*210 370 520 650*/
+    .subnav-content {
+        left: 80px;
+        width: 42%;
+    }
+    .subnav-content2 {
+        left: 240px;
+        width: 42%;
+    }
+    .subnav-content3 {
+        left: 400px;
+        width: 42%;
+    }
+    .subnav-content4 {
+        left: 520px;
+        width: 42%;
+    }
+    .subnav-content-left {
+        margin-left: 10px;
+        margin-top: 30px;
+        width: 300px;
+    }
+        .subnav-content-left h4 {
+            font-size: 22px;
+        }
+    #trytry {
+        width: 280px;
+        height: 200px;
+    }
+}
+
+
 @media only screen and (max-width:1050px) {
 
-    /*.btn-mobile {
-        margin-right: 10px;
-    }*/
 
     #nav {
         display: none;
     }
 
-    .top-menu .btn-mobile {
-        /*float: right;*/
+    #two-btn {
+        width:200px;
+    }
+
+    .top-menu .icon {
+
         display: block;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .search-block {
         display: none;
     }
-    /*.idk {
-        padding-top: 100px;
-    }*/
+
     .idk.responsive {
        
         padding-top: 0px;
     }
-    .sidenav.responsive {
-        display: none;
-        display: block;
-    }
-    
-
 
     .top-menu.responsive {
         position: relative;
     }
 
-    /* 問題點 */
-    
-        /*.top-menu.responsive .btn-mobile {
-            position: absolute;
-            right: 45px;
-            top: 10px;
-        }*/
+    /* 抖一下問題點 */       
         .top-menu.responsive #nav {
-            float: right;
-            /*display: block;*/
-            display: none;
-            text-align: left;
-        }
-
-
-        .top-menu #two-btn img {
+           
             display: none;
         }
-
-
 
     #two-btn {
         line-height:100px;
         display: flex;
-        width: 150px;
+        width: 200px;
         margin:0px;
     }
     .icon.test {
         background-color:black;
     }
+
 }

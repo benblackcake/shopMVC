@@ -430,8 +430,8 @@
                 </div>
                 <div class="row mt-2" id="two-btn">
                     @*<a href="~/membercenter/index">
-                <p id="sign">SIGN IN</p>
-            </a>*@
+            <p id="sign">SIGN IN</p>
+        </a>*@
                     @*<a href="~/Home/memberlist">*@
 
                     @{
@@ -452,21 +452,72 @@
                     <a href="~/Home/memberlist">
                         <img src="~/Assest/images/profile.png" id="user-img">
                     </a>
-                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                    @*change*@
-                    <div class="btn-mobile">
-                        <a href="javascript:void(0);" class="icon"  onclick="openNav()">
-                            <i class="fa fa-bars"></i>
-                        </a>
-                    </div>
+                    <a href="~/Home/memberlist">
+                        <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                    </a>
+                    @*change   btn-mobile刪除*@
+
+                    <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+
                     @*change*@
                 </div>
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+                    <a href="#" class="a1">NEW IN</a>
+                    <ul class="hidden1">
+                        @*之後會變成foreach資料庫category*@
+                        <li>
+                            <a href="#">test1</a>
+                        </li>
+                        <li>
+                            <a href="#">test2</a>
+                        </li>
+                        <li>
+                            <a href="#">test3</a>
+                        </li>
+                    </ul>
+                    @*@Html.ActionLink("NEW IN", "index", "Product")*@
+                    <a href="#" class="a2">CLOTHES</a>
+                    <ul class="hidden2">
+                        @*之後會變成foreach資料庫category*@
+                        <li>
+                            <a href="#">test1</a>
+                        </li>
+                        <li>
+                            <a href="#">test2</a>
+                        </li>
+                        <li>
+                            <a href="#">test3</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="a3">PANTS</a>
+                    <ul class="hidden3">
+                        @*之後會變成foreach資料庫category*@
+                        <li>
+                            <a href="#">test1</a>
+                        </li>
+                        <li>
+                            <a href="#">test2</a>
+                        </li>
+                        <li>
+                            <a href="#">test3</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="a4">SHOES</a>
+                    <ul class="hidden4">
+                        @*之後會變成foreach資料庫category*@
+                        <li>
+                            <a href="#">test1</a>
+                        </li>
+                        <li>
+                            <a href="#">test2</a>
+                        </li>
+                        <li>
+                            <a href="#">test3</a>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
@@ -481,7 +532,7 @@
         <div class="container">
             <div class="footer">
                 <div class="row justify-content-around mt-5 mb-5">
-                    <div class="col-4" id="contact">
+                    <div class="col-lg-4  col-sm-12 mt-sm-5" id="contact">
 
                         <div>
                             <a href="#" id="">
@@ -502,7 +553,17 @@
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4  col-sm-6 col-xs-12 mt-sm-5 mt-xs-5">
+                        <div class="footer-title">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="footer-body">
+                            <h5>客服信箱:abc@gmail.com</h5>
+                            <h5>客服專線:0912-345678</h5>
+                            <h5>服務時間:週一至週五 08:30 ~ 20:30</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-sm-6 col-xs-12 mt-sm-5 mt-xs-5">
                         <form action="#" class="send-email">
                             <div class="email-sub mt-3">
                                 <input id="sub-email" type="text" placeholder="e-mail" />
@@ -513,16 +574,7 @@
                         </form>
 
                     </div>
-                    <div class="col-4">
-                        <div class="footer-title">
-                            <h2>Contact Us</h2>
-                        </div>
-                        <div class="footer-body">
-                            <h5>客服信箱:abc@gmail.com</h5>
-                            <h5>客服專線:0912-345678</h5>
-                            <h5>服務時間:週一至週五 08:30 ~ 20:30</h5>
-                        </div>
-                    </div>
+
 
                 </div>
             </div>
