@@ -479,12 +479,24 @@
                             </a>
 
                         }
-
-
-
                     }
 
-                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Cart/Cart">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+
+                        }
+                    }
+                    
                 </div>
 
             </div>

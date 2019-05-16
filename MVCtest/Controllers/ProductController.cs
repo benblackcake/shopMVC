@@ -11,6 +11,7 @@ namespace MVCtest.Controllers
 {
     public class ProductController : Controller
     {
+        [AuthorizePlus]
         // GET: Product
         public ActionResult Index()
         {
