@@ -111,16 +111,46 @@
 }
 @section endJS {
     <script>
-    window.onload = function () {
-        var count = document.getElementById("count");
-        var inc = document.getElementById("inc");
-        var dec = document.getElementById("dec");
-        inc.onclick = function () {
-            count.value = parseInt(count.value) - 1;
-        };
-        dec.onclick = function () {
-        count.value = parseInt(count.value) + 1;
-        };
+
+        window.onload = function () {
+            var stock = 5;//庫存數量(能購買的數量上限)
+            var money = document.getElementById("money").innerHTML.substring(3);//商品單價
+
+            //增加購買數量
+            inc.onclick = function () {
+                if (parseInt(count.value) + 1 <= stock) {
+                    document.getElementById("count").value = parseInt(count.value) + 1;
+                    document.getElementById("money").innerHTML = "NT$" + money * parseInt(count.value);
+                }
+            };
+
+            //減少購買數量
+            dec.onclick = function () {
+                if (parseInt(count.value) - 1 >= 1) {
+                    document.getElementById("count").value = parseInt(count.value) - 1;
+                    document.getElementById("money").innerHTML = "NT$" + money * parseInt(count.value);
+                }
+            };
+
+            //function() {
+            //    var process = document.getElementById("process");
+            //    process.addClass
+            //}
+
+            nextstep.onclick = function () {
+                $("#nextstep").hide();
+            }
+        }
+    //window.onload = function () {
+    //    var count = document.getElementById("count");
+    //    var inc = document.getElementById("inc");
+    //    var dec = document.getElementById("dec");
+    //    inc.onclick = function () {
+    //        count.value = parseInt(count.value) - 1;
+    //    };
+    //    dec.onclick = function () {
+    //    count.value = parseInt(count.value) + 1;
+    //    };
     }
     </script>
 }
