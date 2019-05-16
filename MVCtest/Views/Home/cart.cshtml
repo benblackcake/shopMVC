@@ -56,10 +56,10 @@
             margin: auto auto;
         }
 
-        #delect i{
-            position: relative;
-            bottom: 60px;
-        }
+    #delect i {
+        position: relative;
+        bottom: 58px;
+    }
 
     .process .done {
         color: #000;
@@ -79,7 +79,6 @@
         outline: none;
         text-align: center;
         vertical-align: top;
-        padding 0px;
         width: 50px;
         border: 0px;
         height: 42px;
@@ -88,7 +87,6 @@
     .input-number-decrement,
     .input-number-increment {
         background: #f1f1f1;
-        border-radius: 0;
         cursor: pointer;
         display: inline-block;
         font-weight: bold;
@@ -98,30 +96,59 @@
         height: 40px;
     }
 
+        .input-number-decrement:active,
+        .input-number-increment:active {
+            background: #dddddd;
+        }
+
+    .input-number-decrement {
+        border-right: none;
+        border-radius: 0px 0 0 0px;
+    }
+
+    .input-number-increment {
+        border-left: none;
+        border-radius: 0 0px 0px 0;
+    }
+
     #count {
         position: relative;
         top: 55px;
     }
 
     #quantityChange {
-        height:40px;
+        height: 40px;
     }
 
-    </style>
+  </style>
 }
+
 @section endJS {
     <script>
-    window.onload = function () {
-        var count = document.getElementById("count");
-        var inc = document.getElementById("inc");
-        var dec = document.getElementById("dec");
-        inc.onclick = function () {
-            count.value = parseInt(count.value) - 1;
-        };
-        dec.onclick = function () {
-        count.value = parseInt(count.value) + 1;
-        };
-    }
+        window.onload = function () {
+            var stock = 5;//庫存數量(能購買的數量上限)
+            var money = document.getElementById("money").innerHTML.substring(3);//商品單價
+
+            //增加購買數量
+            inc.onclick = function () {
+                if (parseInt(count.value) + 1 <= stock) {
+                    document.getElementById("count").value = parseInt(count.value) + 1;
+                    document.getElementById("money").innerHTML = "NT$" + money * parseInt(count.value);
+                }
+            };
+
+            //減少購買數量
+            dec.onclick = function () {
+                if (parseInt(count.value) - 1 >= 1) {
+                    document.getElementById("count").value = parseInt(count.value) - 1;
+                    document.getElementById("money").innerHTML = "NT$" + money * parseInt(count.value);
+                }
+            };
+
+            nextstep.onclick = function () {
+                $("#nextstep").hide();
+            }
+        }
     </script>
 }
 
@@ -156,13 +183,13 @@
             <div class="c_5">NT$680</div>
             <div class="c_6">
                 <div id="quantityChange">
-                    <span class="input-number-decrement" id="inc">-</span>
+                    <span class="input-number-decrement" id="dec">-</span>
                     <input type="text" class="input-number" id="count" value="1" />
-                    <span class="input-number-increment" id="dec">+</span>
+                    <span class="input-number-increment" id="inc">+</span>
                 </div>
             </div>
-            <div class="c_7">NT$680</div>
-            <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
+            <div class="c_7" id="money">NT$680</div>
+            <div class="c_8"><button id="delect" onclick="delete"><i class="fas fa-trash-alt"></i></button></div>
         </div>
         <div class="total_box">
             <div total_row><div class="total_left">購物車內共<span></span>項商品，商品總金額為</div><div></div></div>
@@ -170,5 +197,5 @@
             <div total_row><div class="total_left">總計</div><div class="all_total"></div></div>
         </div>
     </div>
-    <div><button class="nextStep">下一步</button></div>
+    <div><button id="nextstep">下一步</button></div>
 </div>
