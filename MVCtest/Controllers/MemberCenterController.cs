@@ -70,10 +70,11 @@ namespace MVCtest.Controllers
                 Debug.Print(cvm.Customer_Name);
 
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
-                
+                int id = cvm.Customer_ID;
                 Debug.WriteLine(name);
                 Session["auth"] = true;
                 Session["Name"] = name;
+                Session["id"]= id;
                 return RedirectToAction("index", "MemberCenter");
 
             }else{
