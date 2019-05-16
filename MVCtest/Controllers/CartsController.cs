@@ -99,13 +99,13 @@ namespace MVCtest.Controllers
         }
 
         // GET: Carts/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? Cart_ID)
         {
-            if (id == null)
+            if (Cart_ID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
+            Cart cart = db.Carts.Find(Cart_ID);
             if (cart == null)
             {
                 return HttpNotFound();
@@ -116,9 +116,9 @@ namespace MVCtest.Controllers
         // POST: Carts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int Cart_ID)
         {
-            Cart cart = db.Carts.Find(id);
+            Cart cart = db.Carts.Find(Cart_ID);
             db.Carts.Remove(cart);
             db.SaveChanges();
             return RedirectToAction("Index");
