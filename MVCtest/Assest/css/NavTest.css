@@ -268,3 +268,11 @@ input {
 .subnav:hover .subnav-content4 {
     display: block;
 }
+
+
+
+@media screen and (max-width: "1040px") {
+    .user {
+
+    }
+}

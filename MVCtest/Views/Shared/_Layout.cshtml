@@ -295,7 +295,7 @@
                 <div class="subnav">
                     <li class="nav-item">
                         @*<a href="#" id="">NEW IN</a>*@
-                        @Html.ActionLink("NEW IN", "Product", "Home")
+                        @Html.ActionLink("NEW IN", "index", "Product")
                         <div class="subnav-content">
                             <div class="subnav-content-all">
                                 <div class="subnav-content-left">
@@ -427,6 +427,10 @@
                     </form>
                 </div>
                 <div class="row mt-2" id="two-btn">
+                    @*<a href="~/membercenter/index">
+                        <p id="sign">SIGN IN</p>
+                    </a>*@
+                    @*<a href="~/Home/memberlist">*@
 
 
                     @{
@@ -465,13 +469,20 @@
                     }
 
                     <a href="~/Home/memberlist">
-
                         <img src="~/Assest/images/profile.png" id="user-img">
                     </a>
                     <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                 </div>
 
             </div>
+
+            @*change*@
+            <div class="btn-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            @*change*@
         </div>
         <div class="idk">
             @RenderBody()
