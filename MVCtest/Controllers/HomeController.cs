@@ -1,4 +1,5 @@
-﻿using MVCtest.Service;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,29 +12,36 @@ namespace MVCtest.Controllers
 {
     public class HomeController : Controller
     {
+        [AuthorizePlus]
         public ActionResult Index()
         {
-            return View();
+            ProductService ps = new ProductService();
+            ProductListViewModel psv = ps.GetProducts();
+            foreach (var i in psv.Items)
+            {
+                Debug.Print(i.Product_Image);
+            }
+            return View(psv);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         //public ActionResult membercenter()
         //{
         //    Debug.WriteLine("GET");
-            
+
         //    return View();
         //}
 
@@ -52,14 +60,15 @@ namespace MVCtest.Controllers
 
         //    Debug.WriteLine(Helper.EncodePassword(input.User_Password));
         //    Debug.WriteLine("POST");
-            
+
         //    return View();
         //}
 
-        public ActionResult Product()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult center()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
+<<<<<<< HEAD
             return View();
         }
 
@@ -67,5 +76,23 @@ namespace MVCtest.Controllers
         {
             return View();
         }
+=======
+        //    return View();
+        //}
+
+        //public ActionResult Product()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
+
+        //public ActionResult memberlist()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
+>>>>>>> login_b
     }
 }

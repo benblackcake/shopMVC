@@ -18,7 +18,7 @@ namespace MVCtest.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Product_Id { get; set; }
 
         [StringLength(20)]
@@ -32,7 +32,7 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string Stock { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string Product_Image { get; set; }
 
         [StringLength(10)]

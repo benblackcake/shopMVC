@@ -181,6 +181,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberCenterController.cs" />
+
+    <Compile Include="Controllers\ProductController.cs" />
+
+    <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,11 +209,18 @@
     <Compile Include="Repository\DbRepository.cs" />
     <Compile Include="Service\CartService.cs" />
     <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\ProductService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\ProductListViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+
     <Content Include="Assest\css\cart.css" />
+
+    <Content Include="Assest\css\NavTest.css" />
+
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
@@ -219,6 +231,7 @@
     <Content Include="Assest\images\profile.png" />
     <Content Include="Assest\images\search.png" />
     <Content Include="Assest\images\shopping-cart.png" />
+    <Content Include="Assest\images\style%27G.png" />
     <Content Include="Assest\images\up.png" />
     <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
@@ -226,7 +239,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Assest\css\NavStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -289,9 +301,15 @@
 
     <Content Include="Views\Home\cart.cshtml" />
 
+
+    <Content Include="Views\Product\index.cshtml" />
+    <Content Include="Views\Shared\ProductParticial.cshtml" />
+    <Content Include="Views\Home\memberlist.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assest\images\image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
