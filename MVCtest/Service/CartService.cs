@@ -11,31 +11,34 @@ namespace MVCtest.Service
     public class CartService
     {
 
-        private DBModel db = new DBModel();
-        private Product products;
-        private Cart carts;
+        private DBModel db ;
+        private Product _products;
+        private Cart _carts;
 
         public void SaveCartDB(string productName,int quantity)
         {
-            if(productName ==null)
+            db = new DBModel();
+
+            if (productName ==null)
             {
-                carts = null;
+                _carts = null;
             }
             else
             {
-                products = db.Products.Where(x => x.Product_Name == productName).FirstOrDefault();
-                carts = new Cart()
+                _products = db.Products.ToList().Find(x => x.Product_Name == productName);
+                _carts = new Cart()
                 {
-                    Product_ID = products.Product_Id,
-                    Customer = products.Customer,
+                    Product_ID = _products.Product_Id,
+                    Customer = _products.Customer,
                     Quantity = quantity
                 };
-                db.Carts.Add(carts);
+                db.Carts.Add(_carts);
                 db.SaveChanges();
             }
         }
         public List<CartViewModel> GetListCart(int customerID)
         {
+            db = new DBModel();
             List<CartViewModel> cartRepos;
             
            var cartlist = db.Carts.ToList();
@@ -53,8 +56,8 @@ namespace MVCtest.Service
         }
         public void Delete(int id)
         {
-            carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
-            db.Carts.Remove(carts);
+            _carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
+            db.Carts.Remove(_carts);
             db.SaveChanges();
         }
     }
