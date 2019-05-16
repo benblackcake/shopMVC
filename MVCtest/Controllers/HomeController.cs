@@ -86,13 +86,13 @@ namespace MVCtest.Controllers
 
         //    return View();
         //}
+        [AuthorizePlus]
+        public ActionResult memberlist()
+        {
+            ViewBag.Message = "Your contact page.";
 
-        //public ActionResult memberlist()
-        //{
-        //    ViewBag.Message = "Your contact page.";
 
-        //    return View();
-        //}
-//>>>>>>> login_b
+            return View();
+        }
     }
 }
