@@ -124,7 +124,7 @@ namespace MVCtest.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ListAllCarts(int id,string add , string less)
+        public ActionResult ListAllCarts(int id , string add , string less)
         {
             var user = db.Carts.Find(id);
             if (add == "+")
