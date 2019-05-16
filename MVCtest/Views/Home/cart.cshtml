@@ -57,7 +57,8 @@
         }
 
         #delect i{
-            margin: auto auto;
+            position: relative;
+            bottom: 60px;
         }
 
     .process .done {
@@ -95,6 +96,15 @@
         text-align: center;
         width: 30px;
         height: 40px;
+    }
+
+    #count {
+        position: relative;
+        top: 55px;
+    }
+
+    #quantityChange {
+        height:40px;
     }
 
     </style>
@@ -145,9 +155,11 @@
             <div class="c_4">F</div>
             <div class="c_5">NT$680</div>
             <div class="c_6">
-                <span class="input-number-decrement" id="inc">-</span>
-                <input type="text" class="input-number" id="count" value="1" />
-                <span class="input-number-increment" id="dec">+</span>
+                <div id="quantityChange">
+                    <span class="input-number-decrement" id="inc">-</span>
+                    <input type="text" class="input-number" id="count" value="1" />
+                    <span class="input-number-increment" id="dec">+</span>
+                </div>
             </div>
             <div class="c_7">NT$680</div>
             <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
