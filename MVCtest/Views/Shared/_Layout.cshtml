@@ -295,7 +295,7 @@
                 <div class="subnav">
                     <li class="nav-item">
                         @*<a href="#" id="">NEW IN</a>*@
-                        @Html.ActionLink("NEW IN", "Product", "Home")
+                        @Html.ActionLink("NEW IN", "index", "Product")
                         <div class="subnav-content">
                             <div class="subnav-content-all">
                                 <div class="subnav-content-left">
@@ -427,9 +427,26 @@
                     </form>
                 </div>
                 <div class="row mt-2" id="two-btn">
-                    <a href="~/membercenter/index">
+                    @*<a href="~/membercenter/index">
                         <p id="sign">SIGN IN</p>
-                    </a>
+                    </a>*@
+                    @*<a href="~/Home/memberlist">*@
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">@ViewBag.Name</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">SIGN IN</p>
+                            </a>
+                        }
+                    }
+
                     <a href="~/Home/memberlist">
                         <img src="~/Assest/images/profile.png" id="user-img">
                     </a>

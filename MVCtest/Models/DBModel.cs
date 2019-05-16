@@ -32,7 +32,7 @@ namespace MVCtest.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Customer>()
-                .Property(e => e.Customer_E_mail)
+                .Property(e => e.Customer_Email)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Customer>()
