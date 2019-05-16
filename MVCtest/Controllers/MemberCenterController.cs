@@ -72,8 +72,10 @@ namespace MVCtest.Controllers
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
                 
                 Debug.WriteLine(name);
+                
                 Session["auth"] = true;
                 Session["Name"] = name;
+               
                 return RedirectToAction("memberlist", "Home");
 
             }else{
