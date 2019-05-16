@@ -208,6 +208,7 @@
     <Compile Include="ViewModels\CustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\css\cart.css" />
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
@@ -219,6 +220,7 @@
     <Content Include="Assest\images\search.png" />
     <Content Include="Assest\images\shopping-cart.png" />
     <Content Include="Assest\images\up.png" />
+    <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -280,9 +282,13 @@
     <Content Include="Views\MemberCenter\index.cshtml" />
     <Content Include="Views\Home\loginView.cshtml" />
     <Content Include="Views\Home\t1.cshtml" />
+
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
+
+    <Content Include="Views\Home\cart.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
