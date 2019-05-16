@@ -24,6 +24,11 @@ namespace MVCtest
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "MemberCenterController", action = "index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Product",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "ProductController", action = "index", id = UrlParameter.Optional }
+);
         }
     }
 }

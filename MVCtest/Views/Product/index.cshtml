@@ -1,4 +1,6 @@
-﻿@model  MVCtest.ViewModels.ProductListViewModel   /*更動*/
+﻿
+@model  MVCtest.ViewModels.ProductListViewModel
+
 @{
     ViewBag.Title = "Product";
 }
@@ -71,7 +73,7 @@
         </div>
         <div class="col-10">
             <div class="row mt-3">  @*目前先這樣 以後可改成PartialView*@
-                @*@foreach (var item in Model.Item)
+                @foreach (var item in Model.Items)
                 {
 
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
@@ -83,9 +85,9 @@
                             </div>
                         </div>
                     </div>
-                }*@
+                }
 
-                <div class="col-3">
+                @*<div class="col-3">
                     <img src="images/test-photo001.jpg" class="test">
                     <h5 class="mt-2">拉基長袖</h5>
                     <h5>$1500</h5>
@@ -127,7 +129,7 @@
                     <h5 class="mt-2">拉基長袖</h5>
                     <h5>$1500</h5>
                 </div>
-            </div>
+            </div>*@
 
 
         </div>
