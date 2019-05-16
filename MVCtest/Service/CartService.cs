@@ -5,18 +5,19 @@ using System.Web;
 using MVCtest.Models;
 using MVCtest.Repository;
 using MVCtest.ViewModels;
+using System.Diagnostics;
 
 namespace MVCtest.Service
 {
     public class CartService
     {
-       private DBModel db = new DBModel();
        private Product products;
        private Cart carts;
 
         public void SaveCartDB(string productName,int quantity)
         {
-            if(productName ==null)
+            DBModel db = new DBModel();
+            if (productName ==null)
             {
                 carts = null;
             }
@@ -35,13 +36,15 @@ namespace MVCtest.Service
         }
         public List<CartViewModel> GetListCart(int customerID)
         {
+            DBModel db = new DBModel();
             List<CartViewModel> cartRepos;
-            
-           var cartlist = db.Carts.ToList();
-           var productlist = db.Products.ToList();
+            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
+            DbRepository<Product> repoProduct = new DbRepository<Product>(db);
+
+
            var result =
-                from c in cartlist
-                join p in productlist
+                from c in repoCart.GetAll()
+                join p in repoProduct.GetAll()
                 on c.Product_ID equals p.Product_Id
                 where c.Customer_ID==customerID
                 select
@@ -49,6 +52,17 @@ namespace MVCtest.Service
                 { CartId = c.Cart_ID,ProductName=p.Product_Name ,ProductNo = p.Product_Id,Unitprice=p.UnitPrice,Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
             cartRepos = result.ToList();
             return cartRepos;
+        }
+
+        public void DeleteCart(int CartId)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Cart> repoCart = new DbRepository<Cart>(context);
+
+            Cart cus = repoCart.GetAll().FirstOrDefault((x) => x.Cart_ID == CartId);
+            repoCart.Delete(cus);
+            context.SaveChanges();
+
         }
     }
 }
