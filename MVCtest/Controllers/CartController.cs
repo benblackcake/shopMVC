@@ -32,9 +32,9 @@ namespace MVCtest.Controllers
             cartService = new CartService();
             return View(cartService.GetListCart(id));
         }   
+        [HttpPost]
         public ActionResult DeleteCart(int cartID)
         {
-
             cartService = new CartService();
             cartService.Delete(cartID);
             return RedirectToAction("Cart");

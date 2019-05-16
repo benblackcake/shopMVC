@@ -56,6 +56,7 @@ namespace MVCtest.Service
         }
         public void Delete(int id)
         {
+            db = new DBModel();
             _carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
             db.Carts.Remove(_carts);
             db.SaveChanges();
