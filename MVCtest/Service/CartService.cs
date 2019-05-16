@@ -39,7 +39,7 @@ namespace MVCtest.Service
         public List<CartViewModel> GetListCart(int customerID)
         {
             db = new DBModel();
-            List<CartViewModel> cartRepos;
+            List<CartViewModel> cartViewModel;
             
            var cartlist = db.Carts.ToList();
            var productlist = db.Products.ToList();
@@ -51,8 +51,8 @@ namespace MVCtest.Service
                 select
                 new CartViewModel
                 { CartId = c.Cart_ID,ProductName=p.Product_Name ,ProductNo = p.Product_Id,Unitprice=p.UnitPrice,Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
-            cartRepos = result.ToList();
-            return cartRepos;
+            cartViewModel = result.ToList();
+            return cartViewModel;
         }
         public void Delete(int id)
         {
