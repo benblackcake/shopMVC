@@ -17,8 +17,8 @@ namespace MVCtest.Controllers
         // GET: Carts
         public ActionResult Index()
         {
-            var carts = db.Carts.Include(c => c.Customer).Include(c => c.Product);
-            return View(carts.ToList());
+          
+            return View(db.Carts.ToList());
         }
 
         // GET: Carts/Details/5

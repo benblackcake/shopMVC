@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Product.Product_Name)
             </td>
             <td>
-                <form>
+                <form action="/Carts/Index" method="post">
                     <input type="button" class="btn btn-light" name="add" value="+" style="width:40px;height:40px;">
                     @Html.DisplayFor(modelItem => item.Quantity)
                     <input type="button" class="btn btn-light" name="less" value="-" style="width:40px;height:40px;">
