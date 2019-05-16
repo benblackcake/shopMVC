@@ -16,7 +16,7 @@ namespace MVCtest.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Sub_Category_ID { get; set; }
+        public int? Sub_Category_ID { get; set; }
 
         [StringLength(10)]
         public string Category_Name { get; set; }

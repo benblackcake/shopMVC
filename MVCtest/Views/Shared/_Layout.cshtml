@@ -6,29 +6,418 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    @Styles.Render("~/Assest/css/NavStyle.css")
+    @Styles.Render("~/Assest/css/NavTest.css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("topCSS", required: false)
     @RenderSection("topJS", required: false)
+    @*<style>
+        body {
+            font-family: Microsoft JhengHei;
+        }
+
+        #nav {
+            width: 600px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 25px;
+            z-index: 10;
+        }
+
+            #nav a {
+                color: black;
+            }
+
+        #myPhoto {
+            width: 180px;
+            height: 100px;
+        }
+
+        .top-menu {
+            background-color: white;
+            display: flex;
+            width: 100%;
+            position: fixed;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .user {
+            margin-right: 20px;
+        }
+
+        .search-block {
+            margin-top: 20px;
+            margin-right: 30px;
+        }
+
+        #search-img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .search-block input {
+            border: 0;
+            outline: 0;
+            background: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        #two-btn {
+            margin-left: 60px;
+            margin-right: 30px;
+        }
+
+            #two-btn a {
+                text-decoration: none;
+            }
+
+
+        #sign {
+            color: black;
+            margin: 0;
+        }
+
+        #user-img {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        #cart-img {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        input {
+            border: 0;
+            outline: 0;
+            background: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        #nav a:hover {
+            color: rgba(95, 95, 95, 0.7);
+            text-decoration: none;
+        }
+
+
+        .idk {
+            padding-top: 100px;
+        }
+
+
+
+        .footer-title {
+            text-align: center;
+        }
+
+        .footer-body {
+            color: rgba(22, 20, 20, 0.7);
+            text-align: center;
+        }
+
+        .email-sub {
+            text-align: center;
+        }
+
+        #sub-email {
+            width: 200px;
+        }
+
+        .subscribe-btn {
+            width: 200px;
+            height: 50px;
+            background: transparent;
+            font-size: 20px;
+            border: 2px solid black;
+        }
+
+        #contact {
+            text-align: center;
+        }
+
+            #contact img {
+                width: 50px;
+                height: 50px;
+                margin: 30px 20px 0 20px;
+            }
+
+            #contact p {
+                margin-top: 20px;
+            }
+
+        .subnav-content {
+            display: none;
+            position: absolute;
+            line-height: 30px;
+            left: 210px;
+            background-color: white;
+            width: 40%;
+            z-index: 1;
+            border: 2px;
+            border-style: solid;
+        }
+
+
+
+
+        .subnav-content-all {
+            display: flex;
+        }
+
+        .subnav-content-left {
+            margin-left: 20px;
+            margin-top: 30px;
+            width: 300px;
+        }
+
+            .subnav-content-left ul {
+                list-style: none;
+            }
+
+
+        .subnav-content a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+
+            .subnav-content a:hover {
+                background-color: #eee;
+                color: black;
+            }
+
+        .subnav:hover .subnav-content {
+            display: block;
+        }
+
+        #trytry {
+            width: 300px;
+            height: 200px;
+        }
+
+
+        .subnav-content2 {
+            display: none;
+            position: absolute;
+            line-height: 30px;
+            left: 370px;
+            background-color: white;
+            width: 40%;
+            z-index: 1;
+            border: 2px;
+            border-style: solid;
+        }
+
+            .subnav-content2 a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+
+                .subnav-content2 a:hover {
+                    background-color: #eee;
+                    color: black;
+                }
+
+        .subnav:hover .subnav-content2 {
+            display: block;
+        }
+
+        .subnav-content3 {
+            display: none;
+            position: absolute;
+            line-height: 30px;
+            left: 520px;
+            background-color: white;
+            width: 40%;
+            z-index: 1;
+            border: 2px;
+            border-style: solid;
+        }
+
+            .subnav-content3 a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+                .subnav-content3 a:hover {
+                    background-color: #eee;
+                    color: black;
+                }
+
+        .subnav:hover .subnav-content3 {
+            display: block;
+        }
+
+        .subnav-content4 {
+            display: none;
+            position: absolute;
+            line-height: 30px;
+            left: 650px;
+            background-color: white;
+            width: 40%;
+            z-index: 1;
+            border: 2px;
+            border-style: solid;
+        }
+
+            .subnav-content4 a {
+                color: white;
+                text-decoration: none;
+            }
+
+
+
+                .subnav-content4 a:hover {
+                    background-color: #eee;
+                    color: black;
+                }
+
+        .subnav:hover .subnav-content4 {
+            display: block;
+        }
+    </style>*@
 </head>
 <body>
     <div class="container-fluid">
         <div class="top-menu">
-            <img src="~/Assest/images/bg-2.jpg" id="myPhoto">
-            <ul class="nav justify-content-around" id="nav">
 
-                <li class="nav-item">
-                    <a href="#" id="">NEW IN</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" id="">CLOTHES</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" id="">PANTS</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" id="">SHOES</a>
-                </li>
+
+            <a href="@Url.Action("Index", "Home")" class="logo">
+                <img src="~/Assest/images/style'G.png" id="myPhoto">
+            </a>
+            <ul class="nav justify-content-around" id="nav">
+                <div class="subnav">
+                    <li class="nav-item">
+                        @*<a href="#" id="">NEW IN</a>*@
+                        @Html.ActionLink("NEW IN", "index", "Product")
+                        <div class="subnav-content">
+                            <div class="subnav-content-all">
+                                <div class="subnav-content-left">
+                                    <ul>
+                                        <h4>新品上市</h4>
+                                        <hr>
+                                        <li>
+                                            <a class="d-block" href="#company" style="font-size:20px;">Company</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#team" style="font-size:20px;">Team</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#careers" style="font-size:20px;">Careers</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="subnav-content-right">
+                                    <img src="~/Assest/images/style'G.png" id="trytry">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="subnav">
+                    <li class="nav-item">
+                        @*<a href="#" id="">CLOTHES</a>*@
+                        @Html.ActionLink("CLOTHES", "Product", "Home")
+                        <div class="subnav-content2">
+                            <div class="subnav-content-all">
+                                <div class="subnav-content-left">
+                                    <ul>
+                                        <h4>新品上市</h4>
+                                        <hr>
+                                        <li>
+                                            <a class="d-block" href="#company" style="font-size:20px;">Company</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#team" style="font-size:20px;">Team</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#careers" style="font-size:20px;">Careers</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="subnav-content-right">
+                                    <img src="~/Assest/images/style'G.png" id="trytry">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </li>
+                </div>
+                <div class="subnav">
+                    <li class="nav-item">
+                        @*<a href="#" id="">PANTS</a>*@
+                        @Html.ActionLink("PANTS", "memberlist", "Home")
+                        <div class="subnav-content3">
+                            <div class="subnav-content-all">
+                                <div class="subnav-content-left">
+                                    <ul>
+                                        <h4>新品上市</h4>
+                                        <hr>
+                                        <li>
+                                            <a class="d-block" href="#company" style="font-size:20px;">Company</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#team" style="font-size:20px;">Team</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#careers" style="font-size:20px;">Careers</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="subnav-content-right">
+                                    <img src="~/Assest/images/style'G.png" id="trytry">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </li>
+                </div>
+                <div class="subnav">
+                    <li class="nav-item">
+                        @*<a href="#" id="">SHOES</a>*@
+                        @Html.ActionLink("SHOES", "Product", "Home")
+                        <div class="subnav-content4">
+                            <div class="subnav-content-all">
+                                <div class="subnav-content-left">
+                                    <ul>
+                                        <h4>新品上市</h4>
+                                        <hr>
+                                        <li>
+                                            <a class="d-block" href="#company" style="font-size:20px;">Company</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#team" style="font-size:20px;">Team</a>
+                                        </li>
+                                        <li>
+                                            <a class="d-block" href="#careers" style="font-size:20px;">Careers</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="subnav-content-right">
+                                    <img src="~/Assest/images/style'G.png" id="trytry">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </li>
+                </div>
             </ul>
             <div class="user">
                 <div class="search-block">
@@ -38,14 +427,75 @@
                     </form>
                 </div>
                 <div class="row mt-2" id="two-btn">
-                    Account<a href="~/Home/membercenter" id="">
-                    <img src="~/Assest/images/profile.png" id="user-img">
-                    </a>
-    
-    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-</div>
+
+
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
+                            {
+                                <from>
+                                    <a href="~/Home/index">
+                                        <input type="submit" class="text-primary" value="[Logout]" />
+                                    </a>
+                                </from>
+                            }
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign"></p>
+                            </a>
+                        }
+                    }
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Home/memberlist">
+                                <p id="sign">@ViewBag.Name</p>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <p id="sign">SIGN IN</p>
+                            </a>
+                        }
+                    }
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Home/memberlist">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+
+                        }
+
+
+
+                    }
+
+                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                </div>
 
             </div>
+
+            @*change*@
+            <div class="btn-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            @*change*@
         </div>
         <div class="idk">
             @RenderBody()

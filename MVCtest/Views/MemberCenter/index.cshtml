@@ -112,28 +112,31 @@
     <div class="row">
         <div class="col-md-6 login-form-1">
             <h1 class="text-center">登入</h1>
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="你的 Email *" value="" />
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="你的 Password *" value="" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btnSubmit btn-block" value="登入" />
-                </div>
-                <div class="or_box">
+            @using (Html.BeginForm("login", "MemberCenter", FormMethod.Post))
+            {
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Customer_Email" placeholder="你的 Email *" required="true" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="User_Password" placeholder="你的 Password *" required="true" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit btn-block" value="登入" />
+                    </div>
+                    <div class="or_box">
 
-                    <div class="or">or</div>
+                        <div class="or">or</div>
 
-                </div>
-                <div class="form-group mt-4">
-                    <input type="submit" class="btnSubmit btn-block" value="FaceBook登入" />
-                </div>
-                <div class="form-group">
-                    <a href="#" class="ForgetPwd">忘記密碼?</a>
-                </div>
-            </form>
+                    </div>
+                    <div class="form-group mt-4">
+                        <input type="submit" class="btnSubmit btn-block" value="FaceBook登入" />
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd">忘記密碼?</a>
+                    </div>
+                </form>
+            }
         </div>
         <div class="col-md-6 login-form-2">
             <h1>註冊</h1>
@@ -169,7 +172,7 @@
                         </div>
                         <div class="panel-body">
                             <!--comment-->
-                            @using (Html.BeginForm("membercenter", "Home", FormMethod.Post))
+                            @using (Html.BeginForm("index", "MemberCenter", FormMethod.Post))
                             {
 
                                 <form id="signupform" class="form-horizontal" role="form">
@@ -180,48 +183,57 @@
                                         <span></span>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="id" class="col-md-3 control-label">ID</label>
-                                        <div class="col-md-9">
-                                            @*<input type="text" class="form-control" name="email" placeholder="電子信箱">*@
-                                            @Html.EditorFor(x => x.Customer_ID, new { htmlAttributes = new { @class = "form-control" } })
-                                        </div>
-                                    </div>
+                                    @*<div class="form-group">*@
+                                    @*<label for="id" class="col-md-3 control-label">ID</label>*@
+                                    @*<div class="col-md-9">*@
+                                    @*<input type="text" class="form-control" name="email" placeholder="電子信箱">*@
+                                    @*@Html.EditorFor(x => x.Customer_ID, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @*</div>*@
+                                    @*</div>*@
 
 
                                     <div class="form-group">
                                         <label for="email" class="col-md-3 control-label">Email</label>
                                         <div class="col-md-9">
-                                            @*<input type="text" class="form-control" name="email" placeholder="電子信箱">*@
-                                            @Html.EditorFor(x => x.Customer_E_mail, new { htmlAttributes = new { @class = "form-control" } })
+                                            <input type="text" class="form-control" name="Customer_Email" placeholder="電子信箱" required="true">
+                                            @*@Html.EditorFor(x => x.Customer_E_mail, new { htmlAttributes = new { @class = "form-control" } })*@
                                         </div>
                                     </div>
 
 
                                     @*<div class="form-group">
-                                        @Html.LabelFor(model => model.Customer_Name, htmlAttributes: new { @class = "col-md-3 control-label" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.Customer_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Customer_Name, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>*@
+                                            @Html.LabelFor(model => model.Customer_Name, htmlAttributes: new { @class = "col-md-3 control-label" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Customer_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Customer_Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>*@
 
                                     <div class="form-group">
-                                        <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                        <label for="firstname" class="col-md-3 control-label">Name</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="firstname" placeholder="First Name">
+
+                                            <input type="text" class="form-control" name="Customer_Name" placeholder="First Name" required="true">
+                                            @*@Html.EditorFor(x => x.Customer_Name, new { htmlAttributes = new { @class = "form-control" } })*@
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                        </div>
-                                    </div>
+
+                                    @*<div class="form-group">
+                                            <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                            </div>
+                                        </div>*@
                                     <div class="form-group">
                                         <label for="password" class="col-md-3 control-label">Password</label>
                                         <div class="col-md-9">
-                                            <input type="password" class="form-control" name="passwd" placeholder="Password">
+
+                                            @*@Html.EditorFor(x => x.User_Password, new { htmlAttributes = new { @class = "form-control" } })*@
+                                            @*@Html.PasswordFor(x => x.User_Password, new { htmlAttributes = new { @class = "form-control" } })*@
+                                            <input type="password" class="form-control" name="User_Password" placeholder="Password" required="true">
+
+                                           
+
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -251,7 +263,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -263,6 +274,14 @@
             $('#myInput').trigger('focus')
         })
     </script>
+    @if (TempData["message"] != null)
+    {
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+        </script>
+    }
+
 }
 
 

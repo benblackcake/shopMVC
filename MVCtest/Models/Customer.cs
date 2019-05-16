@@ -20,7 +20,7 @@ namespace MVCtest.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Customer_ID { get; set; }
 
         [StringLength(20)]
@@ -29,14 +29,14 @@ namespace MVCtest.Models
         [Column(TypeName = "date")]
         public DateTime? Customer_BirDate { get; set; }
 
-        [Column("Customer_E-mail")]
+        [Column("Customer_Email")]
         [StringLength(100)]
-        public string Customer_E_mail { get; set; }
+        public string Customer_Email { get; set; }
 
         [StringLength(10)]
         public string Customer_Phone { get; set; }
 
-        [StringLength(100)]
+        [StringLength(300)]
         public string User_Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
