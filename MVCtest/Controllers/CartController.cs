@@ -12,7 +12,7 @@ namespace MVCtest.Controllers
     public class CartController : Controller
     {
         // GET: Cart
-        CartService cartService ;
+        //CartService cartService ;
         public ActionResult Index()
         {
             return View();
@@ -21,16 +21,27 @@ namespace MVCtest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CartSave(string productName,int quantity)
         {
-            cartService.SaveCartDB(productName,quantity);
+            CartService cs = new CartService();
+            cs.SaveCartDB(productName,quantity);
             return View();
         }
         [HttpGet]
         public ActionResult Cart()
         {
-            
+            CartService cs = new CartService();
             int id = int.Parse(HttpContext.Session["id"].ToString());
-            cartService = new CartService();
-            return View(cartService.GetListCart(id));
-        }   
+            return View(cs.GetListCart(id));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int CartId)
+        {
+            CartService cs = new CartService();
+            int cusID = int.Parse(HttpContext.Session["id"].ToString());
+            cs = new CartService();
+            cs.DeleteCart(CartId);
+            Debug.Print(CartId.ToString());
+            return RedirectToAction("Cart", "Cart");
+        }
     }
 }

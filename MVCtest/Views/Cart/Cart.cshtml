@@ -150,7 +150,9 @@
         </div>
         @foreach (var item in Model)
         {
-            <div class="commodity">
+            using (Html.BeginForm("Delete", "Cart", FormMethod.Post))
+            {
+            <div class="commodity form-group">
                 <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
                 <div class="c_2">@item.ProductName</div>
                 <div class="c_3">@item.ProductNo</div>
@@ -164,8 +166,10 @@
                     </div>
                 </div>
                 <div class="c_7">NT$680</div>
+                <input type="hidden" name="CartID" value="@item.CartId">
                 <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
             </div>
+            }
         }
 
 
