@@ -437,8 +437,34 @@
                     @{
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
+                            using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
+                            {
+                                <from>
+                                    <a href="~/Home/index" id="logout">
+                                        <input type="submit" value="Logout" />
+                                    </a>
+                                </from>
+                            }
+                        }
+                        else
+                        {
                             <a href="~/membercenter/index">
+                                <p id="sign"></p>
+                            </a>
+                        }
+                    }
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Home/memberlist">
                                 <p id="sign">@ViewBag.Name</p>
+                            </a>
+                            <a href="~/Home/memberlist">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                            <a href="~/Cart/Cart">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
                         }
                         else
@@ -446,15 +472,17 @@
                             <a href="~/membercenter/index">
                                 <p id="sign">SIGN IN</p>
                             </a>
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
                         }
                     }
 
-                    <a href="~/Home/memberlist">
-                        <img src="~/Assest/images/profile.png" id="user-img">
-                    </a>
-                    <a href="~/Home/memberlist">
-                        <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                    </a>
+
+                   
                     @*change   btn-mobile刪除*@
 
                     <a href="javascript:void(0);" class="icon" onclick="openNav()">

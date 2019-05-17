@@ -74,12 +74,20 @@ namespace MVCtest.Controllers
                 Debug.WriteLine(name);
                 Session["auth"] = true;
                 Session["Name"] = name;
-                return RedirectToAction("index", "MemberCenter");
+                return RedirectToAction("index", "Home");
 
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
                 return RedirectToAction("index", "MemberCenter");
             }
+
+        }
+        public ActionResult Logout()
+        {
+            Debug.Print("GET");
+            Session["auth"] = false;
+            Session["Name"] = "Logout";
+            return RedirectToAction("index", "MemberCenter");
 
         }
 

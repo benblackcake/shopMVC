@@ -77,7 +77,7 @@ namespace MVCtest.Controllers
 
         //    return View();
         //}
-
+        [AuthorizePlus]
         public ActionResult memberlist()
         {
             ViewBag.Message = "Your contact page.";
