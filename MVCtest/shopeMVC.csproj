@@ -217,6 +217,9 @@
     <Content Include="Assest\images\img-carousel-1.jpg" />
     <Content Include="Assest\images\img-carousel-2.jpg" />
     <Content Include="Assest\images\img-carousel-3.jpg" />
+    <Content Include="Assest\images\index-image\styleG1.jpg" />
+    <Content Include="Assest\images\index-image\styleG2.jpg" />
+    <Content Include="Assest\images\index-image\styleG3.jpg" />
     <Content Include="Assest\images\instagram.png" />
     <Content Include="Assest\images\line.png" />
     <Content Include="Assest\images\profile.png" />
