@@ -70,16 +70,28 @@ namespace MVCtest.Controllers
                 Debug.Print(cvm.Customer_Name);
 
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
-                
+                int id = cvm.Customer_ID;
                 Debug.WriteLine(name);
+                
                 Session["auth"] = true;
                 Session["Name"] = name;
-                return RedirectToAction("index", "MemberCenter");
 
+                Session["id"]= id;
+
+                return RedirectToAction("memberlist", "Home");
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
                 return RedirectToAction("index", "MemberCenter");
             }
+
+        }
+        
+        public ActionResult Logout ()
+        {
+            Debug.Print("GET");
+            Session["auth"] = false;
+            Session["Name"] = "Logout";
+            return RedirectToAction("index", "MemberCenter");
 
         }
 

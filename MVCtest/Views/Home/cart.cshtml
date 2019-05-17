@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "style'G：購物車";
+}
+@section topCSS {
+    <style>
+    .cart {
+        border: 1px solid #d0d0d0;
+    }
+
+    .cart_header {
+        border-bottom: 1px solid #e6e6e6;
+        display: flex;
+    }
+
+    .commodity {
+        border-bottom: 1px solid #e6e6e6;
+        display: flex;
+    }
+
+        .commodity .c_1,
+        .commodity .c_2,
+        .commodity .c_3,
+        .commodity .c_4,
+        .commodity .c_5,
+        .commodity .c_6,
+        .commodity .c_7,
+        .commodity .c_8 {
+            height: 150px;
+            line-height: 150px;
+        }
+
+    .c_1,
+    .c_2,
+    .c_3,
+    .c_4,
+    .c_5,
+    .c_6,
+    .c_7,
+    .c_8 {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        height: 40px;
+        margin: 0 auto;
+    }
+
+        .c_1 img {
+            margin: auto auto;
+            height: 80%;
+            width: 80%;
+        }
+
+        .c_8 button {
+            height: 40px;
+            margin: auto auto;
+        }
+
+        #delect i{
+            position: relative;
+            bottom: 60px;
+        }
+
+    .process .done {
+        color: #000;
+        font-weight: bold;
+    }
+
+    .process span {
+        color: #aaa;
+    }
+
+    .total_left {
+        justify-content: flex-end;
+        width: 86%;
+    }
+
+    .input-number {
+        outline: none;
+        text-align: center;
+        vertical-align: top;
+        padding 0px;
+        width: 50px;
+        border: 0px;
+        height: 42px;
+    }
+
+    .input-number-decrement,
+    .input-number-increment {
+        background: #f1f1f1;
+        border-radius: 0;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 38px;
+        text-align: center;
+        width: 30px;
+        height: 40px;
+    }
+
+    #count {
+        position: relative;
+        top: 55px;
+    }
+
+    #quantityChange {
+        height:40px;
+    }
+
+    </style>
+}
+@section endJS {
+    <script>
+    window.onload = function () {
+        var count = document.getElementById("count");
+        var inc = document.getElementById("inc");
+        var dec = document.getElementById("dec");
+        inc.onclick = function () {
+            count.value = parseInt(count.value) - 1;
+        };
+        dec.onclick = function () {
+        count.value = parseInt(count.value) + 1;
+        };
+    }
+    </script>
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous">
+
+<div class="container">
+    <h1>購物車</h1>
+    <div class="process">
+        <span class="done">1 確認購物車內商品</span>
+        <span>> 2 選擇付款方式</span>
+        <span>> 3 填寫送貨資料</span>
+        <span>> 4 購物完成</span>
+    </div>
+    <div class="cart">
+        <div class="cart_header">
+            <div class="c_1">商品圖片</div>
+            <div class="c_2">商品名稱</div>
+            <div class="c_3">編號</div>
+            <div class="c_4">規格</div>
+            <div class="c_5">單價</div>
+            <div class="c_6">數量</div>
+            <div class="c_7">小計</div>
+            <div class="c_8">刪除</div>
+        </div>
+        <div class="commodity">
+            <a href="" class="c_1"><img src="https://styleo.net/storage/products/2018-12/res_20181211005328242.jpg" alt="商品圖片" /></a>
+            <div class="c_2">復古造型金邊眼鏡</div>
+            <div class="c_3">81266</div>
+            <div class="c_4">F</div>
+            <div class="c_5">NT$680</div>
+            <div class="c_6">
+                <div id="quantityChange">
+                    <span class="input-number-decrement" id="inc">-</span>
+                    <input type="text" class="input-number" id="count" value="1" />
+                    <span class="input-number-increment" id="dec">+</span>
+                </div>
+            </div>
+            <div class="c_7">NT$680</div>
+            <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
+        </div>
+        <div class="total_box">
+            <div total_row><div class="total_left">購物車內共<span></span>項商品，商品總金額為</div><div></div></div>
+            <div total_row><div class="total_left">運費</div><div class="freight"></div></div>
+            <div total_row><div class="total_left">總計</div><div class="all_total"></div></div>
+        </div>
+    </div>
+    <div><button class="nextStep">下一步</button></div>
+</div>

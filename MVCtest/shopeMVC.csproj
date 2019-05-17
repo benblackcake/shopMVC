@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -176,6 +179,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,7 +206,9 @@
     <Compile Include="Models\Sub_Categroy.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CartVIewModel.cs" />
     <Compile Include="Repository\DbRepository.cs" />
+    <Compile Include="Service\CartService.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Startup.cs" />
@@ -211,6 +217,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\css\cart.css" />
     <Content Include="Assest\css\NavTest.css" />
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
@@ -227,6 +234,7 @@
     <Content Include="Assest\images\shopping-cart.png" />
     <Content Include="Assest\images\style%27G.png" />
     <Content Include="Assest\images\up.png" />
+    <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -287,6 +295,10 @@
     <Content Include="Views\MemberCenter\index.cshtml" />
     <Content Include="Views\Home\loginView.cshtml" />
     <Content Include="Views\Home\t1.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Shared\ProductParticial.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Home\cart.cshtml" />
     <Content Include="Views\Product\index.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Home\memberlist.cshtml" />
