@@ -485,37 +485,7 @@
                             </a>
                         }
                     }
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Home/memberlist">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
-
-                        }
-                    }
-
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Cart/Cart">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
-
-                        }
-                    }
+                   
 
 
                     @*change   btn-mobile刪除*@

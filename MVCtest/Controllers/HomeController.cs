@@ -79,22 +79,20 @@ namespace MVCtest.Controllers
 
         //    return View();
         //}
-<<<<<<< HEAD
-=======
 
-//<<<<<<< HEAD
+
 //        public ActionResult memberlist()
 //        {
 //            ViewBag.Message = "Your contact page.";
 
-//=======
+
 //        //public ActionResult Product()
 //        //{
 //        //    ViewBag.Message = "Your contact page.";
 
 //        //    return View();
 //        //}
->>>>>>> master
+
         [AuthorizePlus]
         public ActionResult memberlist()
         {
