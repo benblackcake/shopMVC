@@ -473,14 +473,38 @@
                             </a>
                         }
                     }
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Home/memberlist">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
 
+                        }
+                    }
 
-                    <a href="~/Home/memberlist">
-                        <img src="~/Assest/images/profile.png" id="user-img">
-                    </a>
-                    <a href="~/Home/memberlist">
-                        <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                    </a>
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Cart/Cart">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+
+                        }
+                    }
+
                     @*change   btn-mobile刪除*@
 
                     <a href="javascript:void(0);" class="icon" onclick="openNav()">
@@ -545,37 +569,7 @@
                         </li>
                     </ul>
 
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Home/memberlist">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
-
-                        }
-                    }
-
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Cart/Cart">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
-
-                        }
-                    }
+                   
 
                     
 
