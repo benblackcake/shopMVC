@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-# login 分支進度   
-#### 更新      
->20190512      
->Customer.Customer_ID 更改為auto increment     
->新增helper.cs sha256密碼加密    
 
-
-=======
 # 注意
 >20190510
 >目前git 上有master 跟 login_b的branch 
