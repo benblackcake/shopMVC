@@ -28,6 +28,7 @@ namespace MVCtest.Controllers
             cvm.Customer_Email = input.Customer_Email;
             cvm.Customer_Name = input.Customer_Name;
             cvm.User_Password = Helper.EncodePassword(input.User_Password);
+            cvm.Customer_Phone = input.Customer_Phone;
             CustomerService service = new CustomerService();
             if (service.Create(cvm))
             {
@@ -68,12 +69,15 @@ namespace MVCtest.Controllers
             CustomerViewModel cvm = cs.GetMember(login.Customer_Email, login.User_Password);
             if (cvm != null){
                 Debug.Print(cvm.Customer_Name);
-
+                string email = cvm.Customer_Email;
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
-                
+                int id = cvm.Customer_ID;
                 Debug.WriteLine(name);
+                
                 Session["auth"] = true;
                 Session["Name"] = name;
+                Session["Email"] = email;
+                Session["id"]= id;
                 return RedirectToAction("index", "Home");
 
             }else{
@@ -82,7 +86,9 @@ namespace MVCtest.Controllers
             }
 
         }
-        public ActionResult Logout()
+
+        
+        public ActionResult Logout ()
         {
             Debug.Print("GET");
             Session["auth"] = false;

@@ -429,10 +429,15 @@
                     </form>
                 </div>
                 <div class="row mt-2" id="two-btn">
+
                     @*<a href="~/membercenter/index">
             <p id="sign">SIGN IN</p>
         </a>*@
                     @*<a href="~/Home/memberlist">*@
+
+
+
+
 
                     @{
                         if (Convert.ToBoolean(Session["auth"]) == true)
@@ -440,9 +445,9 @@
                             using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
                             {
                                 <from>
-                                    <a href="~/Home/index" id="logout">
+                                   <a href="~/Home/index" id="logout">
                                         <input type="submit" value="Logout" />
-                                    </a>
+                                   </a>
                                 </from>
                             }
                         }
@@ -480,9 +485,39 @@
                             </a>
                         }
                     }
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Home/memberlist">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+
+                        }
+                    }
+
+                    @{
+                        if (Convert.ToBoolean(Session["auth"]) == true)
+                        {
+                            <a href="~/Cart/Cart">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="~/membercenter/index">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+
+                        }
+                    }
 
 
-                   
                     @*change   btn-mobile刪除*@
 
                     <a href="javascript:void(0);" class="icon" onclick="openNav()">
@@ -546,6 +581,11 @@
                             <a href="#">test3</a>
                         </li>
                     </ul>
+
+                   
+
+                    
+
                 </div>
 
             </div>
