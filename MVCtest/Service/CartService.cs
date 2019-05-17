@@ -48,20 +48,14 @@ namespace MVCtest.Service
         }
         public List<CartViewModel> GetListCart(int customerID)
         {
-//<<<<<<< HEAD
-//            DBModel db = new DBModel();
-//            List<CartViewModel> cartRepos;
-//            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
-//            DbRepository<Product> repoProduct = new DbRepository<Product>(db);
-
-
-//=======
+            //<<<<<<< HEAD
+            //List<CartViewModel> cartRepos;
             db = new DBModel();
-            List<CartViewModel> cartViewModel;
+            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
+            DbRepository<Product> repoProduct = new DbRepository<Product>(db);
+            //=======
             
-           var cartlist = db.Carts.ToList();
-           var productlist = db.Products.ToList();
-
+            List<CartViewModel> cartViewModel;
            var result =
                 from c in repoCart.GetAll()
                 join p in repoProduct.GetAll()

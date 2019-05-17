@@ -12,7 +12,7 @@ namespace MVCtest.Controllers
     public class CartController : Controller
     {
         // GET: Cart
-        //CartService cartService ;
+        CartService cartService ;
         public ActionResult Index()
         {
             return View();
