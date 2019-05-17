@@ -55,7 +55,7 @@ namespace MVCtest.Service
             DbRepository<Product> repoProduct = new DbRepository<Product>(db);
             //=======
             
-            List<CartViewModel> cartViewModel;
+           List<CartViewModel> cartViewModel;
            var result =
                 from c in repoCart.GetAll()
                 join p in repoProduct.GetAll()
