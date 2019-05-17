@@ -30,18 +30,30 @@ namespace MVCtest.Controllers
         {
             CartService cs = new CartService();
             int id = int.Parse(HttpContext.Session["id"].ToString());
+
             return View(cs.GetListCart(id));
         }
 
+        //[HttpPost]
+        //public ActionResult Delete(int CartId)
+        //{
+        //    CartService cs = new CartService();
+        //    int cusID = int.Parse(HttpContext.Session["id"].ToString());
+        //    cs = new CartService();
+        //    cs.DeleteCart(CartId);
+        //    Debug.Print(CartId.ToString());
+        //    return RedirectToAction("Cart", "Cart");
+
+        //    cartService = new CartService();
+        //    return View(cartService.GetListCart(id));
+        //}   
         [HttpPost]
-        public ActionResult Delete(int CartId)
+        public ActionResult DeleteCart(int cartID)
         {
-            CartService cs = new CartService();
-            int cusID = int.Parse(HttpContext.Session["id"].ToString());
-            cs = new CartService();
-            cs.DeleteCart(CartId);
-            Debug.Print(CartId.ToString());
-            return RedirectToAction("Cart", "Cart");
+            cartService = new CartService();
+            cartService.Delete(cartID);
+            return RedirectToAction("Cart");
+
         }
     }
 }

@@ -11,36 +11,56 @@ namespace MVCtest.Service
 {
     public class CartService
     {
-       private Product products;
-       private Cart carts;
+//<<<<<<< HEAD
+//       private Product products;
+//       private Cart carts;
+
+//        public void SaveCartDB(string productName,int quantity)
+//        {
+//            DBModel db = new DBModel();
+//=======
+
+        private DBModel db ;
+        private Product _products;
+        private Cart _carts;
 
         public void SaveCartDB(string productName,int quantity)
         {
-            DBModel db = new DBModel();
+            db = new DBModel();
+
+
             if (productName ==null)
             {
-                carts = null;
+                _carts = null;
             }
             else
             {
-                products = db.Products.Where(x => x.Product_Name == productName).FirstOrDefault();
-                carts = new Cart()
+                _products = db.Products.ToList().Find(x => x.Product_Name == productName);
+                _carts = new Cart()
                 {
-                    Product_ID = products.Product_Id,
-                    Customer = products.Customer,
+                    Product_ID = _products.Product_Id,
+                    Customer = _products.Customer,
                     Quantity = quantity
                 };
-                db.Carts.Add(carts);
+                db.Carts.Add(_carts);
                 db.SaveChanges();
             }
         }
         public List<CartViewModel> GetListCart(int customerID)
         {
-            DBModel db = new DBModel();
-            List<CartViewModel> cartRepos;
-            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
-            DbRepository<Product> repoProduct = new DbRepository<Product>(db);
+//<<<<<<< HEAD
+//            DBModel db = new DBModel();
+//            List<CartViewModel> cartRepos;
+//            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
+//            DbRepository<Product> repoProduct = new DbRepository<Product>(db);
 
+
+//=======
+            db = new DBModel();
+            List<CartViewModel> cartViewModel;
+            
+           var cartlist = db.Carts.ToList();
+           var productlist = db.Products.ToList();
 
            var result =
                 from c in repoCart.GetAll()
@@ -50,8 +70,15 @@ namespace MVCtest.Service
                 select
                 new CartViewModel
                 { CartId = c.Cart_ID,ProductName=p.Product_Name ,ProductNo = p.Product_Id,Unitprice=p.UnitPrice,Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
-            cartRepos = result.ToList();
-            return cartRepos;
+            cartViewModel = result.ToList();
+            return cartViewModel;
+        }
+        public void Delete(int id)
+        {
+            db = new DBModel();
+            _carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
+            db.Carts.Remove(_carts);
+            db.SaveChanges();
         }
 
         public void DeleteCart(int CartId)
