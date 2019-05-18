@@ -26,7 +26,7 @@ namespace MVCtest.Controllers
         {
             ProductService ps = new ProductService();
             ProductViewModel result = ps.GetProductDetail(id);
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
             Debug.Print(id.ToString());
             return View(result);
         }

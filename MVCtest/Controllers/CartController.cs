@@ -21,16 +21,11 @@ namespace MVCtest.Controllers
         [AuthorizePlus]
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Cart(int productId,int quantity)
-        {
-            if (Helper.CheckSession(HttpContext))
-            {
-                int id = Helper.ID;
+        public ActionResult Cart(int productId,int quantity){
+                int id = (int)Session["id"];
                 CartService cs = new CartService();
                 cs.SaveCartDB(productId, id, quantity);
                 return View(cs.GetListCart(id));
-            }
-            else return View();
 
         }
         [AuthorizePlus]
@@ -38,7 +33,7 @@ namespace MVCtest.Controllers
         public ActionResult Cart()
         {
             CartService cs = new CartService();
-            int id = int.Parse(HttpContext.Session["id"].ToString());
+            int id = (int)Session["id"];
 
             return View(cs.GetListCart(id));
         }
