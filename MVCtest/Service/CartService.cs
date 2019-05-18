@@ -74,7 +74,7 @@ namespace MVCtest.Service
             db.Carts.Remove(_carts);
             db.SaveChanges();
         }
-
+        //Testing Use
         public void DeleteCart(int CartId)
         {
             DBModel context = new DBModel();
