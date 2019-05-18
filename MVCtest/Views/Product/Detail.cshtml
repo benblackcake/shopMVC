@@ -1,6 +1,6 @@
-﻿
+﻿@model  MVCtest.ViewModels.ProductViewModel
 @{
-    ViewBag.Title = "item";
+    ViewBag.Title = "Detail";
 }
 
 
@@ -157,45 +157,56 @@
     <div class="container">
         <div class="item-img">
             <div class="img">
-                <a href="#"><img src="~/Assest/images/style'G.png" alt="商品圖" /></a>
+                <a href="#"><img src="@Model.Product_Image" alt="商品圖" /></a>
             </div>
             <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
 
         </div>
+
         <div class="menu">
-            <div class="title">
-                <h4>XX衣服/LP</h4>
-                <div class="tip">New</div>
-            </div>
-            <div class="row">
-                <div class="a">價格</div>
-                <div class="price">NT$1000</div>
-            </div>
-            <div class="row">
-                <div class="a">顏色</div>
-                <div class="color">
-                    <button class="a_1" type="button">白</button>
-                    <button class="a_1" type="button">黑</button>
-                    <button class="a_1" type="button">灰</button>
+    @*@using (Html.BeginForm("CartSave", "Cart", FormMethod.Post))
+    {*@
+            <form action="/Cart/Cart" method="post">
+                <div class="title">
+                    <h4>@Model.Product_Name</h4>
+                    <div class="tip">New</div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="a">尺寸</div>
-                <div class="size">
-                    <button class="a_1" type="button">S</button>
-                    <button class="a_1" type="button">M</button>
-                    <button class="a_1" type="button">L</button>
-                    <button class="a_1" type="button">XL</button>
+                <div class="row">
+                    <div class="a">價格</div>
+                    <div class="price">@Model.UnitPrice</div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="a">數量</div>
-                <button class="bt">-</button>
-                <input type="text" class="input" />
-                <button class="bt">+</button>
-            </div>
-            <div><a href="#" class="buy">立即購買</a></div>
-            <div><a href="#" class="cart">放入購物車</a></div>
+                <div class="row">
+                    <div class="a">顏色</div>
+                    <div class="color">
+                        <button class="a_1" type="button">白</button>
+                        <button class="a_1" type="button">黑</button>
+                        <button class="a_1" type="button">灰</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">尺寸</div>
+                    <div class="size">
+                        <button class="a_1" type="button">S</button>
+                        <button class="a_1" type="button">M</button>
+                        <button class="a_1" type="button">L</button>
+                        <button class="a_1" type="button">XL</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">數量</div>
+                    <button class="bt">-</button>
+                    <input type="number" name="quantity" class="input" required />
+                    <button class="bt">+</button>
+                </div>
+
+                <div class="form-group"><button type="submit" class="buy">立即購買</button></div>
+                <div class="form-group"><button type="submit" class="cart">放入購物車</button></div>
+                <input type="hidden" name="productId" value="@Model.Product_Id" />
+                @*<input type="hidden" name="cartID" value="@Model.Product_Id" />*@
+            </form>
+@*}*@
+
+
         </div>
     </div>
 </div>

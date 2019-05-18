@@ -302,7 +302,7 @@
     <Content Include="Views\Product\index.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Home\memberlist.cshtml" />
-    <Content Include="Views\Home\item.cshtml" />
+    <Content Include="Views\Product\detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
