@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVCtest.Service;
 using MVCtest.ViewModels;
+using MVCtest.Fiter;
 
 namespace MVCtest.Controllers
 {
@@ -17,15 +18,22 @@ namespace MVCtest.Controllers
         {
             return View();
         }
+        [AuthorizePlus]
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Cart(int productId,int quantity)
         {
-            int id = int.Parse(HttpContext.Session["id"].ToString());
-            CartService cs = new CartService();
-            cs.SaveCartDB(productId,id,quantity);
-            return View(cs.GetListCart(id));
+            if (Helper.CheckSession(HttpContext))
+            {
+                int id = Helper.ID;
+                CartService cs = new CartService();
+                cs.SaveCartDB(productId, id, quantity);
+                return View(cs.GetListCart(id));
+            }
+            else return View();
+
         }
+        [AuthorizePlus]
         [HttpGet]
         public ActionResult Cart()
         {
@@ -47,7 +55,8 @@ namespace MVCtest.Controllers
 
         //    cartService = new CartService();
         //    return View(cartService.GetListCart(id));
-        //}   
+        //}
+        [AuthorizePlus]
         [HttpPost]
         public ActionResult DeleteCart(int cartID)
         {

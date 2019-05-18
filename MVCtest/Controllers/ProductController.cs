@@ -12,7 +12,7 @@ namespace MVCtest.Controllers
 {
     public class ProductController : Controller
     {
-        [AuthorizePlus]
+        //[AuthorizePlus]
         [HttpGet]
         // GET: Product
         public ActionResult Index()

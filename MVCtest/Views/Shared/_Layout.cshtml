@@ -463,7 +463,7 @@
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
                             <a href="~/Home/memberlist">
-                                <p id="sign">@ViewBag.Name</p>
+                                <p id="sign">@Session["name"]</p>
                             </a>
                         }
                         else

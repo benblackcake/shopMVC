@@ -13,7 +13,7 @@ namespace MVCtest.Controllers
     public class MemberCenterController : Controller
     {
         // GET: MemberCenter
-        [AuthorizePlus]
+        //[AuthorizePlus]
         public ActionResult index()
         {
             Debug.WriteLine("GET");
