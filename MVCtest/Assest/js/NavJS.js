@@ -59,6 +59,11 @@
             $(".hidden4").addClass("hidden-list");
         }
     })
-    
+
+    //if (("#nav").css("display") == "none") {
+    //    $("#two-btn").removeClass("mt-2");
+    //} else {
+    //    $("#two-btn").addClass("mt-2");
+    //}
         
 })

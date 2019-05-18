@@ -1,0 +1,87 @@
+﻿#left-list {
+    background-color: azure;
+    height: 800px;
+}
+.col-10 {
+    /* background-color: black; */
+    height: 1000px;
+}
+
+#left-list ul {
+    margin-top: 10px;
+    list-style: none;
+}
+
+#left-list h3 {
+    margin-top: 40px;
+}
+
+#left-list li {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.col-3 {
+    /* background-color: azure;
+            border: 2px;
+            border-style: solid; */
+    height: 400px;
+    text-align: center;
+}
+
+.test {
+    width: 250px;
+    height: 320px;
+    margin-top: 10px;
+}
+
+
+
+
+.show-menu {
+    display: none;
+}
+
+.drop-list {
+    display: none;
+}
+
+#card {
+    text-align: center;
+    justify-content: center;
+}
+
+.card {
+    text-align: center;
+    justify-content: center;
+}
+@media only screen and (max-width:1450px) {
+    #left-list {
+        display: none;
+    }
+
+    .show-menu {
+        text-align: center;
+        display: block;
+        background-color: aqua;
+    }
+
+    .drop-list ul {
+        list-style:none;
+    }
+
+
+    /*.drop-list {
+        display: block;
+    }*/
+
+}
+@media only screen and (max-width:1250px) {
+    
+    
+
+    #card {
+        text-align:center;
+        justify-content:center;
+    }
+}

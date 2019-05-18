@@ -219,6 +219,7 @@
   <ItemGroup>
     <Content Include="Assest\css\cart.css" />
     <Content Include="Assest\css\NavTest.css" />
+    <Content Include="Assest\css\product-list.css" />
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />

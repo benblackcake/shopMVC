@@ -17,7 +17,7 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
 
-            foreach(var item in repo.GetAll().OrderBy((x) => x.Product_Id))
+            foreach(var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
             {
                 ProductViewModel p = new ProductViewModel()
                 {
