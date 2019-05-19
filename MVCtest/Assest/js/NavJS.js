@@ -8,7 +8,8 @@
             document.getElementById("mySidenav").style.width = "250px";
             document.getElementById("main").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-            $("body").css("background-color","rgba(0,0,0,0.4)")
+            $("body").css("background-color", "rgba(0,0,0,0.4)");
+           
        }
     })
    
@@ -20,6 +21,7 @@
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
         document.body.style.backgroundColor = "white";
+        
     })
 
     //for (var i = 1; i <= 4; i++) {
@@ -65,5 +67,11 @@
     //} else {
     //    $("#two-btn").addClass("mt-2");
     //}
-        
+
+    $(".search-block1 input").focusin(function () {
+        $(".search-block1").css("border", "1px solid #fff").css("padding","2px 2px 4px 2px");
+    })
+    $(".search-block1 input").focusout(function () {
+        $(".search-block1").css("border", "").css("padding","");
+    })
 })
