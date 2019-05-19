@@ -32,7 +32,7 @@
         </ul>
     </div>
     
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-2" id="left-list">
             <h3>SALES</h3>
             <ul>
@@ -53,14 +53,14 @@
 
         </div>
 
-        <div class="col-10">
+        <div class="col-10">           
             <div class="row mt-3">
                 @*目前先這樣 以後可改成PartialView*@
 
                 @foreach (var item in Model.Items)
                 {
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mr-auto" id="card">
-                        <div class="card" style="width: 18rem;">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" id="card">
+                        <div class="card">
                             <img src="@item.Product_Image" class="card-img-top">
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
@@ -124,7 +124,7 @@
         $(function () {
             console.info($(".show-menu").css("display"));
             if ($(".show-menu").css("display") != "none") {
-                $(".col-10").addClass("col-12");
+                $(".col-10").addClass("col-12").addClass("container");
                 $(".col-10").removeClass("col-10");
                 //$("#card").removeClass("col-lg-3 col-md-4 col-sm-6");
                 //$("#card").addClass("col-lg-4 col-md-6 col-sm-12");

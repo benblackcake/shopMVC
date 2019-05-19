@@ -40,6 +40,7 @@
 
 .show-menu {
     display: none;
+    
 }
 
 .drop-list {
@@ -51,9 +52,8 @@
     justify-content: center;
 }
 
-.card {
-    text-align: center;
-    justify-content: center;
+.card img{
+    height:430px;
 }
 @media only screen and (max-width:1450px) {
     #left-list {
@@ -61,15 +61,26 @@
     }
 
     .show-menu {
+        height:35px;
+        line-height:35px;
         text-align: center;
         display: block;
-        background-color: aqua;
+        border-radius: 10px;
+        background: transparent;
+        border: 2px solid black;
     }
 
     .drop-list ul {
         list-style:none;
     }
 
+    /*.col-12 {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }*/
 
     /*.drop-list {
         display: block;
