@@ -25,7 +25,9 @@ namespace MVCtest.Controllers
                 int id = (int)Session["id"];
                 CartService cs = new CartService();
                 cs.SaveCartDB(productId, id, quantity);
-                return View(cs.GetListCart(id));
+                Debug.Print("POST");
+                return RedirectToAction("Cart");
+
 
         }
         [AuthorizePlus]
