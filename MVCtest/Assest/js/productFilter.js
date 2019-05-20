@@ -13,11 +13,18 @@ $filter.on('change', function (e) {
 
         }
     }
-    $('.product-item').hide();
+    if (filterList.length == 0) {
+        $('.product-item').fadeIn();
 
-    filterList.forEach(function (element) {
-        $("." + element).fadeIn();
-    })
+    }
+    else {
+        $('.product-item').hide();
+        filterList.forEach(function (element) {
+            $("." + element).fadeIn();
+        })
+
+
+    }
 
 })
 
