@@ -24,28 +24,31 @@ namespace MVCtest.Service
         private Product _products;
         private Cart _carts;
 
-        public void SaveCartDB(string productName,int quantity)
+        public void SaveCartDB(int productId,int customerId, int quantity)
         {
             db = new DBModel();
 
-
-            if (productName ==null)
-            {
-                _carts = null;
-            }
-            else
-            {
-                _products = db.Products.ToList().Find(x => x.Product_Name == productName);
+            DbRepository<Cart> repor = new DbRepository<Cart>(db);
+            //if (productId == null)
+            //{
+            //    _carts = null;
+            //}
+            //else
+            //{
+                //_products = db.Products.ToList().Find(x => x.Product_Name == productName);
                 _carts = new Cart()
                 {
-                    Product_ID = _products.Product_Id,
-                    Customer = _products.Customer,
-                    Quantity = quantity
+                    Product_ID = productId,
+                    Customer_ID= customerId,
+                    Quantity= quantity
                 };
-                db.Carts.Add(_carts);
+                //db.Carts.Add(_carts);
+                repor.Create(_carts);
                 db.SaveChanges();
-            }
+            //}
         }
+
+
         public List<CartViewModel> GetListCart(int customerID)
         {
             //<<<<<<< HEAD
@@ -74,7 +77,7 @@ namespace MVCtest.Service
             db.Carts.Remove(_carts);
             db.SaveChanges();
         }
-
+        //Testing Use
         public void DeleteCart(int CartId)
         {
             DBModel context = new DBModel();

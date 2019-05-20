@@ -10,6 +10,7 @@
  
         #product img {
             height: 400px;
+            width: 100%;
             margin-bottom: 20px;
             /*background-color: azure;*/
             /*border: 2px;
@@ -124,6 +125,7 @@
 
         </div>
         <div class="carousel-item " >
+
             <img class="d-block w-100"  src="~/Assest/images/index-image/styleG3.jpg" alt="Third slide">
 
         </div>
@@ -170,7 +172,8 @@
 
         @foreach (var item in Model.Items)
         {
-            <img class="col-lg-3 col-sm-6 col-xs-12" src="@item.Product_Image" />
+           <a class="col-lg-3 col-sm-6 col-xs-12" href="/Product/Detail/@item.Product_Id" ><img  src="@item.Product_Image"/></a>
+           @*<img class="col-lg-3 col-sm-6 col-xs-12" src="@item.Product_Image" />*@
         }
 
     </div>
