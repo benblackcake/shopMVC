@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberCenterController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,7 +214,8 @@
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\CateViewModel.cs" />
+    <Compile Include="ViewModels\CategoryListViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -305,6 +307,7 @@
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Home\memberlist.cshtml" />
     <Content Include="Views\Product\detail.cshtml" />
+    <Content Include="Views\Menu\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
