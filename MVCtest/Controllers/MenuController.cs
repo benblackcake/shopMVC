@@ -17,7 +17,12 @@ namespace MVCtest.Controllers
             CategoryListViewModel result= csv.GetAllCategory();
             return PartialView(result);
         }
-
+        public ActionResult SideCategory()
+        {
+            CategoryService csv = new CategoryService();
+            CategoryListViewModel result = csv.GetAllCategory();
+            return PartialView(result);
+        }
         //public ActionResult SubCategory()
         //{
         //    CategoryService csv = new CategoryService();

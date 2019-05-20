@@ -8,5 +8,6 @@ namespace MVCtest.ViewModels
     public class CategoryListViewModel
     {
         public List<CategoryViewModel> Items { get; set; }
+       
     }
 }
