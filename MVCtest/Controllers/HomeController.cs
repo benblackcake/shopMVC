@@ -24,13 +24,6 @@ namespace MVCtest.Controllers
             return View(psv);
         }
 
-        //public ActionResult item()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
-
         [AuthorizePlus]
         public ActionResult memberlist()
         {

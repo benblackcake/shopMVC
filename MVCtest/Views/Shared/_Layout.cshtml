@@ -22,11 +22,10 @@
                 <img src="~/Assest/images/style'G.png" id="myPhoto">
             </a>
             <ul class="nav justify-content-around" id="nav">
+
                 @*Start*@
                 @Html.Action("Category", "Menu")
                 @*END*@
-
-
 
             </ul>
             <div class="user">
@@ -36,7 +35,7 @@
                         <input type="text" />
                     </form>
                 </div>
-                <div class="row mt-2" id="two-btn">
+                <div class="row" id="two-btn">
 
                     @*<a href="~/membercenter/index">
             <p id="sign">SIGN IN</p>
@@ -53,8 +52,8 @@
                             using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
                             {
                                 <from>
-                                    <a href="~/Home/index">
-                                        <input type="submit" class="text-primary" value="[Logout]" />
+                                    <a href="~/Home/index" id="logout">
+                                        <input type="submit" value="Logout" />
                                     </a>
                                 </from>
                             }
@@ -73,45 +72,32 @@
                             <a href="~/Home/memberlist">
                                 <p id="sign">@Session["name"]</p>
                             </a>
+                            <a href="~/Home/memberlist">
+                                <img src="~/Assest/images/profile.png" id="user-img">
+                            </a>
+                            
+                            <a href="~/Cart/Cart">
+                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                            </a>
+                           
                         }
                         else
                         {
                             <a href="~/membercenter/index">
                                 <p id="sign">SIGN IN</p>
                             </a>
-                        }
-                    }
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Home/memberlist">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
-                        }
-                        else
-                        {
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                             </a>
-
-                        }
-                    }
-
-                    @{
-                        if (Convert.ToBoolean(Session["auth"]) == true)
-                        {
-                            <a href="~/Cart/Cart">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
-                        }
-                        else
-                        {
+                            
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
-
+                            
                         }
                     }
+
+
 
                     @*change   btn-mobile刪除*@
 
@@ -123,6 +109,17 @@
                 </div>
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="onBounce">
+                        <div class="search-block1">
+                            <form action="#" class="search1">
+                                <a href="#">
+                                    <img src="~/Assest/images/layout_image/search-3-32.png" id="search-img">
+                                </a>                                                     
+                                <input type="text" placeholder="Search" />
+                            </form>
+                        </div>
+                    </div>
+                    
                     <a href="#" class="a1">NEW IN</a>
                     <ul class="hidden1">
                         @*之後會變成foreach資料庫category*@
@@ -177,9 +174,9 @@
                         </li>
                     </ul>
 
-                   
 
-                    
+
+
 
                 </div>
 
@@ -193,8 +190,8 @@
             @RenderBody()
         </div>
         <div class="container">
-            <div class="footer">
-                <div class="row justify-content-around mt-5 mb-5">
+            <div class="footer mt-5">
+                <div class="row justify-content-around  mb-5">
                     <div class="col-lg-4  col-sm-12 mt-sm-5" id="contact">
 
                         <div>

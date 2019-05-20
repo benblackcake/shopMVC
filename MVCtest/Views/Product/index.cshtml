@@ -6,54 +6,36 @@
 }
 
 @section topCSS {
-    <style>
-        #left-list {
-            background-color: azure;
-            height: 800px;
-        }
-
-        .col-10 {
-            /* background-color: black; */
-            height: 1000px;
-        }
-
-        #left-list ul {
-            margin-top: 10px;
-            list-style: none;
-        }
-
-        #left-list h3 {
-            margin-top: 40px;
-        }
-
-        #left-list li {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .col-3 {
-            /* background-color: azure;
-            border: 2px;
-            border-style: solid; */
-            height: 400px;
-            text-align: center;
-        }
-
-        .test {
-            width: 250px;
-            height: 320px;
-            margin-top: 10px;
-        }
-    </style>
-
+    @Styles.Render("~/Assest/css/product-list.css")
 }
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid" id="outside">
+    <label class="show-menu">
+        Show Menu
+    </label>
+    <div class="drop-list">
+        <h3>SALES</h3>
+        <ul>
+            <li>你好</li>
+            <li>我很好</li>
+            <li>你好</li>
+            <li>我很好</li>
+            <li>你好</li>
+        </ul>
+        <h3>NEW IN</h3>
+        <ul>
+            <li>你好</li>
+            <li>我很好</li>
+            <li>你好</li>
+            <li>我很好</li>
+            <li>你好</li>
+        </ul>
+    </div>
+    
+    <div class="row mb-5">
         <div class="col-2" id="left-list">
             <h3>SALES</h3>
             <ul>
-
                 <li>你好</li>
                 <li>我很好</li>
                 <li>你好</li>
@@ -62,7 +44,6 @@
             </ul>
             <h3>NEW IN</h3>
             <ul>
-
                 <li>你好</li>
                 <li>我很好</li>
                 <li>你好</li>
@@ -71,14 +52,17 @@
             </ul>
 
         </div>
-        <div class="col-10">
-            <div class="row mt-3">  @*目前先這樣 以後可改成PartialView*@
+
+        <div class="col-10">           
+            <div class="row mt-3">
+                @*目前先這樣 以後可改成PartialView*@
+
                 @foreach (var item in Model.Items)
                 {
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" id="card">
+                        <div class="card">
+                            <img src="@item.Product_Image" class="card-img-top">
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                        <div class="card" style="width: 18rem;">
-                           <a href="/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" class="card-img-top"></a> 
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
                                 <p class="card-text text-center">@item.UnitPrice</p>
@@ -88,51 +72,74 @@
                 }
 
                 @*<div class="col-3">
-                    <img src="images/test-photo001.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
+                            <img src="images/test-photo001.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                    </div>*@
+
+
             </div>
-            <div class="row mt-3">
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-            </div>*@
-
-
         </div>
     </div>
 </div>
+@section endJS {
+    <script>
+        $(function () {
+            console.info($(".show-menu").css("display"));
+            if ($(".show-menu").css("display") != "none") {
+                $(".col-10").addClass("col-12").addClass("container");
+                $(".col-10").removeClass("col-10");
+                //$("#card").removeClass("col-lg-3 col-md-4 col-sm-6");
+                //$("#card").addClass("col-lg-4 col-md-6 col-sm-12");
+            }
 
+            $(".show-menu").click(function () {
+                if ($(".drop-list").css("display") == "none") {
+                    $(".drop-list").css("display", "block");
+                } else {
+                    $(".drop-list").css("display", "none");
+                }
+                
+            })
+
+        })
+    </script>
+}
