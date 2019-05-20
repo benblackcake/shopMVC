@@ -54,15 +54,11 @@
     <div class="row">
         <div class="col-2" id="left-list">
             <h3>種類</h3>
-            <form action="/Product/CategoriesFilter" method="post" id="form1">
-                <label><input type="checkbox" name="#" class="checkList1" value="女性衣服">A種類</label>
-                <label><input type="checkbox" name="#" class="checkList1" value="B">B種類</label>
-                <label><input type="checkbox" name="#" class="checkList1" value="C">C種類</label>
-                <input type="hidden" name="checkList1Value" id="checkList1Value" value="">
-            </form>
+                <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
+                <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
+                <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
             <h3>NEW IN</h3>
             <ul>
-
                 <li>你好</li>
                 <li>我很好</li>
                 <li>你好</li>
@@ -77,7 +73,7 @@
                 @foreach (var item in Model.Items)
                 {
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="product-item col-xl-3 col-lg-4 col-md-6 col-sm-12 @item.Category_Id">
                         <div class="card" style="width: 18rem;">
                             <img src="@item.Product_Image" class="card-img-top">
                             <div class="card-body">
