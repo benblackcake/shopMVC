@@ -430,15 +430,6 @@
                 </div>
                 <div class="row" id="two-btn">
 
-                    @*<a href="~/membercenter/index">
-            <p id="sign">SIGN IN</p>
-        </a>*@
-                    @*<a href="~/Home/memberlist">*@
-
-
-
-
-
                     @{
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
@@ -465,12 +456,18 @@
                             <a href="~/Home/memberlist">
                                 <p id="sign">@ViewBag.Name</p>
                             </a>
-                            <a href="~/Home/memberlist">
+                            <a href="~/Home/memberlist" class="userhover">
                                 <img src="~/Assest/images/profile.png" id="user-img">
+                                <div class="useruser">
+                                    <div class="rightupuserex">1</div>
+                                </div>
                             </a>
                             
-                            <a href="~/Cart/Cart">
+                            <a href="~/Cart/Cart" class="carthover">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                <div class="cartcart">
+                                    <div class="rightupcart">2</div>
+                                </div>
                             </a>
                            
                         }
@@ -479,12 +476,18 @@
                             <a href="~/membercenter/index">
                                 <p id="sign">SIGN IN</p>
                             </a>
-                            <a href="~/membercenter/index">
+                            <a href="~/membercenter/index" class="userhover">
                                 <img src="~/Assest/images/profile.png" id="user-img">
+                                <div class="useruser">
+                                    <div class="rightupuser">1</div>
+                                </div>
                             </a>
                             
-                            <a href="~/membercenter/index">
+                            <a href="~/membercenter/index" class="carthover">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                <div class="cartcart">
+                                    <div class="rightupcart">2</div>
+                                </div>
                             </a>
                             
                         }
