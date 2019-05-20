@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 @section topCSS{
     <style>
+        .title .container {
+            padding: 0;
+            width: 820px;
+            display: flex;
+        }
 
         .title .title-top {
             margin-top: 20px;
@@ -18,7 +23,7 @@
                 color: #000000;
             }
 
-        .container {
+        .title-content .container {
             padding: 0;
             width: 820px;
             display: flex;
@@ -27,7 +32,6 @@
 
         .title-content .item-img {
             display: block;
-            flex-wrap: wrap;
         }
 
 
@@ -128,8 +132,9 @@
                 text-decoration: none;
                 color: #888;
             }
+
         i {
-            padding-right:5px;
+            padding-right: 5px;
         }
 
         .input {
@@ -140,6 +145,7 @@
             border: 1px #cccccc;
             height: 40px;
             user-select: none;
+            background: #DDDDDD;
         }
     </style>
 }
@@ -147,9 +153,9 @@
 <div class="title">
     <div class="container">
         <div class="title-top">
-            <a href="#"><i class="fas fa-chevron-left"></i>BACK</a>＞
-            <a href="#">CLOTHES</a>＞
-            <a href="#">ASSHOLE</a>
+            <a href="@Url.Action("Product", "Home")"><i class="fas fa-chevron-left"></i>BACK</a>
+            <a href="#" style="padding-left:10px;">CLOTHES</a>＞
+            <a href="#">T-shirt</a>
         </div>
     </div>
 </div>
@@ -157,14 +163,14 @@
     <div class="container">
         <div class="item-img">
             <div class="img">
-                <a href="#"><img src="~/Assest/images/style'G.png" alt="商品圖" /></a>
+                <a href="#"><img src="~/Assest/images/c/70428.jpg" alt="商品圖" /></a>
             </div>
             <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
 
         </div>
         <div class="menu">
             <div class="title">
-                <h4>XX衣服/LP</h4>
+                <h4>衣服</h4>
                 <div class="tip">New</div>
             </div>
             <div class="row">
@@ -173,7 +179,7 @@
             </div>
             <div class="row">
                 <div class="a">顏色</div>
-                <div class="color">
+                <div class="color btn-group">
                     <button class="a_1" type="button">白</button>
                     <button class="a_1" type="button">黑</button>
                     <button class="a_1" type="button">灰</button>
@@ -181,7 +187,7 @@
             </div>
             <div class="row">
                 <div class="a">尺寸</div>
-                <div class="size">
+                <div class="size btn-group">
                     <button class="a_1" type="button">S</button>
                     <button class="a_1" type="button">M</button>
                     <button class="a_1" type="button">L</button>
@@ -191,7 +197,7 @@
             <div class="row">
                 <div class="a">數量</div>
                 <button class="bt">-</button>
-                <input type="text" class="input" />
+                <input type="text" class="input" oninput = "value=value.replace(/[^\d]/g,'')" />
                 <button class="bt">+</button>
             </div>
             <div><a href="#" class="buy">立即購買</a></div>
@@ -199,4 +205,3 @@
         </div>
     </div>
 </div>
-
