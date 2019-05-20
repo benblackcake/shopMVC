@@ -375,21 +375,28 @@
     /*margin-left: 5px;*/
 }
 
-    /*.search-block1 a {
-        display:inline;
-    }*/
+    .search-block1 a {
+        display: inline-block;
+        padding:0;
+    }
 
     .search-block1 input {
+        
         border: 0;
         outline: 0;
         color: white;
         background: transparent;
         border: none;
-        width:100px;
-        font-size: 20px;
+        /*font-size: 20px;*/
         /*margin-left: 5px;*/
         /*border-bottom: 1px solid white;*/
     }
+
+.search1 {
+    width:220px;
+}
+
+
 
 
 

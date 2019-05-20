@@ -1,4 +1,6 @@
 ﻿$(function () {
+
+    
     $(".icon").click(function () {
         var x = document.getElementById("testnav");
         if (x.className === "top-menu") {
@@ -9,7 +11,10 @@
             document.getElementById("main").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
             $("body").css("background-color", "rgba(0,0,0,0.4)");
-           
+            //$(".search-block1 input").css("display", "none");
+            //if ($(".sidenav responsive").css("width") == "250px") {
+            //    $(".search-block1 input").css("display", "");
+            //}
        }
     })
    

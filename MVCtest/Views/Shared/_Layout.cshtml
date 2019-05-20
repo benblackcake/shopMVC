@@ -445,9 +445,9 @@
                             using (Html.BeginForm("Logout", "MemberCenter", FormMethod.Post))
                             {
                                 <from>
-                                   <a href="~/Home/index" id="logout">
+                                    <a href="~/Home/index" id="logout">
                                         <input type="submit" value="Logout" />
-                                   </a>
+                                    </a>
                                 </from>
                             }
                         }
@@ -468,9 +468,11 @@
                             <a href="~/Home/memberlist">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                             </a>
+                            
                             <a href="~/Cart/Cart">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
+                           
                         }
                         else
                         {
@@ -480,12 +482,14 @@
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                             </a>
+                            
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
+                            
                         }
                     }
-                   
+
 
 
                     @*change   btn-mobile刪除*@
@@ -501,11 +505,10 @@
                     <div class="onBounce">
                         <div class="search-block1">
                             <form action="#" class="search1">
-                                
+                                <a href="#">
                                     <img src="~/Assest/images/layout_image/search-3-32.png" id="search-img">
-                                                               
+                                </a>                                                     
                                 <input type="text" placeholder="Search" />
-
                             </form>
                         </div>
                     </div>
