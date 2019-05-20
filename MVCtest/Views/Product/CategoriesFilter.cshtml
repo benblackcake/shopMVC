@@ -1,5 +1,5 @@
 ﻿
-@model  MVCtest.ViewModels.ProductListViewModel
+@model  IEnumerable<MVCtest.ViewModels.ProductViewModel>
 
 @{
     ViewBag.Title = "Product";
@@ -55,7 +55,7 @@
         <div class="col-2" id="left-list">
             <h3>種類</h3>
             <form action="/Product/CategoriesFilter" method="post" id="form1">
-                <label><input type="checkbox" name="#" class="checkList1" value="女性衣服">A種類</label>
+                <label><input type="checkbox" name="#" class="checkList1" value="A">A種類</label>
                 <label><input type="checkbox" name="#" class="checkList1" value="B">B種類</label>
                 <label><input type="checkbox" name="#" class="checkList1" value="C">C種類</label>
                 <input type="hidden" name="checkList1Value" id="checkList1Value" value="">
@@ -74,12 +74,12 @@
         <div class="col-10">
             <div class="row mt-3">
                 @*目前先這樣 以後可改成PartialView*@
-                @foreach (var item in Model.Items)
+                @foreach (var item in Model)
                 {
 
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="card" style="width: 18rem;">
-                            <img src="@item.Product_Image" class="card-img-top">
+                            <img src="@item.Product_Id" class="card-img-top">
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
                                 <p class="card-text text-center">@item.UnitPrice</p>

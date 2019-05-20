@@ -17,5 +17,13 @@ namespace MVCtest.Controllers
             ProductListViewModel psv = ps.GetProducts();
             return View(psv);
         }
+        public ActionResult CategoriesFilter(string checkList1Value)
+        {
+            FilterService filterService = new FilterService();
+            var viewModel = new List<ProductViewModel>();
+            viewModel = filterService.CategoriesFilter(checkList1Value);
+            return View(viewModel);
+        }
+
     }
 }
