@@ -14,7 +14,8 @@ namespace MVCtest.Controllers
         public ActionResult Category()
         {
             CategoryService csv = new CategoryService();
-            CategoryListViewModel result= csv.GetAllCategory();
+            CategoryListViewModel result = csv.GetAllCategory();
+            
             return PartialView(result);
         }
 

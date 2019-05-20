@@ -18,9 +18,15 @@ namespace MVCtest.Controllers
         public ActionResult Index()
         {
             ProductService ps = new ProductService();
-            ProductListViewModel psv = ps.GetProducts();
+            ProductListViewModel psv;
+            if (Request.QueryString["category"] != null) {
+                psv = ps.GetCategoryProduct(int.Parse(Request.QueryString["category"]));
+                Debug.Print(psv.Items.Count().ToString());
+            }else psv = ps.GetProducts();
+
             return View(psv);
         }
+
         [HttpGet]
         public ActionResult detail(int id)
         {
