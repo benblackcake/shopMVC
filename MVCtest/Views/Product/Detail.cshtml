@@ -1,0 +1,213 @@
+﻿@model  MVCtest.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+@section topCSS{
+    <style>
+
+        .title .title-top {
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+            .title .title-top a {
+                text-decoration: none;
+                color: #000000;
+            }
+
+        .container {
+            padding: 0;
+            width: 820px;
+            display: flex;
+        }
+
+
+        .title-content .item-img {
+            display: block;
+            flex-wrap: wrap;
+        }
+
+
+        .title-content img {
+            width: 370px;
+            height: 550px;
+            display: block;
+        }
+
+        .menu {
+            padding-left: 80px;
+        }
+
+
+        .title-content .menu select {
+            width: 300px;
+            height: 30px;
+        }
+
+        .title-content .menu input {
+            width: 70px;
+            height: 30px;
+        }
+
+        .title-content .menu .buy {
+            margin: 40px 0 20px 0;
+            border: 1px solid #444;
+            color: #000;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .title-content .menu .cart {
+            height: 46px;
+            background: #000000;
+            color: #DDDDDD;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+
+        .tip {
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 1;
+            color: #de1124;
+            border: 1px solid rgba(222,17,36,0.4);
+            float: left;
+        }
+
+        .menu .title {
+            height: 80px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            height: auto;
+            margin: 0;
+            padding-bottom: 30px;
+        }
+
+        .a {
+            padding-right: 20px;
+        }
+
+        .price {
+            font-family: fantasy;
+        }
+
+        .a_1 {
+            padding: 0;
+            padding: 0 10px 0 10px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            background: #f6f6f6;
+        }
+
+            .a_1:hover {
+                border: 1px solid #AAA;
+            }
+
+        .bt {
+            width: 30px;
+        }
+
+        .enlarge a {
+            float: right;
+            color: #aaa;
+        }
+
+            .enlarge a:hover {
+                text-decoration: none;
+                color: #888;
+            }
+        i {
+            padding-right:5px;
+        }
+
+        .input {
+            outline: none;
+            text-align: center;
+            vertical-align: top;
+            width: 60px;
+            border: 1px #cccccc;
+            height: 40px;
+            user-select: none;
+        }
+    </style>
+}
+
+<div class="title">
+    <div class="container">
+        <div class="title-top">
+            <a href="#"><i class="fas fa-chevron-left"></i>BACK</a>＞
+            <a href="#">CLOTHES</a>＞
+            <a href="#">ASSHOLE</a>
+        </div>
+    </div>
+</div>
+<div class="title-content">
+    <div class="container">
+        <div class="item-img">
+            <div class="img">
+                <a href="#"><img src="@Model.Product_Image" alt="商品圖" /></a>
+            </div>
+            <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
+
+        </div>
+
+        <div class="menu">
+    @*@using (Html.BeginForm("CartSave", "Cart", FormMethod.Post))
+    {*@
+            <form action="/Cart/Cart" method="post">
+                <div class="title">
+                    <h4>@Model.Product_Name</h4>
+                    <div class="tip">New</div>
+                </div>
+                <div class="row">
+                    <div class="a">價格</div>
+                    <div class="price">@Model.UnitPrice</div>
+                </div>
+                <div class="row">
+                    <div class="a">顏色</div>
+                    <div class="color">
+                        <button class="a_1" type="button">白</button>
+                        <button class="a_1" type="button">黑</button>
+                        <button class="a_1" type="button">灰</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">尺寸</div>
+                    <div class="size">
+                        <button class="a_1" type="button">S</button>
+                        <button class="a_1" type="button">M</button>
+                        <button class="a_1" type="button">L</button>
+                        <button class="a_1" type="button">XL</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">數量</div>
+                    <button class="bt">-</button>
+                    <input type="number" name="quantity" class="input" required />
+                    <button class="bt">+</button>
+                </div>
+
+                <div class="form-group"><button type="submit" class="buy">立即購買</button></div>
+                <div class="form-group"><button type="submit" class="cart">放入購物車</button></div>
+                <input type="hidden" name="productId" value="@Model.Product_Id" />
+                @*<input type="hidden" name="cartID" value="@Model.Product_Id" />*@
+            </form>
+@*}*@
+
+
+        </div>
+    </div>
+</div>
+

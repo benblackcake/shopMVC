@@ -21,6 +21,7 @@ namespace MVCtest.Controllers
         //    return Convert.ToBase64String(inArray);
         //    return EncodePasswordMd5(Convert.ToBase64String(inArray));
         //}
+        public static int ID;
 
         public static string EncodePassword(string pass) //Encrypt using MD5    
         {
@@ -30,6 +31,18 @@ namespace MVCtest.Controllers
             byte[] crypto = sha256.ComputeHash(source);//進行SHA256加密
             string result = Convert.ToBase64String(crypto);//把加密後的字串從Byte[]轉為字串
             return result;
+        }
+
+        public static bool CheckSession(HttpContextBase context)
+        {
+            if (context.Session["id"] != null)
+            {
+                ID = (int)context.Session["id"];
+                return true;
+            }
+            else return false;
+
+
         }
     }
 }

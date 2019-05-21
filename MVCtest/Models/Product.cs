@@ -55,6 +55,6 @@ namespace MVCtest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual SSub_Category SSub_Category { get; set; }
+        //public virtual SSub_Category SSub_Category { get; set; }
     }
 }
