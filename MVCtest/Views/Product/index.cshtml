@@ -9,7 +9,6 @@
     @Styles.Render("~/Assest/css/product-list.css")
 }
 
-
 <div class="container-fluid" id="outside">
     <label class="show-menu">
         Show Menu
@@ -31,7 +30,12 @@
     
     <div class="row mb-5">
         <div class="col-2" id="left-list">
-            <h3>SALES</h3>
+            <h3>種類</h3>
+            <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
+            <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
+            <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+
+            <h3>NEW IN</h3>
             <ul>
                 <li>你好</li>
                 <li>我很好</li>
@@ -40,7 +44,7 @@
                 <li>你好</li>
             </ul>
 
-            </div>
+        </div>
 
         <div class="col-10">           
             <div class="row mt-3">
@@ -48,10 +52,9 @@
 
                 @foreach (var item in Model.Items)
                 {
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3  @item.Category_Id" id="card">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3 @item.Category_Id" id="card">
                         <div class="card">
                             <a href="~/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" class="card-img-top"></a>
-
 
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
@@ -112,7 +115,8 @@
 
 </div>
 @section endJS {
-        <script src="~/Assest/js/productFilter.js"></script>
+    <script src="~/Assest/js/productFilter.js"></script>
+
 
     <script>
         $(function () {
