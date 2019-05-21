@@ -13,6 +13,7 @@ namespace MVCtest.Fiter
             if (Convert.ToBoolean(filterContext.HttpContext.Session["auth"]) == true)
             {
                 filterContext.Controller.ViewBag.Name = filterContext.HttpContext.Session["Name"].ToString();
+                filterContext.Controller.ViewBag.Email = filterContext.HttpContext.Session["Email"].ToString();
             }
             else
             {

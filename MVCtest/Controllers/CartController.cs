@@ -18,12 +18,13 @@ namespace MVCtest.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CartSave(string productName,int quantity)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Cart(int productId,int quantity)
         {
+            int id = int.Parse(HttpContext.Session["id"].ToString());
             CartService cs = new CartService();
-            cs.SaveCartDB(productName,quantity);
-            return View();
+            cs.SaveCartDB(productId,id,quantity);
+            return View(cs.GetListCart(id));
         }
         [HttpGet]
         public ActionResult Cart()

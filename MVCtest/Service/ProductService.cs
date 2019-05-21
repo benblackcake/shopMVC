@@ -34,5 +34,19 @@ namespace MVCtest.Service
             }
             return result;
         }
+
+        public ProductViewModel GetProductDetail(int id) {
+            DBModel contex = new DBModel();
+            DbRepository<Product> repo = new DbRepository<Product>(contex);
+
+            Product p =repo.GetAll().FirstOrDefault((x) => x.Product_Id==id);
+            ProductViewModel pro = new ProductViewModel() {
+                Product_Id=p.Product_Id,
+                Product_Name=p.Product_Name,
+                UnitPrice=p.UnitPrice,
+                Product_Image=p.Product_Image
+            };
+            return pro;
+        }
     }
 }
