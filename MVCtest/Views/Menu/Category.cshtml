@@ -3,39 +3,43 @@
 @{
     Layout = null;
 }
-           @foreach (var item in Model.Items)
-            {
+@{
+    int counter = 1;
+    foreach (var item in Model.Items)
+    {
 
-                <div class="subnav">
-                    <li class="nav-item">
-                        <a href="~/Product/index" id="">@item.Category_Name</a>
-                        @*@Html.ActionLink("NEW IN", "index", "Product")*@
-                        <div class="subnav-content">
-                            <div class="subnav-content-all">
-                                <div class="subnav-content-left">
-                                    @*Start*@
-                                        <h4>@item.Category_Name</h4>
-                                        <hr>
-                                        @foreach (var sub in item.Sub_Categroy)
-                                        {
-                                            <ul>
-                                                <li>
-                                                    <a class="d-block" href="#company" style="font-size:20px;">@sub.Category_Name</a>
-                                                </li>
-                                            </ul>
-                                        }
-                                    @*END*@
-                                </div>
-
-                                <div class="subnav-content-right">
-                                    <img src="~/Assest/images/style'G.png" id="trytry">
-                                </div>
-                            </div>
+        <div class="subnav">
+            <li class="nav-item"  id="@counter">
+                <a href="~/Product/index">@item.Category_Name</a>
+                @*@Html.ActionLink("NEW IN", "index", "Product")*@
+                <div class="subnav-content">
+                    <div class="subnav-content-all">
+                        <div class="subnav-content-left">
+                            @*Start*@
+                            <h4>@item.Category_Name</h4>
+                            <hr>
+                            @foreach (var sub in item.Sub_Categroy)
+                            {
+                                <ul>
+                                    <li>
+                                        <a class="d-block" href="#company" style="font-size:20px;">@sub.Category_Name</a>
+                                    </li>
+                                </ul>
+                            }
+                            @*END*@
                         </div>
-                    </li>
+
+                        <div class="subnav-content-right">
+                            <img src="~/Assest/images/layout_image/@counter .jpg" id="trytry">
+                        </div>
+                    </div>
                 </div>
+            </li>
+        </div>
 
 
+        counter = counter + 1;
 
 
-            }
+    }
+}

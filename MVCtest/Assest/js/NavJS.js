@@ -1,5 +1,15 @@
 ﻿$(function () {
-
+    $("#2 .subnav-content").addClass("subnav-content2");
+    $("#2 .subnav-content").removeClass("subnav-content");
+    //$("#2 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover02.jpg");
+    $("#3 .subnav-content").addClass("subnav-content3");
+    $("#3 .subnav-content").removeClass("subnav-content");
+    //$("#3 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover03.jpg");
+    $("#4 .subnav-content").addClass("subnav-content4");
+    $("#4 .subnav-content").removeClass("subnav-content");
+    //$("#4 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover04.jpg");
+    
+    
     
     $(".icon").click(function () {
         var x = document.getElementById("testnav");
@@ -83,5 +93,6 @@
     //$("#two-btn a").hover(function () {
     //    $(".useruser").css("display", "block");
     //})
-    
+
+   
 })

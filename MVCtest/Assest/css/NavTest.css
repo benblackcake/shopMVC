@@ -147,10 +147,12 @@
     display: none;
     position: absolute;
     line-height: 30px;
-    left: 0px;
-    height:300px;
+    /*left: 0px;
+    height:300px;*/
+    left:210px;
     background-color: white;
-    width: 98%;
+    /*width: 98%;*/
+    width:40%;
     z-index: 1;
     border: 2px;
     border-style: solid;
@@ -482,19 +484,19 @@
         .subnav-content-left h4 {
             font-size: 22px;
         }
-    #trytry {
+    /*#trytry {
         width: 260px;
         height: 280px;
-    }
+    }*/
 }
 
 
 @media only screen and (max-width:1050px) {
 
-    #trytry {
+    /*#trytry {
         width: 200px;
         height: 280px;
-    }
+    }*/
     #nav {
         display: none;
     }
