@@ -26,8 +26,12 @@ namespace MVCtest
             );
             routes.MapRoute(
                 name: "Product",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Product", action = "index", id = UrlParameter.Optional }
+                url: "{controller}/Index/"+ UrlParameter.Optional
+                //defaults: new { controller = "Product", action = "index", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "ProductC",
+                url: "Product/category/" + UrlParameter.Optional
             );
             routes.MapRoute(
                 name: "Cart",
