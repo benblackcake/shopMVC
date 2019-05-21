@@ -53,9 +53,9 @@
 }
 
 .card img{
-    height:430px;
+    height:380px;
 }
-@media only screen and (max-width:1450px) {
+@media only screen and (max-width:1250px) {
     #left-list {
         display: none;
     }
