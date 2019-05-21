@@ -68,36 +68,67 @@
                             <a href="~/Home/memberlist" class="userhover">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                                 <div class="useruser">
-                                    <div class="rightupuserex">1</div>
+                                    <div class="rightupuserex">
+                                        User Status
+                                    </div>
                                 </div>
                             </a>
-                            
+
                             <a href="~/Cart/Cart" class="carthover">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                                 <div class="cartcart">
-                                    <div class="rightupcart">2</div>
+                                    <div class="rightupcart">
+                                        YOUR CART
+                                        @*ParticialView 簡易購物車內容*@
+                                        TOTAL
+                                    </div>
                                 </div>
                             </a>
-                           
+
                         }
                         else
                         {
                             <a href="~/membercenter/index">
                                 <p id="sign">SIGN IN</p>
                             </a>
-                            <a href="~/membercenter/index" class="userhover">
-                                <img src="~/Assest/images/profile.png" id="user-img">
+                            <div class="userdropdown">
+                                <a href="~/membercenter/index" class="userhover">
+                                    <img src="~/Assest/images/profile.png" id="user-img">
+                                </a>
                                 <div class="useruser">
-                                    <div class="rightupuser">1</div>
+                                    <div class="rightupuser">
+                                        User Status
+                                    </div>
                                 </div>
-                            </a>
+                            </div>
                             
-                            <a href="~/membercenter/index" class="carthover">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+
+                            <div class="cartdropdown">
+                                <a href="~/membercenter/index" class="carthover">
+                                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                </a>
                                 <div class="cartcart">
-                                    <div class="rightupcart">2</div>
+                                    <div class="rightupcart">
+                                        <div>
+                                            <p id="upside">YOUR CART</p>
+                                        </div>
+                                        <hr />
+                                        @*ParticialView 簡易購物車內容*@
+                                        <div class="downtotal">
+                                            <div>
+                                                <p id="downside">TOTAL</p>
+                                            </div>
+                                            <hr />
+                                            <div id="downdiv">
+                                                <p id="total">123456</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
-                            </a>
+                            </div>
+
+                            
                             
                         }
                     }
