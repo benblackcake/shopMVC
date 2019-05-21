@@ -8,30 +8,10 @@
     foreach (var item in Model.Items)
     {
 
-<<<<<<< HEAD
-        <div class="subnav">
-            <li class="nav-item"  id="@counter">
-                <a href="~/Product/index">@item.Category_Name</a>
-                @*@Html.ActionLink("NEW IN", "index", "Product")*@
-                <div class="subnav-content">
-                    <div class="subnav-content-all">
-                        <div class="subnav-content-left">
-                            @*Start*@
-                            <h4>@item.Category_Name</h4>
-                            <hr>
-                            @foreach (var sub in item.Sub_Categroy)
-                            {
-                                <ul>
-                                    <li>
-                                        <a class="d-block" href="#company" style="font-size:20px;">@sub.Category_Name</a>
-                                    </li>
-                                </ul>
-                            }
-                            @*END*@
-                        </div>
-=======
+
+        
                 <div class="subnav">
-                    <li class="nav-item">
+                    <li class="nav-item" id="@counter">
                         <a href="~/Product/?category=@item.Category_Id" id="">@item.Category_Name</a>
                         @*@Html.ActionLink("NEW IN", "index", "Product")*@
                         <div class="subnav-content">
@@ -50,7 +30,6 @@
                                         }
                                     @*END*@
                                 </div>
->>>>>>> login_b
 
                         <div class="subnav-content-right">
                             <img src="~/Assest/images/layout_image/@counter .jpg" id="trytry">
