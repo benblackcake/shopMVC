@@ -70,6 +70,8 @@ function fnFilter(condition) {
     if ($($productItem).hasClass('show') || filterList.length == 0) {
         fnShow();
     }
+    $($productItem).hide();
+    $('.show').fadeIn();
 
 
     if (fnIsNoItemChoose()) {
@@ -111,9 +113,6 @@ function fnShow() {
             $($productItem[i]).removeClass('show');
         }
     }
-    $($productItem).hide();
-    $('.show').fadeIn();
-
 }
 
 function fnIsNoItemChoose() {
@@ -155,13 +154,15 @@ $("#priceBtn").on('click', function () {
         }
     }
     fnShow();
+    $($productItem).hide();
+    $('.show').fadeIn();
+
 });
 
 $('#reset').on('click', function () {
     $($filter).prop('checked', false);
     $("#price1").val("");
     $('#price2').val("");
-
     $($productItem).removeClass('show show-category show-color show-size show-price');
     $($productItem).hide();
     $($productItem).fadeIn();
