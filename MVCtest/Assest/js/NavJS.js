@@ -18,6 +18,7 @@
             $(".idk").addClass("responsive");
             $(".sidenav ").addClass("responsive");
             document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.zIndex = "20";
             document.getElementById("main").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
             $("body").css("background-color", "rgba(0,0,0,0.4)");

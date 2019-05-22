@@ -63,27 +63,44 @@
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
                             <a href="~/Home/memberlist">
-                                <p id="sign">@Session["name"]</p>
+                                <p id="sign">@*@Session["name"]*@</p>
                             </a>
-                            <a href="~/Home/memberlist" class="userhover">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                                <div class="useruser">
-                                    <div class="rightupuserex">
-                                        User Status
+                            <div class="userdropdown">
+                                <a href="~/Home/memberlist" class="userhover">
+                                    <img src="~/Assest/images/profile.png" id="user-img">
+                                    <div class="useruser">
+                                        <div class="rightupuserex">
+                                            @Session["name"]
+                                            @*User Status*@
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-
-                            <a href="~/Cart/Cart" class="carthover">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                                <div class="cartcart">
-                                    <div class="rightupcart">
-                                        YOUR CART
-                                        @*ParticialView 簡易購物車內容*@
-                                        TOTAL
+                                </a>
+                            </div>
+                            
+                            <div class="cartdropdown">
+                                <a href="~/Cart/Cart" class="carthover">
+                                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                    <div class="cartcart">
+                                        <div class="rightupcart">
+                                            <div>
+                                                <p id="upside">YOUR CART</p>
+                                            </div>
+                                            <hr />
+                                            @*ParticialView 簡易購物車內容*@
+                                            <div class="downtotal">
+                                                <div>
+                                                    <p id="downside">TOTAL</p>
+                                                </div>
+                                                <hr />
+                                                <div id="downdiv">
+                                                    <p id="total">123456</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+                           
 
                         }
                         else
@@ -97,7 +114,8 @@
                                 </a>
                                 <div class="useruser">
                                     <div class="rightupuser">
-                                        User Status
+                                        尚未登入會員唷~
+                                        @*User Status*@
                                     </div>
                                 </div>
                             </div>
