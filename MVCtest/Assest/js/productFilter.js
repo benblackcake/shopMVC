@@ -1,4 +1,26 @@
-﻿var $filter = $('.filter');
+﻿$(function () {
+    if ($(".show-menu").css("display") != "none") {
+        $(".col-10").addClass("col-12").addClass("container");
+        $(".col-10").removeClass("col-10");
+        //$("#card").removeClass("col-lg-3 col-md-4 col-sm-6");
+        //$("#card").addClass("col-lg-4 col-md-6 col-sm-12");
+    }
+
+    $(".show-menu").click(function () {
+        if ($(".drop-list").css("display") == "none") {
+            $(".drop-list").css("display", "block");
+        } else {
+            $(".drop-list").css("display", "none");
+        }
+
+    })
+
+})
+
+
+
+
+var $filter = $('.filter');
 var $categoryFilter = $('.category-filter');
 var $colorFilter = $('.color-filter');
 var $sizeFilter = $('.size-filter');
@@ -25,6 +47,7 @@ function fnFilter(condition) {
     $($productItem).removeClass('show show-' + condition);
 
     filterList = [];
+    //重新確認打勾數量
     for (var i = 0; i < valueFiter.length; i++) {
         var $this = $(valueFiter[i]);
         var $dataFilter = $($this).attr('data-' + condition);
@@ -32,14 +55,18 @@ function fnFilter(condition) {
             filterList.push($dataFilter);
         }
     }
-
+    //篩選 
     filterList.forEach(function (element) {
         for (var i = 0; i < $productItem.length; i++) {
             if ($($productItem[i]).attr('data-' + condition) == element) {
                 $($productItem[i]).addClass('show show-' + condition);
             }
+            else {
+                $($productItem[$productItem.length-1]).addClass('show-' + condition)
+            }
         }
     })
+
     if ($($productItem).hasClass('show') || filterList.length == 0) {
         fnShow();
     }

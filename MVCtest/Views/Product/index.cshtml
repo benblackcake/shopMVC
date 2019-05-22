@@ -52,11 +52,11 @@
             <label><input type="checkbox" name="#" class="filter color-filter" data-color="green">綠色</label>
             <label><input type="checkbox" name="#" class="filter color-filter" data-color="yellow">黃色</label>
             <label><input type="checkbox" name="#" class="filter color-filter" data-color="else-color">其他</label>
-
             <h3>尺寸</h3>
             <label><input type="checkbox" name="#" class="filter size-filter" data-size="S">S</label>
             <label><input type="checkbox" name="#" class="filter size-filter" data-size="M">M</label>
             <label><input type="checkbox" name="#" class="filter size-filter" data-size="L">L</label>
+
             <h3>價格區間</h3>
             <input type="number" name="name" value="" class="price" id="price1" />
             <i class="fas fa-arrows-alt-h"></i>
@@ -82,6 +82,7 @@
                         </div>
                     </div>
                 }
+               <div class="productItem" style="display:none;"></div>
 
                 @*<div class="col-3">
                             <img src="images/test-photo001.jpg" class="test">
@@ -135,26 +136,4 @@
 </div>
 @section endJS {
     <script src="~/Assest/js/productFilter.js"></script>
-
-
-    <script>
-        $(function () {
-            if ($(".show-menu").css("display") != "none") {
-                $(".col-10").addClass("col-12").addClass("container");
-                $(".col-10").removeClass("col-10");
-                //$("#card").removeClass("col-lg-3 col-md-4 col-sm-6");
-                //$("#card").addClass("col-lg-4 col-md-6 col-sm-12");
-            }
-
-            $(".show-menu").click(function () {
-                if ($(".drop-list").css("display") == "none") {
-                    $(".drop-list").css("display", "block");
-                } else {
-                    $(".drop-list").css("display", "none");
-                }
-
-            })
-
-        })
-    </script>
 }
