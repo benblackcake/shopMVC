@@ -62,6 +62,9 @@
             <i class="fas fa-arrows-alt-h"></i>
             <input type="number" name="name" value="" class="price" id="price2" />
             <br />
+            <input type="button" name="name" value="篩選價格" id="priceBtn" />
+            <input type="button" name="name" value="全部重設" id="reset" />
+
 
         </div>
 
@@ -71,7 +74,7 @@
 
                 @foreach (var item in Model.Items)
                 {
-                    <div class="productItem col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" data-category="@item.Category_Id" data-color="black" data-size="M" id="card">
+                    <div class="productItem col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" data-category="@item.Category_Id" data-color="black" data-size="M" data-price=@item.UnitPrice id="card">
                         <div class="card">
                             <a href="~/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" class="card-img-top"></a>
 

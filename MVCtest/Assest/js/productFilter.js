@@ -71,8 +71,6 @@ function fnFilter(condition) {
         fnShow();
     }
 
-    $($productItem).hide();
-    $('.show').fadeIn();
 
     if (fnIsNoItemChoose()) {
 
@@ -96,29 +94,26 @@ function fnShow() {
         if ($($productItem[i]).hasClass('show-size')) {
             count++;
         }
+        if ($($productItem[i]).hasClass('show-price')) {
+            count++;
+        }
+
         value.push(count);
     }
-    var classCout = -1;
 
-    if (value.indexOf(1) != -1) {
-        classCout = 1;
-    }
-    if (value.indexOf(2) != -1) {
-        classCout = 2;
-    }
-    if (value.indexOf(3) != -1) {
-        classCout = 3;
-    }
+    var classCout = Math.max(...value);
 
-    for (var i = 0; i < value.length; i++) {
+    for (var i = 0; i < value.length - 1; i++) {
         if (value[i] == classCout) {
             $($productItem[i]).addClass('show');
         }
         else {
             $($productItem[i]).removeClass('show');
-
         }
     }
+    $($productItem).hide();
+    $('.show').fadeIn();
+
 }
 
 function fnIsNoItemChoose() {
@@ -132,23 +127,42 @@ function fnIsNoItemChoose() {
     return bool;
 }
 
-//$(".price").on('change', function () {
-//    var $minPrice = 0;
-//    var $maxPrice = 0;
-//    var $price1 = $("#price1").val();
-//    var $price2 = $('#price2').val();
+$("#priceBtn").on('click', function () {
+    var minPrice = 0;
+    var maxPrice = 0;
+    var $price1 = +$("#price1").val();
+    var $price2 = +$('#price2').val();
 
-//    if ($price1 == 0 || $price2 == 0) {
-//        return;
-//    }
-//    if ($price1 >= $price2) {
-//        $maxPrice = +$price1;
-//        $minPrice = +$price2;
-//    }
-//    else {
-//        $maxPrice = +$price2;
-//        $minPrice = +$price1;
-//    }
+    if ($price1 == 0 || $price2 == 0) {
+        return;
+    }
+    if ($price1 >= $price2) {
+        maxPrice = +$price1;
+        minPrice = +$price2;
+    }
+    else {
+        maxPrice = +$price2;
+        minPrice = +$price1;
+    }
 
+    for (var i = 0; i < $productItem.length; i++) {
+        var $dataPrice = $($productItem[i]).attr('data-price');
+        if ($dataPrice >= minPrice && $dataPrice <= maxPrice) {
+            $($productItem[i]).addClass('show-price');
+        }
+        else {
+            $($productItem[$productItem.length-1]).addClass('show-price');
+        }
+    }
+    fnShow();
+});
 
-//});
+$('#reset').on('click', function () {
+    $($filter).prop('checked', false);
+    $("#price1").val("");
+    $('#price2').val("");
+
+    $($productItem).removeClass('show show-category show-color show-size show-price');
+    $($productItem).hide();
+    $($productItem).fadeIn();
+})
