@@ -3,65 +3,107 @@ var $categoryFilter = $('.category-filter');
 var $colorFilter = $('.color-filter');
 var $sizeFilter = $('.size-filter');
 var $productItem = $('.productItem'); 
-var filterList = []
+var filterList = [];
+var valueFiter = [];
+
 
 $categoryFilter.on('change', function () {
+    valueFiter = $categoryFilter;
     fnFilter('category');
 });
 $colorFilter.on('change', function () {
+    valueFiter = $colorFilter;
     fnFilter('color');
 });
 $sizeFilter.on('change', function () {
+    valueFiter = $sizeFilter;
     fnFilter('size');
 });
-
 
 function fnFilter(condition) {
 
     $($productItem).removeClass('show show-' + condition);
 
-
-
     filterList = [];
-    for (var i = 0; i < $filter.length; i++) {
-        var $this = $($filter[i]);
+    for (var i = 0; i < valueFiter.length; i++) {
+        var $this = $(valueFiter[i]);
         var $dataFilter = $($this).attr('data-' + condition);
         if ($this.prop('checked')) {
             filterList.push($dataFilter);
         }
     }
+
     filterList.forEach(function (element) {
         for (var i = 0; i < $productItem.length; i++) {
-            alert('a');
- //           var isAnyExist = ($($productItem[i]).hasClass('show-category') || $($productItem[i]).hasClass('show-color') || $($productItem[i]).hasClass('show-size'));
-            if ($($productItem[i]).attr('data-' + condition) == element && ($($productItem[i]).hasClass('show-category') || $($productItem[i]).hasClass('show-size'))) {
-                $($productItem[i]).addClass('show show-' +condition);
+            if ($($productItem[i]).attr('data-' + condition) == element) {
+                $($productItem[i]).addClass('show show-' + condition);
             }
         }
-    }) 
-
-    if ($($productItem).hasClass('show')) {
-        if ($($productItem).hasClass('show') == false && isAnyExist) {
-            $('.show-category').addClass('show');
-            $('.show-color').addClass('show');
-            $('.show-size').addClass('show');
-            $($productItem).hide();
-            $('.show').fadeIn();
-            return;
-        }
+    })
+    if ($($productItem).hasClass('show') || filterList.length == 0) {
+        fnShow();
     }
 
     $($productItem).hide();
     $('.show').fadeIn();
 
-    if (filterList.length != 0) {
-        return;
+    if (fnIsNoItemChoose()) {
+
+      $($productItem).fadeIn();
+
     }
-    $($productItem).fadeIn();
+
 }
 
+function fnShow() {
+    var value = []
 
+    for (var i = 0; i < $productItem.length; i++) {
+        var count = 0;
+        if ($($productItem[i]).hasClass('show-category')) {
+            count++;
+        }
+        if ($($productItem[i]).hasClass('show-color')) {
+            count++;
+        }
+        if ($($productItem[i]).hasClass('show-size')) {
+            count++;
+        }
+        value.push(count);
+    }
+    var classCout = -1;
 
+    if (value.indexOf(1) != -1) {
+        classCout = 1;
+    }
+    if (value.indexOf(2) != -1) {
+        classCout = 2;
+    }
+    if (value.indexOf(3) != -1) {
+        classCout = 3;
+    }
+
+    for (var i = 0; i < value.length; i++) {
+        if (value[i] == classCout) {
+            $($productItem[i]).addClass('show');
+        }
+        else {
+            $($productItem[i]).removeClass('show');
+
+        }
+    }
+}
+
+function fnIsNoItemChoose() {
+    var bool = true;
+    for (var i = 0; i < $filter.length; i++) {
+        if ($($filter[i]).prop('checked')) {
+            bool = false;
+            break;
+        }
+    }
+    return bool;
+}
 
 //$(".price").on('change', function () {
 //    var $minPrice = 0;
