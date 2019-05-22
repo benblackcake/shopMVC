@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container-fluid">
-       
+
         <div class="top-menu" id="testnav">
             @*上面橫條*@
 
@@ -38,8 +38,8 @@
                 <div class="row" id="two-btn">
 
                     @*<a href="~/membercenter/index">
-            <p id="sign">SIGN IN</p>
-        </a>*@
+                            <p id="sign">SIGN IN</p>
+                        </a>*@
                     @*<a href="~/Home/memberlist">*@
 
 
@@ -75,11 +75,11 @@
                             <a href="~/Home/memberlist">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                             </a>
-                            
+
                             <a href="~/Cart/Cart">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
-                           
+
                         }
                         else
                         {
@@ -89,11 +89,11 @@
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/profile.png" id="user-img">
                             </a>
-                            
+
                             <a href="~/membercenter/index">
                                 <img src="~/Assest/images/shopping-cart.png" id="cart-img">
                             </a>
-                            
+
                         }
                     }
 
@@ -114,12 +114,12 @@
                             <form action="#" class="search1">
                                 <a href="#">
                                     <img src="~/Assest/images/layout_image/search-3-32.png" id="search-img">
-                                </a>                                                     
+                                </a>
                                 <input type="text" placeholder="Search" />
                             </form>
                         </div>
                     </div>
-                    
+
                     <a href="#" class="a1">NEW IN</a>
                     <ul class="hidden1">
                         @*之後會變成foreach資料庫category*@
@@ -182,10 +182,10 @@
 
             </div>
 
-            
+
 
         </div>
-       
+
         <div class="idk">
             @RenderBody()
         </div>
@@ -251,7 +251,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <!-- <script> -->
-    
+
     @Scripts.Render("~/Assest/js/NavJS.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
