@@ -70,6 +70,10 @@
             margin-top: 15px;
         }
 
+    .carousel-indicators {
+        z-index: 10;
+    }
+
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         
@@ -110,7 +114,7 @@
 
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators" style="z-index:1;">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>

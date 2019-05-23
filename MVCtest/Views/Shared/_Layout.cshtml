@@ -31,20 +31,13 @@
             <div class="user">
                 <div class="search-block">
                     <form action="#" class="search">
-                        <img src="~/Assest/images/search.png" id="search-img">
+                        <a href="#">
+                            <img src="~/Assest/images/search.png" id="search-img">
+                        </a>                     
                         <input type="text" />
                     </form>
                 </div>
                 <div class="row" id="two-btn">
-
-                    @*<a href="~/membercenter/index">
-                            <p id="sign">SIGN IN</p>
-                        </a>*@
-                    @*<a href="~/Home/memberlist">*@
-
-
-
-
 
                     @{
                         if (Convert.ToBoolean(Session["auth"]) == true)
@@ -70,15 +63,45 @@
                         if (Convert.ToBoolean(Session["auth"]) == true)
                         {
                             <a href="~/Home/memberlist">
-                                <p id="sign">@Session["name"]</p>
-                            </a>
-                            <a href="~/Home/memberlist">
-                                <img src="~/Assest/images/profile.png" id="user-img">
+                                <p id="sign">@*@Session["name"]*@</p>
                             </a>
 
-                            <a href="~/Cart/Cart">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
+                            <div class="userdropdown">
+                                <a href="~/Home/memberlist" class="userhover">
+                                    <img src="~/Assest/images/profile.png" id="user-img">
+                                    <div class="useruser">
+                                        <div class="rightupuserex">
+                                            @Session["name"] 會員 你好~
+                                            @*User Status*@
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="cartdropdown">
+                                <a href="~/Cart/Cart" class="carthover">
+                                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                    <div class="cartcart">
+                                        <div class="rightupcart">
+                                            <div>
+                                                <p id="upside">YOUR CART</p>
+                                            </div>
+                                            <hr />
+                                            @*ParticialView 簡易購物車內容*@
+                                            <div class="downtotal">
+                                                <div>
+                                                    <p id="downside">TOTAL</p>
+                                                </div>
+                                                <hr />
+                                                <div id="downdiv">
+                                                    <p id="total">123456</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                           
 
                         }
                         else
@@ -86,14 +109,47 @@
                             <a href="~/membercenter/index">
                                 <p id="sign">SIGN IN</p>
                             </a>
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/profile.png" id="user-img">
-                            </a>
 
-                            <a href="~/membercenter/index">
-                                <img src="~/Assest/images/shopping-cart.png" id="cart-img">
-                            </a>
+                            <div class="userdropdown">
+                                <a href="~/membercenter/index" class="userhover">
+                                    <img src="~/Assest/images/profile.png" id="user-img">
+                                </a>
+                                <div class="useruser">
+                                    <div class="rightupuser">
+                                        尚未登入會員唷~
+                                        @*User Status*@
+                                    </div>
+                                </div>
+                            </div>
+                            
 
+                            <div class="cartdropdown">
+                                <a href="~/membercenter/index" class="carthover">
+                                    <img src="~/Assest/images/shopping-cart.png" id="cart-img">
+                                </a>
+                                <div class="cartcart">
+                                    <div class="rightupcart">
+                                        <div>
+                                            <p id="upside">YOUR CART</p>
+                                        </div>
+                                        <hr />
+                                        @*ParticialView 簡易購物車內容*@
+                                        <div class="downtotal">
+                                            <div>
+                                                <p id="downside">TOTAL</p>
+                                            </div>
+                                            <hr />
+                                            <div id="downdiv">
+                                                <p id="total">123456</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            
                         }
                     }
 
@@ -120,6 +176,7 @@
                         </div>
                     </div>
 
+
                     <a href="#" class="a1">NEW IN</a>
                     <ul class="hidden1">
                         @*之後會變成foreach資料庫category*@
@@ -133,7 +190,6 @@
                             <a href="#">test3</a>
                         </li>
                     </ul>
-                    @*@Html.ActionLink("NEW IN", "index", "Product")*@
                     <a href="#" class="a2">CLOTHES</a>
                     <ul class="hidden2">
                         @*之後會變成foreach資料庫category*@
@@ -173,10 +229,6 @@
                             <a href="#">test3</a>
                         </li>
                     </ul>
-
-
-
-
 
                 </div>
 

@@ -1,5 +1,15 @@
 ﻿$(function () {
-
+    $("#2 .subnav-content").addClass("subnav-content2");
+    $("#2 .subnav-content").removeClass("subnav-content");
+    //$("#2 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover02.jpg");
+    $("#3 .subnav-content").addClass("subnav-content3");
+    $("#3 .subnav-content").removeClass("subnav-content");
+    //$("#3 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover03.jpg");
+    $("#4 .subnav-content").addClass("subnav-content4");
+    $("#4 .subnav-content").removeClass("subnav-content");
+    //$("#4 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover04.jpg");
+    
+    
     
     $(".icon").click(function () {
         var x = document.getElementById("testnav");
@@ -8,6 +18,7 @@
             $(".idk").addClass("responsive");
             $(".sidenav ").addClass("responsive");
             document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.zIndex = "20";
             document.getElementById("main").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
             $("body").css("background-color", "rgba(0,0,0,0.4)");
@@ -79,4 +90,19 @@
     $(".search-block1 input").focusout(function () {
         $(".search-block1").css("border", "").css("padding","");
     })
+
+    //$("#two-btn a").hover(function () {
+    //    $(".useruser").css("display", "block");
+    //})
+
+
+    //$("#two-btn .userhover img").hover(function () {
+    //    if ($(".useruser").css("display") == "none") {
+    //        $(".useruser").css("display", "block");
+    //    } else {
+    //        $(".useruser").css("display", "none");
+    //    }
+        
+    //})
+   
 })

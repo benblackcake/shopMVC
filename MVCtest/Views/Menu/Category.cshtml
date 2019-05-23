@@ -3,11 +3,15 @@
 @{
     Layout = null;
 }
-            @foreach (var item in Model.Items)
-            {
+@{
+    int counter = 1;
+    foreach (var item in Model.Items)
+    {
 
+
+        
                 <div class="subnav">
-                    <li class="nav-item">
+                    <li class="nav-item" id="@counter">
                         <a href="~/Product/?category=@item.Category_Id" id="">@item.Category_Name</a>
                         @*@Html.ActionLink("NEW IN", "index", "Product")*@
                         <div class="subnav-content">
@@ -27,15 +31,17 @@
                                     @*END*@
                                 </div>
 
-                                <div class="subnav-content-right">
-                                    <img src="~/Assest/images/style'G.png" id="trytry">
-                                </div>
-                            </div>
+                        <div class="subnav-content-right">
+                            <img src="~/Assest/images/layout_image/@counter .jpg" id="trytry">
                         </div>
-                    </li>
+                    </div>
                 </div>
+            </li>
+        </div>
 
 
+        counter = counter + 1;
 
 
-            }
+    }
+}
