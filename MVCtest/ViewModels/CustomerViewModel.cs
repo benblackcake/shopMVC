@@ -9,7 +9,6 @@ namespace MVCtest.ViewModels
     public class CustomerViewModel {
         public int Customer_ID { get; set; }
         public string Customer_Name { get; set; }
-        public DateTime? Customer_BirDate { get; set; }
         public string Customer_Email { get; set; }
         public string Customer_Phone { get; set; }
         public string User_Password { get; set; }

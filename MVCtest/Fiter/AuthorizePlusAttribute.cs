@@ -15,6 +15,7 @@ namespace MVCtest.Fiter
             {
                 filterContext.Controller.ViewBag.Name = filterContext.HttpContext.Session["Name"].ToString();
                 filterContext.Controller.ViewBag.Email = filterContext.HttpContext.Session["Email"].ToString();
+                filterContext.Controller.ViewBag.ID = filterContext.HttpContext.Session["ID"].ToString();
             }
             else
             {

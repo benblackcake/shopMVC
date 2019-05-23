@@ -77,7 +77,8 @@ namespace MVCtest.Controllers
                 Session["auth"] = true;
                 Session["Name"] = name;
                 Session["Email"] = email;
-                Session["id"]= id;
+                Session["ID"]= id;
+                TempData["message"] = "登入成功。";
                 return RedirectToAction("index", "Home");
 
             }else{
@@ -93,6 +94,7 @@ namespace MVCtest.Controllers
             Debug.Print("GET");
             Session["auth"] = false;
             Session["Name"] = "Logout";
+            TempData["message"] = "登出成功。";
             return RedirectToAction("index", "MemberCenter");
 
         }
