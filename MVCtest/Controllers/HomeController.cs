@@ -1,4 +1,5 @@
 ﻿using MVCtest.Fiter;
+using MVCtest.Models;
 using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
@@ -30,6 +31,34 @@ namespace MVCtest.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult Updatemember(Customer input)
+        {
+            CustomerViewModel cvm = new CustomerViewModel();
+            cvm.Customer_Email = input.Customer_Email;
+            cvm.Customer_Name = input.Customer_Name;
+            string pwd = Helper.EncodePassword(input.User_Password);
+            cvm.User_Password = pwd;
+            cvm.Customer_Phone = input.Customer_Phone;
+            CustomerService service = new CustomerService();
+            Debug.Print(cvm.Customer_Email);
+            Debug.Print(cvm.Customer_Name);
+            Debug.Print(cvm.User_Password);
+            Debug.Print(cvm.Customer_Phone);
+
+            input.User_Password = Helper.EncodePassword(input.User_Password);
+
+            if (service.Update(input))
+            {
+                TempData["message"] = "修改成功";
+                return RedirectToAction("index", "MemberCenter");
+            }
+            else
+            {
+                TempData["message"] = "修改失敗";
+                return RedirectToAction("index", "MemberCenter");
+            }
         }
     }
 }
