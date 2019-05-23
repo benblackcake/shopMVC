@@ -1,0 +1,31 @@
+﻿@model  MVCtest.ViewModels.CategoryListViewModel
+@{
+    Layout = null;
+}
+
+@*~/Product/?category=@item.Category_Id*@
+
+@{
+    int counterid = 1;
+    int counterclass = 11;
+    
+    foreach (var item in Model.Items)
+    {
+        <a href="#" class="@counterid">@item.Category_Name</a>
+        <ul id="@counterclass">
+            @*之後會變成foreach資料庫category*@
+            @foreach (var sub in item.Sub_Categroy)
+            {
+                <li class="hidden-list">
+                    <a href="~/Product/?subcategory=@sub.Sub_Category_ID" style="font-size:20px;">@sub.Category_Name</a>
+                </li>
+            }
+        </ul>
+        counterid = counterid + 1;
+        counterclass = counterclass + 1;
+    }
+
+}
+
+
+

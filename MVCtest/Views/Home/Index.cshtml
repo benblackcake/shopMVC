@@ -37,6 +37,17 @@
         width: 100%;
         height: auto;
     }
+
+    #product4 .col-12 {
+        /*height: 620px;*/
+        /*background-color: azure;*/
+        background-size: 100%;
+    }
+
+    #product4 img {
+        width: 100%;
+        height: auto;
+    }
         .float {
             opacity: 0; /* 多加*/
             position: fixed;
@@ -167,7 +178,6 @@
     </div>
 
 
-
     <div class="row mt-4" id="product">
         @*<img class="col-3" src="~/Assest/images/c/70429.jpg" />
             <img class="col-3" src="" />
@@ -176,8 +186,8 @@
 
         @foreach (var item in Model.Items)
         {
-           <a class="col-lg-3 col-sm-6 col-xs-12" href="/Product/Detail/@item.Product_Id" ><img  src="@item.Product_Image"/></a>
-           @*<img class="col-lg-3 col-sm-6 col-xs-12" src="@item.Product_Image" />*@
+            <a class="col-lg-3 col-sm-6 col-xs-12" href="/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" /></a>
+            @*<img class="col-lg-3 col-sm-6 col-xs-12" src="@item.Product_Image" />*@
         }
 
     </div>

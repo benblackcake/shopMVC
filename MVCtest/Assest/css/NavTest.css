@@ -336,27 +336,29 @@
 
 
 
+ul {
+    list-style:none;
+}
 
-
-.hidden1 {
+#11 li{
     list-style: none;
     display: none;
 }
-.hidden2 {
+#12 li{
     list-style: none;
     display: none;
 }
-.hidden3 {
+#13 li{
     list-style: none;
     display: none;
 }
-.hidden4 {
+#14 li{
     list-style: none;
     display: none;
 }
 
 .hidden-list {
-    display:block;
+    display:none;
 }
 
 /*#two-btn {

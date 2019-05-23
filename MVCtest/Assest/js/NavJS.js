@@ -49,32 +49,32 @@
     //        }
     //    })
     //}
-    $("#mySidenav .a1").click(function () {
-        if ($(".hidden1").hasClass("hidden-list")) {
-            $(".hidden1").removeClass("hidden-list");
+    $("#mySidenav .1").click(function () {
+        if ($("#mySidenav #11 li").hasClass("hidden-list")) {
+            $("#mySidenav #11 li").removeClass("hidden-list");
         } else {
-            $(".hidden1").addClass("hidden-list");
+            $("#mySidenav #11 li").addClass("hidden-list");
         }
     })
-    $("#mySidenav .a2").click(function () {
-        if ($(".hidden2").hasClass("hidden-list")) {
-            $(".hidden2").removeClass("hidden-list");
+    $("#mySidenav .2").click(function () {
+        if ($("#mySidenav #12 li").hasClass("hidden-list")) {
+            $("#mySidenav #12 li").removeClass("hidden-list");
         } else {
-            $(".hidden2").addClass("hidden-list");
+            $("#mySidenav #12 li").addClass("hidden-list");
         }
     })
-    $("#mySidenav .a3").click(function () {
-        if ($(".hidden3").hasClass("hidden-list")) {
-            $(".hidden3").removeClass("hidden-list");
+    $("#mySidenav .3").click(function () {
+        if ($("#mySidenav #13 li").hasClass("hidden-list")) {
+            $("#mySidenav #13 li").removeClass("hidden-list");
         } else {
-            $(".hidden3").addClass("hidden-list");
+            $("#mySidenav #13 li").addClass("hidden-list");
         }
     })
-    $("#mySidenav .a4").click(function () {
-        if ($(".hidden4").hasClass("hidden-list")) {
-            $(".hidden4").removeClass("hidden-list");
+    $("#mySidenav .4").click(function () {
+        if ($("#mySidenav #14 li").hasClass("hidden-list")) {
+            $("#mySidenav #14 li").removeClass("hidden-list");
         } else {
-            $(".hidden4").addClass("hidden-list");
+            $("#mySidenav #14 li").addClass("hidden-list");
         }
     })
 
