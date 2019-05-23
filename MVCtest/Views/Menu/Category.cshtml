@@ -1,0 +1,41 @@
+﻿
+@model  MVCtest.ViewModels.CategoryListViewModel
+@{
+    Layout = null;
+}
+            @foreach (var item in Model.Items)
+            {
+
+                <div class="subnav">
+                    <li class="nav-item">
+                        <a href="~/Product/?category=@item.Category_Id" id="">@item.Category_Name</a>
+                        @*@Html.ActionLink("NEW IN", "index", "Product")*@
+                        <div class="subnav-content">
+                            <div class="subnav-content-all">
+                                <div class="subnav-content-left">
+                                    @*Start*@
+                                        <h4>@item.Category_Name</h4>
+                                        <hr>
+                                        @foreach (var sub in item.Sub_Categroy)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <a class="d-block" href="~/Product/?subcategory=@sub.Sub_Category_ID" style="font-size:20px;">@sub.Category_Name</a>
+                                                </li>
+                                            </ul>
+                                        }
+                                    @*END*@
+                                </div>
+
+                                <div class="subnav-content-right">
+                                    <img src="~/Assest/images/style'G.png" id="trytry">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+
+
+
+            }

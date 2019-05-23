@@ -12,7 +12,7 @@ namespace MVCtest.Controllers
 {
     public class HomeController : Controller
     {
-        [AuthorizePlus]
+        //[AuthorizePlus]
         public ActionResult Index()
         {
             ProductService ps = new ProductService();
@@ -23,13 +23,6 @@ namespace MVCtest.Controllers
             }
             return View(psv);
         }
-
-        //public ActionResult item()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
 
         [AuthorizePlus]
         public ActionResult memberlist()

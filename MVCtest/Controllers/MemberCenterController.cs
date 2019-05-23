@@ -13,7 +13,7 @@ namespace MVCtest.Controllers
     public class MemberCenterController : Controller
     {
         // GET: MemberCenter
-        [AuthorizePlus]
+        //[AuthorizePlus]
         public ActionResult index()
         {
             Debug.WriteLine("GET");
@@ -79,12 +79,14 @@ namespace MVCtest.Controllers
                 Session["Email"] = email;
                 Session["id"]= id;
                 return RedirectToAction("index", "Home");
+
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
                 return RedirectToAction("index", "MemberCenter");
             }
 
         }
+
         
         public ActionResult Logout ()
         {
