@@ -2,18 +2,29 @@
     background-color: azure;
     height: 800px;
 }
-.col-10 {
-    /* background-color: black; */
-    /*height: 1000px;*/
-}
 
-#left-list ul {
-    margin-top: 10px;
-    list-style: none;
+/*更動 by Zhou*/
+#left-list label{
+    margin-right:20px
 }
-
+/*更動by Zhou*/
 #left-list h3 {
     margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: #808080 2px solid;
+}
+
+input[type="number"] {
+    width: 95px;
+}
+
+input[type="button"] {
+    margin: 10px auto;
+    width: 200px;
+}
+
+input[type="checkbox"]{
+    margin-right : 5px;
 }
 
 #left-list li {
