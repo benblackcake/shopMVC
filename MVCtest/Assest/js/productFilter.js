@@ -132,7 +132,7 @@ $("#priceBtn").on('click', function () {
     var $price1 = +$("#price1").val();
     var $price2 = +$('#price2').val();
 
-    if ($price1 == 0 || $price2 == 0) {
+    if ($price1 == 0 && $price2 == 0) {
         return;
     }
     if ($price1 >= $price2) {
