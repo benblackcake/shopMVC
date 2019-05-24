@@ -6,10 +6,10 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 @section topCSS{
-    <style>
+<style>
         .title .container {
             padding: 0;
-            width: 820px;
+            width: auto;
             display: flex;
         }
 
@@ -24,36 +24,32 @@
             }
 
         .title-content .container {
-            padding: 0;
-            width: 820px;
+            padding: 0 10px;
+            width: auto;
             display: flex;
+            justify-content: center;
         }
 
 
         .title-content .item-img {
-            display: block;
+            margin-bottom: 20px;
+            padding:0;
         }
 
 
         .title-content img {
-            width: 370px;
-            height: 550px;
-            display: block;
+            width: 75%;
+            height: auto;
+            display: flex;
+            margin: auto;
         }
 
         .menu {
-            padding-left: 80px;
+            padding: 0;
         }
-
-
-        .title-content .menu select {
-            width: 300px;
-            height: 30px;
-        }
-
-        .title-content .menu input {
-            width: 70px;
-            height: 30px;
+        .menu .BUY {
+            width: 70%;
+            margin: auto;
         }
 
         .title-content .menu .buy {
@@ -86,7 +82,7 @@
             float: left;
         }
 
-        .menu .title {
+        .menu .Title {
             height: 80px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ddd;
@@ -101,11 +97,10 @@
 
         .a {
             padding-right: 20px;
+            text-align:center;
+            line-height:2;
         }
 
-        .price {
-            font-family: fantasy;
-        }
 
         .a_1 {
             padding: 0;
@@ -119,12 +114,18 @@
                 border: 1px solid #AAA;
             }
 
+
+        .price {
+            font-family: fantasy;
+            line-height: 2;
+        }
         .bt {
             width: 30px;
         }
 
         .enlarge a {
-            float: right;
+            position: absolute;
+            left: 70%;
             color: #aaa;
         }
 
@@ -133,21 +134,39 @@
                 color: #888;
             }
 
-        i {
-            padding-right: 5px;
-        }
-
         .input {
             outline: none;
             text-align: center;
             vertical-align: top;
-            width: 60px;
+            width: 40px;
             border: 1px #cccccc;
-            height: 40px;
             user-select: none;
             background: #DDDDDD;
         }
-    </style>
+
+    @@media screen and (max-width: 992px) {
+        .enlarge a {
+            left: 76%;
+        }
+        .Title {
+            text-align:center;
+        }
+        .tip {
+            float:none;
+            width:56.3px;
+            margin:auto;
+        }
+        .row {
+            display:flex;
+            justify-content:center;
+        }
+    }
+    @@media screen and (max-width: 768px) {
+        .enlarge a {
+            left: 70%;
+        }
+    }
+</style>
 }
 
 <div class="title">
@@ -161,47 +180,51 @@
 </div>
 <div class="title-content">
     <div class="container">
-        <div class="item-img">
-            <div class="img">
-                <a href="#"><img src="~/Assest/images/c/70428.jpg" alt="商品圖" /></a>
-            </div>
-            <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
+        <div class="row">
+            <div class="item-img col-12 col-lg-6">
+                <div class="img">
+                    <a href="#"><img src="~/Assest/images/c/70428.jpg" alt="商品圖" /></a>
+                </div>
+                <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
 
-        </div>
-        <div class="menu">
-            <div class="title">
-                <h4>衣服</h4>
-                <div class="tip">New</div>
             </div>
-            <div class="row">
-                <div class="a">價格</div>
-                <div class="price">NT$1000</div>
-            </div>
-            <div class="row">
-                <div class="a">顏色</div>
-                <div class="color btn-group">
-                    <button class="a_1" type="button">白</button>
-                    <button class="a_1" type="button">黑</button>
-                    <button class="a_1" type="button">灰</button>
+            <div class="menu col-12 col-lg-6">
+                <div class="Title">
+                    <h4>衣服</h4>
+                    <div class="tip">New</div>
+                </div>
+                <div class="row">
+                    <div class="a">價格</div>
+                    <div class="price">NT$1000</div>
+                </div>
+                <div class="row">
+                    <div class="a">顏色</div>
+                    <div class="color btn-group">
+                        <button class="a_1" type="button">白</button>
+                        <button class="a_1" type="button">黑</button>
+                        <button class="a_1" type="button">灰</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">尺寸</div>
+                    <div class="size btn-group">
+                        <button class="a_1" type="button">S</button>
+                        <button class="a_1" type="button">M</button>
+                        <button class="a_1" type="button">L</button>
+                        <button class="a_1" type="button">XL</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="a">數量</div>
+                    <button class="bt" onclick="sub">-</button>
+                    <input type="text" class="input" oninput="value=value.replace(/[^\d]/g,'')" />
+                    <button class="bt" onclick="add">+</button>
+                </div>
+                <div class="BUY">
+                    <div><a href="#" class="buy">立即購買</a></div>
+                    <div><a href="#" class="cart">放入購物車</a></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="a">尺寸</div>
-                <div class="size btn-group">
-                    <button class="a_1" type="button">S</button>
-                    <button class="a_1" type="button">M</button>
-                    <button class="a_1" type="button">L</button>
-                    <button class="a_1" type="button">XL</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="a">數量</div>
-                <button class="bt">-</button>
-                <input type="text" class="input" oninput = "value=value.replace(/[^\d]/g,'')" />
-                <button class="bt">+</button>
-            </div>
-            <div><a href="#" class="buy">立即購買</a></div>
-            <div><a href="#" class="cart">放入購物車</a></div>
         </div>
     </div>
 </div>
