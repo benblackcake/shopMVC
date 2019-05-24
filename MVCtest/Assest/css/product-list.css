@@ -36,8 +36,6 @@
 }
 
 
-
-
 .show-menu {
     display: none;
     
@@ -52,8 +50,19 @@
     justify-content: center;
 }
 
-.card img{
-    height:380px;
+/*.card {
+    
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}*/
+
+.card img {
+    width: auto;
+    height: 350px;
+    max-width: 100%;
+    max-height: 100%;
+    /*width: 100%;*/
 }
 @media only screen and (max-width:1250px) {
     #left-list {

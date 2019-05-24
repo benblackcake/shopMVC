@@ -447,7 +447,7 @@ ul {
 .rightupcart {
     position: absolute;
     line-height: 30px;
-    height: 200px;
+    /*height: 200px;*/
     right: 30px;
     top: 100px;
     
@@ -457,6 +457,7 @@ ul {
     z-index: 1;
     border: 1.5px solid #888;
     padding: 15px;
+   
 }
 
     .rightupcart #upside {
@@ -473,14 +474,37 @@ ul {
 
     .rightupcart #downdiv {
         display:block;
-        text-align:right;
+        justify-content:space-around;
     }
 
     .rightupcart .downtotal {
-        position:absolute;
-        width:90%;
+        
+        /*width:90%;*/
         bottom:0;
     }
+
+.price-sale {
+    text-align:right;
+}
+
+.cart-item .cart-detail {
+    margin-left: 20px;
+    width: 250px;
+    line-height: 30px;
+}
+
+.cart-detail p {
+    margin-bottom:0;
+}
+
+#downtotal {
+    width:400px;
+}
+
+#downdiv #total {
+    text-align: right;
+    margin-right:25px;
+}
 
 .cartcart {
     display: none;
@@ -502,6 +526,22 @@ ul {
 #logout input {
     padding:0;
 }
+
+.cartcart ul {
+    padding-left:20px;
+}
+
+.cart-item {
+    display: flex;
+    margin-top:10px;
+    margin-bottom:10px;
+    height:auto;
+}
+
+    .cart-item img {
+        width:70px;
+        height:90px;
+    }
 
 @media only screen and (max-width:1250px) { /*210 370 520 650*/
     .subnav-content {
