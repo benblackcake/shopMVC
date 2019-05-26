@@ -336,11 +336,11 @@
 
 
 
-ul {
-    list-style:none;
+#mySidenav ul {
+    list-style: none;
 }
 
-#11 li{
+/*#11 li{
     list-style: none;
     display: none;
 }
@@ -355,7 +355,7 @@ ul {
 #14 li{
     list-style: none;
     display: none;
-}
+}*/
 
 .hidden-list {
     display:none;
