@@ -91,7 +91,15 @@ input[type="checkbox"]{
 }
 
 
+#priceBtn:hover {
+    background-color: black;
+    color: white;
+}
 
+#reset:hover {
+    background-color: black;
+    color: white;
+}
 
 
 @media only screen and (max-width:1250px) {
@@ -116,16 +124,21 @@ input[type="checkbox"]{
         border-top:none;
     }
 
+    .drop-list label {
+        margin-right:5px;
+    }
+
     .drop-list ul {
-        list-style:none;
+        list-style: none;
     }
 
     .drop-list #priceBtn{
         width:40%;
     }
 
-    .drop-list #reset{
-        width:40%;
+
+    .drop-list #reset {
+        width: 40%;
     }
 
     #card {

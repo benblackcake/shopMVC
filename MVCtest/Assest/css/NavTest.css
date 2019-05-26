@@ -543,6 +543,7 @@
         height:90px;
     }
 
+
 @media only screen and (max-width:1250px) { /*210 370 520 650*/
     .subnav-content {
         left: 100px;  /*80*/
