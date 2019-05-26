@@ -1,0 +1,31 @@
+﻿@model List<MVCtest.ViewModels.CartViewModel>
+@{
+    Layout = null;
+}
+@{
+    foreach (var item in Model)
+    {
+    <div class="cart-item">
+
+        <div>
+            <img src="@item.ProductImage" id="test">
+        </div>
+        <div class="cart-detail">
+            <div>
+                @*<a href="" class="product-title"></a>*@
+                <p>@item.ProductName</p>
+            </div>
+            <div>
+                <span class="detail">黑| @item.Size | $@item.Unitprice</span>
+            </div>
+
+            <div class="price-sale">
+                <p>nt:@item.Unitprice</p>
+            </div>
+        </div>
+
+    </div>
+        }
+
+
+    }
