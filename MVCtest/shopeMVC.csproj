@@ -317,6 +317,7 @@
     <Content Include="Views\Home\memberlist.cshtml" />
     <Content Include="Views\Product\detail.cshtml" />
     <Content Include="Views\Menu\Category.cshtml" />
+    <Content Include="Views\Menu\SideCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
