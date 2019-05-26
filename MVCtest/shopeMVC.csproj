@@ -222,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assest\css\cart.css" />
+    <Content Include="Assest\css\layout-index.css" />
     <Content Include="Assest\css\NavTest.css" />
     <Content Include="Assest\css\product-list.css" />
     <Content Include="Assest\images\bg-2.jpg" />

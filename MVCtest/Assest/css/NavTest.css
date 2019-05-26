@@ -624,3 +624,16 @@
     }
 
 }
+
+@media only screen and (max-width:575px) {
+
+    .top-menu .user {
+        width:200px;
+        margin-right:5px;
+    }
+    #two-btn {
+        width: 200px;
+        margin-left: 0px;
+    }
+    
+}

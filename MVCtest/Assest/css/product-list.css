@@ -21,7 +21,7 @@ input[type="number"] {
 input[type="button"] {
     margin: 10px auto;
     background: transparent;
-    border: 2px solid black;
+    border: 1px solid black;
     display:block;
     width:100%;
     /*width: 200px;*/
@@ -73,12 +73,27 @@ input[type="checkbox"]{
 }*/
 
 .card img {
-    width: auto;
     height: 350px;
+    /*width: auto;
     max-width: 100%;
     max-height: 100%;
-    /*width: 100%;*/
+    width: 100%;*/
 }
+
+.card-body #money {
+    color: #ce687a;
+    font-weight: bold;
+    font-size:15px;
+}
+
+.productItem .card {
+    border:none;
+}
+
+
+
+
+
 @media only screen and (max-width:1250px) {
     #left-list {
         display: none;
@@ -94,9 +109,36 @@ input[type="checkbox"]{
         border: 2px solid black;
     }
 
+    .drop-list {
+        text-align: center;
+        border: 1px solid black;
+  
+        border-top:none;
+    }
+
     .drop-list ul {
         list-style:none;
     }
+
+    .drop-list #priceBtn{
+        width:40%;
+    }
+
+    .drop-list #reset{
+        width:40%;
+    }
+
+    #card {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .show-menu:hover {
+        background-color: black;
+        color:white;
+    }
+
+  
 
     /*.col-12 {
         width: 100%;
@@ -106,19 +148,20 @@ input[type="checkbox"]{
         margin-left: auto;
     }*/
 
-    /*.drop-list {
-        display: block;
-    }*/
+    
 
 }
-@media only screen and (max-width:1250px) {
-    
-    
+@media only screen and (max-width:575px) {
 
-    #card {
-        text-align:center;
-        justify-content:center;
+
+    .card img {
+        height: 450px;
+        /*width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;*/
     }
+    
 }
 
 

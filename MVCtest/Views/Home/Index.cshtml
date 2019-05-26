@@ -6,107 +6,8 @@
 }
 
 @section topCSS{
-    <style>
-
-        #product img {
-            height: 400px;
-            width: 100%;
-            margin-bottom: 20px;
-            /*background-color: azure;*/
-            /*border: 2px;
-            border-style: solid;*/
-        }
-
-        #product2 .col-12 {
-            /*height: 700px;*/
-            /*background-color: azure;*/
-            background-size: 100%;
-        }
-
-        #product2 img {
-            width: 100%;
-            height: auto;
-        }
-
-        #product3 .col-12 {
-            /*height: 620px;*/
-            /*background-color: azure;*/
-            background-size: 100%;
-        }
-
-        #product3 img {
-            width: 100%;
-            height: auto;
-        }
-
-
-
-    #product3 .col-12 {
-        /*height: 620px;*/
-        /*background-color: azure;*/
-        background-size: 100%;
-    }
-    #product3 img {
-        width: 100%;
-        height: auto;
-    }
-
-    #product4 .col-12 {
-        /*height: 620px;*/
-        /*background-color: azure;*/
-        background-size: 100%;
-    }
-
-    #product4 img {
-        width: 100%;
-        height: auto;
-    }
-
-        .float {
-            opacity: 0; /* 多加*/
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 150px;
-            right: 60px;
-            background-color: azure;
-            color: rgb(70, 69, 69);
-            border: 3px;
-            border-style: solid;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 2px 2px 3px #999;
-        }
-
-
-
-            .float p {
-                font-size: 15px;
-                position: fixed;
-                width: 60px;
-                height: 60px;
-                bottom: 70px;
-                right: 60px;
-            }
-
-        #up-icon {
-            width: 30px;
-            height: 30px;
-            margin-top: 15px;
-        }
-
-    .carousel-indicators {
-        z-index: 10;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        
-    }
-
-
-</style>
-
+   @Styles.Render("~/Assest/css/layout-index.css") 
+@*<link href="~/Assest/css/layout-index.css" rel="stylesheet" />*@
 }
 
 @*<div class="jumbotron">
@@ -215,7 +116,14 @@
     /*更動*/
         $(function () {
             $(".float").hide();
-
+            //if ($(window).width() < 1350) {
+            //    alert("hi");
+            //    $(".float").hide();
+            //} else {
+            //    $(".float").css("opacity", "1");
+            //    $(".float").fadeIn();
+            //    $(".float").fadeIn("slow");
+            //}
             $(window).scroll(function () {
 
                 if ($(this).scrollTop() < 600) {
@@ -231,6 +139,7 @@
 
 
             })
+           
 
         });
     </script>

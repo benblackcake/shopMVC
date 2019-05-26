@@ -9,8 +9,10 @@
     $(".show-menu").click(function () {
         if ($(".drop-list").css("display") == "none") {
             $(".drop-list").css("display", "block");
+            $(".show-menu").text("Close Menu");
         } else {
             $(".drop-list").css("display", "none");
+            $(".show-menu").text("Show Menu");
         }
 
     })

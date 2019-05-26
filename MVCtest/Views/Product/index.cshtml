@@ -17,22 +17,34 @@
     </label>
     <div class="drop-list">
         <h3>種類</h3>
-        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
-        <label><input type="checkbox" name="#" class="filter" data-filter="12102">男性衣服</label>
-        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <label><input type="checkbox" name="#" class="filter category-filter" data-category="12101">女性衣服</label>
+        <label><input type="checkbox" name="#" class="filter category-filter" data-category="12102">男性衣服</label>
+        <label><input type="checkbox" name="#" class="filter category-filter" data-category="12106">鞋子</label>
         <h3>顏色</h3>
-        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
-        <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
-        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="black">黑色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="gray">灰色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="white">白色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="blue">藍色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="red">紅色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="green">綠色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="yellow">黃色</label>
+        <label><input type="checkbox" name="#" class="filter color-filter" data-color="else-color">其他</label>
         <h3>尺寸</h3>
-        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
-        <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
-        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <label><input type="checkbox" name="#" class="filter size-filter" data-size="S">S</label>
+        <label><input type="checkbox" name="#" class="filter size-filter" data-size="M">M</label>
+        <label><input type="checkbox" name="#" class="filter size-filter" data-size="L">L</label>
+
         <h3>價格區間</h3>
-        <input type="number" name="name" value="" />
+        @*<input type="number" name="name" value="" />
         ~
         <input type="number" name="name" value="" />
-        <input type="button" name="name" value="" />
+        <input type="button" name="name" value="" />*@
+        <input type="number" name="name" value="" class="price" id="price1" />
+        <i class="fas fa-arrows-alt-h"></i>
+        <input type="number" name="name" value="" class="price" id="price2" />
+        <br />
+        <input type="button" name="name" value="篩選價格" id="priceBtn" />
+        <input type="button" name="name" value="全部重設" id="reset" />
 
 
     </div>
@@ -80,7 +92,7 @@
 
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
-                                <p class="card-text text-center">@item.UnitPrice</p>
+                                <p class="card-text text-center" id="money">NTD. @item.UnitPrice</p>
                             </div>
                         </div>
                     </div>
