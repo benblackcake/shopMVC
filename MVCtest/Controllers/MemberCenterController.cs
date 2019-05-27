@@ -42,7 +42,7 @@ namespace MVCtest.Controllers
             }
 
             Debug.WriteLine(input.Customer_Email.ToString());
-            Debug.WriteLine(Helper.EncodePassword(input.User_Password));
+            Debug.WriteLine(Helper.EncodePassword(input.User_Password)); 
             Debug.WriteLine("POST");
         }
         [HttpPost]
@@ -85,7 +85,7 @@ namespace MVCtest.Controllers
             }
 
         }
-        
+
         public ActionResult Logout ()
         {
             Debug.Print("GET");
