@@ -8,7 +8,7 @@
         .col-2 {
             /*background-color: azure;*/
             border: none;
-            border-right: 1px solid black;
+            /*border-right: 1px solid black;*/
             height: 800px;
         }
 
@@ -50,7 +50,7 @@
             text-align: center;
         }
             .order_tracking h3 {
-                margin-top: 30px;
+                margin-top: 15px;
             }
 
         .order_title {
@@ -59,19 +59,56 @@
             background: #636262;
             border-bottom: 2px solid #555;
             color: #fafafa;
+            margin-top:20px;
         }
 
-        .col-md-12 {
-            display:flex;
-            line-height:40px;
-        }
-
-        .col-md-3 {
+        #col-name {
             display: flex;
+            line-height: 40px;
         }
+
+        .detail {
+            text-align:center;
+        }
+
+        .card {
+            height:120px;
+        }
+
+        .card-item {
+            display: flex;
+            line-height: 120px;
+        }
+
+        .card-detail {
+            text-align:center;
+                
+        }
+
+        #top_center h3{
+            text-align:left;
+        }
+
+        #top_select {
+            height:30px;
+            display:flex;
+        }
+         
+        #top_select .col-6 p {
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            width:auto;
+        }
+
+        #top_select p {
+            font-size:20px;
+        }
+        
+
     </style>
 }
-<div class="container-fluid">
+@*<div class="container-fluid">
     <div class="row">
         <div class="col-2" id="left-list">
             <ul>
@@ -92,28 +129,82 @@
             </ul>
 
 
-        </div>
-        <div class="col-10">
-            <div class="order_tracking">
-                <h3>Order Tracking 訂單查詢</h3>
+        </div>*@
+        <div class="container">
+            <div class="col-12" id="top_center">
+                <h3>會員中心</h3>
             </div>
-            <div class="order_title">
-                <div class="col-md-12">
-                    <div class="col-md-1">訂單編號</div>
-                    <div class="col-md-2">訂單成立時間</div>
-                    <div class="col-md-2">訂單狀態</div>
-                    <div class="col-md-1">出貨日期</div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">退貨服務</div>
-                    <div class="col-md-2">查詢明細</div>
+            <div class="col-12" id="top_select">
+
+                <div class="col-6" id="edit">
+                    <a href="~/Home/memberlist" style="text-decoration: none; color:black;" id="edit_account">
+                        <p>Edit Account修改會員資料</p>
+                    </a>
                 </div>
-              
+                <p>|</p>
+                <div class="col-6" id="order">
+                    <a href="~/Home/history_order" style="text-decoration: none; color:black;" id="order_tracking">
+                        <p>Order Tracking 訂單查詢</p>
+                    </a>
+                </div>
             </div>
-            
+            <div class="col-12">
+                
+                <div class="order_title">
+                    <div class="col-md-12" id="col-name">
+                        <div class="detail col-md-2">訂單編號</div>
+                        <div class="detail col-md-2">訂單內容</div>
+                        <div class="detail col-md-2">訂單成立時間</div>
+                        <div class="detail col-md-2">總金額</div>
+                        <div class="detail col-md-2">付款方式</div>
+                        <div class="detail col-md-2">訂單狀態</div>
+
+                    </div>
+                </div>
+                @*PartialView 歷史訂單資訊*@
+                <div class="card">
+                    <div class="card-item col-md-12">
+                        <div class="card-detail col-md-2">20159484521</div>
+                        <div class="card-detail col-md-2">訂單內容</div>
+                        <div class="card-detail col-md-2">2019/5/27</div>
+                        <div class="card-detail col-md-2">NTD. 1200</div>
+                        <div class="card-detail col-md-2">宅配</div>
+                        <div class="card-detail col-md-2">運送中</div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-item col-md-12">
+                        <div class="card-detail col-md-2">20159484521</div>
+                        <div class="card-detail col-md-2">訂單內容</div>
+                        <div class="card-detail col-md-2">2019/5/27</div>
+                        <div class="card-detail col-md-2">NTD. 1200</div>
+                        <div class="card-detail col-md-2">宅配</div>
+                        <div class="card-detail col-md-2">運送中</div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</div>
+       
+    @*</div>
+</div>*@
 @section endJS{
+    <script>
+        $("#edit_account").hover(function() {
+            $("#edit p").css("color", "#737373");
+        }, function () {
+            $("#edit p").css("color", "black");
+        })
+
+        $("#order_tracking").hover(function () {
+            $("#order p").css("color", "#737373");
+        }, function () {
+            $("#order p").css("color", "black");
+        })
+    </script>
+
     @*@if (TempData["message"] != null)
     {
         <script type="text/javascript">
