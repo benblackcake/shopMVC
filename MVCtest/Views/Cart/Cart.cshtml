@@ -187,48 +187,41 @@
 }
 @section endJS {
     <script>
-    //window.onload = function () {
-    //    var count = document.getElementById("count");
-    //    var inc = document.getElementById("inc");
-    //    var dec = document.getElementById("dec");
-    //    inc.onclick = function () {
-    //        count.value = parseInt(count.value) - 1;
-    //    };
-    //    dec.onclick = function () {
-    //    count.value = parseInt(count.value) + 1;
-    //    };
-    //}
 
+        //var unitPrice = document.getElementsByClassName("unitPrice").innerHTML.substring(3);//商品單價
 
-    //var unitPrice = document.getElementsByClassName("unitPrice").innerHTML.substring(3);//商品單價
-
-    //執行頁面立刻執行
+        //執行頁面立刻執行
         window.onload = function () {
-            //$('#deliveryMethod').removeClass('dM');
-            //var numberOfProducts = $(".c_6 div").length;
-            //for (var i = 0; i < numberOfProducts; i++) {
-            //    document.getElementsByClassName("input-number-decrement").
-            //}
+            //$(".subtotal").text("123");  
         }
 
-        //增減商品數量
-        //function changeValue(delta) {
+        //商品數量減少按鈕
+        $('.input-number-decrement').on('click', function () {
+            var $this = $(this);
+            if ($this.next().val() > 1) {
+                var value = $this.next().val() - 1;
+                $this.next().val(value);
+                //var unitprice = $('.unitprice').text();
+                //$(".subtotal").text(unitprice * value);
+            }
+        })
 
-        //    if (count.value == 1 && delta == -1) {
+        //商品數量增加按鈕
+        $('.input-number-increment').on('click', function () {
+            var $this = $(this);
+            var value = +$this.prev().val() + 1;
+            $this.prev().val(value);
+        })
 
-        //    }
-        //    else {
-        //        count.value = parseInt(count.value) + delta;
-        //    }
-        //}
+        //下一步按鈕
+        function nextStep() {
+            $('.nextStep').hide();
+            $('#deliveryMethod').removeClass('dM');
+            $('.process span:nth-child(2)').addClass('done');
+            $('.process span:nth-child(3)').addClass('done');
+        }
 
-    function nextStep() {
-        $('.nextStep').hide();
-        $('#deliveryMethod').removeClass('dM');
-        $('.process span:nth-child(2)').addClass('done');
-        $('.process span:nth-child(3)').addClass('done');
-    }
-    </script>
+/**/</script>
 }
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -283,15 +276,15 @@
                 <div class="c_2">@item.ProductName</div>
                 <div class="c_3">@item.ProductNo</div>
                 <div class="c_4">@item.Size</div>
-                <div class="c_5">NT$@item.Unitprice</div>
+                <div class="c_5 unitprice">NT$@item.Unitprice</div>
                 <div class="c_6">
                     <div id="quantityChange">
-                        <span class="input-number-decrement" onclick="changeValue(-1)">-</span>
+                        <span class="input-number-decrement">-</span>
                         <input type="text" class="input-number-count" value="@item.Quantity" />
-                        <span class="input-number-increment" onclick="changeValue(1)">+</span>
+                        <span class="input-number-increment">+</span>
                     </div>
                 </div>
-                <div class="c_7">NT$680</div>
+                <div class="c_7 subtotal">NT$680</div>
                 <form class="c_8" action="/Cart/DeleteCart" method="post">
                     <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
                     <input type="hidden" name="cartID" value="@item.CartId" />
