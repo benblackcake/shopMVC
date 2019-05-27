@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "history_order";
+}
+
+@section topCSS {
+    <style>
+        .col-2 {
+            /*background-color: azure;*/
+            border: none;
+            border-right: 1px solid black;
+            height: 800px;
+        }
+
+        .col-10 {
+            /*background-color: burlywood;*/
+            height: 800px;
+        }
+
+        #left-list ul {
+            margin-top: 40px;
+            list-style: none;
+        }
+
+        #left-list li {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+
+        .btn.btn-edit,
+        .btn.btn-cancel {
+            font-size: 15px;
+            padding: 0 1.5em;
+            height: 37px;
+            line-height: 37px;
+            color: #3c3d41;
+            background-color: transparent;
+            border: 1px solid #5b5b5b;
+            border-radius: 4px;
+        }
+
+            .btn.btn-edit:hover,
+            .btn.btn-cancel:hover {
+                background: #222;
+                box-shadow: none;
+                color: white;
+            }
+        .order_tracking {
+            display: block;
+            text-align: center;
+        }
+            .order_tracking h3 {
+                margin-top: 30px;
+            }
+
+        .order_title {
+            display: block;
+            height: 40px;
+            background: #636262;
+            border-bottom: 2px solid #555;
+            color: #fafafa;
+        }
+
+        .col-md-12 {
+            display:flex;
+            line-height:40px;
+        }
+
+        .col-md-3 {
+            display: flex;
+        }
+    </style>
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2" id="left-list">
+            <ul>
+                <h3>會員中心</h3>
+                <a href="~/Home/memberlist" style="text-decoration: none; color:black;">
+                    <li>修改會員資料</li>
+                </a>
+
+                <a href="~/Home/history_order" style="text-decoration: none; color:black;">
+                    <li>訂單查詢</li>
+                </a>
+
+                <a href="#" style="text-decoration: none; color:black;">
+                    <li>常見問題</li>
+                </a>
+
+
+            </ul>
+
+
+        </div>
+        <div class="col-10">
+            <div class="order_tracking">
+                <h3>Order Tracking 訂單查詢</h3>
+            </div>
+            <div class="order_title">
+                <div class="col-md-12">
+                    <div class="col-md-1">訂單編號</div>
+                    <div class="col-md-2">訂單成立時間</div>
+                    <div class="col-md-2">訂單狀態</div>
+                    <div class="col-md-1">出貨日期</div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">退貨服務</div>
+                    <div class="col-md-2">查詢明細</div>
+                </div>
+              
+            </div>
+            
+        </div>
+    </div>
+</div>
+@section endJS{
+    @*@if (TempData["message"] != null)
+    {
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+        </script>
+    }*@
+
+}
+
+

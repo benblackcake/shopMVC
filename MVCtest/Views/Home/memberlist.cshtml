@@ -5,12 +5,14 @@
 @section topCSS {
     <style>
         .col-2 {
-            background-color: azure;
+            /*background-color: azure;*/
+            border:none;
+            border-right:1px solid black;
             height: 800px;
         }
 
         .col-10 {
-            background-color: burlywood;
+            /*background-color: burlywood;*/
             height: 800px;
         }
 
@@ -49,11 +51,11 @@
         <div class="col-2" id="left-list">
             <ul>
                 <h3>會員中心</h3>
-                <a href="#" style="text-decoration: none; color:black;">
+                <a href="~/Home/memberlist" style="text-decoration: none; color:black;">
                     <li>修改會員資料</li>
                 </a>
 
-                <a href="#" style="text-decoration: none; color:black;">
+                <a href="~/Home/history_order" style="text-decoration: none; color:black;">
                     <li>訂單查詢</li>
                 </a>
 
@@ -210,7 +212,7 @@
                                 </div>
                                 <div class="form-group txt-right">
                                     <!--  onclick="document.form1.reset()" -->
-                                    <input type="submit" class="btnSubmit btn-block" value="確認修改" />
+                                    <input type="submit" class="btn btn-edit" value="確認修改" />
                                     <!--  onclick="if(checkData(this)){document.form1.submit();}" -->
                                     <a href="#" class="btn btn-edit">取消</a>
                                 </div>
