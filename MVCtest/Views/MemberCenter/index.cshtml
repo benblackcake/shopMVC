@@ -1,8 +1,10 @@
 ﻿
-
+@using Microsoft.Owin.Security
 @model MVCtest.ViewModels.CustomerViewModel
 @{
     ViewBag.Title = "membercenter";
+
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
 }
 
 @section topCSS {
@@ -127,13 +129,23 @@
                     <div class="or_box">
                         <div class="or">or</div>
                     </div>
-                    <div class="form-group mt-4">
-                        <input type="submit" class="btnSubmit btn-block" value="FaceBook登入" />
-                    </div>
                     <div class="form-group">
                         <a href="#" class="ForgetPwd">忘記密碼?</a>
                     </div>
                 </form>
+            }
+
+            @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                    <p>
+                        @foreach (AuthenticationDescription p in loginProviders)
+                        {
+                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用 @p.Caption 帳戶登入">@p.AuthenticationType</button>
+                        }
+                    </p>
+                </div>
             }
         </div>
         <div class="col-md-6 login-form-2">
@@ -295,22 +307,22 @@
 
 @section Scripts {
     <script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '326886584671910',
-            xfbml: true,
-            version: 'v3.3'
-        });
-        FB.AppEvents.logPageView();
-    };
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '326886584671910',
+                xfbml: true,
+                version: 'v3.3'
+            });
+            FB.AppEvents.logPageView();
+        };
 
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-    }
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+}
 
