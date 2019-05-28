@@ -49,8 +49,8 @@
 
             .c_1 img {
                 margin: auto auto;
-                height: 80%;
-                width: 80%;
+                height: 120px;
+                width: 80px;
             }
 
         #delect {
@@ -117,11 +117,12 @@
 
             .nextStep button,
             .nextStep2 button {
-                width: 150px;
+                width: 100px;
                 color: #dddddd;
                 background-color: #000;
-                height: 50px;
+                height: 30px;
                 border: 0px;
+                margin: 10px 10px 0 0;
             }
 
         #deliveryMethod {
@@ -201,6 +202,7 @@
             if ($this.next().val() > 1) {
                 var value = $this.next().val() - 1;
                 $this.next().val(value);
+                
                 //var unitprice = $('.unitprice').text();
                 //$(".subtotal").text(unitprice * value);
             }
@@ -211,6 +213,12 @@
             var $this = $(this);
             var value = +$this.prev().val() + 1;
             $this.prev().val(value);
+        })
+
+        $('.input-number-count').on('change', function () {
+            var $this = $(this);
+            var value = $this.next('div').text();
+            alert(value);
         })
 
         //下一步按鈕
@@ -284,7 +292,7 @@
                         <span class="input-number-increment">+</span>
                     </div>
                 </div>
-                <div class="c_7 subtotal">NT$680</div>
+                <div class="c_7">NT$680</div>
                 <form class="c_8" action="/Cart/DeleteCart" method="post">
                     <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
                     <input type="hidden" name="cartID" value="@item.CartId" />
