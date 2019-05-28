@@ -135,7 +135,7 @@
                 </form>
             }
 
-            @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+            @using (Html.BeginForm("ExternalLogin", "MemberCenter", new { ReturnUrl = ViewBag.ReturnUrl }))
             {
                 @Html.AntiForgeryToken()
                 <div id="socialLoginList">

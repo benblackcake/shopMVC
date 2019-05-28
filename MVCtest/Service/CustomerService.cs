@@ -56,6 +56,28 @@ namespace MVCtest.Service
             else return null;
 
         }
+
+        public CustomerViewModel GetFbMember(string email, string name)
+        {
+
+            DBModel context = new DBModel();
+            DbRepository<Customer> repo = new DbRepository<Customer>(context);
+
+            //string pwd = Helper.EncodePassword(password);
+            Customer entity = repo.GetAll().FirstOrDefault((x) => x.Customer_Email == email & x.Customer_Name == name);
+
+            if (entity != null) {
+                CustomerViewModel cvm = new CustomerViewModel()
+                {
+                    Customer_ID = entity.Customer_ID,
+                    Customer_Name = entity.Customer_Name,
+                    Customer_Email = entity.Customer_Email,
+
+                };
+                return cvm;
+            } else return null;
+
+        }
         //public void GetName()
         //{
         //    ProductListViewModel result = new ProductListViewModel();

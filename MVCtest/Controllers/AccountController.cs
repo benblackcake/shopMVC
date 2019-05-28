@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MVCtest.Models;
+using System.Diagnostics;
 
 namespace MVCtest.Controllers
 {
@@ -323,6 +324,8 @@ namespace MVCtest.Controllers
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            Debug.Print(loginInfo.Email.ToString());
+            Debug.Print(loginInfo.DefaultUserName.ToString());
             if (loginInfo == null)
             {
                 return RedirectToAction("Login");
@@ -330,9 +333,14 @@ namespace MVCtest.Controllers
 
             // 若使用者已經有登入資料，請使用此外部登入提供者登入使用者
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+            
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session["auth"] = true;
+                    Session["Name"] = loginInfo.DefaultUserName;
+                    Session["Email"] = loginInfo.Email;
+                    Session["ID"] = loginInfo.ExternalIdentity;
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
