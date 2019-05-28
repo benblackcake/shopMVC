@@ -80,7 +80,7 @@ function setChart() {
         data: {
             labels: chart_labels,
             datasets: [{
-                label: "My First dataset",
+                label: "Monthly sales",
                 fill: true,
                 backgroundColor: gradientStroke,
                 borderColor: '#d346b1',
