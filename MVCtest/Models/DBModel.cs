@@ -4,6 +4,7 @@ namespace MVCtest.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using ViewModels;
 
     public partial class DBModel : DbContext
     {
@@ -11,6 +12,8 @@ namespace MVCtest.Models
             : base("name=DBcontext")
         {
         }
+
+        //public virtual DbSet<SaleQuantityViewModel> SaleQuantity { get; set; }
 
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CategoryGroup> CategoryGroups { get; set; }
