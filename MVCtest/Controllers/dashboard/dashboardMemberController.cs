@@ -13,14 +13,19 @@ namespace MVCtest.Controllers.dashboard
         // GET: dashboardMember
         public JsonResult GetChart()
         {
+            List<string> label = new List<string>();
+            List<int> data = new List<int>();
             OrderService os = new OrderService();
             SaleQuantityListViewModel result=os.GetSaleQuantity();
-
+            foreach (var item in result.Item) {
+                label.Add(item.Month.ToString()+"月");
+                data.Add(item.Quantity);
+            }
             
 
-            var data = new { Name = "kevin", Age = 40 };
+            var datas = new { label,data };
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(datas, JsonRequestBehavior.AllowGet);
         }
         // GET: dashboardMember 
         public ActionResult Index()
