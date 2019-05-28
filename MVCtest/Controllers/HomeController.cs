@@ -66,5 +66,14 @@ namespace MVCtest.Controllers
                 return RedirectToAction("memberlist", "Home");
             }
         }
+
+        //新增歷史訂單查詢
+        [AuthorizePlus]
+        public ActionResult history_order()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

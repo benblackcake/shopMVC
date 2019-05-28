@@ -226,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assest\css\cart.css" />
+    <Content Include="Assest\css\layout-index.css" />
     <Content Include="Assest\css\NavTest.css" />
     <Content Include="Assest\css\product-list.css" />
     <Content Include="Assest\dashboardAssets\dashboardCss\black-dashboard.css" />
@@ -490,6 +491,7 @@
     <Content Include="Views\Menu\SideCategory.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\dashboardMember\Index.cshtml" />
+    <Content Include="Views\Home\history_order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

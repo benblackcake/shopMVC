@@ -20,7 +20,7 @@
 }
 
 .top-menu {
-    background-color: white;
+    background-color:white;
     display: flex;
     width: 100%;
     position: fixed;
@@ -336,11 +336,11 @@
 
 
 
-ul {
-    list-style:none;
+#mySidenav ul {
+    list-style: none;
 }
 
-#11 li{
+/*#11 li{
     list-style: none;
     display: none;
 }
@@ -355,7 +355,7 @@ ul {
 #14 li{
     list-style: none;
     display: none;
-}
+}*/
 
 .hidden-list {
     display:none;
@@ -543,6 +543,7 @@ ul {
         height:90px;
     }
 
+
 @media only screen and (max-width:1250px) { /*210 370 520 650*/
     .subnav-content {
         left: 100px;  /*80*/
@@ -623,4 +624,17 @@ ul {
         background-color:black;
     }
 
+}
+
+@media only screen and (max-width:575px) {
+
+    .top-menu .user {
+        width:200px;
+        margin-right:5px;
+    }
+    #two-btn {
+        width: 200px;
+        margin-left: 0px;
+    }
+    
 }
