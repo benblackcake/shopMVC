@@ -8,11 +8,11 @@ namespace MVCtest.Models
 
     public partial class Sub_Categroy
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sub_Categroy()
-        {
-            SSub_Category = new HashSet<SSub_Category>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Sub_Categroy()
+        //{
+        //    SSub_Category = new HashSet<SSub_Category>();
+        //}
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -25,7 +25,7 @@ namespace MVCtest.Models
 
         public virtual CategoryGroup CategoryGroup { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SSub_Category> SSub_Category { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<SSub_Category> SSub_Category { get; set; }
     }
 }

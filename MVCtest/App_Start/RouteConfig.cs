@@ -22,17 +22,21 @@ namespace MVCtest
             routes.MapRoute(
                 name: "MemberCenter",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "MemberCenterController", action = "index", id = UrlParameter.Optional }
+                defaults: new { controller = "MemberCenter", action = "index", id = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "Product",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ProductController", action = "index", id = UrlParameter.Optional }
+                url: "{controller}/Index/"+ UrlParameter.Optional
+                //defaults: new { controller = "Product", action = "index", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "ProductC",
+                url: "Product/category/" + UrlParameter.Optional
             );
             routes.MapRoute(
                 name: "Cart",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "CartController", action = "Cart", id = UrlParameter.Optional }
+                defaults: new { controller = "Cart", action = "Cart", id = UrlParameter.Optional }
             );
         }
     }

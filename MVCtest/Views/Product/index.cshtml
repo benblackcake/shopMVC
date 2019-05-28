@@ -6,79 +6,78 @@
 }
 
 @section topCSS {
-    <style>
-        #left-list {
-            background-color: azure;
-            height: 800px;
-        }
-
-        .col-10 {
-            /* background-color: black; */
-            height: 1000px;
-        }
-
-        #left-list ul {
-            margin-top: 10px;
-            list-style: none;
-        }
-
-        #left-list h3 {
-            margin-top: 40px;
-        }
-
-        #left-list li {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .col-3 {
-            /* background-color: azure;
-            border: 2px;
-            border-style: solid; */
-            height: 400px;
-            text-align: center;
-        }
-
-        .test {
-            width: 250px;
-            height: 320px;
-            margin-top: 10px;
-        }
-    </style>
-
+    @Styles.Render("~/Assest/css/product-list.css")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 }
 
-<div class="container-fluid">
-    <div class="row">
+
+<div class="container-fluid" id="outside">
+    <label class="show-menu">
+        Show Menu
+    </label>
+    <div class="drop-list">
+        <h3>種類</h3>
+        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
+        <label><input type="checkbox" name="#" class="filter" data-filter="12102">男性衣服</label>
+        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <h3>顏色</h3>
+        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
+        <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
+        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <h3>尺寸</h3>
+        <label><input type="checkbox" name="#" class="filter" data-filter="12101">女性衣服</label>
+        <label><input type="checkbox" name="#" class="filter" data-filter="男性衣服">男性衣服</label>
+        <label><input type="checkbox" name="#" class="fliter" data-filter="鞋子">鞋子</label>
+        <h3>價格區間</h3>
+        <input type="number" name="name" value="" />
+        ~
+        <input type="number" name="name" value="" />
+        <input type="button" name="name" value="" />
+
+
+    </div>
+
+    <div class="row mb-5">
         <div class="col-2" id="left-list">
-            <h3>SALES</h3>
-            <ul>
+            <h3>種類</h3>
+            <label><input type="checkbox" name="#" class="filter category-filter" data-category="12101">女性衣服</label>
+            <label><input type="checkbox" name="#" class="filter category-filter" data-category="12102">男性衣服</label>
+            <label><input type="checkbox" name="#" class="filter category-filter" data-category="12106">鞋子</label>
+            <h3>顏色</h3>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="black">黑色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="gray">灰色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="white">白色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="blue">藍色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="red">紅色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="green">綠色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="yellow">黃色</label>
+            <label><input type="checkbox" name="#" class="filter color-filter" data-color="else-color">其他</label>
+            <h3>尺寸</h3>
+            <label><input type="checkbox" name="#" class="filter size-filter" data-size="S">S</label>
+            <label><input type="checkbox" name="#" class="filter size-filter" data-size="M">M</label>
+            <label><input type="checkbox" name="#" class="filter size-filter" data-size="L">L</label>
 
-                <li>你好</li>
-                <li>我很好</li>
-                <li>你好</li>
-                <li>我很好</li>
-                <li>你好</li>
-            </ul>
-            <h3>NEW IN</h3>
-            <ul>
+            <h3>價格區間</h3>
+            <input type="number" name="name" value="" class="price" id="price1" />
+            <i class="fas fa-arrows-alt-h"></i>
+            <input type="number" name="name" value="" class="price" id="price2" />
+            <br />
+            <input type="button" name="name" value="篩選價格" id="priceBtn" />
+            <input type="button" name="name" value="全部重設" id="reset" />
 
-                <li>你好</li>
-                <li>我很好</li>
-                <li>你好</li>
-                <li>我很好</li>
-                <li>你好</li>
-            </ul>
 
         </div>
+
         <div class="col-10">
-            <div class="row mt-3">  @*目前先這樣 以後可改成PartialView*@
+            <div class="row mt-3">
+                @*目前先這樣 以後可改成PartialView*@
+
                 @foreach (var item in Model.Items)
                 {
+                    <div class="productItem col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" data-category="@item.Category_Id" data-color="black" data-size="M" data-price=@item.UnitPrice id="card">
+                        <div class="card">
+                            <a href="~/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" class="card-img-top"></a>
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                        <div class="card" style="width: 18rem;">
-                           <a href="/Product/Detail/@item.Product_Id"><img src="@item.Product_Image" class="card-img-top"></a> 
                             <div class="card-body">
                                 <p class="card-text text-center">@item.Product_Name</p>
                                 <p class="card-text text-center">@item.UnitPrice</p>
@@ -86,53 +85,58 @@
                         </div>
                     </div>
                 }
+               <div class="productItem" style="display:none;"></div>
 
                 @*<div class="col-3">
-                    <img src="images/test-photo001.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
+                            <img src="images/test-photo001.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                        <div class="col-3">
+                            <img src="images/bg-2.jpg" class="test">
+                            <h5 class="mt-2">拉基長袖</h5>
+                            <h5>$1500</h5>
+                        </div>
+                    </div>*@
+
+
             </div>
-            <div class="row mt-3">
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-                <div class="col-3">
-                    <img src="images/bg-2.jpg" class="test">
-                    <h5 class="mt-2">拉基長袖</h5>
-                    <h5>$1500</h5>
-                </div>
-            </div>*@
-
-
         </div>
     </div>
-</div>
 
+</div>
+@section endJS {
+    <script src="~/Assest/js/productFilter.js"></script>
+}

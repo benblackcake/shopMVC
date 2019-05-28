@@ -1,0 +1,120 @@
+﻿#left-list {
+    background-color: azure;
+    height: 800px;
+}
+
+/*更動 by Zhou*/
+#left-list label{
+    margin-right:20px
+}
+/*更動by Zhou*/
+#left-list h3 {
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: #808080 2px solid;
+}
+
+input[type="number"] {
+    width: 95px;
+}
+
+input[type="button"] {
+    margin: 10px auto;
+    width: 200px;
+}
+
+input[type="checkbox"]{
+    margin-right : 5px;
+}
+
+#left-list li {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.col-3 {
+    /* background-color: azure;
+            border: 2px;
+            border-style: solid; */
+    height: 400px;
+    text-align: center;
+}
+
+.test {
+    width: 250px;
+    height: 320px;
+    margin-top: 10px;
+}
+
+
+.show-menu {
+    display: none;
+    
+}
+
+.drop-list {
+    display: none;
+}
+
+#card {
+    text-align: center;
+    justify-content: center;
+}
+
+/*.card {
+    
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}*/
+
+.card img {
+    width: auto;
+    height: 350px;
+    max-width: 100%;
+    max-height: 100%;
+    /*width: 100%;*/
+}
+@media only screen and (max-width:1250px) {
+    #left-list {
+        display: none;
+    }
+
+    .show-menu {
+        height:35px;
+        line-height:35px;
+        text-align: center;
+        display: block;
+        border-radius: 10px;
+        background: transparent;
+        border: 2px solid black;
+    }
+
+    .drop-list ul {
+        list-style:none;
+    }
+
+    /*.col-12 {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }*/
+
+    /*.drop-list {
+        display: block;
+    }*/
+
+}
+@media only screen and (max-width:1250px) {
+    
+    
+
+    #card {
+        text-align:center;
+        justify-content:center;
+    }
+}
+
+

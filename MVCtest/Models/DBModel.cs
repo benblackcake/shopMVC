@@ -21,7 +21,7 @@ namespace MVCtest.Models
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
-        public virtual DbSet<SSub_Category> SSub_Category { get; set; }
+        //public virtual DbSet<SSub_Category> SSub_Category { get; set; }
         public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
@@ -125,14 +125,14 @@ namespace MVCtest.Models
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SSub_Category>()
-                .Property(e => e.Category_Name)
-                .IsFixedLength();
+            //modelBuilder.Entity<SSub_Category>()
+            //    .Property(e => e.Category_Name)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<SSub_Category>()
-                .HasMany(e => e.Products)
-                .WithOptional(e => e.SSub_Category)
-                .HasForeignKey(e => e.Category_Id);
+            //modelBuilder.Entity<SSub_Category>()
+            //    .HasMany(e => e.Products)
+            //    .WithOptional(e => e.SSub_Category)
+            //    .HasForeignKey(e => e.Category_Id);
 
             modelBuilder.Entity<Sub_Categroy>()
                 .Property(e => e.Category_Name)

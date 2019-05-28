@@ -17,13 +17,11 @@
         #left-list ul {
             margin-top: 40px;
             list-style: none;
-
         }
 
         #left-list li {
             margin-top: 15px;
             margin-left: 20px;
-
         }
 
         .btn.btn-edit,
@@ -37,186 +35,201 @@
             border: 1px solid #5b5b5b;
             border-radius: 4px;
         }
-        .btn.btn-edit:hover,
-        .btn.btn-cancel:hover
-         {
-            background: #222;
-            box-shadow: none;
-            color:white;
-        }
-        </style>
+
+            .btn.btn-edit:hover,
+            .btn.btn-cancel:hover {
+                background: #222;
+                box-shadow: none;
+                color: white;
+            }
+    </style>
 }
 <div class="container-fluid">
-        <div class="row">
-            <div class="col-2" id="left-list">
-                <ul>
-                    <h3>會員中心</h3>
-                    <a href="#" style="text-decoration: none; color:black;">
-                        <li>修改會員資料</li>
-                    </a>
+    <div class="row">
+        <div class="col-2" id="left-list">
+            <ul>
+                <h3>會員中心</h3>
+                <a href="#" style="text-decoration: none; color:black;">
+                    <li>修改會員資料</li>
+                </a>
 
-                    <a href="#" style="text-decoration: none; color:black;">
-                        <li>訂單查詢</li>
-                    </a>
+                <a href="#" style="text-decoration: none; color:black;">
+                    <li>訂單查詢</li>
+                </a>
 
-                    <a href="#" style="text-decoration: none; color:black;">
-                        <li>常見問題</li>
-                    </a>
-
-
-                </ul>
+                <a href="#" style="text-decoration: none; color:black;">
+                    <li>常見問題</li>
+                </a>
 
 
-            </div>
-            <div class="col-10">
-                <section class="section-member-detail col-md-6 col-xs-12 mt-5 ml-5">
-                    <fieldset>
-                        <h3>Edit Account 修改會員資料</h3>
-
-                        <div class="form-group">
-
-                            <label>會員帳號</label><br>
-                            <input type="text" name="email" disabled="disabled" value="@ViewBag.Email" class="form-control">
-
-                        </div>
-                        <div class="form-group">
-                            <label>會員密碼</label><br>
-                            <input type="text" name="password" value="" class="form-control">
-
-                        </div>
-                        <div class="form-group">
-                            <label>會員姓名</label><br>
-                            <input type="text" name="name" value="@ViewBag.Name" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>會員電話</label><br>
-                            <input type="text" name="phone" value="" class="form-control">
-                        </div>
-                        @*<div class="form-group">
-            <label>出生日期 西元</label><br>
-
-            <input type="text" class="form-control" name="byear" value="">年
-            <select size="1" name="bmonth" class="default_select mt-3">
-                <option value="">請選擇</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-
-            </select>月
-            <select size="1" name="bday" class="default_select mt-3">
-                <option value="">請選擇</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-
-            </select>
-
-        </div>*@
+            </ul>
 
 
+        </div>
+        <div class="col-10">
+            <section class="section-member-detail col-md-6 mt-5 ml-5">
+                <fieldset>
+                    @using (Html.BeginForm("Updatemember", "Home", FormMethod.Post))
+                    {
 
-                        @*<div class="form-group clearboth block-edit-tel">
+                        <form>
+                            <h3>Edit Account 修改會員資料</h3>
 
-            <div class="row tel-edit hide">
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <input type="text" value="" name="tel1"
-                                   class="form-control form--inline short" maxlength="6" placeholder="區碼">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" value="" name="tel2" class="form-control">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" value="" name="tel3"
-                                   class="form-control form--inline short" maxlength="6" placeholder="分機">
-                        </div>
-                    </div>
-                </div>
+                            <div class="form-group">
+                                <input type="hidden" name="Customer_ID" value="@ViewBag.ID" />
 
-            </div>
-        </div>*@
-
-
-                        @*<div class="form-group clearboth block-edit-mobile">
-                            <label>行動電話</label><br>
-                            <div class="tel-no-edit">*@
-                                <!-- <div class="form-control">
-                <font color="#DD0000">未填寫</font>
-            </div> -->
-                                @*<input type="hidden" name="chkmobile" value="0">
+                                <label>會員帳號</label><br>
+                                <input type="text" name="Customer_Email" value="@ViewBag.Email" class="form-control">
 
                             </div>
-                            <div class="row tel-edit hide">
-                                <div class="col-md-9">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="text" value="" name="mobile" class="form-control">
-                                        </div>
-                                    </div>
+                            <div class="form-group">
+                                <label>會員密碼</label><br>
+                                <input type="text" name="User_Password" value="" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label>會員姓名</label><br>
+                                <input type="text" name="Customer_Name" value="@ViewBag.Name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>會員電話</label><br>
+                                <input type="text" name="Customer_Phone" value="" class="form-control">
+                            </div>
+                            @*<div class="form-group">
+                    <label>出生日期 西元</label><br>
+
+                    <input type="text" class="form-control" name="byear" value="">年
+                    <select size="1" name="bmonth" class="default_select mt-3">
+                        <option value="">請選擇</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+                    </select>月
+                    <select size="1" name="bday" class="default_select mt-3">
+                        <option value="">請選擇</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+
+                    </select>
+
+                </div>*@
+
+
+
+                            @*<div class="form-group clearboth block-edit-tel">
+
+                    <div class="row tel-edit hide">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="text" value="" name="tel1"
+                                           class="form-control form--inline short" maxlength="6" placeholder="區碼">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" value="" name="tel2" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" value="" name="tel3"
+                                           class="form-control form--inline short" maxlength="6" placeholder="分機">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>*@
+
+
+                            @*<div class="form-group clearboth block-edit-mobile">
+                <label>行動電話</label><br>
+                <div class="tel-no-edit">*@
+                            <!-- <div class="form-control">
+                <font color="#DD0000">未填寫</font>
+            </div> -->
+                            @*<input type="hidden" name="chkmobile" value="0">
+
+                    </div>
+                    <div class="row tel-edit hide">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" value="" name="mobile" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>*@
+
+
+
+
+                            <div class="section-member-submit">
+                                <div class="form-group clearboth">
+
+                                    <input id='epaper' name="epaper" type='checkbox' />
+                                    <label for='epaper' class="epaper"><span></span>我願意收到STYLE'G電子報</label>
+                                </div>
+                                <div class="form-group txt-right">
+                                    <!--  onclick="document.form1.reset()" -->
+                                    <input type="submit" class="btnSubmit btn-block" value="確認修改" />
+                                    <!--  onclick="if(checkData(this)){document.form1.submit();}" -->
+                                    <a href="#" class="btn btn-edit">取消</a>
                                 </div>
 
                             </div>
-                        </div>*@
-
-
-
-
-                        <div class="section-member-submit">
-                            <div class="form-group clearboth">
-
-                                <input id='epaper' name="epaper" type='checkbox' />
-                                <label for='epaper' class="epaper"><span></span>我願意收到STYLE'G電子報</label>
-                            </div>
-                            <div class="form-group txt-right">
-                                <!--  onclick="document.form1.reset()" -->
-                                <a href="#" class="btn btn-cancel">取消</a>
-                                <!--  onclick="if(checkData(this)){document.form1.submit();}" -->
-                                <a href="#" class="btn btn-edit">確認修改</a>
-                            </div>
-
-                        </div>
-
-                    </fieldset>
-                </section>
-            </div>
+                        </form>
+                    }
+                </fieldset>
+            </section>
         </div>
+    </div>
 </div>
+@section endJS{
+    @if (TempData["message"] != null)
+    {
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+        </script>
+    }
 
+}

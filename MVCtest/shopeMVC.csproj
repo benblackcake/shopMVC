@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberCenterController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,12 +207,15 @@
     <Compile Include="Models\Sub_Categroy.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CategoryService.cs" />
     <Compile Include="ViewModels\CartVIewModel.cs" />
     <Compile Include="Repository\DbRepository.cs" />
     <Compile Include="Service\CartService.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CategoryListViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -219,15 +223,23 @@
   <ItemGroup>
     <Content Include="Assest\css\cart.css" />
     <Content Include="Assest\css\NavTest.css" />
+    <Content Include="Assest\css\product-list.css" />
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
     <Content Include="Assest\images\img-carousel-2.jpg" />
     <Content Include="Assest\images\img-carousel-3.jpg" />
+    <Content Include="Assest\images\index-image\index-big.jpg" />
+    <Content Include="Assest\images\index-image\index-big2.jpg" />
+    <Content Include="Assest\images\layout_image\2 .jpg" />
+    <Content Include="Assest\images\layout_image\3 .jpg" />
+    <Content Include="Assest\images\layout_image\4 .jpg" />
     <Content Include="Assest\images\index-image\styleG1.jpg" />
     <Content Include="Assest\images\index-image\styleG2.jpg" />
     <Content Include="Assest\images\index-image\styleG3.jpg" />
     <Content Include="Assest\images\instagram.png" />
+    <Content Include="Assest\images\layout_image\1 .jpg" />
+    <Content Include="Assest\images\layout_image\search-3-32.png" />
     <Content Include="Assest\images\line.png" />
     <Content Include="Assest\images\profile.png" />
     <Content Include="Assest\images\search.png" />
@@ -236,6 +248,7 @@
     <Content Include="Assest\images\up.png" />
     <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
+    <Content Include="Assest\js\productFilter.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -303,6 +316,8 @@
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Home\memberlist.cshtml" />
     <Content Include="Views\Product\detail.cshtml" />
+    <Content Include="Views\Menu\Category.cshtml" />
+    <Content Include="Views\Menu\SideCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
