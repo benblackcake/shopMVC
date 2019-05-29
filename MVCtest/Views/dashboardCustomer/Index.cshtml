@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+}
+
+<h2>CustomerTable</h2>
+
+<table id=" employeeTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+</table>
+
+<script src="~/Assest/dashboardAssets/dashboardJs/plugins/chartjs.min.js"></script>
+
+<script src="~/Assest/dashboardAssets/dashboardDemo/demo.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#CustomerTable').DataTable(
+            {
+                "ajax": {
+                    "url": "dashboardCustomer/GetChart",
+                    "type": "GET",
+                    "datetype": "json"
+                },
+                
+
+
+            }
+
+        );
+    });
+
+
+</script>
