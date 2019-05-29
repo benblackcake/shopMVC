@@ -100,12 +100,10 @@ namespace MVCtest.Service
                           UnitPrice = p.UnitPrice,
                           Size = p.Size,
                           Stock = p.Stock
-
                       };
 
             foreach (var item in tmp)
             {
-
                 result.Items.Add(item);
             }
             return result;

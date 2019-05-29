@@ -29,9 +29,18 @@ namespace MVCtest.Controllers.dashboard
         }
         // GET: dashboardMember 
         public ActionResult Index()
-        {
-            
+        {            
+
             return View();
         }
+
+        public ActionResult category()
+        {
+            CategoryService csv = new CategoryService();
+            CategoryListViewModel result = csv.GetAllCategory();
+            return View(result);
+        }
+
+
     }
 }

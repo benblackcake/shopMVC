@@ -69,11 +69,15 @@ namespace MVCtest.Controllers
 
         //新增歷史訂單查詢
         [AuthorizePlus]
+        [HttpGet]
         public ActionResult history_order()
         {
-            ViewBag.Message = "Your contact page.";
+            int id = (int)Session["id"];
 
-            return View();
+            OrderService cs = new OrderService();
+            OrderTrackingListViewModel olv= cs.GetListOrder(id);
+
+            return View(olv);
         }
     }
 }

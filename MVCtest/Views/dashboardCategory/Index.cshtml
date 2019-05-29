@@ -1,0 +1,39 @@
+﻿@model MVCtest.ViewModels.CategoryListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Order</h2>
+<div class="col-12">
+    <table class="table">
+        <tr>
+            <th>
+                Sub_CategoryID
+            </th>
+            <th>
+                Sub_CategoryName
+            </th>
+
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @item.Category_Id
+                   
+                <td>
+                    @item.Category_Name
+                    
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
