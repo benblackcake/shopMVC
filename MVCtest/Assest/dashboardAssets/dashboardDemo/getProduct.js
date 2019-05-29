@@ -4,7 +4,7 @@ table = $('#datatables').DataTable({
     "processing": true,
     // "serverSide": true,
     "ajax": {
-        "url": "/dashboardMember/getProduct",
+        "url": "/api/dashboardMember/getProduct",
         "type": "GET"
     },
     "columns": [
@@ -30,3 +30,14 @@ table = $('#datatables').DataTable({
 });
 
 
+ID = "";
+$('#datatables tbody').on('click', '.btn-dark', function () {
+    data = table.row($(this).parents('tr')).data();
+    $("#Product_Name").val(data['Product_Name']);
+    $("#UnitPrice").val(data['UnitPrice']);
+    $("#Sub_Category_Name").val(data['Sub_Category_Name']);
+    $("#CategoryGroup_Name").val(data['CategoryGroup_Name']);
+    $("#Product_Image").val(data['Product_Image']);
+    $("#myModal").modal();
+    ID = data['Product_Id'];
+});

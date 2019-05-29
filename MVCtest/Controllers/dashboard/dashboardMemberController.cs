@@ -8,9 +8,12 @@ using System.Web.Mvc;
 
 namespace MVCtest.Controllers.dashboard
 {
-    public class dashboardMemberController : Controller
+    
+    public class dashboardProductController : Controller
     {
+
         //API GET :/dashboardMember/GetChart
+        [Route("api/dashboardMember/GetChart")]
         public JsonResult GetChart()
         {
             List<string> label = new List<string>();
@@ -36,7 +39,7 @@ namespace MVCtest.Controllers.dashboard
             return null;
         }
         //API GET :/dashboardMember/getProduct
-        [HttpGet]
+        [Route("api/dashboardMember/GetProduct")]
         public JsonResult getProduct(){
             ProductService ps = new ProductService();
             ProductListViewModel psv= ps.GetAllProduct();

@@ -1,4 +1,4 @@
-url = '/dashboardMember/GetChart';
+url = '/api/dashboardMember/GetChart';
 method = 'GET';
 
 var chart_labels = [];
