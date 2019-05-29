@@ -10,7 +10,7 @@ namespace MVCtest.Controllers.dashboard
 {
     public class dashboardMemberController : Controller
     {
-        // GET: dashboardMember
+        //API GET :/dashboardMember/GetChart
         public JsonResult GetChart()
         {
             List<string> label = new List<string>();
@@ -27,10 +27,34 @@ namespace MVCtest.Controllers.dashboard
 
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
-        // GET: dashboardMember 
+
+        //新增商品
+        //API POST :/dashboardMember/crateProduct
+        [HttpPost]
+        public JsonResult crateProduct(ProductViewModel pvm) {
+
+            return null;
+        }
+        //API GET :/dashboardMember/getProduct
+        [HttpGet]
+        public JsonResult getProduct(){
+            ProductService ps = new ProductService();
+            ProductListViewModel psv= ps.GetAllProduct();
+
+            var datas = new { psv.data };
+            return Json(datas, JsonRequestBehavior.AllowGet);
+        }
+
+
+        // view 
         public ActionResult Index()
         {
             
+            return View();
+        }
+        public ActionResult createProduct()
+        {
+
             return View();
         }
     }

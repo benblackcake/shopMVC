@@ -18,6 +18,8 @@ namespace MVCtest.ViewModels
         public double Weight { get; set; }
 
         public int Seller_ID { get; set; }
+        public string CategoryGroup_Name { get; set; }
+        public string Sub_Category_Name { get; set; }
 
     }
 }
