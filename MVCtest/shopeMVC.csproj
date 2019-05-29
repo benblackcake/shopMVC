@@ -509,6 +509,8 @@
     <Content Include="Views\OrderDetailsCRUD\Edit.cshtml" />
     <Content Include="Views\OrderDetailsCRUD\Index.cshtml" />
     <Content Include="Views\dashboardCategory\Index.cshtml" />
+    <Content Include="Views\dashboardCategory\Create.cshtml" />
+    <Content Include="Views\dashboardCategory\CreateSub.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

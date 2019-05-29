@@ -13,7 +13,7 @@ namespace MVCtest.Controllers.dashboard
     public class OrderDetailsCRUDController : Controller
     {
         //private OdContext db = new OdContext();
-        DBModel db = new DBModel();
+        private DBModel db = new DBModel();
         // GET: OrderDetailsCRUD
         public ActionResult Index()
         {

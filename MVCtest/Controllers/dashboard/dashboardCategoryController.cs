@@ -10,6 +10,8 @@ namespace MVCtest.Controllers.dashboard
 {
     public class dashboardCategoryController : Controller
     {
+
+        CategoryService categorytService;
         // GET: dashboardCategory
         public ActionResult Index()
         {
@@ -17,6 +19,16 @@ namespace MVCtest.Controllers.dashboard
             CategoryListViewModel result = csv.GetAllCategory();
             
             return View(result);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult CreateSub()
+        {
+            return View();
         }
     }
 }
