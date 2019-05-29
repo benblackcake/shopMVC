@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <div class="container-fluid">
     <div class="col-11">
-        <button class="btn btn-primary">新增</button>
+        <div class="btn btn-primary" id="create" >新增</div>
         @*<button class="btn btn-primary">T2</button>*@
         <table id="datatables" class="table table-hover" style=" width:120%">
             <thead>
@@ -91,7 +91,65 @@
             </div>
         </div>
     </div>
+
+
+    <!--NEW modal-->
+
+
+    <div class="modal fade" id="newModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal_title"></h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="formEdit" role="form">
+                        <div class="form-group">
+                            <label for="beacon_id"><span class="glyphicon glyphicon-pencil"></span>商品名稱</label>
+                            <input type="text" class="form-control" id="Product_Name" name="Product_Name" placeholder=""
+                                   required="true">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>價錢</label>
+                            <input type="text" class="form-control" id="UnitPrice" name="UnitPrice" placeholder=""
+                                   required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>子分類</label>
+                            <input type="text" class="form-control" id="Sub_Category_Name" name="Sub_Category_Name" placeholder=""
+                                   required="true">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>大分類</label>
+                            <input type="text" class="form-control" id="CategoryGroup_Name" name="CategoryGroup_Name" placeholder=""
+                                   required="true">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>upload</label>
+                            <input type="file" class="form-control" id="Product_Image" name="Product_Image" placeholder=""
+                                   required="true">
+                        </div>
+
+                        <input type="hidden" id="type" name="type" value="">
+                        <button type="submit" class="btn btn-success btn-block">
+                            <span class="glyphicon glyphicon-ok"></span> OK
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 
 
 <!--SCRIPT-->

@@ -41,3 +41,8 @@ $('#datatables tbody').on('click', '.btn-dark', function () {
     $("#myModal").modal();
     ID = data['Product_Id'];
 });
+
+$("#create").click(function () {
+    $("#newModal").modal();
+
+});
