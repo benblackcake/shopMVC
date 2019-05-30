@@ -40,6 +40,19 @@ namespace MVCtest.Controllers
             return View(cs.GetListCart(id));
         }
 
+
+        [AuthorizePlus]
+        [HttpPost]
+        public ActionResult SaveOrder(List<string> sumPrice,string paymentID,string shipperID)
+        {
+            CartService cs = new CartService();
+            int id = (int)Session["id"];
+            cs.SaveOrder(id, sumPrice, paymentID, shipperID);
+            return RedirectToAction("Cart");
+        }
+
+
+
         //[HttpPost]
         //public ActionResult Delete(int CartId)
         //{
