@@ -239,6 +239,7 @@
     <Content Include="Assest\dashboardAssets\dashboardCss\nucleo-icons.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
