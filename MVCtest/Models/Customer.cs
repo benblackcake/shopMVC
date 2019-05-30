@@ -26,9 +26,6 @@ namespace MVCtest.Models
         [StringLength(20)]
         public string Customer_Name { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? Customer_BirDate { get; set; }
-
         [Column("Customer_Email")]
         [StringLength(100)]
         public string Customer_Email { get; set; }
