@@ -18,14 +18,10 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressSSLPort>44319</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -496,18 +492,13 @@
     <Content Include="Views\Product\detail.cshtml" />
     <Content Include="Views\Menu\Category.cshtml" />
     <Content Include="Views\Menu\SideCategory.cshtml" />
-
-
     <Content Include="Views\Menu\CartHover.cshtml" />
-
     <Content Include="Views\MemberCenter\ExternalLoginConfirmation.cshtml" />
-
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\dashboardMember\Index.cshtml" />
     <Content Include="Views\dashboardCustomer\Index.cshtml" />
     <Content Include="Views\dashboardProduct\Index.cshtml" />
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
