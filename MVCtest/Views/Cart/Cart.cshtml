@@ -303,7 +303,7 @@
                         <span class="input-number-increment">+</span>
                     </div>
                 </div>
-                <div class="c_7 subtotal">@Html.DisplayFor(modelitem=> int.Parse(item.Unitprice) * item.Quantity) </div>
+                <div class="c_7 subtotal">@(int.Parse(item.Unitprice) * item.Quantity) </div>
                 <form class="c_8" action="/Cart/DeleteCart" method="post">
                     <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
                     <input type="hidden" name="cartID" value="@item.CartId" />
