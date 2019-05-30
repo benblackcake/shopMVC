@@ -27,7 +27,6 @@ namespace MVCtest.Models
         public int? Shipper_ID { get; set; }
 
         public int? Payment_ID { get; set; }
-
         public virtual Customer Customer { get; set; }
 
         public virtual Payment Payment { get; set; }
