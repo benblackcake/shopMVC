@@ -20,7 +20,6 @@ namespace MVCtest.Service
                 {
                     Customer_Name = input.Customer_Name,
                     Customer_Email = input.Customer_Email,
-                    Customer_BirDate = input.Customer_BirDate,
                     Customer_Phone = input.Customer_Phone,
                     User_Password = input.User_Password
                 };
