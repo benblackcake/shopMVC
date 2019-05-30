@@ -7,6 +7,6 @@ namespace MVCtest.ViewModels
 {
     public class CustomerListViewModel
     {
-        public List<CustomerViewModel> Items { get; set; }
+        public List<CustomerViewModel> data { get; set; }
     }
 }

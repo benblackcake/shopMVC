@@ -93,11 +93,11 @@ namespace MVCtest.Service
         }
         public CustomerListViewModel GetAllCustomer()
         {
+            CustomerListViewModel result = new CustomerListViewModel();
+            result.data = new List<CustomerViewModel>();
             DBModel context = new DBModel();
             DbRepository<Customer> repo = new DbRepository<Customer>(context);
-            CustomerListViewModel result = new CustomerListViewModel();
-            result.Items = new List<CustomerViewModel>();
-            foreach (var item in repo.GetAll())
+            foreach (var item in repo.GetAll().OrderBy((x) => x.Customer_ID))
             {
                 CustomerViewModel c = new CustomerViewModel()
                 {
@@ -107,7 +107,7 @@ namespace MVCtest.Service
                     Customer_Phone = item.Customer_Phone
 
                 };
-                result.Items.Add(c);
+                result.data.Add(c);
             }
             return result;
 

@@ -16,7 +16,7 @@ namespace MVCtest.Controllers.dashboard
             CustomerService os = new CustomerService();
             CustomerListViewModel result = os.GetAllCustomer();
 
-            var datas = new { result.Items };
+            var datas = new { result.data };
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
         // GET: dashboardCustomer

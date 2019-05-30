@@ -1,6 +1,6 @@
 ﻿
 
-table = $('#datatable').DataTable({
+table = $('#datatables').DataTable({
     "processing": true,
     // "serverSide": true,
     "ajax": {
@@ -24,8 +24,8 @@ table = $('#datatable').DataTable({
 
 
 ID = "";
-$('#datatable tbody').on('click', '.btn-dark', function () {
-    data = table.row($(this).parents('tr')).data();
+$('#datatables tbody').on('click', '.btn-dark', function () {
+    data = data.row($(this).parents('tr')).data();
     $("#Customer_ID").val(data['Customer_ID']);
     $("#Customer_Name").val(data['Customer_Name']);
     $("#Customer_Email").val(data['Customer_Email']);
