@@ -206,16 +206,24 @@
             //alert(subtotal[1]);
             //$('.subtotal').text("123");  
         }
-
+        $('.commodity').on('click', function () {
+            console.log("__DEBUG__");
+            var $this = $(this);
+            var q = $this.find('.input-number-count').val();
+            var p = $this.find('.unitprice').text();
+            p = p.substring(3);
+            var total = parseInt(q) * parseInt(p);
+            
+            $this.find('.subtotal').text(total)
+            console.log(q);
+            console.log(p);
+        })
         //商品數量減少按鈕
         $('.input-number-decrement').on('click', function () {
             var $this = $(this);
             if ($this.next().val() > 1) {
                 var value = $this.next().val() - 1;
                 $this.next().val(value);
-                
-                //var unitprice = $('.unitprice').text();
-                //$(".subtotal").text(unitprice * value);
             }
         })
 
@@ -226,11 +234,7 @@
             $this.prev().val(value);
         })
 
-        $('.input-number-count').on('change', function () {
-            var $this = $(this);
-            var value = $this.next('div').text();
-            alert(value);
-        })
+
 
         //下一步按鈕
         function nextStep() {
@@ -296,6 +300,7 @@
                 <div class="c_3">@item.ProductNo</div>
                 <div class="c_4">@item.Size</div>
                 <div class="c_5 unitprice">NT$@item.Unitprice</div>
+
                 <div class="c_6">
                     <div id="quantityChange">
                         <span class="input-number-decrement">-</span>
