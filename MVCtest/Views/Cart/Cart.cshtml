@@ -4,6 +4,7 @@
     ViewBag.Title = "style'G：購物車";
 }
 @section topCSS {
+
     <style>
         .cart {
             border: 1px solid #d0d0d0;
@@ -184,18 +185,26 @@
         .address {
             width: 450px;
         }
+
+        .test {
+            color: #ffd800;
+            font-weight: bold;
+        }
     </style>
 }
 @section endJS {
     <script>
-
-        //var unitPrice = document.getElementsByClassName("unitPrice").innerHTML.substring(3);//商品單價
+        
+        //var orderQuantity = $('.commodity').length;
 
         //執行頁面立刻執行
         window.onload = function () {
-            //for (var i = 0; i < ('.c_1').length)
-            alert(('.c_1').length);
-            //$(".subtotal").text("123");  
+            //for (var i = 1; i <= orderQuantity; i++) {
+                //$('.subtotal:nth-child(2)').addClass('test');
+            //}
+            //var subtotal = document.getElementsByClassName('.subtotal');
+            //alert(subtotal[1]);
+            //$('.subtotal').text("123");  
         }
 
         //商品數量減少按鈕
@@ -294,7 +303,7 @@
                         <span class="input-number-increment">+</span>
                     </div>
                 </div>
-                <div class="c_7">NT$680</div>
+                <div class="c_7 subtotal">@Html.DisplayFor(modelitem=> int.Parse(item.Unitprice) * item.Quantity) </div>
                 <form class="c_8" action="/Cart/DeleteCart" method="post">
                     <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
                     <input type="hidden" name="cartID" value="@item.CartId" />
