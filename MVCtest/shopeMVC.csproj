@@ -187,6 +187,7 @@
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
     <Compile Include="Controllers\dashboard\dashboardMemberController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
+    <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -511,6 +512,11 @@
     <Content Include="Views\dashboardCategory\Index.cshtml" />
     <Content Include="Views\dashboardCategory\Create.cshtml" />
     <Content Include="Views\dashboardCategory\CreateSub.cshtml" />
+    <Content Include="Views\OrdersCRUD\Create.cshtml" />
+    <Content Include="Views\OrdersCRUD\Delete.cshtml" />
+    <Content Include="Views\OrdersCRUD\Details.cshtml" />
+    <Content Include="Views\OrdersCRUD\Edit.cshtml" />
+    <Content Include="Views\OrdersCRUD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -61,7 +61,7 @@ namespace MVCtest.Service
                 select
                 new OrderTrackingViewModel
                 {
-                    OrderId = c.Order_ID, ProductName = p.Product_Name, OrderDate = c.Order_Date, Price = p.UnitPrice, Payment = pay.Payment_Name};
+                    OrderId = c.Order_ID, ProductName = p.Product_Name, OrderDate = c.Order_Date, Price = p.UnitPrice, Payment = pay.Payment_Name };
             //_ordertrackingViewModel = result.ToList();
             foreach (var item in tmp)
             {
