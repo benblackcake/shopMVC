@@ -239,6 +239,7 @@
     <Content Include="Assest\dashboardAssets\dashboardCss\nucleo-icons.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\apple-icon.png" />
@@ -497,6 +498,8 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\dashboardMember\Index.cshtml" />
     <Content Include="Views\dashboardCustomer\Index.cshtml" />
+    <Content Include="Views\dashboardProduct\Index.cshtml" />
+    <Content Include="Views\dashboardProduct\createProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
