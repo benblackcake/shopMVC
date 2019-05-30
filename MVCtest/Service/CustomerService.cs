@@ -2,6 +2,7 @@
 using MVCtest.Models;
 using MVCtest.Repository;
 using MVCtest.ViewModels;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -111,6 +112,27 @@ namespace MVCtest.Service
                 context.SaveChanges();
                 return true;
    
+        }
+        public CustomerListViewModel GetAllCustomer()
+        {
+            CustomerListViewModel result = new CustomerListViewModel();
+            result.data = new List<CustomerViewModel>();
+            DBModel context = new DBModel();
+            DbRepository<Customer> repo = new DbRepository<Customer>(context);
+            foreach (var item in repo.GetAll().OrderBy((x) => x.Customer_ID))
+            {
+                CustomerViewModel c = new CustomerViewModel()
+                {
+                    Customer_ID = item.Customer_ID,
+                    Customer_Email = item.Customer_Email,
+                    Customer_Name = item.Customer_Name,
+                    Customer_Phone = item.Customer_Phone
+
+                };
+                result.data.Add(c);
+            }
+            return result;
+
         }
     }
 }
