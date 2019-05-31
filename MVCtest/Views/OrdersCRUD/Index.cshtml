@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MVCtest.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>訂單資料</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment.Payment_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipper.Shipper_Method_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Customer_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Payment_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipper.Shipper_Method_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Order_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Order_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Order_ID })
+        </td>
+    </tr>
+}
+
+</table>

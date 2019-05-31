@@ -21,6 +21,8 @@
     <link href="~/Assest/dashboardAssets/dashboardCss/black-dashboard.min.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/Assest/dashboardAssets/dashboardDemo/demo.css" rel="stylesheet" />
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
 </head>
 <body class="">
     <div class="wrapper">
@@ -38,6 +40,19 @@
                         </a>
                     </li>
                     <li>
+
+                        <a href="/OrdersCRUD/Index">
+                            <i class="tim-icons icon-paper"></i>
+                            <p>訂單資料</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dashboardCategory/Index">
+                            <i class="tim-icons icon-bullet-list-67"></i>
+                            <p>產品分類</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/dashboardProduct/createProduct">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>商品列表</p>
@@ -47,6 +62,7 @@
                         <a href="/dashboardProduct/Index">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Test2</p>
+
                         </a>
                     </li>
 
@@ -104,7 +120,7 @@
                             <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="photo">
-                                        <img src="~/Assest/dashboardAssets/dashboardImg/anime3.png" alt="Profile Photo"/>
+                                        <img src="~/Assest/dashboardAssets/dashboardImg/anime3.png" alt="Profile Photo" />
                                     </div>
                                     <b class="caret d-none d-lg-block d-xl-block"></b>
                                     <p class="d-lg-none">
@@ -182,9 +198,15 @@
     </div>
 
     @*<script src="~/Assest/dashboardAssets/dashboardJs/core/jquery.min.js"></script>*@
+<<<<<<< HEAD
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("endCSS", required: false)
+    @RenderSection("endJS", required: false)
+=======
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
+>>>>>>> e218dc5b31d05190e73b417ca42cefefaf36ba54
     <script src="~/Assest/dashboardAssets/dashboardJs/core/popper.min.js"></script>
     <script src="~/Assest/dashboardAssets/dashboardJs/core/bootstrap.min.js"></script>
     <script src="~/Assest/dashboardAssets/dashboardJs/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -203,122 +225,122 @@
 
 
     <script>
-      $(document).ready(function() {
-        $().ready(function() {
-          $sidebar = $('.sidebar');
-          $navbar = $('.navbar');
-          $main_panel = $('.main-panel');
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+                $navbar = $('.navbar');
+                $main_panel = $('.main-panel');
 
-          $full_page = $('.full-page');
+                $full_page = $('.full-page');
 
-          $sidebar_responsive = $('body > .navbar-collapse');
-          sidebar_mini_active = true;
-          white_color = false;
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+                white_color = false;
 
-          window_width = $(window).width();
+                window_width = $(window).width();
 
-          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
-
-          $('.fixed-plugin a').click(function(event) {
-            if ($(this).hasClass('switch-trigger')) {
-              if (event.stopPropagation) {
-                event.stopPropagation();
-              } else if (window.event) {
-                window.event.cancelBubble = true;
-              }
-            }
-          });
-
-          $('.fixed-plugin .background-color span').click(function() {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-
-            var new_color = $(this).data('color');
-
-            if ($sidebar.length != 0) {
-              $sidebar.attr('data', new_color);
-            }
-
-            if ($main_panel.length != 0) {
-              $main_panel.attr('data', new_color);
-            }
-
-            if ($full_page.length != 0) {
-              $full_page.attr('filter-color', new_color);
-            }
-
-            if ($sidebar_responsive.length != 0) {
-              $sidebar_responsive.attr('data', new_color);
-            }
-          });
-
-          $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
-            var $btn = $(this);
-
-            if (sidebar_mini_active == true) {
-              $('body').removeClass('sidebar-mini');
-              sidebar_mini_active = false;
-              blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-            } else {
-              $('body').addClass('sidebar-mini');
-              sidebar_mini_active = true;
-              blackDashboard.showSidebarMessage('Sidebar mini activated...');
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function() {
-              window.dispatchEvent(new Event('resize'));
-            }, 180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
-              clearInterval(simulateWindowResize);
-            }, 1000);
-          });
-
-          $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
-            var $btn = $(this);
-
-            if (white_color == true) {
-
-              $('body').addClass('change-background');
-              setTimeout(function() {
-                $('body').removeClass('change-background');
-                $('body').removeClass('white-content');
-              }, 900);
-              white_color = false;
-            } else {
-
-              $('body').addClass('change-background');
-              setTimeout(function() {
-                $('body').removeClass('change-background');
-                $('body').addClass('white-content');
-              }, 900);
-
-              white_color = true;
-            }
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
 
-          });
 
-          $('.light-badge').click(function() {
-            $('body').addClass('white-content');
-          });
+                $('.fixed-plugin a').click(function (event) {
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
 
-          $('.dark-badge').click(function() {
-            $('body').removeClass('white-content');
-          });
+                $('.fixed-plugin .background-color span').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data', new_color);
+                    }
+
+                    if ($main_panel.length != 0) {
+                        $main_panel.attr('data', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data', new_color);
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+
+                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+                    var $btn = $(this);
+
+                    if (white_color == true) {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function () {
+                            $('body').removeClass('change-background');
+                            $('body').removeClass('white-content');
+                        }, 900);
+                        white_color = false;
+                    } else {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function () {
+                            $('body').removeClass('change-background');
+                            $('body').addClass('white-content');
+                        }, 900);
+
+                        white_color = true;
+                    }
+
+
+                });
+
+                $('.light-badge').click(function () {
+                    $('body').addClass('white-content');
+                });
+
+                $('.dark-badge').click(function () {
+                    $('body').removeClass('white-content');
+                });
+            });
         });
-      });
     </script>
     <script>
-      $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
 
-      });
+        });
     </script>
 </body>
 

@@ -1,5 +1,5 @@
 ﻿#left-list {
-    background-color: azure;
+    /*background-color: azure;*/
     height: 800px;
 }
 
@@ -9,7 +9,7 @@
 }
 /*更動by Zhou*/
 #left-list h3 {
-    margin-top: 40px;
+    margin-top: 20px;
     padding-bottom: 10px;
     border-bottom: #808080 2px solid;
 }
@@ -20,7 +20,11 @@ input[type="number"] {
 
 input[type="button"] {
     margin: 10px auto;
-    width: 200px;
+    background: transparent;
+    border: 1px solid black;
+    display:block;
+    width:100%;
+    /*width: 200px;*/
 }
 
 input[type="checkbox"]{
@@ -61,38 +65,95 @@ input[type="checkbox"]{
     justify-content: center;
 }
 
-/*.card {
+.card {
     
     max-width: 100%;
     height: auto;
     overflow: hidden;
-}*/
+}
 
 .card img {
-    width: auto;
     height: 350px;
+    width: auto;
     max-width: 100%;
     max-height: 100%;
-    /*width: 100%;*/
+    width: auto;
 }
+
+.card-body #money {
+    color: #ce687a;
+    font-weight: bold;
+    font-size:15px;
+}
+
+.productItem .card {
+    border:none;
+}
+
+
+#priceBtn:hover {
+    background-color: black;
+    color: white;
+}
+
+#reset:hover {
+    background-color: black;
+    color: white;
+}
+
+
 @media only screen and (max-width:1250px) {
+
     #left-list {
         display: none;
     }
 
     .show-menu {
         height:35px;
+        margin-top:5px;
         line-height:35px;
         text-align: center;
         display: block;
         border-radius: 10px;
         background: transparent;
-        border: 2px solid black;
+        border: 1px solid black;
+    }
+
+    .drop-list {
+        text-align: center;
+        border: 1px solid black;
+        border-radius:20px;
+        border-top:none;
+    }
+
+    .drop-list label {
+        margin-right:5px;
     }
 
     .drop-list ul {
-        list-style:none;
+        list-style: none;
     }
+
+    .drop-list #priceBtn{
+        width:40%;
+    }
+
+
+    .drop-list #reset {
+        width: 40%;
+    }
+
+    #card {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .show-menu:hover {
+        background-color: black;
+        color:white;
+    }
+
+  
 
     /*.col-12 {
         width: 100%;
@@ -102,19 +163,20 @@ input[type="checkbox"]{
         margin-left: auto;
     }*/
 
-    /*.drop-list {
-        display: block;
-    }*/
+    
 
 }
-@media only screen and (max-width:1250px) {
-    
-    
+@media only screen and (max-width:575px) {
 
-    #card {
-        text-align:center;
-        justify-content:center;
+
+    .card img {
+        height: 450px;
+        /*width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;*/
     }
+    
 }
 
 

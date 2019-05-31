@@ -1,16 +1,14 @@
 ﻿$(function () {
+
+    // layout上方的category 各個hover展開
     $("#2 .subnav-content").addClass("subnav-content2");
     $("#2 .subnav-content").removeClass("subnav-content");
-    //$("#2 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover02.jpg");
     $("#3 .subnav-content").addClass("subnav-content3");
-    $("#3 .subnav-content").removeClass("subnav-content");
-    //$("#3 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover03.jpg");
+    $("#3 .subnav-content").removeClass("subnav-content");    
     $("#4 .subnav-content").addClass("subnav-content4");
     $("#4 .subnav-content").removeClass("subnav-content");
-    //$("#4 .subnav-content-right img").attr("src", "~/Assest/images/layout_image/layout_hover04.jpg");
     
-    
-    
+    //RWD後 右上角三條線 點擊展開sidebar  
     $(".icon").click(function () {
         var x = document.getElementById("testnav");
         if (x.className === "top-menu") {
@@ -28,6 +26,8 @@
             //}
        }
     })
+
+    // RWD後 右側的sidebar 右上角的x
    
     $(".closebtn").click(function () {
         var x = document.getElementById("testnav");
@@ -40,49 +40,47 @@
         
     })
 
-    //for (var i = 1; i <= 4; i++) {
-    //    $("#mySidenav .a" + i).click(function () {    
-    //        if ($(".hidden"+i).hasClass("hidden-list")) {
-    //            $(".hidden"+i).removeClass("hidden-list");
-    //        } else {
-    //            $(".hidden"+i).addClass("hidden-list");
-    //        }
-    //    })
-    //}
+    // 右上角 會員和購物車 hover特效
+    $("#two-btn .userhover").hover(function () {
+        $("#two-btn #user-img").css("opacity","0.5");
+    }, function () { $("#two-btn #user-img").css("opacity", "1"); })
+
+    $("#two-btn .carthover").hover(function () {
+        $("#two-btn #cart-img").css("opacity", "0.5");
+    }, function () { $("#two-btn #cart-img").css("opacity", "1"); })
+
+
+    //RWD後 右側的sidebar各個hover展開 
     $("#mySidenav .1").hover(function () {
-        if ($("#mySidenav #11 li").hasClass("hidden-list")) {
-            $("#mySidenav #11 li").removeClass("hidden-list");
+        if ($("#mySidenav #11").hasClass("hidden-list")) {
+            $("#mySidenav #11").removeClass("hidden-list");
         } else {
-            $("#mySidenav #11 li").addClass("hidden-list");
+            $("#mySidenav #11").addClass("hidden-list");
         }
     })
     $("#mySidenav .2").hover(function () {
-        if ($("#mySidenav #12 li").hasClass("hidden-list")) {
-            $("#mySidenav #12 li").removeClass("hidden-list");
+        if ($("#mySidenav #12").hasClass("hidden-list")) {
+            $("#mySidenav #12").removeClass("hidden-list");
         } else {
-            $("#mySidenav #12 li").addClass("hidden-list");
+            $("#mySidenav #12").addClass("hidden-list");
         }
     })
     $("#mySidenav .3").hover(function () {
-        if ($("#mySidenav #13 li").hasClass("hidden-list")) {
-            $("#mySidenav #13 li").removeClass("hidden-list");
+        if ($("#mySidenav #13").hasClass("hidden-list")) {
+            $("#mySidenav #13").removeClass("hidden-list");
         } else {
-            $("#mySidenav #13 li").addClass("hidden-list");
+            $("#mySidenav #13").addClass("hidden-list");
         }
     })
     $("#mySidenav .4").hover(function () {
-        if ($("#mySidenav #14 li").hasClass("hidden-list")) {
-            $("#mySidenav #14 li").removeClass("hidden-list");
+        if ($("#mySidenav #14").hasClass("hidden-list")) {
+            $("#mySidenav #14").removeClass("hidden-list");
         } else {
-            $("#mySidenav #14 li").addClass("hidden-list");
+            $("#mySidenav #14").addClass("hidden-list");
         }
     })
 
-    //if (("#nav").css("display") == "none") {
-    //    $("#two-btn").removeClass("mt-2");
-    //} else {
-    //    $("#two-btn").addClass("mt-2");
-    //}
+    //忘了
 
     $(".search-block1 input").focusin(function () {
         $(".search-block1").css("border", "1px solid #fff").css("padding","2px 2px 4px 2px");
@@ -91,18 +89,5 @@
         $(".search-block1").css("border", "").css("padding","");
     })
 
-    //$("#two-btn a").hover(function () {
-    //    $(".useruser").css("display", "block");
-    //})
-
-
-    //$("#two-btn .userhover img").hover(function () {
-    //    if ($(".useruser").css("display") == "none") {
-    //        $(".useruser").css("display", "block");
-    //    } else {
-    //        $(".useruser").css("display", "none");
-    //    }
-        
-    //})
    
 })

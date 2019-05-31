@@ -8,141 +8,194 @@
 @section topCSS{
     <style>
         .top-menu {
-            height:100px;
-        }
-
-        .title .title-top {
-            margin-top: 20px;
-            margin-bottom: 50px;
-        }
-
-            .title .title-top a {
-                text-decoration: none;
-                color: #000000;
-            }
-
-        .container {
-            padding: 0;
-            width: 820px;
-            display: flex;
-        }
-
-
-        .title-content .item-img {
-            display: block;
-            flex-wrap: wrap;
-        }
-
-
-        .title-content img {
-            width: 370px;
-            height: 550px;
-            display: block;
-        }
-
-        .menu {
-            padding-left: 80px;
-        }
-
-
-        .title-content .menu select {
-            width: 300px;
-            height: 30px;
-        }
-
-        .title-content .menu input {
-            width: 70px;
-            height: 30px;
-        }
-
-        .title-content .menu .buy {
-            margin: 40px 0 20px 0;
-            border: 1px solid #444;
-            color: #000;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .title-content .menu .cart {
-            height: 46px;
-            background: #000000;
-            color: #DDDDDD;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-
-        .tip {
-            padding-left: 10px;
-            padding-right: 10px;
-            line-height: 1;
-            color: #de1124;
-            border: 1px solid rgba(222,17,36,0.4);
-            float: left;
-        }
-
-        .menu .title {
-            height: 80px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-
-        .row {
-            height: auto;
-            margin: 0;
-            padding-bottom: 30px;
+            height: 100px;
         }
 
         .a {
             padding-right: 20px;
-        }
-
-        .price {
-            font-family: fantasy;
-        }
-
-        .a_1 {
-            padding: 0;
-            padding: 0 10px 0 10px;
-            margin-right: 20px;
-            border: 1px solid #ddd;
-            background: #f6f6f6;
-        }
-
-            .a_1:hover {
-                border: 1px solid #AAA;
-            }
-
-        .bt {
-            width: 30px;
-        }
-
-        .enlarge a {
-            float: right;
-            color: #aaa;
-        }
-
-            .enlarge a:hover {
-                text-decoration: none;
-                color: #888;
-            }
-        i {
-            padding-right:5px;
-        }
-
-        .input {
-            outline: none;
             text-align: center;
-            vertical-align: top;
-            width: 60px;
-            border: 1px #cccccc;
-            height: 40px;
-            user-select: none;
+            line-height: 2;
+        }
+
+        .title .container {
+            padding: 0;
+            width: auto;
+            display: flex;
+        }
+
+            .title .container .title-top {
+                margin-top: 20px;
+                margin-bottom: 50px;
+            }
+
+                .title .container .title-top a {
+                    text-decoration: none;
+                    color: #000000;
+                }
+
+        .title-content .container {
+            padding: 0 10px;
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+            .title-content .container .row {
+                height: auto;
+                margin: 0;
+                padding-bottom: 30px;
+            }
+
+            .title-content .container .item-img {
+                margin-bottom: 20px;
+                padding: 0;
+            }
+
+                .title-content .container .item-img .img img {
+                    width: 75%;
+                    height: auto;
+                    display: flex;
+                    margin: auto;
+                }
+
+                .title-content .container .item-img .enlarge a {
+                    position: absolute;
+                    left: 70%;
+                    color: #aaa;
+                }
+
+                    .title-content .container .item-img .enlarge a:hover {
+                        text-decoration: none;
+                        color: #888;
+                    }
+
+            .title-content .container .menu {
+                padding: 0;
+            }
+
+
+                .title-content .container .menu .Title {
+                    height: 80px;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #ddd;
+                    margin-bottom: 20px;
+                }
+
+                    .title-content .container .menu .Title .tip {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        line-height: 1;
+                        color: #de1124;
+                        border: 1px solid rgba(222,17,36,0.4);
+                        float: left;
+                    }
+
+                .title-content .container .menu .a {
+                    padding-right: 20px;
+                    text-align: center;
+                    line-height: 2;
+                }
+
+
+                .title-content .container .menu .row .a_1 {
+                    padding: 0;
+                    padding: 0 20px 0 20px;
+                    margin-right: 20px;
+                    border: 2px solid #ddd;
+                    background: #f6f6f6;
+                }
+
+                    .title-content .container .menu .row .a_1:hover {
+                        border: 2px solid #AAA;
+                    }
+
+
+                .title-content .container .menu .row .price {
+                    font-family: fantasy;
+                    line-height: 2;
+                }
+
+                .title-content .container .menu .row .bt {
+                    width: 30px;
+                }
+
+                .title-content .container .menu .row .input {
+                    outline: none;
+                    text-align: center;
+                    vertical-align: top;
+                    width: 40px;
+                    border: 1px #cccccc;
+                    user-select: none;
+                    background: #DDDDDD;
+                }
+
+                .title-content .container .menu .BUY {
+                    width: 70%;
+                    margin: auto;
+                }
+
+                    .title-content .container .menu .BUY .buy {
+                        margin: 40px 0 20px 0;
+                        border: 1px solid #444;
+                        color: #000;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        text-decoration: none;
+                    }
+
+                    .title-content .container .menu .BUY .cart {
+                        height: 46px;
+                        background: #000000;
+                        color: #DDDDDD;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        text-decoration: none;
+                    }
+
+                .title-content .container .menu .row .border_1 {
+                    border: 2px solid #ff3333;
+                }
+
+                    .title-content .container .menu .row .border_1:hover {
+                        border: 2px solid #ff3333;
+                    }
+
+                .title-content .container .menu .row .border_2 {
+                    border: 2px solid #00ffff;
+                }
+
+                    .title-content .container .menu .row .border_2:hover {
+                        border: 2px solid #00ffff;
+                    }
+
+
+        @@media screen and (max-width: 992px) {
+            .enlarge a {
+                left: 76%;
+            }
+
+            .Title {
+                text-align: center;
+            }
+
+            .title-content .container .menu .Title .tip {
+                float: none;
+                width: 56.3px;
+                margin: auto;
+            }
+
+            .row {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        @@media screen and (max-width: 768px) {
+            .enlarge a {
+                left: 70%;
+            }
         }
     </style>
 }
@@ -150,49 +203,101 @@
 <div class="title">
     <div class="container">
         <div class="title-top">
-            <a href="#"><i class="fas fa-chevron-left"></i>BACK</a>＞
-            <a href="#">CLOTHES</a>＞
-            <a href="#">ASSHOLE</a>
+            <a href="@Url.Action("Product", "Home")"><i class="fas fa-chevron-left"></i>BACK</a>
+            <a href="#" style="padding-left:10px;">CLOTHES</a>＞
+            <a href="#">T-shirt</a>
         </div>
     </div>
 </div>
 <div class="title-content">
     <div class="container">
+
         <div class="item-img">
             <div class="img">
                 <a href="#"><img src="@Model.Product_Image" alt="商品圖" /></a>
             </div>
-            <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
+            <div class="enlarge">
+                <a href="#"><i class="fas fa-search"></i>點圖放大</a>
+            </div>
 
         </div>
 
         <div class="menu">
-    @*@using (Html.BeginForm("CartSave", "Cart", FormMethod.Post))
-    {*@
+            @*@using (Html.BeginForm("CartSave", "Cart", FormMethod.Post))
+                {*@
             <form action="/Cart/Cart" method="post">
                 <div class="title">
                     <h4>@Model.Product_Name</h4>
+                    @*=======
+                                <div class="row">
+                                    <div class="item-img col-12 col-lg-6">
+                                        <div class="img">
+                                            <a href="#"><img src="~/Assest/images/c/70428.jpg" alt="商品圖" /></a>
+                                        </div>
+                                        <div class="enlarge"><a href="#"><i class="fas fa-search"></i>點圖放大</a></div>
+
+                                    </div>
+                                    <div class="menu col-12 col-lg-6">
+                                        <div class="Title">
+                                            <h4>衣服</h4>
+                        >>>>>>> HSU_BIGGG:MVCtest/Views/Home/item.cshtml*@
                     <div class="tip">New</div>
                 </div>
                 <div class="row">
                     <div class="a">價格</div>
-                    <div class="price">@Model.UnitPrice</div>
+                    @*<<<<<<< HEAD:MVCtest/Views/Product/Detail.cshtml
+                                            <div class="price">@Model.UnitPrice</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="a">顏色</div>
+                                            <div class="color">
+                                                <button class="a_1" type="button">白</button>
+                                                <button class="a_1" type="button">黑</button>
+                                                <button class="a_1" type="button">灰</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="a">尺寸</div>
+                                            <div class="size">
+                                                <button class="a_1" type="button">S</button>
+                                                <button class="a_1" type="button">M</button>
+                                                <button class="a_1" type="button">L</button>
+                                                <button class="a_1" type="button">XL</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="a">數量</div>
+                                            <button class="bt">-</button>
+                                            <input type="number" name="quantity" class="input" required />
+                                            <button class="bt">+</button>
+                                        </div>
+
+                                        <div class="form-group"><button type="submit" class="buy">立即購買</button></div>
+                                        <div class="form-group"><button type="submit" class="cart">放入購物車</button></div>
+                                        <input type="hidden" name="productId" value="@Model.Product_Id" />
+                                        @*<input type="hidden" name="cartID" value="@Model.Product_Id" />
+                                    </form>
+                        }*@
+
+
+
+                    <div class="price">NT$1000</div>
                 </div>
                 <div class="row">
                     <div class="a">顏色</div>
-                    <div class="color">
-                        <button class="a_1" type="button">白</button>
-                        <button class="a_1" type="button">黑</button>
-                        <button class="a_1" type="button">灰</button>
+                    <div class="color btn-group">
+                        <button class="a_1" type="button" id="a" onclick="white()" style="background: #fff;"></button>
+                        <button class="a_1" type="button" id="b" onclick="black()" style="background:#000;"></button>
+                        <button class="a_1" type="button" id="c" onclick="gray()" style="background:#888;"></button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="a">尺寸</div>
-                    <div class="size">
-                        <button class="a_1" type="button">S</button>
-                        <button class="a_1" type="button">M</button>
-                        <button class="a_1" type="button">L</button>
-                        <button class="a_1" type="button">XL</button>
+                    <div class="size btn-group">
+                        <button class="a_1" type="button" id="S" onclick="S()">S</button>
+                        <button class="a_1" type="button" id="M" onclick="M()">M</button>
+                        <button class="a_1" type="button" id="L" onclick="L()">L</button>
+                        <button class="a_1" type="button" id="XL" onclick="XL()">XL</button>
                     </div>
                 </div>
                 <div class="row">
@@ -202,15 +307,62 @@
                     <button class="bt">+</button>
                 </div>
 
-                <div class="form-group"><button type="submit" class="buy">立即購買</button></div>
-                <div class="form-group"><button type="submit" class="cart">放入購物車</button></div>
+                <div class="form-group">
+                    <button type="submit" class="buy">立即購買</button>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="cart">放入購物車</button>
+                </div>
                 <input type="hidden" name="productId" value="@Model.Product_Id" />
-                @*<input type="hidden" name="cartID" value="@Model.Product_Id" />*@
+                <input type="hidden" name="cartID" value="@Model.Product_Id" />
             </form>
-@*}*@
-
-
         </div>
     </div>
 </div>
 
+@section endJS
+        {
+    <script>
+        function white() {
+            document.getElementById("a").classList.add("border_1");
+            document.getElementById("b").classList.remove("border_1");
+            document.getElementById("c").classList.remove("border_1");
+        }
+        function black() {
+            document.getElementById("a").classList.remove("border_1");
+            document.getElementById("b").classList.add("border_1");
+            document.getElementById("c").classList.remove("border_1");
+        }
+        function gray() {
+            document.getElementById("a").classList.remove("border_1");
+            document.getElementById("b").classList.remove("border_1");
+            document.getElementById("c").classList.add("border_1");
+        }
+
+
+        function S() {
+            document.getElementById("S").classList.add("border_2");
+            document.getElementById("M").classList.remove("border_2");
+            document.getElementById("L").classList.remove("border_2");
+            document.getElementById("XL").classList.remove("border_2");
+        }
+        function M() {
+            document.getElementById("S").classList.remove("border_2");
+            document.getElementById("M").classList.add("border_2");
+            document.getElementById("L").classList.remove("border_2");
+            document.getElementById("XL").classList.remove("border_2");
+        }
+        function L() {
+            document.getElementById("S").classList.remove("border_2");
+            document.getElementById("M").classList.remove("border_2");
+            document.getElementById("L").classList.add("border_2");
+            document.getElementById("XL").classList.remove("border_2");
+        }
+        function XL() {
+            document.getElementById("S").classList.remove("border_2");
+            document.getElementById("M").classList.remove("border_2");
+            document.getElementById("L").classList.remove("border_2");
+            document.getElementById("XL").classList.add("border_2");
+        }
+    </script>
+}

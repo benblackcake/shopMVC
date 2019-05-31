@@ -1,0 +1,153 @@
+﻿@model MVCtest.ViewModels.CategoryListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section topCSS {
+    <style>
+        .categoryex:hover {
+            background-color: #6488e4;
+        }
+        /*.drop_1 {
+            display:none;
+
+        }
+        .drop_2 {
+            display: none;
+        }
+        .drop_3 {
+            display: none;
+        }
+        .drop_4 {
+            display: none;
+        }*/
+    </style>
+}
+
+@*<h2>Order</h2>*@
+<h2>分類控制</h2>
+<div class="col-12">
+    <table class="table">
+        <tr>
+            <th>
+                CategoryID
+            </th>
+            <th>
+                CategoryName
+            </th>
+            <th>
+                @Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })
+            </th>
+        </tr>
+        @{
+            int counter = 1;
+            foreach (var item in Model.Items)
+            {
+                <tr class="categoryex" id="@counter">
+                    <td>
+                        @item.Category_Id
+
+                    <td>
+                        @item.Category_Name
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create SubCategory", "CreateSub", new { /* id=item.PrimaryKey */ }) |                      
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+
+                foreach (var sub in item.Sub_Categroy)
+                {
+                    <tr class="drop_@counter" style="background-color:#95538b;">
+                        <td>
+                            @sub.Sub_Category_ID
+
+                        <td>
+                            @sub.Category_Name
+
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+
+                counter = counter + 1;
+            }
+
+
+        }
+
+
+    </table>
+</div>
+@*<div class="col-6">
+    <table class="table">
+        <tr>
+            <th>
+                Sub_CategoryID
+            </th>
+            <th>
+                Sub_CategoryName
+            </th>
+
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            foreach (var sub in item.Sub_Categroy)
+            {
+                <tr>
+                    <td>
+                        @sub.Sub_Category_ID
+
+                    <td>
+                        @sub.Category_Name
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+
+    </table>
+</div>*@
+@section endJS {
+    <script>
+        $(".drop_1").hide();
+        $(".drop_2").hide();
+        $(".drop_3").hide();
+        $(".drop_4").hide();
+        $("#1").click(function () {
+            $(".drop_1").toggle();
+
+        })
+        $("#2").click(function () {
+            $(".drop_2").toggle();
+
+        })
+        $("#3").click(function () {
+            $(".drop_3").toggle();
+
+        })
+        $("#4").click(function () {
+            $(".drop_4").toggle();
+        })
+
+        //if ($("body").hasClass("white-content")) {
+        //    $(".drop_2").css("background-color", "aquamarine");
+        //} else {
+        //    $(".drop_2").css("background-color", "black");
+        //}
+
+    </script>
+}

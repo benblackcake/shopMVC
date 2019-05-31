@@ -11,16 +11,19 @@
     
     foreach (var item in Model.Items)
     {
-        <a href="~/Product/?category=@item.Category_Id" class="@counterid">@item.Category_Name</a>
-        <ul id="@counterclass">
-            @*之後會變成foreach資料庫category*@
+    <div class="@counterid">
+        <a href="~/Product/?category=@item.Category_Id">@item.Category_Name</a>
+        <ul id="@counterclass" class="hidden-list">
+        @*之後會變成foreach資料庫category*@
             @foreach (var sub in item.Sub_Categroy)
             {
-                <li class="hidden-list">
+                <li>
                     <a href="~/Product/?subcategory=@sub.Sub_Category_ID" style="font-size:20px;">@sub.Category_Name</a>
                 </li>
             }
         </ul>
+    </div>
+        
         counterid = counterid + 1;
         counterclass = counterclass + 1;
     }
