@@ -95,11 +95,12 @@ ol {
 }
 
 .set-bg {
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;
 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
 }
+
 
 
 .spad {
@@ -565,7 +566,7 @@ ol {
 	width: 162px;
 	height: 162px;
 	border-radius: 50%;
-	background: #f51167;
+	background: #e9a959;/*#f51167*/
 	text-align: center;
 	padding-top: 20px;
 	-webkit-transform: rotate(45deg);
