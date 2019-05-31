@@ -67,11 +67,32 @@
                     </div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="user-panel">
-                            <div class="up-item">
-                                <i class="flaticon-profile"></i>
-                                <a href="#">Sign</a> In or <a href="#">Create Account</a>
-                            </div>
-                            @Html.Action("CountCart", "Menu")
+
+                            @if (Convert.ToBoolean(Session["auth"]) == true) {
+                                <div class="up-item">
+                                    <a href="~/Home/memberlist"><i class="flaticon-profile"></i> </a>
+                                    Hi~@Session["name"]
+                                    <a href="~/MemberCenter/Logout">Logout</a>
+                                    
+                                </div>
+                                @Html.Action("CountCart", "Menu")
+                            } else {
+                                <div class="up-item">
+                                    <i class="flaticon-profile"></i>
+                                    <a href="~/MemberCenter/index">Sign</a> In or <a href="#">Create Account</a>
+                                </div>
+                                <div class="up-item">
+                                    <div class="shopping-card">
+                                        <i class="flaticon-bag"></i>
+
+                                        <span>PleaseLogin</span>
+
+                                    </div>
+                                    <a href="/shopCart/Cart">Shopping Cart</a>
+                                </div>
+
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -82,6 +103,7 @@
                 <!-- menu -->
                 <ul class="main-menu">
                         <!--LoadPartialView-->
+
                     @Html.Action("SideCategory", "Menu")
                 </ul>
             </div>
@@ -149,5 +171,8 @@
     <script src="~/Assest/AssestNew/js/main.js"></script>
     @RenderSection("endCSS", required: false)
     @RenderSection("endJS", required: false)
+    @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

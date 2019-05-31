@@ -87,7 +87,7 @@ namespace MVCtest.Controllers
                 Session["Email"] = email;
                 Session["ID"]= id;
                 TempData["message"] = "登入成功。";
-                return RedirectToAction("index", "Home");
+                return RedirectToAction("Index2", "shopIndex");
 
             }else{
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
@@ -97,7 +97,7 @@ namespace MVCtest.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult Logout ()
         {
             Debug.Print("GET");
