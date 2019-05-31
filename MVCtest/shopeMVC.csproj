@@ -182,7 +182,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCustomerController.cs" />
-    <Compile Include="Controllers\dashboard\dashboardMemberController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardProductController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
     <Compile Include="Controllers\Helper.cs" />
