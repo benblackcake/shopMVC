@@ -9,8 +9,10 @@
     $(".show-menu").click(function () {
         if ($(".drop-list").css("display") == "none") {
             $(".drop-list").css("display", "block");
+            $(".show-menu").text("Close Menu");
         } else {
             $(".drop-list").css("display", "none");
+            $(".show-menu").text("Show Menu");
         }
 
     })
@@ -127,10 +129,11 @@ function fnIsNoItemChoose() {
 }
 
 $("#priceBtn").on('click', function () {
+    alert("hi");
     var minPrice = 0;
     var maxPrice = 0;
-    var $price1 = +$("#price1").val();
-    var $price2 = +$('#price2').val();
+    var $price1 = +$(".price1").val();
+    var $price2 = +$('.price2').val();
 
     if ($price1 == 0 && $price2 == 0) {
         return;

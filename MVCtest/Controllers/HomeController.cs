@@ -66,5 +66,21 @@ namespace MVCtest.Controllers
                 return RedirectToAction("memberlist", "Home");
             }
         }
+
+        //新增歷史訂單查詢
+        [AuthorizePlus]
+        [HttpGet]
+        public ActionResult history_order()
+        {
+            int id = (int)Session["id"];
+
+            OrderService cs = new OrderService();
+            OrderTrackingListViewModel olv= cs.GetListOrder(id);
+
+            return View(olv);
+        }
+
+
+
     }
 }
