@@ -349,6 +349,7 @@
     <Content Include="Assest\images\search.png" />
     <Content Include="Assest\images\shopping-cart.png" />
     <Content Include="Assest\images\style%27G.png" />
+    <Content Include="Assest\images\style%27G2.png" />
     <Content Include="Assest\images\up.png" />
     <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
@@ -361,6 +362,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\styleG1.jpg" />
+    <Content Include="img\styleG2.jpg" />
+    <Content Include="img\styleG3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardCss\black-dashboard.css.map" />
@@ -604,6 +608,7 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
+    <Content Include="Views\shopIndex\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
