@@ -266,6 +266,12 @@
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\chartjs.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Assest\images\bg-2.jpg" />
+    <Content Include="Assest\images\c\70428.jpg" />
+    <Content Include="Assest\images\c\70429.jpg" />
+    <Content Include="Assest\images\c\res_20180511021807876.jpg" />
+    <Content Include="Assest\images\c\res_20180511021838748.jpg" />
+    <Content Include="Assest\images\c\res_20180910060135330.jpg" />
+    <Content Include="Assest\images\c\res_20181211010803209.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
     <Content Include="Assest\images\img-carousel-2.jpg" />
