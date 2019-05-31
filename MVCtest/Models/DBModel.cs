@@ -68,10 +68,10 @@ namespace MVCtest.Models
                 .HasForeignKey(e => e.Seller_ID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Order>()
+            //    .HasMany(e => e.OrderDetails)
+            //    .WithRequired(e => e.Order)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrderDetail>()
                 .Property(e => e.Product_Name)
@@ -119,10 +119,10 @@ namespace MVCtest.Models
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Product>()
+            //    .HasMany(e => e.OrderDetails)
+            //    .WithRequired(e => e.Product_Id)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Shipper>()
                 .Property(e => e.Phone)

@@ -83,7 +83,7 @@
             outline: none;
             text-align: center;
             vertical-align: top;
-            padding 0px;
+            padding: 0px;
             width: 50px;
             border: 0px;
             height: 42px;
@@ -189,39 +189,30 @@
 @section endJS {
     <script>
 
-        //var unitPrice = document.getElementsByClassName("unitPrice").innerHTML.substring(3);//商品單價
-
-        //執行頁面立刻執行
-        window.onload = function () {
-            //for (var i = 0; i < ('.c_1').length)
-            alert(('.c_1').length);
-            //$(".subtotal").text("123");  
-        }
 
         //商品數量減少按鈕
         $('.input-number-decrement').on('click', function () {
             var $this = $(this);
-            if ($this.next().val() > 1) {
-                var value = $this.next().val() - 1;
+            var value = +$this.next().val();
+            var $cardID = $this.next().next().next().val();
+            if (value > 1) {
+                value +=  - 1;
                 $this.next().val(value);
-                
-                //var unitprice = $('.unitprice').text();
-                //$(".subtotal").text(unitprice * value);
+                updateQuantity($cardID, value);
             }
+
         })
 
         //商品數量增加按鈕
         $('.input-number-increment').on('click', function () {
             var $this = $(this);
             var value = +$this.prev().val() + 1;
+            var $cardID = $this.next().val();
             $this.prev().val(value);
+
+            updateQuantity($cardID, value);
         })
 
-        $('.input-number-count').on('change', function () {
-            var $this = $(this);
-            var value = $this.next('div').text();
-            alert(value);
-        })
 
         //下一步按鈕
         function nextStep() {
@@ -231,6 +222,36 @@
             $('.process span:nth-child(3)').addClass('done');
         }
 
+
+        $('.delete').on('click', function () {
+            var $this = $(this)
+            var id = $($this.next()).val();
+            remove(id);
+        })
+
+
+        function updateQuantity(cartID, newQuantity) {
+           $.ajax({
+                cache: "false",
+                type: "POST",
+               url: "@Url.Action("UpdateQuantity", "Cart")",
+               data: { cartID: cartID, quantity : newQuantity },
+            });
+
+        }
+
+        function remove(ID) {
+            $.ajax({
+                cache: "false",
+                type: "POST",
+                url: "@Url.Action("DeleteCart", "Cart")",
+                data: { cartID: ID },
+                success: function () {
+                    //重新導向
+                    history.go(0)
+                }
+            });
+        }
 /**/</script>
 }
 
@@ -246,115 +267,94 @@
         <span>> 3 填寫送貨資料</span>
         <span>> 4 購物完成</span>
     </div>
-    <div class="cart">
-        <div class="cart_header">
-            <div class="c_1">商品圖片</div>
-            <div class="c_2">商品名稱</div>
-            <div class="c_3">編號</div>
-            <div class="c_4">規格</div>
-            <div class="c_5">單價</div>
-            <div class="c_6">數量</div>
-            <div class="c_7">小計</div>
-            <div class="c_8">刪除</div>
-        </div>
-        @foreach (var item in Model)
-        {
-            @*<<<<<<< HEAD
-                            using (Html.BeginForm("Delete", "Cart", FormMethod.Post))
-                            {
-                            <div class="commodity form-group">
-                                <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
-                                <div class="c_2">@item.ProductName</div>
-                                <div class="c_3">@item.ProductNo</div>
-                                <div class="c_4">@item.Size</div>
-                                <div class="c_5">NT$@item.Unitprice</div>
-                                <div class="c_6">
-                                    <div id="quantityChange">
-                                        <span class="input-number-decrement" id="inc">-</span>
-                                        <input type="text" class="input-number" id="count" value="@item.Quantity" />
-                                        <span class="input-number-increment" id="dec">+</span>
-                                    </div>
-                                </div>
-                                <div class="c_7">NT$680</div>
-                                <input type="hidden" name="CartID" value="@item.CartId">
-                                <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
-                            </div>
-                            }
-                =======*@
-            <div class="commodity">
-                <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
-                <div class="c_2">@item.ProductName</div>
-                <div class="c_3">@item.ProductNo</div>
-                <div class="c_4">@item.Size</div>
-                <div class="c_5 unitprice">NT$@item.Unitprice</div>
-                <div class="c_6">
-                    <div id="quantityChange">
-                        <span class="input-number-decrement">-</span>
-                        <input type="text" class="input-number-count" value="@item.Quantity" />
-                        <span class="input-number-increment">+</span>
+    <form action="/Cart/SaveOrder" method="post">
+        <div class="cart">
+            <div class="cart_header">
+                <div class="c_1">商品圖片</div>
+                <div class="c_2">商品名稱</div>
+                <div class="c_3">編號</div>
+                <div class="c_4">規格</div>
+                <div class="c_5">單價</div>
+                <div class="c_6">數量</div>
+                <div class="c_7">小計</div>
+                <div class="c_8">刪除</div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="commodity">
+                    <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
+                    <div class="c_2">@item.ProductName</div>
+                    <div class="c_3">@item.ProductNo</div>
+                    <div class="c_4">@item.Size</div>
+                    <div class="c_5 unitprice">NT$@item.Unitprice</div>
+                    <div class="c_6">
+                        <div id="quantityChange">
+                            <span class="input-number-decrement">-</span>
+                            <input type="text" class="input-number-count" value="@item.Quantity" name="newQuantity" />
+                            <span class="input-number-increment">+</span>
+                            <input type="hidden" name="cartID" class="val" value="@item.CartId" />
+                        </div>
+                    </div>
+                    <div class="c_7">NT$680</div>
+                    <div>
+                        <button class="delete" name="delete"><i class="fas fa-trash-alt"></i></button>
+                        <input type="hidden" name="cartID" class="val" value="@item.CartId" />
                     </div>
                 </div>
-                <div class="c_7">NT$680</div>
-                <form class="c_8" action="/Cart/DeleteCart" method="post">
-                    <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
-                    <input type="hidden" name="cartID" value="@item.CartId" />
-                </form>
+
+            }
+            <div class="total_box">
+                <div total_row><div class="total_left">購物車內共<span></span>項商品，商品總金額為</div><div></div></div>
+                <div total_row><div class="total_left">運費</div><div class="freight"></div></div>
+                <div total_row><div class="total_left">總計</div><div class="all_total"></div></div>
             </div>
-
-        }
-
-
-        <div class="total_box">
-            <div total_row><div class="total_left">購物車內共<span></span>項商品，商品總金額為</div><div></div></div>
-            <div total_row><div class="total_left">運費</div><div class="freight"></div></div>
-            <div total_row><div class="total_left">總計</div><div class="all_total"></div></div>
         </div>
-    </div>
-    <div class="nextStep"><button onclick="nextStep()">下一步</button></div>
-    <div id="deliveryMethod" class="dM">
-        <div><h2>配送方式</h2></div>
-        <div class="select">
-            <select>
-                <option value="" selected="selected">宅配</option>
-                <option value="">超商取貨(不付款)</option>
-            </select>
-        </div>
-        <div class="recipienth2"><h2>收件人資訊</h2></div>
-        <div class="recipient">
-            <div class="item">
-                <div class="r_1">選擇或新增</div>
-                <div class="r_2">收件人</div>
-                <div class="r_3">連絡電話</div>
-                <div class="r_4">地址</div>
-            </div>
-            <hr />
-            <div class="recipientData">
-                <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
-                <div class="r_2">蘇冠銘</div>
-                <div class="r_3">0903578910</div>
-                <div class="r_4">新竹市香山區五福路二段707號</div>
-            </div>
-            <hr />
-            <div class="newRecipientData" />
-            <div class="regionalChoice" />
-            <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
-            <div>
-                <select>
-                    <option value="" selected="selected" />台灣本島</option>
-                    <option value="" />台灣外島</option>
-                    <option value="" />新馬港澳中國(順豐)</option>
-                    <option value="" />海外其他地區(EMS)</option>
+         @*改Zhou*@
+        <div class="nextStep"><span onclick="nextStep()">下一步</span></div>
+        <div id="deliveryMethod" class="dM">
+            <div><h2>配送方式</h2></div>
+            <div class="select">
+                <select name="shipperID">
+                    <option value="1" selected="selected">宅配</option>
+                    <option value="2">超商取貨(不付款)</option>
                 </select>
             </div>
-        </div>
-        <div class="data">
-            <form action="#">
-                <input class="name" type="text" name="" value="" placeholder="姓名" />
+            <div class="recipienth2"><h2>收件人資訊</h2></div>
+            <div class="recipient">
+                <div class="item">
+                    <div class="r_1">選擇或新增</div>
+                    <div class="r_2">收件人</div>
+                    <div class="r_3">連絡電話</div>
+                    <div class="r_4">地址</div>
+                </div>
+                <hr />
+                <div class="recipientData">
+                    <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
+                    <div class="r_2">蘇冠銘</div>
+                    <div class="r_3">0903578910</div>
+                    <div class="r_4">新竹市香山區五福路二段707號</div>
+                </div>
+                <hr />
+                <div class="newRecipientData" />
+                <div class="regionalChoice" />
+                <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
+                <div>
+                    <select>
+                        <option value="" selected="selected">台灣本島</option>
+                        <option value="">台灣外島</option>
+                        <option value="">新馬港澳中國(順豐)</option>
+                        <option value="">海外其他地區(EMS)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="data">
+                <input class="name" type="text" name="paymentID" value="" placeholder="姓名" />
                 <input class="phone" type="text" name="" value="" placeholder="手機號碼" />
                 <input class="address" type="text" name="" value="" placeholder="地址" />
-            </form>
+            </div>
+            <hr />
+            <div class="nextStep2"><button onclick="">下一步</button></div>
+
         </div>
-        <hr />
-        <div class="nextStep2"><button onclick="">下一步</button></div>
-    </div>
+    </form>
 </div>
