@@ -2,6 +2,7 @@
 using MVCtest.Models;
 using MVCtest.Repository;
 using MVCtest.ViewModels;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -56,6 +57,28 @@ namespace MVCtest.Service
             else return null;
 
         }
+
+        public CustomerViewModel GetFbMember(string email, string name)
+        {
+
+            DBModel context = new DBModel();
+            DbRepository<Customer> repo = new DbRepository<Customer>(context);
+
+            //string pwd = Helper.EncodePassword(password);
+            Customer entity = repo.GetAll().FirstOrDefault((x) => x.Customer_Email == email & x.Customer_Name == name);
+
+            if (entity != null) {
+                CustomerViewModel cvm = new CustomerViewModel()
+                {
+                    Customer_ID = entity.Customer_ID,
+                    Customer_Name = entity.Customer_Name,
+                    Customer_Email = entity.Customer_Email,
+
+                };
+                return cvm;
+            } else return null;
+
+        }
         //public void GetName()
         //{
         //    ProductListViewModel result = new ProductListViewModel();
@@ -89,6 +112,27 @@ namespace MVCtest.Service
                 context.SaveChanges();
                 return true;
    
+        }
+        public CustomerListViewModel GetAllCustomer()
+        {
+            CustomerListViewModel result = new CustomerListViewModel();
+            result.data = new List<CustomerViewModel>();
+            DBModel context = new DBModel();
+            DbRepository<Customer> repo = new DbRepository<Customer>(context);
+            foreach (var item in repo.GetAll().OrderBy((x) => x.Customer_ID))
+            {
+                CustomerViewModel c = new CustomerViewModel()
+                {
+                    Customer_ID = item.Customer_ID,
+                    Customer_Email = item.Customer_Email,
+                    Customer_Name = item.Customer_Name,
+                    Customer_Phone = item.Customer_Phone
+
+                };
+                result.data.Add(c);
+            }
+            return result;
+
         }
     }
 }

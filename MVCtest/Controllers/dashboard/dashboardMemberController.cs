@@ -8,9 +8,12 @@ using System.Web.Mvc;
 
 namespace MVCtest.Controllers.dashboard
 {
-    public class dashboardMemberController : Controller
+    
+    public class dashboardProductController : Controller
     {
-        // GET: dashboardMember
+
+        //API GET :/dashboardMember/GetChart
+        [Route("api/dashboardMember/GetChart")]
         public JsonResult GetChart()
         {
             List<string> label = new List<string>();
@@ -27,12 +30,32 @@ namespace MVCtest.Controllers.dashboard
 
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
-        // GET: dashboardMember 
+
+        //新增商品
+        //API POST :/dashboardMember/crateProduct
+        [HttpPost]
+        public JsonResult crateProduct(ProductViewModel pvm) {
+
+            return null;
+        }
+        //API GET :/dashboardMember/getProduct
+        [Route("api/dashboardMember/GetProduct")]
+        public JsonResult getProduct(){
+            ProductService ps = new ProductService();
+            ProductListViewModel psv= ps.GetAllProduct();
+
+            var datas = new { psv.data };
+            return Json(datas, JsonRequestBehavior.AllowGet);
+        }
+
+
+        // view 
         public ActionResult Index()
         {            
 
             return View();
         }
+
 
         public ActionResult category()
         {
@@ -41,6 +64,13 @@ namespace MVCtest.Controllers.dashboard
             return View(result);
         }
 
+
+
+        public ActionResult createProduct()
+        {
+
+            return View();
+        }
 
     }
 }

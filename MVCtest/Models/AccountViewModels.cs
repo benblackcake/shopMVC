@@ -6,6 +6,10 @@ namespace MVCtest.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [Display(Name = "姓名")]
+        public string UserName { get; set; }
+
+        [Required]
         [Display(Name = "電子郵件")]
         public string Email { get; set; }
     }

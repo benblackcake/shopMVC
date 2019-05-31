@@ -88,5 +88,36 @@ namespace MVCtest.Service
             context.SaveChanges();
 
         }
+
+        //price待確認
+        public void SaveOrder(int customerID,List<string> sumPrice,string paymentID,string shipperID)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Order> repoOrder = new DbRepository<Order>(context);
+
+            var result = context.Carts.ToList().FindAll(x => x.Customer_ID == customerID);
+            List<OrderDetail> od = new List<OrderDetail>();
+            for(var i = 0; i<result.Count;i++)
+            {
+                od.Add(new OrderDetail()
+                {
+                    Product_Id = result[i].Product_ID,
+                    Quantity = result[i].Quantity.ToString(),
+                    UnitPrice = sumPrice[i]
+                });
+
+            }
+            Order order = new Order()
+            {
+                Order_Date = DateTime.Now,
+                Payment_ID = int.Parse(paymentID) ,
+                Shipper_ID = int.Parse(shipperID),
+                OrderDetails = od
+            };
+
+            repoOrder.Create(order);
+            db.SaveChanges();
+
+        }
     }
 }

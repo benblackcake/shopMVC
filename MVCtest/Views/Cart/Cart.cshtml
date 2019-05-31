@@ -1,4 +1,4 @@
-﻿@model List<MVCtest.ViewModels.CartViewModel> 
+﻿@model List<MVCtest.ViewModels.CartViewModel>
 
 @{
     ViewBag.Title = "style'G：購物車";
@@ -12,6 +12,7 @@
         .cart_header {
             border-bottom: 1px solid #e6e6e6;
             display: flex;
+            line-height: 40px;
         }
 
         .commodity {
@@ -48,19 +49,20 @@
 
             .c_1 img {
                 margin: auto auto;
-                height: 80%;
-                width: 80%;
+                height: 120px;
+                width: 80px;
             }
 
-            .c_8 button {
-                height: 40px;
-                margin: auto auto;
-            }
-
-        #delect i {
+        #delect {
             position: relative;
-            bottom: 60px;
+            top: 50px;
+            height: 40px;
         }
+
+            #delect i {
+                position: relative;
+                bottom: 58px;
+            }
 
         .process .done {
             color: #000;
@@ -72,11 +74,12 @@
         }
 
         .total_left {
+            display: flex;
             justify-content: flex-end;
             width: 86%;
         }
 
-        .input-number {
+        .input-number-count {
             outline: none;
             text-align: center;
             vertical-align: top;
@@ -84,6 +87,8 @@
             width: 50px;
             border: 0px;
             height: 42px;
+            position: relative;
+            top: 55px;
         }
 
         .input-number-decrement,
@@ -99,30 +104,134 @@
             height: 40px;
         }
 
-        #count {
-            position: relative;
-            top: 55px;
+            .input-number-decrement:active,
+            .input-number-increment:active {
+                background: #dddddd;
+            }
+
+        .nextStep,
+        .nextStep2 {
+            display: flex;
+            justify-content: flex-end;
         }
 
-        #quantityChange {
-            height: 40px;
+            .nextStep button,
+            .nextStep2 button {
+                width: 100px;
+                color: #dddddd;
+                background-color: #000;
+                height: 30px;
+                border: 0px;
+                margin: 10px 10px 0 0;
+            }
+
+        #deliveryMethod {
+            margin: 50px 0 0 0;
+        }
+
+        .dM {
+            display: none;
+        }
+
+        .select {
+            display: flex;
+            justify-content: center;
+        }
+
+        .recipienth2 {
+            margin: 50px 0 0 0;
+        }
+
+        .recipientData {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item,
+        .regionalChoice {
+            display: flex;
+        }
+
+        .r_1 {
+            width: 20%;
+        }
+
+        .r_2,
+        .r_3 {
+            width: 30%;
+        }
+
+        .r_4 {
+            width: 50%;
+        }
+
+        .checkbox {
+            position: relative;
+            left: 30px;
+        }
+
+        .data {
+            margin: 20px 0 0 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .name,
+        .phone {
+            width: 250px;
+        }
+
+        .address {
+            width: 450px;
         }
     </style>
 }
 @section endJS {
     <script>
-    window.onload = function () {
-        var count = document.getElementById("count");
-        var inc = document.getElementById("inc");
-        var dec = document.getElementById("dec");
-        inc.onclick = function () {
-            count.value = parseInt(count.value) - 1;
-        };
-        dec.onclick = function () {
-        count.value = parseInt(count.value) + 1;
-        };
-    }
-    </script>
+
+        //var unitPrice = document.getElementsByClassName("unitPrice").innerHTML.substring(3);//商品單價
+
+        //執行頁面立刻執行
+        window.onload = function () {
+            //for (var i = 0; i < ('.c_1').length)
+            alert(('.c_1').length);
+            //$(".subtotal").text("123");  
+        }
+
+        //商品數量減少按鈕
+        $('.input-number-decrement').on('click', function () {
+            var $this = $(this);
+            if ($this.next().val() > 1) {
+                var value = $this.next().val() - 1;
+                $this.next().val(value);
+                
+                //var unitprice = $('.unitprice').text();
+                //$(".subtotal").text(unitprice * value);
+            }
+        })
+
+        //商品數量增加按鈕
+        $('.input-number-increment').on('click', function () {
+            var $this = $(this);
+            var value = +$this.prev().val() + 1;
+            $this.prev().val(value);
+        })
+
+        $('.input-number-count').on('change', function () {
+            var $this = $(this);
+            var value = $this.next('div').text();
+            alert(value);
+        })
+
+        //下一步按鈕
+        function nextStep() {
+            $('.nextStep').hide();
+            $('#deliveryMethod').removeClass('dM');
+            $('.process span:nth-child(2)').addClass('done');
+            $('.process span:nth-child(3)').addClass('done');
+        }
+
+/**/</script>
 }
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -150,47 +259,47 @@
         </div>
         @foreach (var item in Model)
         {
-@*<<<<<<< HEAD
-            using (Html.BeginForm("Delete", "Cart", FormMethod.Post))
-            {
-            <div class="commodity form-group">
+            @*<<<<<<< HEAD
+                            using (Html.BeginForm("Delete", "Cart", FormMethod.Post))
+                            {
+                            <div class="commodity form-group">
+                                <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
+                                <div class="c_2">@item.ProductName</div>
+                                <div class="c_3">@item.ProductNo</div>
+                                <div class="c_4">@item.Size</div>
+                                <div class="c_5">NT$@item.Unitprice</div>
+                                <div class="c_6">
+                                    <div id="quantityChange">
+                                        <span class="input-number-decrement" id="inc">-</span>
+                                        <input type="text" class="input-number" id="count" value="@item.Quantity" />
+                                        <span class="input-number-increment" id="dec">+</span>
+                                    </div>
+                                </div>
+                                <div class="c_7">NT$680</div>
+                                <input type="hidden" name="CartID" value="@item.CartId">
+                                <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
+                            </div>
+                            }
+                =======*@
+            <div class="commodity">
                 <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
                 <div class="c_2">@item.ProductName</div>
                 <div class="c_3">@item.ProductNo</div>
                 <div class="c_4">@item.Size</div>
-                <div class="c_5">NT$@item.Unitprice</div>
+                <div class="c_5 unitprice">NT$@item.Unitprice</div>
                 <div class="c_6">
                     <div id="quantityChange">
-                        <span class="input-number-decrement" id="inc">-</span>
-                        <input type="text" class="input-number" id="count" value="@item.Quantity" />
-                        <span class="input-number-increment" id="dec">+</span>
+                        <span class="input-number-decrement">-</span>
+                        <input type="text" class="input-number-count" value="@item.Quantity" />
+                        <span class="input-number-increment">+</span>
                     </div>
                 </div>
                 <div class="c_7">NT$680</div>
-                <input type="hidden" name="CartID" value="@item.CartId">
-                <div class="c_8"><button id="delect"><i class="fas fa-trash-alt"></i></button></div>
+                <form class="c_8" action="/Cart/DeleteCart" method="post">
+                    <div><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
+                    <input type="hidden" name="cartID" value="@item.CartId" />
+                </form>
             </div>
-            }
-=======*@
-        <div class="commodity">
-            <a href="" class="c_1"><img src="@item.ProductImage" alt="商品圖片" /></a>
-            <div class="c_2">@item.ProductName</div>
-            <div class="c_3">@item.ProductNo</div>
-            <div class="c_4">@item.Size</div>
-            <div class="c_5">NT$@item.Unitprice</div>
-            <div class="c_6">
-                <div id="quantityChange">
-                    <span class="input-number-decrement"id="inc">-</span>
-                    <input type="text" class="input-number"id="count" value="@item.Quantity" />
-                    <span class="input-number-increment"id="dec">+</span>
-                </div>
-            </div>
-            <div class="c_7">NT$680</div>
-            <form action="/Cart/DeleteCart" method="post">
-                <div class="c_8"><button id="delect" name="delete"><i class="fas fa-trash-alt"></i></button></div>
-                <input type="hidden" name="cartID" value="@item.CartId" />
-            </form>
-        </div>
 
         }
 
@@ -201,5 +310,51 @@
             <div total_row><div class="total_left">總計</div><div class="all_total"></div></div>
         </div>
     </div>
-    <div><button class="nextStep">下一步</button></div>
+    <div class="nextStep"><button onclick="nextStep()">下一步</button></div>
+    <div id="deliveryMethod" class="dM">
+        <div><h2>配送方式</h2></div>
+        <div class="select">
+            <select>
+                <option value="" selected="selected">宅配</option>
+                <option value="">超商取貨(不付款)</option>
+            </select>
+        </div>
+        <div class="recipienth2"><h2>收件人資訊</h2></div>
+        <div class="recipient">
+            <div class="item">
+                <div class="r_1">選擇或新增</div>
+                <div class="r_2">收件人</div>
+                <div class="r_3">連絡電話</div>
+                <div class="r_4">地址</div>
+            </div>
+            <hr />
+            <div class="recipientData">
+                <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
+                <div class="r_2">蘇冠銘</div>
+                <div class="r_3">0903578910</div>
+                <div class="r_4">新竹市香山區五福路二段707號</div>
+            </div>
+            <hr />
+            <div class="newRecipientData" />
+            <div class="regionalChoice" />
+            <div class="r_1 checkbox"><input type="checkbox" name="" value="" /><br /></div>
+            <div>
+                <select>
+                    <option value="" selected="selected" />台灣本島</option>
+                    <option value="" />台灣外島</option>
+                    <option value="" />新馬港澳中國(順豐)</option>
+                    <option value="" />海外其他地區(EMS)</option>
+                </select>
+            </div>
+        </div>
+        <div class="data">
+            <form action="#">
+                <input class="name" type="text" name="" value="" placeholder="姓名" />
+                <input class="phone" type="text" name="" value="" placeholder="手機號碼" />
+                <input class="address" type="text" name="" value="" placeholder="地址" />
+            </form>
+        </div>
+        <hr />
+        <div class="nextStep2"><button onclick="">下一步</button></div>
+    </div>
 </div>

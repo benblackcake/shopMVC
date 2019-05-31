@@ -184,7 +184,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardCustomerController.cs" />
+
     <Compile Include="Controllers\dashboard\dashboardMemberController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
@@ -228,6 +231,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingListViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingViewModel.cs" />
@@ -246,6 +250,8 @@
     <Content Include="Assest\dashboardAssets\dashboardCss\nucleo-icons.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\apple-icon.png" />
@@ -501,8 +507,15 @@
     <Content Include="Views\Product\detail.cshtml" />
     <Content Include="Views\Menu\Category.cshtml" />
     <Content Include="Views\Menu\SideCategory.cshtml" />
+
+
+    <Content Include="Views\Menu\CartHover.cshtml" />
+
+    <Content Include="Views\MemberCenter\ExternalLoginConfirmation.cshtml" />
+
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\dashboardMember\Index.cshtml" />
+
     <Content Include="Views\Home\history_order.cshtml" />
     <Content Include="Views\OrderDetailsCRUD\Create.cshtml" />
     <Content Include="Views\OrderDetailsCRUD\Delete.cshtml" />
@@ -517,6 +530,12 @@
     <Content Include="Views\OrdersCRUD\Details.cshtml" />
     <Content Include="Views\OrdersCRUD\Edit.cshtml" />
     <Content Include="Views\OrdersCRUD\Index.cshtml" />
+
+    <Content Include="Views\dashboardCustomer\Index.cshtml" />
+    <Content Include="Views\dashboardProduct\Index.cshtml" />
+    <Content Include="Views\dashboardProduct\createProduct.cshtml" />
+
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -553,7 +572,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52677</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8000/</IISUrl>
+          <IISUrl>https://localhost:44319/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

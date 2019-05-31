@@ -155,23 +155,23 @@
 
                             <div class="form-group">
                                 <input type="hidden" name="Customer_ID" value="@ViewBag.ID" />
-
+                                <input type="hidden" name="Customer_Email" value="@ViewBag.Email" />
                                 <label>會員帳號</label><br>
-                                <input type="text" name="Customer_Email" value="@ViewBag.Email" class="form-control">
+                                <input type="text" name="Customer_Email" disabled="disabled" value="@ViewBag.Email" class="form-control">
 
                             </div>
                             <div class="form-group">
                                 <label>會員密碼</label><br>
-                                <input type="text" name="User_Password" value="" class="form-control">
+                                <input type="text" name="User_Password" value="" class="form-control" required="true">
 
                             </div>
                             <div class="form-group">
                                 <label>會員姓名</label><br>
-                                <input type="text" name="Customer_Name" value="@ViewBag.Name" class="form-control">
+                                <input type="text" name="Customer_Name" value="@ViewBag.Name" class="form-control" required="true">
                             </div>
                             <div class="form-group">
                                 <label>會員電話</label><br>
-                                <input type="text" name="Customer_Phone" value="" class="form-control">
+                                <input type="text" name="Customer_Phone" value="" class="form-control" required="true">
                             </div>
 
 

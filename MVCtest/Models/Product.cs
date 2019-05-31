@@ -5,6 +5,7 @@ namespace MVCtest.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("Product")]
     public partial class Product
@@ -55,6 +56,8 @@ namespace MVCtest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
+
+        //public HttpPostedFileBase ImageFile { get; set; }
         //public virtual SSub_Category SSub_Category { get; set; }
     }
 }

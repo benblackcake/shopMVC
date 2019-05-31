@@ -30,5 +30,13 @@ namespace MVCtest.Controllers
         //    CategoryListViewModel result = csv.GetAllCategory();
         //    return PartialView(result);
         //}
+        public ActionResult CartHover()
+        {
+            CartService csv = new CartService();
+            int id = (int)Session["id"];
+            List<CartViewModel> result = csv.GetListCart(id);
+
+            return PartialView(result);
+        }
     }
 }
