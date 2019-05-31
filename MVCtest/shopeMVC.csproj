@@ -192,7 +192,9 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
+    <Compile Include="Controllers\shopN\shopProductController.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -325,6 +327,10 @@
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\c\70428.jpg" />
     <Content Include="Assest\images\c\70429.jpg" />
+    <Content Include="Assest\images\c\70430.jpg" />
+    <Content Include="Assest\images\c\70431.jpg" />
+    <Content Include="Assest\images\c\70432.jpg" />
+    <Content Include="Assest\images\c\70433.jpg" />
     <Content Include="Assest\images\c\res_20180511021807876.jpg" />
     <Content Include="Assest\images\c\res_20180511021838748.jpg" />
     <Content Include="Assest\images\c\res_20180910060135330.jpg" />
@@ -604,10 +610,13 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
+    <Content Include="Views\shopProduct\detail.cshtml" />
+    <Content Include="Views\shopProduct\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assest\images\image\" />
+    <Folder Include="Views\shopCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
