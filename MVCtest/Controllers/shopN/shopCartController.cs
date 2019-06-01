@@ -49,6 +49,13 @@ namespace MVCtest.Controllers.shopN
             CartService cs = new CartService();
             int id = (int)Session["id"];
             cs.SaveOrder(id, paymentID, shipperID);
+//=======
+//        public ActionResult SaveOrder(List<string> sumPrice, string paymentID, string shipperID)
+//        {
+//            CartService cs = new CartService();
+//            int id = (int)Session["id"];
+//            cs.SaveOrder(id, sumPrice, paymentID, shipperID);
+//>>>>>>> shopNew_ben
             return RedirectToAction("Cart");
         }
 
@@ -62,6 +69,7 @@ namespace MVCtest.Controllers.shopN
 
         }
 
+
         [AuthorizePlus]
         [HttpPost]
         public ActionResult UpdateQuantity(int cartID, string quantity)
@@ -71,6 +79,7 @@ namespace MVCtest.Controllers.shopN
 
             return View();
         }
+
 
 
     }

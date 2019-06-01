@@ -612,7 +612,13 @@
     <Content Include="Views\dashboardCustomer\Index.cshtml" />
     <Content Include="Views\dashboardProduct\Index.cshtml" />
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
-
+    <Content Include="Views\Shared\_shop.cshtml" />
+    <Content Include="Views\shopIndex\Index.cshtml" />
+    <Content Include="Views\shopProduct\detail.cshtml" />
+    <Content Include="Views\shopProduct\Index.cshtml" />
+    <Content Include="Views\shopIndex\Index2.cshtml" />
+    <Content Include="Views\shopCart\Cart.cshtml" />
+    <Content Include="Views\Menu\CountCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
