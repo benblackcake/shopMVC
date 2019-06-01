@@ -51,14 +51,26 @@ namespace MVCtest.Controllers.dashboard
 
         // view 
         public ActionResult Index()
-        {
-            
+        {            
+
             return View();
         }
+
+
+        public ActionResult category()
+        {
+            CategoryService csv = new CategoryService();
+            CategoryListViewModel result = csv.GetAllCategory();
+            return View(result);
+        }
+
+
+
         public ActionResult createProduct()
         {
 
             return View();
         }
+
     }
 }
