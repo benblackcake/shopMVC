@@ -182,17 +182,21 @@ $(window).on('load', function() {
 	/*-------------------
 		Quantity change
 	--------------------- */
+    var total = 0;
     var $proQty = $('.pro-qty');
 	$proQty.prepend('<span class="dec qtybtn">-</span>');
-	$proQty.append('<span class="inc qtybtn">+</span>');
+    $proQty.append('<span class="inc qtybtn">+</span>');
+    $(document).ready(function () {
+        $('.qty').change();
+    })
 	$proQty.on('click', '.qtybtn', function () {
         var $this = $(this);
         var $value = +$this.parent().find('input[type="text"]').val();
-        var $cardID = $this.parent().find('input[type="hidden"]').val();
 
 		if ($this.hasClass('inc')) {
-			$value +=1 ;
+			$value += 1 ;
         }
+
         if ($this.hasClass('dec')) {
 			if ($value > 0) {
                 $value -= 1;    
@@ -200,18 +204,21 @@ $(window).on('load', function() {
 				$value = 0;
 			}
         }
-        updateQuantity($cardID, $value);
-		$this.parent().find('input[type="text"]').attr('value',$value);
+        $this.parent().find('input[type="text"]').attr('value', $value);
+        $('.qty').change();
     });
 
-
-    $('.pro-qty').on('change','input',function () {
+    $('.qty').on('change', function () {
         var $this = $(this);
         var $index = $('.qty').index(this);
         var $eachPrice = $('.eachPrice');
         var $unitPrice = $('.unitPrice');
-        var value = $this.val() * $($unitPrice[$index]).text();
-        $($eachPrice[$index]).text(value);
+        var $value = $this.val() * $($unitPrice[$index]).text();
+
+        updateQuantity($this.next().val(), $this.val());
+        $($eachPrice[$index]).text('$' + $value);
+        $($eachPrice[$index]).val($value);
+        updateTotal();
     })
 
     $('.delete').on('click', function () {
@@ -220,6 +227,16 @@ $(window).on('load', function() {
         remove($cardID);
         history.go(0)
     })
+
+    function updateTotal() {
+        total = 0;
+        var $eachprice = $('.eachPrice');
+        for (var i = 0; i < $eachprice.length; i++) {
+            var $value = $($eachprice[i]).val().split("$")[0]
+            total += +$value;
+        }
+        $('#total').text('$' + total); 
+    }
 
 
     function updateQuantity(cartID, newQuantity) {
@@ -231,7 +248,6 @@ $(window).on('load', function() {
         });
 
     }
-
 
 
     function remove(ID) {

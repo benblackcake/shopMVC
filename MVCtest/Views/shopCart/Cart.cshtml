@@ -25,51 +25,47 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model) {
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="@item.ProductImage" alt="商品圖片">
-                                        @*<div class="pc-title">
-                                            <h4>@item.ProductName</h4>
-                                        </div>*@
-                                    </td>
-                                    <td class="size-col"><h6>@item.ProductName</h6></td>
-                                    <td class="size-col"><h6>@item.ProductNo</h6></td>
-                                    <td class="size-col"><h6>@item.Size</h6></td>
-                                    <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input  type="text" class="qty" value="@item.Quantity">
-                                                <input type="hidden" name="cartID" value="@item.CartId" />
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="product-col">
+                                            <img src="@item.ProductImage" alt="商品圖片">
+                                            @*<div class="pc-title">
+                                        <h4>@item.ProductName</h4>
+                                    </div>*@
+                                        </td>
+                                        <td class="size-col"><h6>@item.ProductName</h6></td>
+                                        <td class="size-col"><h6>@item.ProductNo</h6></td>
+                                        <td class="size-col"><h6>@item.Size</h6></td>
+                                        <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
+                                        <td class="quy-col">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" class="qty" value="@item.Quantity">
+                                                    <input type="hidden" name="cartID" value="@item.CartId" />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-col">
-                                        <h6 class="eachPrice">$0</h6>
-                                        @*<sapn class="delete" name="delete" style="font-size:5px"><i class="fa fa-trash-o"></i></sapn>
-        <input type="hidden" name="cartID" value="@item.CartId" />*@
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="total-col">
+                                            <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
+                                            @*<sapn class="delete" name="delete" style="font-size:5px"><i class="fa fa-trash-o"></i></sapn>
+                                    <input type="hidden" name="cartID" value="@item.CartId" />*@
+                                        </td>
+                                    </tr>
                                 }
 
-                                
                             </tbody>
                         </table>
                     </div>
                     <div class="total-cost">
-                        <h6>Total <span class="total">$0</span></h6>
+                        <h6>Total <span id="total">$0</span></h6>
                     </div>
                 </div>
+                <div class="d-flex justify-content-lg-end bottom-btn">
+                    <a href="#" class="site-btn sb-dark keepshopping">繼續購物</a>
+                    <a href="#" class="site-btn checkout">前往結帳</a>
+                </div>
             </div>
-            @*<div class="col-lg-4 card-right">
-                <form class="promo-code-form">
-                    <input type="text" placeholder="Enter promo code">
-                    <button>Submit</button>
-                </form>
-                <a href="" class="site-btn">Proceed to checkout</a>
-                <a href="" class="site-btn sb-dark">Continue shopping</a>
-            </div>*@
         </div>
     </div>
 </section>

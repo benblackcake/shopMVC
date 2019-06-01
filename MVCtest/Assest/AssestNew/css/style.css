@@ -1712,6 +1712,8 @@ ol {
   Cart page
 ---------------------*/
 
+
+
 .scrollbar {
 	margin: 80px auto 0;
 	width: 100%;
@@ -1901,6 +1903,13 @@ ol {
 	font-weight: 700;
 	color: #f51167;
 	cursor: pointer;
+}
+
+.bottom-btn{
+    margin-top :20px;
+}
+.bottom-btn .checkout{
+    margin-left:20px;
 }
 
 /* ----------------
