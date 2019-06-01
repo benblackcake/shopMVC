@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
+    <Compile Include="Controllers\shopN\shopMemberController.cs" />
     <Compile Include="Controllers\shopN\shopProductController.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,6 +244,7 @@
     <Content Include="Assest\AssestNew\css\flaticon.css" />
     <Content Include="Assest\AssestNew\css\font-awesome.min.css" />
     <Content Include="Assest\AssestNew\css\jquery-ui.min.css" />
+    <Content Include="Assest\AssestNew\css\login.css" />
     <Content Include="Assest\AssestNew\css\owl.carousel.min.css" />
     <Content Include="Assest\AssestNew\css\slicknav.min.css" />
     <Content Include="Assest\AssestNew\css\style.css" />
@@ -619,6 +621,8 @@
     <Content Include="Views\shopIndex\Index2.cshtml" />
     <Content Include="Views\shopCart\Cart.cshtml" />
     <Content Include="Views\Menu\CountCart.cshtml" />
+    <Content Include="Views\shopMember\Index.cshtml" />
+    <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

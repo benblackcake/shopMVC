@@ -1,0 +1,483 @@
+﻿/*Extend for login page*/
+
+
+/* line 161, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-10 {
+  margin-top: 10px;
+}
+
+/* line 162, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-15 {
+  margin-top: 15px;
+}
+
+/* line 163, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* line 164, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-25 {
+  margin-top: 25px;
+}
+
+/* line 165, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-30 {
+  margin-top: 30px;
+}
+
+/* line 166, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-35 {
+  margin-top: 35px;
+}
+
+/* line 167, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-40 {
+  margin-top: 40px;
+}
+
+/* line 168, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-50 {
+  margin-top: 50px;
+}
+
+/* line 169, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-60 {
+  margin-top: 60px;
+}
+
+/* line 170, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-70 {
+  margin-top: 70px;
+}
+
+/* line 171, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-80 {
+  margin-top: 80px;
+}
+
+/* line 172, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-100 {
+  margin-top: 100px;
+}
+
+/* line 173, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-120 {
+  margin-top: 120px;
+}
+
+/* line 174, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mt-150 {
+  margin-top: 150px;
+}
+
+
+
+/* line 192, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+/* line 193, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-0-i {
+  margin-bottom: 0px !important;
+}
+
+/* line 194, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+/* line 195, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+/* line 196, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+/* line 197, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* line 198, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+/* line 199, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/* line 200, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+/* line 201, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+/* line 202, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+/* line 203, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+/* line 204, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-80 {
+  margin-bottom: 80px;
+}
+
+/* line 205, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-90 {
+  margin-bottom: 90px;
+}
+
+/* line 206, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+.mb-100 {
+  margin-bottom: 100px;
+}
+
+/* line 208, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+
+/* line 248, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
+
+/* line 20, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h1 {
+  font-size: 36px;
+}
+
+/* line 23, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h2 {
+  font-size: 30px;
+}
+
+/* line 26, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h3 {
+  font-size: 24px;
+}
+
+/* line 29, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h4 {
+  font-size: 18px;
+}
+
+/* line 32, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h5 {
+  font-size: 16px;
+}
+
+/* line 35, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h6 {
+  font-size: 14px;
+}
+
+/* line 38, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5em;
+}
+
+
+
+
+
+
+/* line 20, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.p1-gradient-bg, .primary-btn2, .primary-btn2.primary-border:hover, .banner-area, .category-area .content .content-overlay, .men-product-area .overlay-bg, .bottom, .countdown-area .view-btn:hover, .single-footer-widget .click-btn, .generic-banner, .top-section-area, .details-tab-navigation .nav-link:hover, .details-tab-navigation .nav-link.active, .quick-view-carousel-details .owl-controls .owl-dots .owl-dot.active:after, .organic-body .quick-view-carousel .owl-controls .owl-dots .owl-dot.active:after, .organic-body .organic, .organic-body .organic:hover, .checkput-login .top-title, .register-form, .mini-cart-2a.mini-cart-1 .mini-border, .mini-cart-2a.mini-cart-2 .mini-border, .mini-cart-2a.mini-cart-3 .mini-border, .mini-cart-2a.mini-cart-4 .mini-border, .mini-cart.mini-cart-1 .mini-border, .mini-cart.mini-cart-2 .mini-border, .mini-cart.mini-cart-3 .mini-border, .mini-cart.mini-cart-4 .mini-border, .item-cart, .submit-btn, .submit-btn.color-1, .submit-btn.color-2, .submit-btn.color-3, .submit-btn.color-4, .view-btn.color-1:after, .view-btn.color-2:after, .view-btn.color-3:after, .view-btn.color-4:after, .organic-section-title-left .carousel-trigger .prev-trigger:after, .organic-section-title-left .carousel-trigger .next-trigger:after, .single-search-product:before, .single-organic-product:after, .single-organic-product .bottom, .single-organic-product:hover .discount, .single-furniture-product .bottom, .single-furniture-product:hover .discount, .single-sidebar-product:before, .organic-breadcrumb, .grid-btn:hover, .list-btn:hover, .grid-btn.active, .list-btn.active, .pagination a.active, .pagination a:hover, .single-organic-product-list:after {
+  background-image: -moz-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+  background-image: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+  background-image: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+}
+
+
+
+
+
+/* line 1187, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.common-input {
+  display: block;
+  width: 100%;
+  border: 1px solid #eee;
+  line-height: 40px;
+  padding: 0 30px;
+  margin-top: 10px;
+}
+
+@media (max-width: 575px) {
+  /* line 1187, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+  .common-input {
+    padding: 0 10px;
+  }
+}
+
+/* line 1197, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.common-input:focus {
+  outline: none;
+}
+
+/* line 1200, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.common-input.mt-20 {
+  margin-top: 20px;
+}
+
+/* line 1204, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.common-textarea {
+  display: block;
+  width: 100%;
+  height: 100px;
+  border: 1px solid #eee;
+  padding: 10px 30px;
+  margin-top: 10px;
+}
+
+@media (max-width: 575px) {
+  /* line 1204, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+  .common-textarea {
+    padding: 10px;
+  }
+}
+
+/* line 1214, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.common-textarea:focus {
+  outline: none;
+}
+
+
+/* line 1475, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.billing-title {
+  border-bottom: 1px solid #ddd;
+  line-height: 1.3em;
+  padding-bottom: 10px;
+}
+
+/* line 1408, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.view-btn {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid #eee;
+  padding: 0 30px;
+  cursor: pointer;
+  min-width: 172px;
+}
+
+/* line 1416, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.view-btn.color-2:after {
+  border-radius: 0;
+}
+
+/* line 1420, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.view-btn span {
+  font-weight: 400;
+}
+
+
+
+/* line 1753, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.login-form {
+  padding: 30px;
+  background: #f9fafc;
+  height: 100%;
+}
+
+/* line 1758, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.login-form a:hover {
+  color: #44b253;
+}
+
+/* line 1763, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form {
+  padding: 30px 30px 100px 30px;
+}
+
+@media (max-width: 767px) {
+  /* line 1763, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+  .register-form {
+    margin-top: 30px;
+  }
+}
+
+/* line 1769, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form .billing-title {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+/* line 1773, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form p {
+  color: #fff;
+}
+
+/* line 1776, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form .common-input {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+}
+
+/* line 1780, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form .common-input:focus {
+  border: 1px solid white;
+}
+
+/* line 1784, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+  font-weight: 300;
+}
+
+/* line 1788, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+  font-weight: 300;
+}
+
+/* line 1793, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1;
+  font-weight: 300;
+}
+
+/* line 1798, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  font-weight: 300;
+}
+
+/* line 1802, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
+.register-form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+  font-weight: 300;
+}
+
+
+
+/* line 354, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn {
+  display: inline-block;
+  line-height: 40px;
+  padding: 0 40px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 2.828px 2.828px 15px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  position: relative;
+}
+
+/* line 365, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn span {
+  color: #222222;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+
+/* line 372, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn i {
+  color: #222222;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+
+/* line 379, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* line 391, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn.reply {
+  padding: 0 30px;
+  text-transform: capitalize;
+  border-radius: 20px;
+  margin-left: auto;
+  box-shadow: none;
+  border: 1px solid #eee;
+}
+
+@media (max-width: 575px) {
+  /* line 391, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+  .view-btn.reply {
+    width: 160px;
+  }
+}
+
+/* line 401, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn.reply span {
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+/* line 405, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn.reply:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* line 417, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn.reply:hover {
+  border: 1px solid transparent;
+}
+
+/* line 442, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn:hover:after {
+  opacity: 1;
+}
+
+/* line 445, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn:hover span {
+  color: #fff;
+}
+
+/* line 448, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
+.view-btn:hover i {
+  color: #fff;
+}

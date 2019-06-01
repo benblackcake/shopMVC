@@ -27,7 +27,7 @@ namespace MVCtest.Fiter
         {
             filterContext.Controller.ViewBag.Name = "SIGN IG";
             filterContext.Result = new RedirectToRouteResult(new
-                    RouteValueDictionary(new { controller = "MemberCenter", action = "index" }));
+                    RouteValueDictionary(new { controller = "shopMember", action = "index" }));
         }
     }
 }
