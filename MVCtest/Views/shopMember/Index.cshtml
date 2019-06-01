@@ -10,7 +10,8 @@
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
 }
 <link rel="stylesheet" href="~/Assest/AssestNew/css/login.css">
-<div class="page-top-info">
+<link rel="stylesheet" href="~/Assest/AssestNew/css/alert.css">
+@*<div class="page-top-info">
     <div class="container">
         <h4>Member Page</h4>
         <div class="site-pagination">
@@ -18,7 +19,7 @@
             
         </div>
     </div>
-</div>
+</div>*@
 <section class="product-section">
     <div class="container">
         <div class="row">
@@ -62,10 +63,14 @@
             </div>
         </div>
     </div>
-    @if (TempData["message"] != null) {
-        <script type="text/javascript">
-        var message = @Html.Raw(Json.Encode(TempData["message"]));
-        alert(message);
-        </script>
-    }
+
     </section>
+
+<script src="~/Assest/AssestNew/js/alert.js"></script>
+@if (TempData["message"] != null) {
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alertify.set({ delay: 3000 });
+        alertify.success(message);
+    </script>
+}
