@@ -234,7 +234,7 @@
            $.ajax({
                 cache: "false",
                 type: "POST",
-               url: "@Url.Action("UpdateQuantity", "Cart")",
+               url: "@Url.Action("UpdateQuantity", "shopCart")",
                data: { cartID: cartID, quantity : newQuantity },
             });
 
@@ -244,7 +244,7 @@
             $.ajax({
                 cache: "false",
                 type: "POST",
-                url: "@Url.Action("DeleteCart", "Cart")",
+                url: "@Url.Action("DeleteCart", "shopCart")",
                 data: { cartID: ID },
                 success: function () {
                     //重新導向

@@ -1757,20 +1757,24 @@ ol {
 }
 
 .cart-table table tr th {
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #414141;
 	text-align: center;
 	padding-bottom: 25px;
+    width:100px;
 }
 
 .cart-table table tr th.product-th {
 	text-align: left;
+    width:150px;
+    padding-left :20px;
 }
 
-.cart-table table tr th.size-th {
+/*.cart-table table tr th.size-th {
 	padding-right: 70px;
-}
+}*/
+
 
 .cart-table table tr th.quy-th {
 	padding-right: 20px;
@@ -1785,7 +1789,7 @@ ol {
 	display: table-cell;
 	vertical-align: middle;
 	float: left;
-	width: 73px;
+	width: 100px;
 }
 
 .cart-table .product-col .pc-title {
