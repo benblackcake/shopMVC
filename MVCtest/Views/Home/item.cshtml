@@ -149,6 +149,7 @@
                         justify-content: center;
                         text-decoration: none;
                     }
+
                 .title-content .container .menu .row .border_1 {
                     border: 2px solid #ff3333;
                 }
@@ -156,6 +157,7 @@
                     .title-content .container .menu .row .border_1:hover {
                         border: 2px solid #ff3333;
                     }
+
                 .title-content .container .menu .row .border_2 {
                     border: 2px solid #00ffff;
                 }
@@ -241,9 +243,9 @@
                 </div>
                 <div class="row">
                     <div class="a">數量</div>
-                    <button class="bt" onclick="sub">-</button>
-                    <input type="text" class="input" oninput="value=value.replace(/[^\d]/g,'')" />
-                    <button class="bt" onclick="add">+</button>
+                    <button class="bt" onclick="sub()">-</button>
+                    <input type="text" class="input" id="number" oninput="value=value.replace(/[^\d]/g,'')" value="1" readonly/>
+                    <button class="bt" onclick="add()">+</button>
                 </div>
                 <div class="BUY">
                     <div><a href="#" class="buy">立即購買</a></div>
@@ -256,47 +258,59 @@
 
 @section endJS
     {
-<script>
-    function white() {
-        document.getElementById("a").classList.add("border_1");
-        document.getElementById("b").classList.remove("border_1");
-        document.getElementById("c").classList.remove("border_1");
-    }
-    function black() {
-        document.getElementById("a").classList.remove("border_1");
-        document.getElementById("b").classList.add("border_1");
-        document.getElementById("c").classList.remove("border_1");
-    }
-    function gray() {
-        document.getElementById("a").classList.remove("border_1");
-        document.getElementById("b").classList.remove("border_1");
-        document.getElementById("c").classList.add("border_1");
-    }
+    <script>
+        function white() {
+            $("#a").addClass("border_1");
+            $("#b").removeClass("border_1");
+            $("#c").removeClass("border_1");
+        }
+        function black() {
+            $("#a").removeClass("border_1");
+            $("#b").addClass("border_1");
+            $("#c").removeClass("border_1");
+        }
+        function gray() {
+            $("#a").removeClass("border_1");
+            $("#b").removeClass("border_1");
+            $("#c").addClass("border_1");
+        }
 
+        function S() {
+            $("#S").addClass("border_2");
+            $("#M").removeClass("border_2");
+            $("#L").removeClass("border_2");
+            $("#XL").removeClass("border_2");
+        }
+        function M() {
+            $("#S").removeClass("border_2");
+            $("#M").addClass("border_2");
+            $("#L").removeClass("border_2");
+            $("#XL").removeClass("border_2");
+        }
+        function L() {
+            $("#S").removeClass("border_2");
+            $("#M").removeClass("border_2");
+            $("#L").addClass("border_2");
+            $("#XL").removeClass("border_2");
+        }
+        function XL() {
+            $("#S").removeClass("border_2");
+            $("#M").removeClass("border_2");
+            $("#L").removeClass("border_2");
+            $("#XL").addClass("border_2");
+        }
 
-    function S() {
-        document.getElementById("S").classList.add("border_2");
-        document.getElementById("M").classList.remove("border_2");
-        document.getElementById("L").classList.remove("border_2");
-        document.getElementById("XL").classList.remove("border_2");
-    }
-    function M() {
-        document.getElementById("S").classList.remove("border_2");
-        document.getElementById("M").classList.add("border_2");
-        document.getElementById("L").classList.remove("border_2");
-        document.getElementById("XL").classList.remove("border_2");
-    }
-    function L() {
-        document.getElementById("S").classList.remove("border_2");
-        document.getElementById("M").classList.remove("border_2");
-        document.getElementById("L").classList.add("border_2");
-        document.getElementById("XL").classList.remove("border_2");
-    }
-    function XL() {
-        document.getElementById("S").classList.remove("border_2");
-        document.getElementById("M").classList.remove("border_2");
-        document.getElementById("L").classList.remove("border_2");
-        document.getElementById("XL").classList.add("border_2");
-    }
-</script>
+        function sub() {
+            if (parseInt(document.getElementById("number").value) > 1) {
+                var Value = parseInt(document.getElementById("number").value);
+                document.getElementById("number").value = Value - 1;
+            }
+        }
+        function add() {
+            if (parseInt(document.getElementById("number").value) < 100) {
+                var Value = parseInt(document.getElementById("number").value);
+                document.getElementById("number").value = Value + 1;
+            }
+        }
+    </script>
 }

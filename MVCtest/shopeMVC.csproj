@@ -209,6 +209,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\css\item.css" />
     <Content Include="Assest\css\NavTest.css" />
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\c\70428.jpg" />
