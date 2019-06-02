@@ -23,6 +23,7 @@
                                         <th class="total-th">單價</th>
                                         <th class="quy-th">數量</th>
                                         <th class="total-th">小計</th>
+                                        <th class="total-th">刪除</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,8 +50,10 @@
                                             </td>
                                             <td class="total-col">
                                                 <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
-                                                @*<sapn class="delete" name="delete" style="font-size:5px"><i class="fa fa-trash-o"></i></sapn>
-                                    <input type="hidden" name="cartID" value="@item.CartId" />*@
+                                            </td>
+                                            <td>
+                                                <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
+                                                <input type="hidden" name="cartID" value="@item.CartId" />
                                             </td>
                                         </tr>
                                     }
@@ -68,7 +71,7 @@
                     </div>
                 </div>
 
-
+                <form action="/shopCart/SaveOrder" method="post">
                 <div class="step2" style="display:none;">
                     <div class="cart-table">
                         <h3>Please provide information about the recipient</h3>
@@ -105,13 +108,13 @@
 
                             </tbody>
                         </table>
-
                     </div>
                     <div class="d-flex justify-content-lg-end bottom-btn">
                         <span class="site-btn sb-dark" id="preStep">上ㄧ步</span>
-                        <a href="#" class="site-btn checkout">完成</a>
+                        <input type="submit" name="name" value="完成" class="site-btn checkout"/>
                     </div>
                 </div>
+                    </form>
             </div>
         </div>
     </div>

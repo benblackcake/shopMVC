@@ -1913,6 +1913,10 @@ ol {
 .bottom-btn .checkout{
     margin-left:20px;
 }
+.cart-table tbody .delete{
+    font-size:25px;
+    margin-left:50px;
+}
 
 
 /*.cart-table-warp table thead th{
