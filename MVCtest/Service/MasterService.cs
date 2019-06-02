@@ -17,8 +17,8 @@ namespace MVCtest.Service
             DBModel context = new DBModel();
             DbRepository<Master> repo = new DbRepository<Master>(context);
 
-            string pwd = Helper.EncodePassword(password);
-            Master entity = repo.GetAll().FirstOrDefault((x) => x.master_account == account & x.master_password == pwd);
+           
+            Master entity = repo.GetAll().FirstOrDefault((x) => x.master_account == account & x.master_password == password);
 
             if (entity != null)
             {

@@ -33,7 +33,7 @@ namespace MVCtest.Controllers.dashboard
                 Debug.Print(account);
                 Session["auth"] = true;
                 Session["Name"] = account;
-                TempData["message"] = "登入成功。";
+                //TempData["message"] = "登入成功。";
                 return RedirectToAction("index", "dashboardProduct");
 
             }
