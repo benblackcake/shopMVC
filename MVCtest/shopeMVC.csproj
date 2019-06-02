@@ -178,10 +178,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCustomerController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardIndexController.cs" />
     <Compile Include="Controllers\dashboard\dashboardProductController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Master.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderContext.cs" />
@@ -217,6 +220,7 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\MasterService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="ViewModels\CartVIewModel.cs" />
     <Compile Include="Repository\DbRepository.cs" />
@@ -228,6 +232,8 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MasterListViewModel.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingListViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
@@ -302,6 +308,7 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
@@ -604,6 +611,8 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
+    <Content Include="Views\dashboardIndex\Index1.cshtml" />
+    <Content Include="Views\dashboardIndex\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
