@@ -16,7 +16,7 @@ namespace MVCtest.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Order_ID { get; set; }
 
         [Column(TypeName = "date")]

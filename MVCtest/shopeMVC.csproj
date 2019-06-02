@@ -616,6 +616,7 @@
     <Content Include="Views\dashboardCustomer\Index.cshtml" />
     <Content Include="Views\dashboardProduct\Index.cshtml" />
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
+
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
     <Content Include="Views\shopProduct\detail.cshtml" />
