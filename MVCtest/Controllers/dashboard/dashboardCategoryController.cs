@@ -13,12 +13,28 @@ namespace MVCtest.Controllers.dashboard
 
         CategoryService categorytService;
         // GET: dashboardCategory
-        public ActionResult Index()
+        public ActionResult Index(CategoryViewModel input)
         {
-            CategoryService csv = new CategoryService();
-            CategoryListViewModel result = csv.GetAllCategory();
+            CategoryService cs = new CategoryService();
+            //CategoryListViewModel result = csv.GetAllCategory();
+
+
+            //CustomerViewModel cvm = new CustomerViewModel();
+            //cvm.Customer_ID = input.Customer_ID;
+            CategoryViewModel csv = new CategoryViewModel();
+            csv.Category_Id = input.Category_Id;
+            csv.Category_Name = input.Category_Name;
             
-            return View(result);
+            if (cs.Create(csv))
+            {
+                TempData["message"] = "註冊成功";
+                return RedirectToAction("index", "dashboardCategory");
+            }
+            else
+            {
+                TempData["message"] = "註冊失敗";
+                return RedirectToAction("index", "dashboardCategory");
+            }
         }
 
         public ActionResult Create()
@@ -30,5 +46,7 @@ namespace MVCtest.Controllers.dashboard
         {
             return View();
         }
+
+    
     }
 }

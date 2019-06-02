@@ -62,5 +62,48 @@ namespace MVCtest.Service
                 new CategoryViewModel
                 { Category_Id = c.Category_Id, Category_Name = s.Category_Name };
         }
+
+        // -------- add
+
+        public bool Create(CategoryViewModel input)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sub_Categroy> repo = new DbRepository<Sub_Categroy>(context);
+            if (repo.GetAll().FirstOrDefault((x) => x.Category_ID == input.Category_Id) == null)
+            {
+                Sub_Categroy entity = new Sub_Categroy()
+                {
+                    Category_ID= input.Category_Id,
+                    Category_Name = input.Category_Name,
+                    
+                };
+                repo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+
+        }
+        //public bool AddSubCategory(CategoryViewModel input)
+        //{
+        //    DBModel context = new DBModel();
+        //    DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(context);
+        //    if (Srepo.GetAll().FirstOrDefault((x) => x.Category_ID == input.Category_Id) == null)
+        //    {
+        //        Sub_Categroy entity = new Sub_Categroy()
+        //        {
+        //            Sub_Category_ID = input.Category_Id,
+        //            Category_Name = input.Category_Name
+        //            //Customer_Name = input.Customer_Name,
+        //            //Customer_Email = input.Customer_Email,
+        //            //Customer_Phone = input.Customer_Phone,
+        //            //User_Password = input.User_Password
+        //        };
+        //        Srepo.Create(entity);
+        //        context.SaveChanges();
+        //        return true;
+        //    }
+        //    else return false;
+        //}
     }
 }

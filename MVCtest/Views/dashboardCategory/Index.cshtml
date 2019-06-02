@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
 @section topCSS {
     <style>
         .categoryex:hover {
@@ -53,8 +52,9 @@
 
                     </td>
                     <td>
-                        @Html.ActionLink("Create SubCategory", "CreateSub", new { /* id=item.PrimaryKey */ }) |                      
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        <input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增子分類" />
+                        @Html.ActionLink("Create SubCategory", "CreateSub", new {  @*id=item.Category_Id*@}) |
+                        @Html.ActionLink("Delete", "Delete", new { @*id = item.Category_Id*@})
                     </td>
                 </tr>
 
@@ -70,7 +70,7 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })
                         </td>
                     </tr>
                 }
@@ -84,43 +84,106 @@
 
     </table>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body container">
+                <div id="signupbox" style="" class="">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            
+
+                        </div>
+                        <div class="panel-body">
+                            <!--comment-->
+                            @using (Html.BeginForm("index", "dashboardCategory", FormMethod.Post))
+                            {
+
+                                <form id="signupform" class="form-horizontal" role="form">
+
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">新增子分類</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Category_Name" placeholder="子分類" required="true" style="color:black;">
+                                            
+                                        </div>
+                                    </div>  
+
+                                    <div class="form-group">
+                                        <!-- Button -->
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button id="btn-signup" type="submit" class="btn btn-info">
+                                                <i class="icon-hand-right"></i> &nbsp 新增
+                                            </button>                                           
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+
+                            }
+
+                            <!--comment-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 @*<div class="col-6">
-    <table class="table">
-        <tr>
-            <th>
-                Sub_CategoryID
-            </th>
-            <th>
-                Sub_CategoryName
-            </th>
+        <table class="table">
+            <tr>
+                <th>
+                    Sub_CategoryID
+                </th>
+                <th>
+                    Sub_CategoryName
+                </th>
 
-        </tr>
-        @foreach (var item in Model.Items)
-        {
-            foreach (var sub in item.Sub_Categroy)
+            </tr>
+            @foreach (var item in Model.Items)
             {
-                <tr>
-                    <td>
-                        @sub.Sub_Category_ID
+                foreach (var sub in item.Sub_Categroy)
+                {
+                    <tr>
+                        <td>
+                            @sub.Sub_Category_ID
 
-                    <td>
-                        @sub.Category_Name
+                        <td>
+                            @sub.Category_Name
 
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+
+                }
 
             }
 
-        }
 
-
-    </table>
-</div>*@
+        </table>
+    </div>*@
 @section endJS {
     <script>
         $(".drop_1").hide();
@@ -143,11 +206,11 @@
             $(".drop_4").toggle();
         })
 
-        //if ($("body").hasClass("white-content")) {
-        //    $(".drop_2").css("background-color", "aquamarine");
-        //} else {
-        //    $(".drop_2").css("background-color", "black");
-        //}
+                //if ($("body").hasClass("white-content")) {
+                //    $(".drop_2").css("background-color", "aquamarine");
+                //} else {
+                //    $(".drop_2").css("background-color", "black");
+                //}
 
     </script>
 }
