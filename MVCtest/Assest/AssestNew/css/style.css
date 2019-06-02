@@ -1712,6 +1712,8 @@ ol {
   Cart page
 ---------------------*/
 
+
+
 .scrollbar {
 	margin: 80px auto 0;
 	width: 100%;
@@ -1757,20 +1759,24 @@ ol {
 }
 
 .cart-table table tr th {
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #414141;
 	text-align: center;
 	padding-bottom: 25px;
+    width:100px;
 }
 
 .cart-table table tr th.product-th {
 	text-align: left;
+    width:150px;
+    padding-left :20px;
 }
 
-.cart-table table tr th.size-th {
+/*.cart-table table tr th.size-th {
 	padding-right: 70px;
-}
+}*/
+
 
 .cart-table table tr th.quy-th {
 	padding-right: 20px;
@@ -1785,7 +1791,9 @@ ol {
 	display: table-cell;
 	vertical-align: middle;
 	float: left;
-	width: 73px;
+	width: 100px;
+    margin-left:10px;
+    padding-top:10px;
 }
 
 .cart-table .product-col .pc-title {
@@ -1899,11 +1907,44 @@ ol {
 	cursor: pointer;
 }
 
-/* ----------------
+.bottom-btn{
+    margin-top :20px;
+}
+.bottom-btn .checkout{
+    margin-left:20px;
+}
+.cart-table tbody .delete{
+    font-size:25px;
+    margin-left:50px;
+}
+
+
+/*.cart-table-warp table thead th{
+    border-bottom:#f51167 2px solid;
+}*/
+.cart-table-warp table tbody tr {
+    margin-top: 10px;
+    border-top: #000 3px solid;
+}
+
+.step2 .cart-table select {
+    height: 30px;
+    width: 150px;
+    margin-left: 5px;
+}
+.step2 .cart-table input {
+    margin-left: 20px;
+}
+.step2 .cart-table span {
+    display: block;
+    width: 100px;
+}
+
+
+    /* ----------------
   Checkout Page
 ---------------------*/
-
-.checkout-form .cf-title {
+    .checkout-form .cf-title {
 	font-size: 16px;
 	font-weight: 700;
 	color: #fff;

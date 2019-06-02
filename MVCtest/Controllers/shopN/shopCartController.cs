@@ -44,11 +44,11 @@ namespace MVCtest.Controllers.shopN
 
         [AuthorizePlus]
         [HttpPost]
-        public ActionResult SaveOrder(List<string> sumPrice, string paymentID, string shipperID)
+        public ActionResult SaveOrder(string paymentID, string shipperID)
         {
             CartService cs = new CartService();
             int id = (int)Session["id"];
-            cs.SaveOrder(id, sumPrice, paymentID, shipperID);
+            cs.SaveOrder(id, paymentID, shipperID);
             return RedirectToAction("Cart");
         }
 
@@ -62,5 +62,15 @@ namespace MVCtest.Controllers.shopN
 
         }
 
+
+        [AuthorizePlus]
+        [HttpPost]
+        public ActionResult UpdateQuantity(int cartID, string quantity)
+        {
+            cartService = new CartService();
+            cartService.UpdateQuantity(cartID, quantity);
+
+            return View();
+        }
     }
 }
