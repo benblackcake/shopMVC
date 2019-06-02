@@ -260,6 +260,16 @@ $(window).on('load', function() {
     }
 
 
+    $('#nextStep').on('click', function () {
+        $('.step1').hide();
+        $('.step2').fadeIn();
+    })
+    $('#preStep').on('click', function () {
+        $('.step2').hide();
+        $('.step1').fadeIn();
+    })
+
+
 
 	/*------------------
 		Single Product

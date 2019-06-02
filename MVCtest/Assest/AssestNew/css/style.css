@@ -1792,6 +1792,8 @@ ol {
 	vertical-align: middle;
 	float: left;
 	width: 100px;
+    margin-left:10px;
+    padding-top:10px;
 }
 
 .cart-table .product-col .pc-title {
@@ -1912,11 +1914,33 @@ ol {
     margin-left:20px;
 }
 
-/* ----------------
+
+/*.cart-table-warp table thead th{
+    border-bottom:#f51167 2px solid;
+}*/
+.cart-table-warp table tbody tr {
+    margin-top: 10px;
+    border-top: #000 3px solid;
+}
+
+.step2 .cart-table select {
+    height: 30px;
+    width: 150px;
+    margin-left: 5px;
+}
+.step2 .cart-table input {
+    margin-left: 20px;
+}
+.step2 .cart-table span {
+    display: block;
+    width: 100px;
+}
+
+
+    /* ----------------
   Checkout Page
 ---------------------*/
-
-.checkout-form .cf-title {
+    .checkout-form .cf-title {
 	font-size: 16px;
 	font-weight: 700;
 	color: #fff;
