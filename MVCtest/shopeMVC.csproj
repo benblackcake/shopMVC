@@ -237,6 +237,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SaleQuantityListViewModel.cs" />
     <Compile Include="ViewModels\SaleQuantityViewModel.cs" />
+    <Compile Include="ViewModels\SubCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assest\AssestNew\css\animate.css" />
