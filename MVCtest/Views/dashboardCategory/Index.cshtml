@@ -37,7 +37,7 @@
             </th>
             <th>
                 <input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />
-                @Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })
+                @*@Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })*@
             </th>
         </tr>
         @{
@@ -54,8 +54,10 @@
                     </td>
                     <td>
                         @*<input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />*@
-                        @Html.ActionLink("Create SubCategory", "CreateSub", new {  @*id=item.Category_Id*@}) |
-                        @Html.ActionLink("Delete", "Delete", new { @*id = item.Category_Id*@})
+                        <input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" value="新增子分類" />
+                        @*@Html.ActionLink("Create SubCategory", "CreateSub", new { id=item.Category_Id})*@ |
+                        <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="刪除" />
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Category_Id})*@
                     </td>
                 </tr>
 
@@ -72,7 +74,8 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })
+                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="刪除" />
+                            @*@Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })*@
                         </td>
                     </tr>
                 }
@@ -114,18 +117,18 @@
                                         <p>Error:</p>
                                         <span></span>
                                     </div>
-                                    @*<div class="form-group">
-                                        <label for="email" class="col-md-3 control-label">新增子分類ID</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="Category_Id" placeholder="子分類ID" required="true" style="color:black;">
+                                    <div class="form-group">
+                                            <label for="email" class="col-md-3 control-label">大分類ID</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="Category_Id" placeholder="大分類ID" required="true" style="color:black;">
 
+                                            </div>
                                         </div>
-                                    </div>*@
 
                                     <div class="form-group">
-                                        <label for="email" class="col-md-3 control-label">新增子分類</label>
+                                        <label for="email" class="col-md-3 control-label">大分類</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="Category_Name" placeholder="子分類" required="true" style="color:black;">
+                                            <input type="text" class="form-control" name="Category_Name" placeholder="大分類" required="true" style="color:black;">
 
                                         </div>
                                     </div>
@@ -155,48 +158,88 @@
     </div>
 </div>
 
-@*<div class="col-6">
-        <table class="table">
-            <tr>
-                <th>
-                    Sub_CategoryID
-                </th>
-                <th>
-                    Sub_CategoryName
-                </th>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
 
-            </tr>
-            @foreach (var item in Model.Items)
-            {
-                foreach (var sub in item.Sub_Categroy)
-                {
-                    <tr>
-                        <td>
-                            @sub.Sub_Category_ID
-
-                        <td>
-                            @sub.Category_Name
-
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
-
-                }
-
-            }
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body container">
+                <div id="signupbox" style="" class="">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
 
 
-        </table>
-    </div>*@
+                        </div>
+                        <div class="panel-body">
+                            <!--comment-->
+                            @using (Html.BeginForm("AddSubCategory", "dashboardCategory", FormMethod.Post))
+                            {
+
+                            <form id="signupform" class="form-horizontal" role="form">
+
+                                <input name="Category_Id" style="display:none"value=""/>
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">子分類ID</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Sub_Category_ID" placeholder="子分類ID" required="true" style="color:black;">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">子分類</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Category_Name" placeholder="子分類" required="true" style="color:black;">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">外來鍵</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Category_ID" placeholder="子分類" required="true" style="color:black;">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Button -->
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="submit" class="btn btn-info">
+                                            <i class="icon-hand-right"></i> &nbsp 新增
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                            }
+
+                            <!--comment-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @section endJS {
     <script>
 
         var countnow = $("#check tbody>.categoryex").length;
-        
+
         $('.categoryex').on('click', function () {
             var $this = $(this);
             var $id = $this.attr('id');

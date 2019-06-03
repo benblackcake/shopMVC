@@ -33,7 +33,28 @@ namespace MVCtest.Controllers.dashboard
         {
             CategoryService cs = new CategoryService();
             CategoryViewModel csv = new CategoryViewModel();
-            //csv.Category_Id = input.Category_Id;
+            csv.Category_Id = input.Category_Id;
+            csv.Category_Name = input.Category_Name;
+
+            if (cs.Create(csv))
+            {
+                TempData["message"] = "新增成功";
+                return RedirectToAction("Index", "dashboardCategory");
+            }
+            else
+            {
+                TempData["message"] = "新增失敗";
+                return RedirectToAction("Index", "dashboardCategory");
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult AddSubCategory(CategoryViewModel input)
+        {
+            CategoryService cs = new CategoryService();
+            CategoryViewModel csv = new CategoryViewModel();
+            csv.Sub_Categroy = input.Sub_Categroy;
             csv.Category_Name = input.Category_Name;
 
             if (cs.Create(csv))

@@ -73,7 +73,7 @@ namespace MVCtest.Service
             {
                 CategoryGroup entity = new CategoryGroup()
                 {
-                    //Category_Id= input.Category_Id,
+                    Category_Id = input.Category_Id,
                     Category_Name = input.Category_Name,
                     
                 };
@@ -84,26 +84,27 @@ namespace MVCtest.Service
             else return false;
 
         }
-        //public bool AddSubCategory(CategoryViewModel input)
-        //{
-        //    DBModel context = new DBModel();
-        //    DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(context);
-        //    if (Srepo.GetAll().FirstOrDefault((x) => x.Category_ID == input.Category_Id) == null)
-        //    {
-        //        Sub_Categroy entity = new Sub_Categroy()
-        //        {
-        //            Sub_Category_ID = input.Category_Id,
-        //            Category_Name = input.Category_Name
-        //            //Customer_Name = input.Customer_Name,
-        //            //Customer_Email = input.Customer_Email,
-        //            //Customer_Phone = input.Customer_Phone,
-        //            //User_Password = input.User_Password
-        //        };
-        //        Srepo.Create(entity);
-        //        context.SaveChanges();
-        //        return true;
-        //    }
-        //    else return false;
-        //}
+        public bool AddSubCategory(CategoryViewModel input)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(context);
+            if (Srepo.GetAll().FirstOrDefault((x) => x.Category_Name == input.Category_Name) == null)
+            {
+                Sub_Categroy entity = new Sub_Categroy()
+                {
+                    Sub_Category_ID = input.Category_Id,
+                    Category_Name = input.Category_Name,    
+                    //Category_ID = 
+                    //Customer_Name = input.Customer_Name,
+                    //Customer_Email = input.Customer_Email,
+                    //Customer_Phone = input.Customer_Phone,
+                    //User_Password = input.User_Password
+                };
+                Srepo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+        }
     }
 }
