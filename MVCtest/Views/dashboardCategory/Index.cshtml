@@ -27,7 +27,7 @@
 @*<h2>Order</h2>*@
 <h2>分類控制</h2>
 <div class="col-12">
-    <table class="table">
+    <table class="table" id="check">
         <tr>
             <th>
                 CategoryID
@@ -36,6 +36,7 @@
                 CategoryName
             </th>
             <th>
+                <input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />
                 @Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })
             </th>
         </tr>
@@ -52,7 +53,7 @@
 
                     </td>
                     <td>
-                        <input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增子分類" />
+                        @*<input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />*@
                         @Html.ActionLink("Create SubCategory", "CreateSub", new {  @*id=item.Category_Id*@}) |
                         @Html.ActionLink("Delete", "Delete", new { @*id = item.Category_Id*@})
                     </td>
@@ -60,7 +61,8 @@
 
                 foreach (var sub in item.Sub_Categroy)
                 {
-                    <tr class="drop_@counter" style="background-color:#95538b;">
+
+                    <tr class="drop_@counter" style="background-color:#95538b; display:none;">
                         <td>
                             @sub.Sub_Category_ID
 
@@ -88,7 +90,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -97,12 +99,12 @@
                 <div id="signupbox" style="" class="">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            
+
 
                         </div>
                         <div class="panel-body">
                             <!--comment-->
-                            @using (Html.BeginForm("index", "dashboardCategory", FormMethod.Post))
+                            @using (Html.BeginForm("Create", "dashboardCategory", FormMethod.Post))
                             {
 
                                 <form id="signupform" class="form-horizontal" role="form">
@@ -112,25 +114,31 @@
                                         <p>Error:</p>
                                         <span></span>
                                     </div>
+                                    @*<div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">新增子分類ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Category_Id" placeholder="子分類ID" required="true" style="color:black;">
 
+                                        </div>
+                                    </div>*@
 
                                     <div class="form-group">
                                         <label for="email" class="col-md-3 control-label">新增子分類</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" name="Category_Name" placeholder="子分類" required="true" style="color:black;">
-                                            
+
                                         </div>
-                                    </div>  
+                                    </div>
 
                                     <div class="form-group">
                                         <!-- Button -->
                                         <div class="col-md-offset-3 col-md-9">
                                             <button id="btn-signup" type="submit" class="btn btn-info">
                                                 <i class="icon-hand-right"></i> &nbsp 新增
-                                            </button>                                           
+                                            </button>
                                         </div>
                                     </div>
-                                    
+
                                 </form>
 
                             }
@@ -141,7 +149,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                
+
             </div>
         </div>
     </div>
@@ -186,31 +194,14 @@
     </div>*@
 @section endJS {
     <script>
-        $(".drop_1").hide();
-        $(".drop_2").hide();
-        $(".drop_3").hide();
-        $(".drop_4").hide();
-        $("#1").click(function () {
-            $(".drop_1").toggle();
 
+        var countnow = $("#check tbody>.categoryex").length;
+        
+        $('.categoryex').on('click', function () {
+            var $this = $(this);
+            var $id = $this.attr('id');
+            $('.drop_' + $id).toggle(400);
         })
-        $("#2").click(function () {
-            $(".drop_2").toggle();
-
-        })
-        $("#3").click(function () {
-            $(".drop_3").toggle();
-
-        })
-        $("#4").click(function () {
-            $(".drop_4").toggle();
-        })
-
-                //if ($("body").hasClass("white-content")) {
-                //    $(".drop_2").css("background-color", "aquamarine");
-                //} else {
-                //    $(".drop_2").css("background-color", "black");
-                //}
 
     </script>
 }

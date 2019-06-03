@@ -68,12 +68,12 @@ namespace MVCtest.Service
         public bool Create(CategoryViewModel input)
         {
             DBModel context = new DBModel();
-            DbRepository<Sub_Categroy> repo = new DbRepository<Sub_Categroy>(context);
-            if (repo.GetAll().FirstOrDefault((x) => x.Category_ID == input.Category_Id) == null)
+            DbRepository<CategoryGroup> repo = new DbRepository<CategoryGroup>(context);
+            if (repo.GetAll().FirstOrDefault((x) => x.Category_Name == input.Category_Name) == null)
             {
-                Sub_Categroy entity = new Sub_Categroy()
+                CategoryGroup entity = new CategoryGroup()
                 {
-                    Category_ID= input.Category_Id,
+                    //Category_Id= input.Category_Id,
                     Category_Name = input.Category_Name,
                     
                 };

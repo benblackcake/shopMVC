@@ -12,34 +12,41 @@ namespace MVCtest.Controllers.dashboard
     {
 
         CategoryService categorytService;
-        // GET: dashboardCategory
-        public ActionResult Index(CategoryViewModel input)
+        // GET: dashboardCategory'
+
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        public ActionResult Index(/*CategoryViewModel input*/)
+        {
+
+            CategoryService cs = new CategoryService();
+            CategoryListViewModel result = cs.GetAllCategory();
+
+
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult Create(CategoryViewModel input)
         {
             CategoryService cs = new CategoryService();
-            //CategoryListViewModel result = csv.GetAllCategory();
-
-
-            //CustomerViewModel cvm = new CustomerViewModel();
-            //cvm.Customer_ID = input.Customer_ID;
             CategoryViewModel csv = new CategoryViewModel();
-            csv.Category_Id = input.Category_Id;
+            //csv.Category_Id = input.Category_Id;
             csv.Category_Name = input.Category_Name;
-            
+
             if (cs.Create(csv))
             {
-                TempData["message"] = "註冊成功";
-                return RedirectToAction("index", "dashboardCategory");
+                TempData["message"] = "新增成功";
+                return RedirectToAction("Index", "dashboardCategory");
             }
             else
             {
-                TempData["message"] = "註冊失敗";
-                return RedirectToAction("index", "dashboardCategory");
+                TempData["message"] = "新增失敗";
+                return RedirectToAction("Index", "dashboardCategory");
             }
-        }
 
-        public ActionResult Create()
-        {
-            return View();
         }
 
         public ActionResult CreateSub()
