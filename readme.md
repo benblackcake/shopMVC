@@ -1,4 +1,14 @@
 
+# MVC 商業網站DEMO
+> 後端使用技術   
+>1. repository pattern   
+>2. asp.net MVC   
+>3. SqlServer部屬到Azure
+>4. WebAPI  
 
-# Master 為專案最穩定版本    
+> 前端使用技術   
+>1. JavaScript    
+>2. Bootstrap  
+>3. Jquery  
+>4. Ajax
 
