@@ -30,7 +30,11 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
+.row{
 
+    display:block;
+
+}
 * {
     margin: 0px;
     padding: 0px;
@@ -208,7 +212,7 @@ iframe {
 
 .container-login100 {
     width: 100%;
-    min-height: 100vh;
+    min-height: 85vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;

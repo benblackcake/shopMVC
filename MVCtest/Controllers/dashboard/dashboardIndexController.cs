@@ -1,4 +1,5 @@
-﻿using MVCtest.Service;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,13 @@ namespace MVCtest.Controllers.dashboard
     public class dashboardIndexController : Controller
     {
         // GET: dashboardIndex
+        [AuthorizeMaster]
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult Index1()
+       
+        public ActionResult Login()
         {
             return View();
         }

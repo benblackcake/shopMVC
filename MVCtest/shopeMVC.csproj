@@ -195,6 +195,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
+    <Compile Include="Fiter\AuthorizeMasterAttribute.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -611,7 +612,7 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
-    <Content Include="Views\dashboardIndex\Index1.cshtml" />
+    <Content Include="Views\dashboardIndex\Login.cshtml" />
     <Content Include="Views\dashboardIndex\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
