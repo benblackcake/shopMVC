@@ -302,14 +302,12 @@
 
         function sub() {
             if (parseInt(document.getElementById("number").value) > 1) {
-                var Value = parseInt(document.getElementById("number").value);
-                document.getElementById("number").value = Value - 1;
+                document.getElementById("number").value = parseInt(document.getElementById("number").value) - 1;
             }
         }
         function add() {
             if (parseInt(document.getElementById("number").value) < 100) {
-                var Value = parseInt(document.getElementById("number").value);
-                document.getElementById("number").value = Value + 1;
+                document.getElementById("number").value = parseInt(document.getElementById("number").value) + 1;
             }
         }
     </script>
