@@ -101,7 +101,7 @@ namespace MVCtest.Service
                 {
                     Sub_Category_ID = input.Sub_Category_ID,
                     Category_Name = input.Category_Name, 
-                    Category_ID = input.Category_Id
+                    Category_ID = input.Category_ID
                     
                 };
                 Srepo.Create(entity);

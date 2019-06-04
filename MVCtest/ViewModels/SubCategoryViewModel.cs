@@ -12,7 +12,7 @@ namespace MVCtest.ViewModels
 
         public string Category_Name { get; set; }
 
-        public int Category_Id { get; set; }
+        public int Category_ID { get; set; }
 
         public virtual ICollection<CategoryGroup> CategoryGroups { get; set; }
     }

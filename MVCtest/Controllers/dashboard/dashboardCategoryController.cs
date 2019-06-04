@@ -56,7 +56,7 @@ namespace MVCtest.Controllers.dashboard
             SubCategoryViewModel csv = new SubCategoryViewModel();
             csv.Sub_Category_ID = input.Sub_Category_ID;
             csv.Category_Name = input.Category_Name;
-            csv.Category_Id = input.Category_Id;
+            csv.Category_ID = input.Category_ID;
             //csv.Category_Name = input.Category_Name;
             CategoryService cs = new CategoryService();
             if (cs.AddSubCategory(csv))
