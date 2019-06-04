@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- cart section end -->
 <section class="cart-section spad">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="yourcart col-lg-12">
                 <div class="step1">
                     <div class="cart-table">
                         <h3>Your Cart</h3>
@@ -16,14 +16,14 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="product-th">商品圖片</th>
-                                        <th class="productname-th">商品名稱</th>
-                                        <th class="size-th">編號</th>
-                                        <th class="size-th">規格</th>
-                                        <th class="total-th">單價</th>
-                                        <th class="quy-th">數量</th>
-                                        <th class="total-th">小計</th>
-                                        <th class="total-th">刪除</th>
+                                        <th class="product-th"><h6>商品圖片</h6></th>
+                                        <th class="productname-th"><h6>商品名稱</h6></th>
+                                        <th class="size-th"><h6>編號</h6></th>
+                                        <th class="size-th"><h6>規格</h6></th>
+                                        <th class="total-th"><h6>單價</h6></th>
+                                        <th class="quy-th"><h6>數量</h6></th>
+                                        <th class="total-th"><h6>小計</h6></th>
+                                        <th class="total-th"><h6>刪除</h6></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +52,7 @@
                                                 <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
                                             </td>
                                             <td>
-                                                <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
+                                                <sapn class="delete" id="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
                                                 <input type="hidden" name="cartID" value="@item.CartId" />
                                             </td>
                                         </tr>
@@ -80,29 +80,29 @@
                                 <tr>
                                     <td>
                                         <label>
-                                            選擇配送方式:
+                                            <h6>選擇配送方式:</h6>
                                             <select name="shipperID">
                                                 <option value=""></option>
-                                                <option value="1">7-11超商</option>
-                                                <option value="2">全家超商</option>
-                                                <option value="3">黑貓宅急便</option>
+                                                <option value="1"><h6>7-11超商</h6></option>
+                                                <option value="2"><h6>全家超商</h6></option>
+                                                <option value="3"><h6>黑貓宅急便</h6></option>
                                             </select>
                                         </label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label><span>收件人姓名:</span> <input type="text" name="name" value="" /></label>
+                                        <label><h6><span>收件人姓名:</span> <input type="text" name="name" value="" /></h6></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label><span>手機號碼:</span><input type="tel" name="tel" value="" /></label>
+                                        <label><h6><span>手機號碼:</span><input type="tel" name="tel" value="" /></h6></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label><span>超商地址:</span> <input type="text" name="address" value="" class="input-address" /></label>
+                                        <label><h6><span>超商地址:</span><input type="text" name="address" value="" class="input-address" /></h6></label>
                                     </td>
                                 </tr>
 
