@@ -178,10 +178,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCustomerController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardIndexController.cs" />
     <Compile Include="Controllers\dashboard\dashboardProductController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
@@ -190,8 +192,12 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
+
+    <Compile Include="Fiter\AuthorizeMasterAttribute.cs" />
+
     <Compile Include="Controllers\shopN\shopMemberController.cs" />
     <Compile Include="Controllers\shopN\shopProductController.cs" />
+
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,7 +211,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Master.cs" />
+
     <Compile Include="Models\Model1.cs" />
+
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -217,6 +225,7 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\MasterService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="ViewModels\CartVIewModel.cs" />
     <Compile Include="Repository\DbRepository.cs" />
@@ -230,6 +239,8 @@
     <Compile Include="ViewModels\CustomerDateViewModelcs.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MasterListViewModel.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingListViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
@@ -307,6 +318,7 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
@@ -617,6 +629,10 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
+
+    <Content Include="Views\dashboardIndex\Login.cshtml" />
+    <Content Include="Views\dashboardIndex\Index.cshtml" />
+
     <Content Include="Views\shopProduct\detail.cshtml" />
     <Content Include="Views\shopProduct\Index.cshtml" />
     <Content Include="Views\shopIndex\Index2.cshtml" />
@@ -624,6 +640,7 @@
     <Content Include="Views\Menu\CountCart.cshtml" />
     <Content Include="Views\shopMember\Index.cshtml" />
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

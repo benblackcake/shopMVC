@@ -26,6 +26,9 @@ namespace MVCtest.Models
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
 
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()

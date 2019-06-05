@@ -61,11 +61,16 @@
                     <li>
                         <a href="/dashboardCustomer/Index">
                             <i class="tim-icons icon-chart-pie-36"></i>
-                            <p>Test2</p>
+                            <p>會員管理</p>
 
                         </a>
                     </li>
-
+                    <li>
+                        <a href="/dashboardIndex/Index">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>管理員管理</p>
+                        </a>
+                    </li>
 
                 </ul>
             </div>
@@ -135,9 +140,25 @@
                                         <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
-                                    </li>
+                                    @{
+                                        if (Convert.ToBoolean(Session["master_auth"]) == true)
+                                        {
+                                            using (Html.BeginForm("Logout", "dashboardIndex", FormMethod.Post))
+                                            {
+                                                <li class="nav-link">
+                                                    <a href="~/Views/dashboardIndex/Login" >
+                                                        <input type="submit" value="Log out"class="nav-item dropdown-item"/>
+                                                    </a>
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li class="nav-link">
+                                                <a href="javascript:void(0)" class="nav-item dropdown-item">Log in</a>
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </li>
                             <li class="separator d-lg-none"></li>

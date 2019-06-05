@@ -1,4 +1,5 @@
-﻿using MVCtest.Service;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace MVCtest.Controllers.dashboard
 
         CategoryService categorytService;
         // GET: dashboardCategory
+        [AuthorizeMaster]
         public ActionResult Index()
         {
             CategoryService csv = new CategoryService();
