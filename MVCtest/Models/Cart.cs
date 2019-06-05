@@ -11,6 +11,7 @@ namespace MVCtest.Models
     {
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Cart_ID { get; set; }
 
         [Key]
