@@ -25,6 +25,8 @@ namespace MVCtest.Service
                                                 FROM[dbo].[Order]
                                                 Group By MONTH(Order_Date);"
                                               );
+
+
             foreach(var i in tmp){
                 SaleQuantityViewModel sqv = new SaleQuantityViewModel()
                 {

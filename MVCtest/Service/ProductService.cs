@@ -150,5 +150,43 @@ namespace MVCtest.Service
             return result;
         }
 
+
+        public TopSaleListViewModel GetTopSale()
+        {
+            TopSaleListViewModel result = new TopSaleListViewModel();
+            result.Item = new List<TopSaleViewModel>();
+            DBModel context = new DBModel();
+            //DbRepository<Order> repo = new DbRepository<Order>(context);
+            var tmp = context.Database.SqlQuery<TopSaleViewModel>(@"select Product_Name, COUNT(*)Quantity
+                                                                         FROM[dbo].[OrderDetail]
+                                                                         Group By Product_Name
+                                                                         Order By Quantity DESC;"
+                                              );
+            foreach (var i in tmp) {
+                TopSaleViewModel sqv = new TopSaleViewModel()
+                {
+                    Product_Name = i.Product_Name,
+                    Quantity = i.Quantity
+
+                };
+                result.Item.Add(sqv);
+
+            }
+            return result;
+
+        }
+
+        public List<int> GetTotalSum()
+        {
+            DBModel context = new DBModel();
+            var tmp = context.Database.SqlQuery<int>(@"select SUM(CAST(UnitPrice AS int))Total
+                                                                    FROM[dbo].[OrderDetail];"
+                                  );
+
+
+            return tmp.ToList();
+
+        }
+
     }
 }

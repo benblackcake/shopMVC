@@ -178,6 +178,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ViewModels\TopSaleListViewModel.cs" />
+    <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -192,12 +194,9 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
-
     <Compile Include="Fiter\AuthorizeMasterAttribute.cs" />
-
     <Compile Include="Controllers\shopN\shopMemberController.cs" />
     <Compile Include="Controllers\shopN\shopProductController.cs" />
-
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,9 +210,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Master.cs" />
-
     <Compile Include="Models\Model1.cs" />
-
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -629,10 +626,8 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
-
     <Content Include="Views\dashboardIndex\Login.cshtml" />
     <Content Include="Views\dashboardIndex\Index.cshtml" />
-
     <Content Include="Views\shopProduct\detail.cshtml" />
     <Content Include="Views\shopProduct\Index.cshtml" />
     <Content Include="Views\shopIndex\Index2.cshtml" />
@@ -640,7 +635,6 @@
     <Content Include="Views\Menu\CountCart.cshtml" />
     <Content Include="Views\shopMember\Index.cshtml" />
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
