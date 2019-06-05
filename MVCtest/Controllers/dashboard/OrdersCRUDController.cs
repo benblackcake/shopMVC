@@ -17,7 +17,7 @@ namespace MVCtest.Controllers.dashboard
         // GET: OrdersCUUD
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer_ID).Include(o => o.Payment_ID).Include(o => o.Shipper_ID);
+            var orders = db.Orders;
             return View(orders.ToList());
         }
 
