@@ -1,5 +1,6 @@
 ﻿using MVCtest.Fiter;
 using MVCtest.Service;
+using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -49,7 +50,7 @@ namespace MVCtest.Controllers.shopN
             CartService cs = new CartService();
             int id = (int)Session["id"];
             cs.SaveOrder(id, paymentID, shipperID,recipient_Name,recipient_Phone,recipient_Address);
-            return RedirectToAction("Cart");
+            return RedirectToAction("history_order","Home");
         }
 
         [AuthorizePlus]
