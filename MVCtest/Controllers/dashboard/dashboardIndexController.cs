@@ -33,7 +33,7 @@ namespace MVCtest.Controllers.dashboard
                 
                 string account = cvm.master_account;
                 Debug.Print(account);
-                Session["auth"] = true;
+                Session["master_auth"] = true;
                 Session["Name"] = account;
                 //TempData["message"] = "登入成功。";
                 return RedirectToAction("index", "dashboardProduct");
@@ -59,7 +59,7 @@ namespace MVCtest.Controllers.dashboard
         public ActionResult Logout()
         {
             
-            Session["auth"] = false;
+            Session["master_auth"] = false;
             return RedirectToAction("index", "dashboardIndex");
 
         }

@@ -29,3 +29,8 @@ $('#datatables tbody').on('click', '.btn-dark', function () {
     $("#myModal").modal();
     ID = data['master_id'];
 });
+
+$("#create").click(function () {
+    $("#newModal").modal();
+
+});

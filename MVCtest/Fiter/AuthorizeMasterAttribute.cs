@@ -11,7 +11,7 @@ namespace MVCtest.Fiter
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (Convert.ToBoolean(filterContext.HttpContext.Session["auth"]) == true)
+            if (Convert.ToBoolean(filterContext.HttpContext.Session["master_auth"]) == true)
             {
                 filterContext.Controller.ViewBag.Name = filterContext.HttpContext.Session["Name"].ToString();
                 
