@@ -13,9 +13,7 @@ table = $('#datatables').DataTable({
         { "data": "master_password" },
         {
             "data": null,
-            "defaultContent": '<button type="button" class="btn btn-dark">停權</button>'
-                + '&nbsp;&nbsp' +
-                '<button type="button" class="btn btn-danger">查看</button>'
+            "defaultContent":'<button type="button" class="btn btn-danger">查看</button>'
         }
     ]
 

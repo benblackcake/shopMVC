@@ -55,5 +55,13 @@ namespace MVCtest.Controllers.dashboard
             var datas = new { result.data };
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Logout()
+        {
+            
+            Session["auth"] = false;
+            return RedirectToAction("index", "dashboardIndex");
+
+        }
     }
 }
