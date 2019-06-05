@@ -79,17 +79,6 @@ namespace MVCtest.Service
             } else return null;
 
         }
-        //public void GetName()
-        //{
-        //    ProductListViewModel result = new ProductListViewModel();
-        //    DBModel context = new DBModel();
-        //    DbRepository<Customer> repo = new DbRepository<Customer>(context);
-        //    foreach (var name in repo.GetAll().OrderBy(x=>x.Customer_Name))
-        //    {
-        //        if
-
-        //    }
-        //}
 
         public bool Update(Customer input)
         {
@@ -133,6 +122,29 @@ namespace MVCtest.Service
             }
             return result;
 
+        }
+
+
+        public CustomerDateListViewModel GetDateCustomer()
+        {
+            CustomerDateListViewModel result = new CustomerDateListViewModel();
+            result.Item = new List<CustomerDateViewModelcs>();
+            DBModel context = new DBModel();
+            var tmp = context.Database.SqlQuery<CustomerDateViewModelcs>(@"select MONTH( Customer_Date)Month, COUNT(*)Quantity
+                                                FROM[dbo].[Customer]
+                                                Group By MONTH(Customer_Date);"
+                                              );
+            foreach (var i in tmp) {
+                CustomerDateViewModelcs sqv = new CustomerDateViewModelcs()
+                {
+                    Month = i.Month,
+                    Quantity = i.Quantity
+
+                };
+                result.Item.Add(sqv);
+
+            }
+            return result;
         }
     }
 }

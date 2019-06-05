@@ -4,15 +4,13 @@ namespace MVCtest.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using ViewModels;
 
-    public partial class DBModel : DbContext
+    public partial class Model1 : DbContext
     {
-        public DBModel()
-            : base("name=DBcontext")
+        public Model1()
+            : base("name=Model1")
         {
         }
-
 
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CategoryGroup> CategoryGroups { get; set; }
@@ -25,10 +23,6 @@ namespace MVCtest.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
-
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Master> Masters { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

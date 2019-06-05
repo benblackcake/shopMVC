@@ -1,35 +1,37 @@
-﻿using System;
+﻿using MVCtest.Fiter;
+using MVCtest.Service;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MVCtest.Service;
-using MVCtest.ViewModels;
-using MVCtest.Fiter;
 
-namespace MVCtest.Controllers
+namespace MVCtest.Controllers.shopN
 {
-    public class CartController : Controller
+    public class shopCartController : Controller
     {
-        // GET: Cart
-        CartService cartService ;
+        CartService cartService;
+        // GET: shopCart
         public ActionResult Index()
         {
             return View();
         }
+
         [AuthorizePlus]
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Cart(int productId,int quantity){
-                int id = (int)Session["id"];
-                CartService cs = new CartService();
-                cs.SaveCartDB(productId, id, quantity);
-                Debug.Print("POST");
-                return RedirectToAction("Cart");
+        public ActionResult Cart(int productId, int quantity)
+        {
+            int id = (int)Session["id"];
+            CartService cs = new CartService();
+            cs.SaveCartDB(productId, id, quantity);
+            Debug.Print("POST");
+            return RedirectToAction("Cart");
 
 
         }
+
         [AuthorizePlus]
         [HttpGet]
         public ActionResult Cart()
@@ -40,10 +42,9 @@ namespace MVCtest.Controllers
             return View(cs.GetListCart(id));
         }
 
-
         [AuthorizePlus]
         [HttpPost]
-        public ActionResult SaveOrder(string paymentID,string shipperID)
+        public ActionResult SaveOrder(string paymentID, string shipperID)
         {
             CartService cs = new CartService();
             int id = (int)Session["id"];
@@ -51,21 +52,6 @@ namespace MVCtest.Controllers
             return RedirectToAction("Cart");
         }
 
-
-
-        //[HttpPost]
-        //public ActionResult Delete(int CartId)
-        //{
-        //    CartService cs = new CartService();
-        //    int cusID = int.Parse(HttpContext.Session["id"].ToString());
-        //    cs = new CartService();
-        //    cs.DeleteCart(CartId);
-        //    Debug.Print(CartId.ToString());
-        //    return RedirectToAction("Cart", "Cart");
-
-        //    cartService = new CartService();
-        //    return View(cartService.GetListCart(id));
-        //}
         [AuthorizePlus]
         [HttpPost]
         public ActionResult DeleteCart(int cartID)
@@ -73,17 +59,18 @@ namespace MVCtest.Controllers
             cartService = new CartService();
             cartService.Delete(cartID);
             return RedirectToAction("Cart");
+
         }
+
 
         [AuthorizePlus]
         [HttpPost]
-        public ActionResult UpdateQuantity(int cartID,string quantity)
+        public ActionResult UpdateQuantity(int cartID, string quantity)
         {
             cartService = new CartService();
             cartService.UpdateQuantity(cartID, quantity);
 
             return View();
         }
-
     }
 }

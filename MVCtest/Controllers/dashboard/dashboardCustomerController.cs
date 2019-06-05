@@ -20,6 +20,23 @@ namespace MVCtest.Controllers.dashboard
             var datas = new { result.data };
             return Json(datas, JsonRequestBehavior.AllowGet);
         }
+
+        [Route("api/dashboardCustomer/GetDateCustomer")]
+        public JsonResult GetDateCustomer()
+        {
+            List<string> label = new List<string>();
+            List<int> data = new List<int>();
+
+            CustomerService os = new CustomerService();
+            CustomerDateListViewModel result = os.GetDateCustomer();
+            foreach (var item in result.Item) {
+                label.Add(item.Month.ToString() + "月");
+                data.Add(item.Quantity);
+            }
+            var datas = new { label, data };
+
+            return Json(datas, JsonRequestBehavior.AllowGet);
+        }
         // GET: dashboardCustomer
         [AuthorizeMaster]
         public ActionResult Index()

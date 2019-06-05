@@ -9,14 +9,8 @@ namespace MVCtest.Models
     [Table("OrderDetail")]
     public partial class OrderDetail
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Order_Id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Product_Id { get; set; }
 
         [StringLength(10)]
@@ -30,6 +24,9 @@ namespace MVCtest.Models
 
         [StringLength(10)]
         public string Quantity { get; set; }
+
+        [Key]
+        public int OrderDetail_Id { get; set; }
 
         public virtual Order Order { get; set; }
 
