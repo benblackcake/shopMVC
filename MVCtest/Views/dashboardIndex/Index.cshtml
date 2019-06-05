@@ -13,7 +13,7 @@
 
         <table id="datatables" class="table table-hover" style=" width:120%">
             <thead>
-                <tr class="masterex">
+                <tr>
                     <th>管理員ID</th>
                     <th>管理員名稱</th>
                     <th>管理員密碼</th>
@@ -37,7 +37,7 @@
                     <form id="formEdit" role="form">
                         <div class="form-group">
                             <label for="beacon_id"><span class="glyphicon glyphicon-pencil"></span>管理員ID</label>
-                            <input type="text" class="form-control" id="master_id" name="master_id" placeholder=""
+                            <input type="text" class="form-control iddd" id="master_id" name="master_id" placeholder=""
                                    required="true"style="color:black;">
                         </div>
 
@@ -135,10 +135,7 @@
     <script>
 
 
-        $('#createCate').on('click', function () {
-            var cateID = parseInt($('.masterex:last').find('th:first-child').text()) + 1;
-            $('#master_id').val(cateID.toString().trim());
-        })
+
     </script>
     @if (TempData["message"] != null)
     {

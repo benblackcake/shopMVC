@@ -20,6 +20,8 @@ table = $('#datatables').DataTable({
 });
 
 
+
+
 ID = "";
 $('#datatables tbody').on('click', '.btn-dark', function () {
     data = data.row($(this).parents('tr')).data();
@@ -30,7 +32,15 @@ $('#datatables tbody').on('click', '.btn-dark', function () {
     ID = data['master_id'];
 });
 
+$('#createCate').on('click', function () {
+    var cateID = $("")
+    var data = $("#datatables tbody").data();
+    console.log(data);
+    $('#master_id').val(cateID.toString().trim());
+});
+
 $("#create").click(function () {
     $("#newModal").modal();
 
 });
+
