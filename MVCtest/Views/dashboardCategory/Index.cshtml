@@ -55,8 +55,8 @@
                     <td>
                         @*<input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />*@
                         <input type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal2" value="Add SubCategory" />
-                        @*@Html.ActionLink("Create SubCategory", "CreateSub", new { id=item.Category_Id})*@ |
-                        <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Delete" />
+                        @*@Html.ActionLink("Create SubCategory", "CreateSub", new { id=item.Category_Id})*@ 
+                        
                         @*@Html.ActionLink("Delete", "Delete", new { id = item.Category_Id})*@
                     </td>
                 </tr>
@@ -74,8 +74,11 @@
                         </td>
 
                         <td>
-                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" value="Delete" />
-                            @*@Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })*@
+                            <form action="/dashboardCategory/DeleteSub" method="post" style="margin:0px;">
+                                <button class="btn btn-danger" id="delect" name="delete">Delete</button>
+                                <input type="hidden" name="Sub_Category_ID"  value="@sub.Sub_Category_ID"  />
+                            </form>
+                                @*@Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })*@
                         </td>
                     </tr>
                 }

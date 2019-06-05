@@ -72,6 +72,14 @@ namespace MVCtest.Controllers.dashboard
 
         }
 
+        [HttpPost]
+        public ActionResult DeleteSub(int Sub_Category_ID)
+        {
+            CategoryService cs = new CategoryService();
+            cs.DeleteSub(Sub_Category_ID);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult CreateSub()
         {
             return View();

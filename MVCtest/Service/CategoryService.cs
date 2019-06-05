@@ -110,5 +110,15 @@ namespace MVCtest.Service
             }
             else return false;
         }
+        public void DeleteSub(int Sub_Category_ID)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sub_Categroy> repoSubCategory = new DbRepository<Sub_Categroy>(context);
+
+            Sub_Categroy sub = repoSubCategory.GetAll().FirstOrDefault((x) => x.Sub_Category_ID == Sub_Category_ID);
+            repoSubCategory.Delete(sub);
+            context.SaveChanges();
+
+        }
     }
 }
