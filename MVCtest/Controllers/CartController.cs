@@ -47,7 +47,7 @@ namespace MVCtest.Controllers
         {
             CartService cs = new CartService();
             int id = (int)Session["id"];
-            cs.SaveOrder(id, paymentID, shipperID);
+         //   cs.SaveOrder(id, paymentID, shipperID);
             return RedirectToAction("Cart");
         }
 

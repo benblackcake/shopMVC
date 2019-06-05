@@ -44,11 +44,11 @@ namespace MVCtest.Controllers.shopN
 
         [AuthorizePlus]
         [HttpPost]
-        public ActionResult SaveOrder(string paymentID, string shipperID)
+        public ActionResult SaveOrder(string paymentID, string shipperID ,string recipient_Name ,string recipient_Phone ,string recipient_Address)
         {
             CartService cs = new CartService();
             int id = (int)Session["id"];
-            cs.SaveOrder(id, paymentID, shipperID);
+            cs.SaveOrder(id, paymentID, shipperID,recipient_Name,recipient_Phone,recipient_Address);
             return RedirectToAction("Cart");
         }
 
