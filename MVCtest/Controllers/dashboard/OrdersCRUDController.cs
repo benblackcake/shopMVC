@@ -13,7 +13,7 @@ namespace MVCtest.Controllers.dashboard
 {
     public class OrdersCRUDController : Controller
     {
-        private DBModel db = new DBModel();
+        public DBModel db = new DBModel();
 
         // GET: OrdersCUUD
         public ActionResult Index()
@@ -23,25 +23,40 @@ namespace MVCtest.Controllers.dashboard
         }
 
         [HttpPost]
-        public ActionResult EditStatus([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Order od)
+        public ActionResult EditStatus(Order order)
         {
-            OrderService os = new OrderService();
-            int Id = od.Order_ID;
-            string name = od.Customer.Customer_Name;
-            string payment = od.Payment.Payment_Name;
-            string shipper = od.Shipper.Shipper_Method_Name;
-            DateTime? date = od.Order_Date;
-            string status = od.Status;
-            
-            if (os.UpdateStatus(od))
-            {             
-                return RedirectToAction("Index", "OrdersCRUD");
+            //OrderService os = new OrderService();
+
+            //ViewBag.RowsAffected = db.Database.ExecuteSqlCommand("UPDATE Order SET Status = '已出貨' WHERE Order_ID=", Order_ID);
+            //int Id = od.Order_ID;
+            //string name = od.Customer.Customer_Name;
+            //string payment = od.Payment.Payment_Name;
+            //string shipper = od.Shipper.Shipper_Method_Name;
+            //DateTime? date = od.Order_Date;
+            //string status = od.Status;
+
+            //if (os.UpdateStatus(Order_ID, Status))
+            //{
+            //    return RedirectToAction("Index", "OrdersCRUD");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index", "OrdersCRUD");
+            //}
+
+            if (ModelState.IsValid)
+            {
+                Order od = db.Orders.Find(order.Order_ID);
+                if (od != null)
+                {
+                    od.Status = order.Status;
+                    db.Entry(od).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            else
-            {      
-                return RedirectToAction("Index", "OrdersCRUD");
-            }
-           
+            return View(order);
+
         }
 
 

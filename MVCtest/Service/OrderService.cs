@@ -70,16 +70,16 @@ namespace MVCtest.Service
             return result;
            
         }
-        public bool UpdateStatus(Order od)
-        {
-            DBModel context = new DBModel();
-            DbRepository<Order> repo = new DbRepository<Order>(context);          
-            repo.Update(od);
+        //public bool UpdateStatus(int Order_ID,string Status)
+        //{
+        //    DBModel context = new DBModel();
+        //    DbRepository<Order> repo = new DbRepository<Order>(context);          
+        //    repo.Update2(Order_ID,Status);
            
-            context.SaveChanges();
+        //    context.SaveChanges();
             
-            return true;
+        //    return true;
             
-        }
+        //}
     }
 }
