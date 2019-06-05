@@ -32,6 +32,9 @@ namespace MVCtest.Models
         [StringLength(300)]
         public string User_Password { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime? Customer_Date { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
 

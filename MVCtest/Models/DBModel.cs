@@ -13,6 +13,7 @@ namespace MVCtest.Models
         {
         }
 
+
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CategoryGroup> CategoryGroups { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
