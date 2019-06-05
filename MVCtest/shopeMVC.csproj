@@ -208,6 +208,8 @@
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderContext.cs" />
@@ -616,7 +618,6 @@
     <Content Include="Views\dashboardCustomer\Index.cshtml" />
     <Content Include="Views\dashboardProduct\Index.cshtml" />
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
-
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
     <Content Include="Views\shopProduct\detail.cshtml" />

@@ -16,7 +16,6 @@ namespace MVCtest.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Order_ID { get; set; }
 
         [Column(TypeName = "date")]
@@ -27,11 +26,14 @@ namespace MVCtest.Models
         public int? Shipper_ID { get; set; }
 
         public int? Payment_ID { get; set; }
-        public virtual Customer Customer { get; set; }
 
-        public virtual Payment Payment { get; set; }
+        [StringLength(10)]
+        public string recipient_Name { get; set; }
 
-        public virtual Shipper Shipper { get; set; }
+        [StringLength(10)]
+        public string recipient_Phone { get; set; }
+
+        public string recipient_Adress { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

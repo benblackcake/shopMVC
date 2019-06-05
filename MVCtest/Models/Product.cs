@@ -5,7 +5,6 @@ namespace MVCtest.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Web;
 
     [Table("Product")]
     public partial class Product
@@ -19,14 +18,15 @@ namespace MVCtest.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Product_Id { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string Product_Name { get; set; }
 
         public int? Category_Id { get; set; }
 
+        [Required]
         [StringLength(10)]
         public string UnitPrice { get; set; }
 
@@ -41,7 +41,11 @@ namespace MVCtest.Models
 
         public double? Weight { get; set; }
 
-        public int Seller_ID { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? Product_date { get; set; }
+
+        [StringLength(10)]
+        public string Product_Color { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
@@ -49,15 +53,9 @@ namespace MVCtest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
 
-        public virtual Customer Customer { get; set; }
-
-        public virtual Customer Customer1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-
-        //public HttpPostedFileBase ImageFile { get; set; }
-        //public virtual SSub_Category SSub_Category { get; set; }
+        public virtual Sub_Categroy Sub_Categroy { get; set; }
     }
 }
