@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCtest.Models;
+using MVCtest.Service;
 
 namespace MVCtest.Controllers.dashboard
 {
@@ -17,9 +18,32 @@ namespace MVCtest.Controllers.dashboard
         // GET: OrdersCUUD
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer_ID).Include(o => o.Payment_ID).Include(o => o.Shipper_ID);
+            var orders = db.Orders/*.Include(o => o.Customer_ID).Include(o => o.Payment_ID).Include(o => o.Shipper_ID)*/;
             return View(orders.ToList());
         }
+
+        [HttpPost]
+        public ActionResult EditStatus([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Order od)
+        {
+            OrderService os = new OrderService();
+            int Id = od.Order_ID;
+            string name = od.Customer.Customer_Name;
+            string payment = od.Payment.Payment_Name;
+            string shipper = od.Shipper.Shipper_Method_Name;
+            DateTime? date = od.Order_Date;
+            string status = od.Status;
+            
+            if (os.UpdateStatus(od))
+            {             
+                return RedirectToAction("Index", "OrdersCRUD");
+            }
+            else
+            {      
+                return RedirectToAction("Index", "OrdersCRUD");
+            }
+           
+        }
+
 
         // GET: OrdersCUUD/Details/5
         public ActionResult Details(int? id)

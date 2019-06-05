@@ -21,14 +21,17 @@ namespace MVCtest.Models
 
         public int? Payment_ID { get; set; }
 
-        [Required(ErrorMessage ="必須輸入收件人姓名")]
+        //[Required(ErrorMessage ="必須輸入收件人姓名")]
         [StringLength(10)]
         public string recipient_Name { get; set; }
-        [Required(ErrorMessage = "必須輸入收件人手機")]
+        //[Required(ErrorMessage = "必須輸入收件人手機")]
         [StringLength(10)]
         public string recipient_Phone { get; set; }
-        [Required(ErrorMessage = "必須輸入收件地址")]
+        //[Required(ErrorMessage = "必須輸入收件地址")]
         public string recipient_Adress { get; set; }
+        public string Status { get; set; }   //new add
+
+
 
         public virtual Customer Customer { get; set; }
         public virtual Payment  Payment { get; set; }

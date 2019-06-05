@@ -54,14 +54,14 @@ namespace MVCtest.Service
             var tmp =
                 from c in repoOrder.GetAll()
                 join p in repoOrderDetail.GetAll()             
-                on c.Order_ID equals p.Order_Id
+                on c.Order_ID equals p.OrderDetail_Id
                 where c.Customer_ID == customerId
                 join pay in repoPayment.GetAll()
                 on c.Payment_ID equals pay.Payment_ID
                 select
                 new OrderTrackingViewModel
                 {
-                    OrderId = c.Order_ID, ProductName = p.Product_Name, OrderDate = c.Order_Date, Price = p.UnitPrice, Payment = pay.Payment_Name };
+                    OrderId = p.OrderDetail_Id, ProductName = p.Product_Name, OrderDate = c.Order_Date, Price = p.UnitPrice, Payment = pay.Payment_Name ,OrderState = c.Status};
             //_ordertrackingViewModel = result.ToList();
             foreach (var item in tmp)
             {
@@ -69,6 +69,17 @@ namespace MVCtest.Service
             }
             return result;
            
+        }
+        public bool UpdateStatus(Order od)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Order> repo = new DbRepository<Order>(context);          
+            repo.Update(od);
+           
+            context.SaveChanges();
+            
+            return true;
+            
         }
     }
 }
