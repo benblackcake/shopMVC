@@ -187,11 +187,7 @@
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MemberCenterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
     <Compile Include="Controllers\shopN\shopMemberController.cs" />
@@ -230,6 +226,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDateListViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDateViewModelcs.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingListViewModel.cs" />
