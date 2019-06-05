@@ -240,6 +240,7 @@
     <Compile Include="ViewModels\SubCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\AssestNew\css\alert.css" />
     <Content Include="Assest\AssestNew\css\animate.css" />
     <Content Include="Assest\AssestNew\css\bootstrap.min.css" />
     <Content Include="Assest\AssestNew\css\flaticon.css" />
@@ -288,6 +289,7 @@
     <Content Include="Assest\AssestNew\img\single-product\thumb-2.jpg" />
     <Content Include="Assest\AssestNew\img\single-product\thumb-3.jpg" />
     <Content Include="Assest\AssestNew\img\single-product\thumb-4.jpg" />
+    <Content Include="Assest\AssestNew\js\alert.js" />
     <Content Include="Assest\AssestNew\js\bootstrap.min.js" />
     <Content Include="Assest\AssestNew\js\jquery-3.2.1.min.js" />
     <Content Include="Assest\AssestNew\js\jquery-ui.min.js" />

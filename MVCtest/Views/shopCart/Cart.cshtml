@@ -8,73 +8,116 @@
 <section class="cart-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
-                <div class="cart-table">
-                    <h3>Your Cart</h3>
-                    <div class="cart-table-warp">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="product-th">商品圖片</th>
-                                    @*<th class="product-th">商品名稱</th>*@
-                                    <th class="size-th">編號</th>
-                                    <th class="size-th">規格</th>
-                                    <th class="total-th">單價</th>
-
-                                    <th class="quy-th">數量</th>
-                                    @*<th class="total-th">小計</th>*@
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model) {
+            <div class="col-lg-12">
+                <div class="step1">
+                    <div class="cart-table">
+                        <h3>Your Cart</h3>
+                        <div class="cart-table-warp">
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td class="product-col">
-                                            <img src="@item.ProductImage" alt="商品圖片">
-                                            <div class="pc-title">
-                                                <h4>@item.ProductName</h4>
-                                                <p>$45.90</p>
-                                            </div>
-                                        </td>
-                                        <td class="size-col"><h6>@item.ProductNo</h6></td>
-                                        <td class="size-col"><h4>@item.Size</h4></td>
-                                        <td class="total-col"><h4>$@item.Unitprice</h4></td>
-                                        <td class="quy-col">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="total-col">
-                                            <form class="c_8" action="/shopCart/DeleteCart" method="post">
-                                                @*<button id="delect" name="delete" class="btn btn-default btn-sm"></button>*@
-                                                <button id="delect" name="delete" style="font-size:5px"><i class="fa fa-trash-o"></i></button> 
-                                                <input type="hidden" name="cartID" value="@item.CartId" />
-                                            </form>
-                                        
-                                        </td>
+                                        <th class="product-th">商品圖片</th>
+                                        <th class="productname-th">商品名稱</th>
+                                        <th class="size-th">編號</th>
+                                        <th class="size-th">規格</th>
+                                        <th class="total-th">單價</th>
+                                        <th class="quy-th">數量</th>
+                                        <th class="total-th">小計</th>
+                                        <th class="total-th">刪除</th>
                                     </tr>
-                                }
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="tests">
+                                            <td class="product-col">
+                                                <img src="@item.ProductImage" alt="商品圖片">
+                                                @*<div class="pc-title">
+                                        <h4>@item.ProductName</h4>
+                                    </div>*@
+                                            </td>
+                                            <td class="size-col"><h6>@item.ProductName</h6></td>
+                                            <td class="size-col"><h6>@item.ProductNo</h6></td>
+                                            <td class="size-col"><h6>@item.Size</h6></td>
+                                            <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
+                                            <td class="quy-col">
+                                                <div class="quantity">
+                                                    <div class="pro-qty">
+                                                        <input type="text" class="qty" value="@item.Quantity">
+                                                        <input type="hidden" name="cartID" value="@item.CartId" />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="total-col">
+                                                <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
+                                            </td>
+                                            <td>
+                                                <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
+                                                <input type="hidden" name="cartID" value="@item.CartId" />
+                                            </td>
+                                        </tr>
+                                    }
 
-                                
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="total-cost">
+                            <h6>Total <span id="total">$0</span></h6>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-lg-end bottom-btn">
+                        <a href="#" class="site-btn sb-dark">繼續購物</a>
+                        <span class="site-btn checkout" id="nextStep">下一步</span>
+                    </div>
+                </div>
+
+                <form action="/shopCart/SaveOrder" method="post">
+                <div class="step2" style="display:none;">
+                    <div class="cart-table">
+                        <h3>Please provide information about the recipient</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label>
+                                            選擇配送方式:
+                                            <select name="shipperID">
+                                                <option value=""></option>
+                                                <option value="1">7-11超商</option>
+                                                <option value="2">全家超商</option>
+                                                <option value="3">黑貓宅急便</option>
+                                            </select>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label><span>收件人姓名:</span> <input type="text" name="recipient_Name" value="" /></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label><span>手機號碼:</span><input type="tel" name="recipient_Phone" value="" /></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label><span>超商地址:</span> <input type="text" name="recipient_Address" value="" class="input-address" /></label>
+                                    </td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>
-                    <div class="total-cost">
-                        <h6>Total <span>$99.90</span></h6>
+                    <div class="d-flex justify-content-lg-end bottom-btn">
+                        <span class="site-btn sb-dark" id="preStep">上ㄧ步</span>
+                        <input type="submit" name="name" value="完成" class="site-btn checkout"/>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 card-right">
-                <form class="promo-code-form">
-                    <input type="text" placeholder="Enter promo code">
-                    <button>Submit</button>
-                </form>
-                <a href="" class="site-btn">Proceed to checkout</a>
-                <a href="" class="site-btn sb-dark">Continue shopping</a>
+                    </form>
             </div>
         </div>
     </div>
 </section>
+
 <!-- cart section end -->

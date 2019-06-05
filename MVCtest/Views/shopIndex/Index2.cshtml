@@ -3,6 +3,7 @@
     ViewBag.Title = "Index2";
     Layout = "~/Views/Shared/_shop.cshtml";
 }
+<link rel="stylesheet" href="~/Assest/AssestNew/css/alert.css">
 
 <!-- Hero section -->
 <section class="hero-section">
@@ -226,3 +227,11 @@
     </div>
 </section>
 <!-- Banner section end  -->
+<script src="~/Assest/AssestNew/js/alert.js"></script>
+@if (TempData["message"] != null) {
+    <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+            alertify.set({ delay: 3000 });
+            alertify.success(message);
+    </script>
+}

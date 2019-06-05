@@ -89,33 +89,54 @@ namespace MVCtest.Service
 
         }
 
-        //price待確認
-        public void SaveOrder(int customerID,List<string> sumPrice,string paymentID,string shipperID)
+        public void UpdateQuantity(int cartID,string quantity)
         {
-            DBModel context = new DBModel();
-            DbRepository<Order> repoOrder = new DbRepository<Order>(context);
+            DBModel db = new DBModel();
+            DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
+            var result = db.Carts.ToList().Find(x => x.Cart_ID == cartID);
+            result.Quantity = int.Parse(quantity);
+            repoCart.Update(result);
+            db.SaveChanges();
+        }
 
-            var result = context.Carts.ToList().FindAll(x => x.Customer_ID == customerID);
+        public void SaveOrder(int customerID,string paymentID,string shipperID, string recipient_Name, string recipient_Phone, string recipient_Address)
+        {
+            DBModel db = new DBModel();
+
+            var result = from c in db.Carts.ToList().FindAll(x => x.Customer_ID == customerID)
+                          join p in db.Products.ToList()
+                          on c.Product_ID equals p.Product_Id
+                          where c.Customer_ID == customerID
+                          select new { c.Product_ID, c.Quantity, p.UnitPrice,p.Product_Name };
+
+            var result1 =  result.ToList();
+
+
+
             List<OrderDetail> od = new List<OrderDetail>();
-            for(var i = 0; i<result.Count;i++)
+            for(var i = 0; i<result1.Count;i++)
             {
                 od.Add(new OrderDetail()
                 {
-                    Product_Id = result[i].Product_ID,
-                    Quantity = result[i].Quantity.ToString(),
-                    UnitPrice = sumPrice[i]
+                    Product_Id = result1[i].Product_ID,
+                    Quantity = result1[i].Quantity.ToString(),
+                    UnitPrice = result1[i].UnitPrice,
+                    Product_Name=result1[i].Product_Name,
                 });
-
             }
+
             Order order = new Order()
             {
                 Order_Date = DateTime.Now,
-                Payment_ID = int.Parse(paymentID) ,
+                Payment_ID = int.Parse(paymentID),
                 Shipper_ID = int.Parse(shipperID),
+                recipient_Name = recipient_Name,
+                recipient_Phone = recipient_Phone,
+                recipient_Adress = recipient_Address,
                 OrderDetails = od
             };
 
-            repoOrder.Create(order);
+            db.Orders.Add(order);
             db.SaveChanges();
 
         }
