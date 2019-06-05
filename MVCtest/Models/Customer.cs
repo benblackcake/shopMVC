@@ -14,19 +14,15 @@ namespace MVCtest.Models
         {
             Carts = new HashSet<Cart>();
             Comments = new HashSet<Comment>();
-            Orders = new HashSet<Order>();
-            Products = new HashSet<Product>();
-            Products1 = new HashSet<Product>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Customer_ID { get; set; }
 
         [StringLength(20)]
         public string Customer_Name { get; set; }
 
-        [Column("Customer_Email")]
+        [Required]
         [StringLength(100)]
         public string Customer_Email { get; set; }
 
@@ -36,19 +32,13 @@ namespace MVCtest.Models
         [StringLength(300)]
         public string User_Password { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime? Customer_Date { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products1 { get; set; }
     }
 }

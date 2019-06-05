@@ -208,9 +208,10 @@
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderContext.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
