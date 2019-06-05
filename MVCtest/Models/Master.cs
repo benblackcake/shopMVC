@@ -6,14 +6,16 @@ namespace MVCtest.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Payment")]
-    public partial class Payment
+    [Table("Master")]
+    public partial class Master
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Payment_ID { get; set; }
+        public int master_id { get; set; }
 
-        [StringLength(10)]
-        public string Payment_Name { get; set; }
+        [StringLength(50)]
+        public string master_account { get; set; }
+
+        [StringLength(50)]
+        public string master_password { get; set; }
     }
 }

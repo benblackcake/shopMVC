@@ -4,12 +4,11 @@ namespace MVCtest.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using ViewModels;
 
-    public partial class DBModel : DbContext
+    public partial class Model1 : DbContext
     {
-        public DBModel()
-            : base("name=DBcontext")
+        public Model1()
+            : base("name=Model1")
         {
         }
 
