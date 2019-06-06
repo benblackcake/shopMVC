@@ -1,6 +1,6 @@
 ﻿
-
-table = $('#datatables').DataTable({
+var MAX_VAL = 0;
+var table = $('#datatables').DataTable({
     "processing": true,
     // "serverSide": true,
     "ajax": {
@@ -20,6 +20,8 @@ table = $('#datatables').DataTable({
 });
 
 
+
+
 ID = "";
 $('#datatables tbody').on('click', '.btn-dark', function () {
     data = data.row($(this).parents('tr')).data();
@@ -30,7 +32,24 @@ $('#datatables tbody').on('click', '.btn-dark', function () {
     ID = data['master_id'];
 });
 
+$('#createCate').on('click', function () {
+    var li = [];
+    var cateID = $("")
+    var data = table.rows().data();
+    for (var i = 0; i < data.length;i++) {
+        li.push(data[i].master_id);
+    }
+    console.log(li);
+    MAX_VAL = Math.max.apply(Math,li)+1; 
+    console.log(MAX_VAL);
+    $('#master_id').val(MAX_VAL);
+
+
+});
+
 $("#create").click(function () {
     $("#newModal").modal();
 
 });
+
+
