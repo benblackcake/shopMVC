@@ -63,5 +63,27 @@ namespace MVCtest.Controllers.dashboard
             return RedirectToAction("index", "dashboardIndex");
 
         }
+
+        [HttpPost]
+        public ActionResult Register(MasterViewModel input)
+        {
+            MasterViewModel cvm = new MasterViewModel();
+            cvm.master_account = input.master_account;
+            cvm.master_password = input.master_password;
+            MasterService service = new MasterService();
+            if (service.Create(cvm))
+            {
+                TempData["message"] = "註冊成功";
+                return RedirectToAction("Index", "dashboardIndex");
+            }
+            else
+            {
+                TempData["message"] = "註冊失敗";
+                return RedirectToAction("Index", "dashboardIndex");
+            }
+
+
+        }
+
     }
 }

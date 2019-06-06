@@ -35,10 +35,10 @@ namespace MVCtest.Controllers.shopN
             cvm.Customer_Phone = input.Customer_Phone;
             CustomerService service = new CustomerService();
             if (service.Create(cvm)) {
-                TempData["message"] = "註冊成功";
+                TempData["message"] = "新增成功";
                 return RedirectToAction("Index", "shopMember");
             } else {
-                TempData["message"] = "註冊失敗";
+                TempData["message"] = "新增失敗";
                 return RedirectToAction("Index", "shopMember");
             }
 

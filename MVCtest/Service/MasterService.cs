@@ -56,5 +56,25 @@ namespace MVCtest.Service
 
         }
 
+        public bool Create(MasterViewModel input)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Master> repo = new DbRepository<Master>(context);
+            if (repo.GetAll().FirstOrDefault((x) => x.master_account == input.master_account) == null)
+            {
+                Master entity = new Master()
+                {
+                    
+                    master_account = input.master_account,
+                    master_password = input.master_password
+                };
+                repo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+
+        }
+
     }
 }
