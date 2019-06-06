@@ -1895,6 +1895,9 @@ ol {
 	margin-left: 38px;
 }
 
+
+
+
 .card-right .site-btn {
 	margin-bottom: 14px;
 	width: 100%;
@@ -1940,6 +1943,7 @@ ol {
 .cart-table tbody .delete{
     font-size:25px;
     margin-left:50px;
+    cursor:pointer;
 }
 
 

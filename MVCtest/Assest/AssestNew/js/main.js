@@ -407,7 +407,7 @@ $(window).on('load', function() {
         var $this = $(this);
         var $cardID = $this.next().val();
         remove($cardID);
-        history.go(0)
+  //      history.go(0)
     })
 
     function updateTotal() {
@@ -438,6 +438,11 @@ $(window).on('load', function() {
             type: "POST",
             url: "/shopCart/DeleteCart",
             data: { cartID: ID },
+            success: 
+                function () {
+                    history.go(0)
+                }
+            
         });
     }
 

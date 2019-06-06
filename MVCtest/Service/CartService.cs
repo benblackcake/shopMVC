@@ -11,17 +11,8 @@ namespace MVCtest.Service
 {
     public class CartService
     {
-//<<<<<<< HEAD
-//       private Product products;
-//       private Cart carts;
-
-//        public void SaveCartDB(string productName,int quantity)
-//        {
-//            DBModel db = new DBModel();
-//=======
 
         private DBModel db ;
-        private Product _products;
         private Cart _carts;
 
         public void SaveCartDB(int productId,int customerId, int quantity)
@@ -29,44 +20,49 @@ namespace MVCtest.Service
             db = new DBModel();
 
             DbRepository<Cart> repor = new DbRepository<Cart>(db);
-            //if (productId == null)
-            //{
-            //    _carts = null;
-            //}
-            //else
-            //{
-                //_products = db.Products.ToList().Find(x => x.Product_Name == productName);
+
+            var value = db.Database.SqlQuery<Cart>(@"select *
+                                                        from Cart c
+                                                        inner join Customer cu on cu.Customer_ID = c.Customer_ID
+                                                        where c.Product_ID = " + productId + " and cu.Customer_ID = " + customerId);
+
+            if (value.Count() !=0 )
+            {
+              var result = db.Carts.SingleOrDefault(x => x.Product_ID == productId && x.Customer_ID == customerId);
+                result.Quantity += quantity;
+                db.SaveChanges();
+                return;
+            }
+
+
                 _carts = new Cart()
                 {
                     Product_ID = productId,
                     Customer_ID= customerId,
-                    Quantity= quantity
+                    Quantity= quantity,
+                    
                 };
-                //db.Carts.Add(_carts);
                 repor.Create(_carts);
                 db.SaveChanges();
-            //}
         }
 
 
         public List<CartViewModel> GetListCart(int customerID)
         {
-            //<<<<<<< HEAD
-            //List<CartViewModel> cartRepos;
+
             db = new DBModel();
             DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
             DbRepository<Product> repoProduct = new DbRepository<Product>(db);
-            //=======
-            
-           List<CartViewModel> cartViewModel;
-           var result =
-                from c in repoCart.GetAll()
-                join p in repoProduct.GetAll()
-                on c.Product_ID equals p.Product_Id
-                where c.Customer_ID==customerID
-                select
-                new CartViewModel
-                { CartId = c.Cart_ID,ProductName=p.Product_Name ,ProductNo = p.Product_Id,Unitprice=p.UnitPrice,Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
+            List<CartViewModel> cartViewModel = new List<CartViewModel>();
+            var result =
+                 from c in repoCart.GetAll()
+                 join p in repoProduct.GetAll()
+                 on c.Product_ID equals p.Product_Id
+                 where c.Customer_ID == customerID
+                 select
+                 new CartViewModel
+                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
+
             cartViewModel = result.ToList();
             return cartViewModel;
         }

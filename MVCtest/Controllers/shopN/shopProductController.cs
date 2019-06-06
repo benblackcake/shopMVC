@@ -59,5 +59,6 @@ namespace MVCtest.Controllers.shopN
             Debug.Print(id.ToString());
             return View(result);
         }
+
     }
 }
