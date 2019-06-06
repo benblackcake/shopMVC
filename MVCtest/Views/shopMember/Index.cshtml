@@ -11,12 +11,12 @@
 }
 <link rel="stylesheet" href="~/Assest/AssestNew/css/login.css">
 <link rel="stylesheet" href="~/Assest/AssestNew/css/alert.css">
+
 @*<div class="page-top-info">
     <div class="container">
         <h4>Member Page</h4>
         <div class="site-pagination">
-            <a href="/shopIndex/Index2">Home</a> /
-            
+            <a href="/shopIndex/Index2">Home</a> /         
         </div>
     </div>
 </div>*@
@@ -28,7 +28,7 @@
                     <h3 class="billing-title text-center">Login</h3>
                     <p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
                     <form action="/shopMember/login" method="post">
-                        <input type="text" name="Customer_Email" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" required class="common-input mt-20">
+                        <input type="text" name="Customer_Email" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
                         <input type="password" name="User_Password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
                         <button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
                         @*<div class="mt-20 d-flex align-items-center justify-content-between">
@@ -53,10 +53,11 @@
                     <h3 class="billing-title text-center">Register</h3>
                     <p class="text-center mt-40 mb-30">Create your very own account </p>
                     <form action="/shopMember/Index" method="post">
-                        <input type="text" name="Customer_Name" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
                         <input type="email" name="Customer_Email" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-                        <input type="text" name="Customer_Phone" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
                         <input type="password" name="User_Password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
+                        <input type="text" name="Customer_Name" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
+                        <input type="text" name="Customer_Phone" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
+
                         <button class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
                     </form>
                 </div>

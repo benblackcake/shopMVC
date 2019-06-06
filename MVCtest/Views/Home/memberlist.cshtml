@@ -125,24 +125,24 @@
     </style>
 }
 <div class="container">
-    <div class="col-12" id="top_center">
-        <h3>會員中心</h3>
+    <div class="col-12 mt-3" id="top_center">
+        <h3>Member Center</h3>
     </div>
-    <div class="col-12" id="top_select">
+    <div class="col-12 mt-3" id="top_select">
 
         <div class="col-6" id="edit">
             <a href="~/Home/memberlist" style="text-decoration: none; color:black;" id="edit_account">
-                <p>Edit Account修改會員資料</p>
+                <p>Edit Account</p>
             </a>
         </div>
         <p>|</p>
         <div class="col-6" id="order">
             <a href="~/Home/history_order" style="text-decoration: none; color:black;" id="order_tracking">
-                <p>Order Tracking 訂單查詢</p>
+                <p>Order Tracking</p>
             </a>
         </div>
     </div>
-    <div class="col-12" id="change_account">
+    <div class="col-12 mb-5" id="change_account">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-md-6 mt-5">
@@ -156,21 +156,21 @@
                             <div class="form-group">
                                 <input type="hidden" name="Customer_ID" value="@ViewBag.ID" />
                                 <input type="hidden" name="Customer_Email" value="@ViewBag.Email" />
-                                <label>會員帳號</label><br>
+                                <label>Account</label><br>
                                 <input type="text" name="Customer_Email" disabled="disabled" value="@ViewBag.Email" class="form-control">
 
                             </div>
                             <div class="form-group">
-                                <label>會員密碼</label><br>
+                                <label>Password</label><br>
                                 <input type="text" name="User_Password" value="" class="form-control" required="true">
 
                             </div>
                             <div class="form-group">
-                                <label>會員姓名</label><br>
+                                <label>Name</label><br>
                                 <input type="text" name="Customer_Name" value="@ViewBag.Name" class="form-control" required="true">
                             </div>
                             <div class="form-group">
-                                <label>會員電話</label><br>
+                                <label>Phone</label><br>
                                 <input type="text" name="Customer_Phone" value="" class="form-control" required="true">
                             </div>
 
@@ -194,7 +194,7 @@
                     }
                 </fieldset>
             </div>
-            <div class="col-3"></div>
+            
         </div>
         
     </div>

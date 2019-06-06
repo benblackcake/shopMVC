@@ -99,7 +99,7 @@ namespace MVCtest.Service
             db.SaveChanges();
         }
 
-        public void SaveOrder(int customerID,string paymentID,string shipperID)
+        public void SaveOrder(int customerID,string paymentID,string shipperID, string recipient_Name, string recipient_Phone, string recipient_Address)
         {
             DBModel db = new DBModel();
 
@@ -130,12 +130,19 @@ namespace MVCtest.Service
                 Order_Date = DateTime.Now,
                 Payment_ID = int.Parse(paymentID),
                 Shipper_ID = int.Parse(shipperID),
+                Customer_ID = customerID,
+                recipient_Name = recipient_Name,
+                recipient_Phone = recipient_Phone,
+                recipient_Adress = recipient_Address,
+                
                 OrderDetails = od
             };
 
-            db.Orders.Add(order);
-            db.SaveChanges();
+            var allCarts = db.Carts.ToList().FindAll(x => x.Customer_ID == customerID);
 
+            db.Orders.Add(order);
+            db.Carts.RemoveRange(allCarts);
+            db.SaveChanges();
         }
     }
 }

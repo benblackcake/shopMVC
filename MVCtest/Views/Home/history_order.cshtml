@@ -131,24 +131,24 @@
 
         </div>*@
         <div class="container">
-            <div class="col-12" id="top_center">
-                <h3>會員中心</h3>
+            <div class="col-12 mt-3" id="top_center">
+                <h3>Member Center</h3>
             </div>
-            <div class="col-12" id="top_select">
+            <div class="col-12 mt-3" id="top_select">
 
                 <div class="col-6" id="edit">
                     <a href="~/Home/memberlist" style="text-decoration: none; color:black;" id="edit_account">
-                        <p>Edit Account修改會員資料</p>
+                        <p>Edit Account</p>
                     </a>
                 </div>
                 <p>|</p>
                 <div class="col-6" id="order">
                     <a href="~/Home/history_order" style="text-decoration: none; color:black;" id="order_tracking">
-                        <p>Order Tracking 訂單查詢</p>
+                        <p>Order Tracking</p>
                     </a>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mb-5">
 
                 <div class="order_title">
                     <div class="col-md-12" id="col-name">
@@ -171,24 +171,11 @@
                             <div class="card-detail col-md-2">@item.OrderDate</div>
                             <div class="card-detail col-md-2">NTD. @item.Price</div>
                             <div class="card-detail col-md-2">@item.Payment</div>
-                            <div class="card-detail col-md-2">運送中</div>
+                            <div class="card-detail col-md-2">@item.OrderState</div>
 
                         </div>
                     </div>
                 }
-
-                <div class="card">
-                    <div class="card-item col-md-12">
-                        <div class="card-detail col-md-2">20159484521</div>
-                        <div class="card-detail col-md-2">訂單內容</div>
-                        <div class="card-detail col-md-2">2019/5/27</div>
-                        <div class="card-detail col-md-2">NTD. 1200</div>
-                        <div class="card-detail col-md-2">宅配</div>
-                        <div class="card-detail col-md-2">運送中</div>
-
-                    </div>
-                </div>
-
             </div>
         </div>
        

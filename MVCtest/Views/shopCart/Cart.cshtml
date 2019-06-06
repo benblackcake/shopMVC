@@ -12,6 +12,14 @@
                 <div class="step1">
                     <div class="cart-table">
                         <h3>Your Cart</h3>
+                        @if (Model.Count == 0)
+                        {
+                           
+                           <h3>購物車內沒有東西喔!</h3>
+                              
+                        }
+
+
                         <div class="cart-table-warp">
                             <table>
                                 <thead>
@@ -27,14 +35,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     @foreach (var item in Model)
                                     {
                                         <tr class="tests">
                                             <td class="product-col">
                                                 <img src="@item.ProductImage" alt="商品圖片">
                                                 @*<div class="pc-title">
-                                        <h4>@item.ProductName</h4>
-                                    </div>*@
+                                    <h4>@item.ProductName</h4>
+                                </div>*@
                                             </td>
                                             <td class="size-col"><h6>@item.ProductName</h6></td>
                                             <td class="size-col"><h6>@item.ProductNo</h6></td>
@@ -92,20 +101,34 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label><span>收件人姓名:</span> <input type="text" name="name" value="" /></label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label><span>手機號碼:</span><input type="tel" name="tel" value="" /></label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label><span>超商地址:</span> <input type="text" name="address" value="" class="input-address" /></label>
+                                        <label>
+                                            選擇付款方式:
+                                            <select name="paymentID">
+                                                <option value=""></option>
+                                                <option value="1">信用卡</option>
+                                                <option value="2">貨到付款</option>
+                                                <option value="3">分期</option>
+                                            </select>
+                                        </label>
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td>
+                                        <label><span>收件人姓名:</span> <input type="text" name="recipient_Name" value="" /></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label><span>手機號碼:</span><input type="tel" name="recipient_Phone" value="" /></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label><span>超商地址:</span> <input type="text" name="recipient_Address" value="" class="input-address" /></label>
+                                    </td>
+                                </tr>
+                                <tr></tr>
                             </tbody>
                         </table>
                     </div>

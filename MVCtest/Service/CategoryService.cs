@@ -62,5 +62,63 @@ namespace MVCtest.Service
                 new CategoryViewModel
                 { Category_Id = c.Category_Id, Category_Name = s.Category_Name };
         }
+
+        //internal bool Create(SubCategoryViewModel csv)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        // -------- add
+
+        public bool Create(CategoryViewModel input)
+        {
+            DBModel context = new DBModel();
+            DbRepository<CategoryGroup> repo = new DbRepository<CategoryGroup>(context);
+            if (repo.GetAll().FirstOrDefault((x) => x.Category_Name == input.Category_Name) == null)
+            {
+                CategoryGroup entity = new CategoryGroup()
+                {
+                    Category_Id = input.Category_Id,
+                    Category_Name = input.Category_Name,
+                    
+                };
+                repo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+
+        }
+        public bool AddSubCategory(SubCategoryViewModel input)
+        {
+            DBModel context = new DBModel();
+            //DbRepository<CategoryGroup> Crepo = new DbRepository<CategoryGroup>(context);
+            DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(context);
+
+            if (Srepo.GetAll().FirstOrDefault((x) => x.Category_Name == input.Category_Name) == null)
+            {
+                Sub_Categroy entity = new Sub_Categroy()
+                {
+                    Sub_Category_ID = input.Sub_Category_ID,
+                    Category_Name = input.Category_Name, 
+                    Category_ID = input.Category_ID
+                    
+                };
+                Srepo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+        }
+        public void DeleteSub(int Sub_Category_ID)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sub_Categroy> repoSubCategory = new DbRepository<Sub_Categroy>(context);
+
+            Sub_Categroy sub = repoSubCategory.GetAll().FirstOrDefault((x) => x.Sub_Category_ID == Sub_Category_ID);
+            repoSubCategory.Delete(sub);
+            context.SaveChanges();
+
+        }
     }
 }
