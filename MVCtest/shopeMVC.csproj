@@ -344,10 +344,6 @@
     <Content Include="Assest\images\c\70431.jpg" />
     <Content Include="Assest\images\c\70432.jpg" />
     <Content Include="Assest\images\c\70433.jpg" />
-    <Content Include="Assest\images\c\res_20180511021807876.jpg" />
-    <Content Include="Assest\images\c\res_20180511021838748.jpg" />
-    <Content Include="Assest\images\c\res_20180910060135330.jpg" />
-    <Content Include="Assest\images\c\res_20181211010803209.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
     <Content Include="Assest\images\img-carousel-2.jpg" />
@@ -543,6 +539,7 @@
     <Content Include="Assest\AssestNew\Source\sass\style.scss" />
     <Content Include="Assest\AssestNew\Source\SlickNav-master.zip" />
     <Content Include="Assest\AssestNew\Source\zoom-master.zip" />
+    <None Include="Properties\PublishProfiles\shopeMVC20190606035941 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
