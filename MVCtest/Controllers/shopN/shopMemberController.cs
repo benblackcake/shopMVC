@@ -107,7 +107,7 @@ namespace MVCtest.Controllers.shopN
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // 要求重新導向至外部登入提供者
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "MemberCenter", new { ReturnUrl = returnUrl }));
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "shopMember", new { ReturnUrl = returnUrl }));
         }
 
 

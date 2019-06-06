@@ -181,6 +181,7 @@ $(window).on('load', function() {
     $("#priceBtn").on('click', function () {
         //var minPrice = +$("#minamount").val().split('$')[0];
         //var maxPrice = +$('#maxamount').val().split('$')[0];
+        $($productItem).removeClass('show show-price');
 
         var minPrice = rangeSlider.slider("values", 0);
         var maxPrice = rangeSlider.slider("values", 1);
