@@ -178,21 +178,25 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ViewModels\TopSaleListViewModel.cs" />
+    <Compile Include="ViewModels\TopSaleViewModel.cs" />
+    <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCategoryController.cs" />
     <Compile Include="Controllers\dashboard\dashboardCustomerController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardIndexController.cs" />
     <Compile Include="Controllers\dashboard\dashboardProductController.cs" />
     <Compile Include="Controllers\dashboard\OrderDetailsCRUDController.cs" />
     <Compile Include="Controllers\dashboard\OrdersCRUDController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MemberCenterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\shopN\shopCartController.cs" />
     <Compile Include="Controllers\shopN\shopIndexController.cs" />
+    <Compile Include="Fiter\AuthorizeMasterAttribute.cs" />
+    <Compile Include="Controllers\shopN\shopMemberController.cs" />
+    <Compile Include="Controllers\shopN\shopProductController.cs" />
     <Compile Include="Fiter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,9 +209,10 @@
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderContext.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
@@ -217,6 +222,7 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\MasterService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="ViewModels\CartVIewModel.cs" />
     <Compile Include="Repository\DbRepository.cs" />
@@ -226,21 +232,28 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDateListViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDateViewModelcs.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MasterListViewModel.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingListViewModel.cs" />
     <Compile Include="ViewModels\OrderTrackingViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SaleQuantityListViewModel.cs" />
     <Compile Include="ViewModels\SaleQuantityViewModel.cs" />
+    <Compile Include="ViewModels\SubCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assest\AssestNew\css\alert.css" />
     <Content Include="Assest\AssestNew\css\animate.css" />
     <Content Include="Assest\AssestNew\css\bootstrap.min.css" />
     <Content Include="Assest\AssestNew\css\flaticon.css" />
     <Content Include="Assest\AssestNew\css\font-awesome.min.css" />
     <Content Include="Assest\AssestNew\css\jquery-ui.min.css" />
+    <Content Include="Assest\AssestNew\css\login.css" />
     <Content Include="Assest\AssestNew\css\owl.carousel.min.css" />
     <Content Include="Assest\AssestNew\css\slicknav.min.css" />
     <Content Include="Assest\AssestNew\css\style.css" />
@@ -283,6 +296,7 @@
     <Content Include="Assest\AssestNew\img\single-product\thumb-2.jpg" />
     <Content Include="Assest\AssestNew\img\single-product\thumb-3.jpg" />
     <Content Include="Assest\AssestNew\img\single-product\thumb-4.jpg" />
+    <Content Include="Assest\AssestNew\js\alert.js" />
     <Content Include="Assest\AssestNew\js\bootstrap.min.js" />
     <Content Include="Assest\AssestNew\js\jquery-3.2.1.min.js" />
     <Content Include="Assest\AssestNew\js\jquery-ui.min.js" />
@@ -302,6 +316,7 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\demo.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
@@ -325,6 +340,10 @@
     <Content Include="Assest\images\bg-2.jpg" />
     <Content Include="Assest\images\c\70428.jpg" />
     <Content Include="Assest\images\c\70429.jpg" />
+    <Content Include="Assest\images\c\70430.jpg" />
+    <Content Include="Assest\images\c\70431.jpg" />
+    <Content Include="Assest\images\c\70432.jpg" />
+    <Content Include="Assest\images\c\70433.jpg" />
     <Content Include="Assest\images\c\res_20180511021807876.jpg" />
     <Content Include="Assest\images\c\res_20180511021838748.jpg" />
     <Content Include="Assest\images\c\res_20180910060135330.jpg" />
@@ -349,6 +368,7 @@
     <Content Include="Assest\images\search.png" />
     <Content Include="Assest\images\shopping-cart.png" />
     <Content Include="Assest\images\style%27G.png" />
+    <Content Include="Assest\images\style%27G2.png" />
     <Content Include="Assest\images\up.png" />
     <Content Include="Assest\js\cart.js" />
     <Content Include="Assest\js\NavJS.js" />
@@ -361,6 +381,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\styleG1.jpg" />
+    <Content Include="img\styleG2.jpg" />
+    <Content Include="img\styleG3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardCss\black-dashboard.css.map" />
@@ -604,6 +627,15 @@
     <Content Include="Views\dashboardProduct\createProduct.cshtml" />
     <Content Include="Views\Shared\_shop.cshtml" />
     <Content Include="Views\shopIndex\Index.cshtml" />
+    <Content Include="Views\dashboardIndex\Login.cshtml" />
+    <Content Include="Views\dashboardIndex\Index.cshtml" />
+    <Content Include="Views\shopProduct\detail.cshtml" />
+    <Content Include="Views\shopProduct\Index.cshtml" />
+    <Content Include="Views\shopIndex\Index2.cshtml" />
+    <Content Include="Views\shopCart\Cart.cshtml" />
+    <Content Include="Views\Menu\CountCart.cshtml" />
+    <Content Include="Views\shopMember\Index.cshtml" />
+    <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

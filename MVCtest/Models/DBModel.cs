@@ -13,27 +13,24 @@ namespace MVCtest.Models
         {
         }
 
-        //public virtual DbSet<SaleQuantityViewModel> SaleQuantity { get; set; }
 
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CategoryGroup> CategoryGroups { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Master> Masters { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
-        //public virtual DbSet<SSub_Category> SSub_Category { get; set; }
         public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
+
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CategoryGroup>()
-                .Property(e => e.Category_Name)
-                .IsFixedLength();
-
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Customer_Email)
                 .IsUnicode(false);
@@ -56,17 +53,14 @@ namespace MVCtest.Models
                 .WithRequired(e => e.Customer)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.Products)
-                .WithRequired(e => e.Customer)
-                .HasForeignKey(e => e.Seller_ID)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Order>()
+                .Property(e => e.recipient_Name)
+                .IsFixedLength();
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.Products1)
-                .WithRequired(e => e.Customer1)
-                .HasForeignKey(e => e.Seller_ID)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Order>()
+                .Property(e => e.recipient_Phone)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderDetails)
@@ -102,10 +96,6 @@ namespace MVCtest.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Product_Image)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Product>()
                 .Property(e => e.Size)
                 .IsFixedLength();
 
@@ -128,18 +118,10 @@ namespace MVCtest.Models
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            //modelBuilder.Entity<SSub_Category>()
-            //    .Property(e => e.Category_Name)
-            //    .IsFixedLength();
-
-            //modelBuilder.Entity<SSub_Category>()
-            //    .HasMany(e => e.Products)
-            //    .WithOptional(e => e.SSub_Category)
-            //    .HasForeignKey(e => e.Category_Id);
-
             modelBuilder.Entity<Sub_Categroy>()
-                .Property(e => e.Category_Name)
-                .IsFixedLength();
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Sub_Categroy)
+                .HasForeignKey(e => e.Category_Id);
         }
     }
 }

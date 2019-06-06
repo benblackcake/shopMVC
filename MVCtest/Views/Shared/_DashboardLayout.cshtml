@@ -54,18 +54,25 @@
                     </li>
                     <li>
                         <a href="/dashboardProduct/createProduct">
-                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <i class="tim-icons icon-notes"></i>
                             <p>商品列表</p>
                         </a>
                     </li>
                     <li>
                         <a href="/dashboardCustomer/Index">
-                            <i class="tim-icons icon-chart-pie-36"></i>
-                            <p>Test2</p>
+
+                            <i class="tim-icons icon-single-02"></i>
+                            <p>會員管理</p>
+
 
                         </a>
                     </li>
-
+                    <li>
+                        <a href="/dashboardIndex/Index">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>管理員管理</p>
+                        </a>
+                    </li>
 
                 </ul>
             </div>
@@ -135,9 +142,25 @@
                                         <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
-                                    </li>
+                                    @{
+                                        if (Convert.ToBoolean(Session["master_auth"]) == true)
+                                        {
+                                            using (Html.BeginForm("Logout", "dashboardIndex", FormMethod.Post))
+                                            {
+                                                <li class="nav-link">
+                                                    <a href="~/Views/dashboardIndex/Login" >
+                                                        <input type="submit" value="Log out"class="nav-item dropdown-item"/>
+                                                    </a>
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li class="nav-link">
+                                                <a href="javascript:void(0)" class="nav-item dropdown-item">Log in</a>
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </li>
                             <li class="separator d-lg-none"></li>
@@ -198,15 +221,15 @@
     </div>
 
     @*<script src="~/Assest/dashboardAssets/dashboardJs/core/jquery.min.js"></script>*@
-<<<<<<< HEAD
+
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("endCSS", required: false)
     @RenderSection("endJS", required: false)
-=======
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
->>>>>>> e218dc5b31d05190e73b417ca42cefefaf36ba54
+
     <script src="~/Assest/dashboardAssets/dashboardJs/core/popper.min.js"></script>
     <script src="~/Assest/dashboardAssets/dashboardJs/core/bootstrap.min.js"></script>
     <script src="~/Assest/dashboardAssets/dashboardJs/plugins/perfect-scrollbar.jquery.min.js"></script>

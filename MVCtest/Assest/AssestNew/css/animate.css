@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 /*!
  * animate.css -http://daneden.me/animate
@@ -1018,7 +1018,8 @@
   animation-name: bounceInRight;
 }
 
-@-webkit-keyframes bounceInUp {
+@-webkit-keyframes bounceInU
+
   from,
   60%,
   75%,

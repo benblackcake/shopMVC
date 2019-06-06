@@ -41,24 +41,6 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> Prepo = new DbRepository<Product>(contex);
             DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(contex);
-
-            //var tmp = from p in Prepo.GetAll()
-            //          join s in Srepo.GetAll()
-            //          on p.Category_Id equals s.Sub_Category_ID
-            //          where s.Category_ID==categoryId
-            //          //join c in Crepo.GetAll()
-            //          //on s.Category_ID equals categoryId
-            //          select new ProductViewModel
-            //          {
-            //              Product_Id = p.Product_Id,
-            //              Product_Name = p.Product_Name,
-            //              Product_Image=p.Product_Image,
-            //              UnitPrice = p.UnitPrice,
-            //              Size = p.Size,
-            //              Stock = p.Stock
-
-            //          };
-
             foreach (var item in Prepo.GetAll().Where((x)=>x.Category_Id==categoryId))  
             {
                 ProductViewModel p = new ProductViewModel()
@@ -166,6 +148,44 @@ namespace MVCtest.Service
                 result.data.Add(item);
             }
             return result;
+        }
+
+
+        public TopSaleListViewModel GetTopSale()
+        {
+            TopSaleListViewModel result = new TopSaleListViewModel();
+            result.Item = new List<TopSaleViewModel>();
+            DBModel context = new DBModel();
+            //DbRepository<Order> repo = new DbRepository<Order>(context);
+            var tmp = context.Database.SqlQuery<TopSaleViewModel>(@"select Product_Name, COUNT(*)Quantity
+                                                                         FROM[dbo].[OrderDetail]
+                                                                         Group By Product_Name
+                                                                         Order By Quantity DESC;"
+                                              );
+            foreach (var i in tmp) {
+                TopSaleViewModel sqv = new TopSaleViewModel()
+                {
+                    Product_Name = i.Product_Name,
+                    Quantity = i.Quantity
+
+                };
+                result.Item.Add(sqv);
+
+            }
+            return result;
+
+        }
+
+        public List<int> GetTotalSum()
+        {
+            DBModel context = new DBModel();
+            var tmp = context.Database.SqlQuery<int>(@"select SUM(CAST(UnitPrice AS int))Total
+                                                                    FROM[dbo].[OrderDetail];"
+                                  );
+
+
+            return tmp.ToList();
+
         }
 
     }

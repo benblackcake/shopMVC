@@ -1,4 +1,4 @@
-/* =================================
+﻿/* =================================
 ------------------------------------
 	Divisima | eCommerce Template
 	Version: 1.0
@@ -42,14 +42,190 @@ $(window).on('load', function() {
 	/*------------------
 		Category menu
 	--------------------*/
-	$('.category-menu > li').hover( function(e) {
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-	$('.category-menu').mouseleave( function(e) {
-		$('.category-menu li').removeClass('active');
-		e.preventDefault();
-	});
+	//$('.category-menu > li').hover( function(e) {
+	//	$(this).addClass('active');
+	//	e.preventDefault();
+	//});
+	//$('.category-menu').mouseleave( function(e) {
+	//	$('.category-menu li').removeClass('active');
+	//	e.preventDefault();
+	//});
+
+    $('.group').on('click', function () {
+        $(this).next().toggle(400);
+    })
+
+    $('.color-radio').on('click', function () {
+        var $this = $(this);
+        $this.prev().click();
+        var hasStyle = $this.attr('style') != undefined;
+        if (hasStyle) {
+            $this.removeAttr('style');
+            return;
+        }
+        //$this.css('outline', '#d30e6e solid 2px');
+        $this.css('box-shadow', '0 0 3px 3px #d30e6e');
+
+    })
+
+
+    var $filter = $('.filter');
+    var $categoryFilter = $('.category-filter');
+    var $colorFilter = $('.color-filter');
+    var $sizeFilter = $('.size-filter');
+    var $productItem = $('.productItem');
+    var filterList = [];
+    var valueFiter = [];
+
+
+    $categoryFilter.on('change', function () {
+        valueFiter = $categoryFilter;
+        fnFilter('category');
+    });
+    $colorFilter.on('change', function () {
+        valueFiter = $colorFilter;
+        fnFilter('color');
+    });
+    $sizeFilter.on('change', function () {
+        valueFiter = $sizeFilter;
+        fnFilter('size');
+    });
+
+    function fnFilter(condition) {
+
+        $($productItem).removeClass('show show-' + condition);
+
+        filterList = [];
+        //重新確認打勾數量
+        for (var i = 0; i < valueFiter.length; i++) {
+            var $this = $(valueFiter[i]);
+            var $dataFilter = $($this).attr('data-' + condition);
+            if ($this.prop('checked')) {
+                filterList.push($dataFilter);
+            }
+        }
+        //篩選 
+        filterList.forEach(function (element) {
+            for (var i = 0; i < $productItem.length; i++) {
+                if ($($productItem[i]).attr('data-' + condition) == element) {
+                    $($productItem[i]).addClass('show show-' + condition);
+                }
+                else {
+                    $($productItem[$productItem.length - 1]).addClass('show-' + condition)
+                }
+            }
+        })
+
+        if ($($productItem).hasClass('show') || filterList.length == 0) {
+            fnShow();
+        }
+        $($productItem).hide();
+        $('.show').fadeIn();
+
+
+        if (fnIsNoItemChoose()) {
+
+            $($productItem).fadeIn();
+
+        }
+
+    }
+
+    function fnShow() {
+        var value = []
+
+        for (var i = 0; i < $productItem.length; i++) {
+            var count = 0;
+            if ($($productItem[i]).hasClass('show-category')) {
+                count++;
+            }
+            if ($($productItem[i]).hasClass('show-color')) {
+                count++;
+            }
+            if ($($productItem[i]).hasClass('show-size')) {
+                count++;
+            }
+            if ($($productItem[i]).hasClass('show-price')) {
+                count++;
+            }
+
+            value.push(count);
+        }
+
+        var classCout = Math.max(...value);
+
+        for (var i = 0; i < value.length - 1; i++) {
+            if (value[i] == classCout) {
+                $($productItem[i]).addClass('show');
+            }
+            else {
+                $($productItem[i]).removeClass('show');
+            }
+        }
+    }
+
+    function fnIsNoItemChoose() {
+        var bool = true;
+        for (var i = 0; i < $filter.length; i++) {
+            if ($($filter[i]).prop('checked')) {
+                bool = false;
+                break;
+            }
+        }
+        return bool;
+    }
+
+
+
+
+    $("#priceBtn").on('click', function () {
+        //var minPrice = +$("#minamount").val().split('$')[0];
+        //var maxPrice = +$('#maxamount').val().split('$')[0];
+
+        var minPrice = rangeSlider.slider("values", 0);
+        var maxPrice = rangeSlider.slider("values", 1);
+
+        console.log(minPrice, maxPrice);
+
+        if (minPrice == 0 && maxPrice == 0) {
+            return;
+        }
+
+        for (var i = 0; i < $productItem.length; i++) {
+            var $dataPrice = $($productItem[i]).attr('data-price');
+            if ($dataPrice >= minPrice && $dataPrice <= maxPrice) {
+                $($productItem[i]).addClass('show-price');
+            }
+            else {
+                $($productItem[$productItem.length - 1]).addClass('show-price');
+            }
+        }
+        fnShow();
+        $($productItem).hide();
+        $('.show').fadeIn();
+
+    });
+
+    $('#reset').on('click', function () {
+        $($filter).prop('checked', false);
+        $('.color-radio').removeAttr('style');
+        $("#minamount").val("$0");
+        $('#maxamount').val("$5000");
+        resetSlider();
+        $($productItem).removeClass('show show-category show-color show-size show-price');
+        $($productItem).hide();
+        $($productItem).fadeIn();
+    })
+
+    function resetSlider() {
+        var $slider = $(".price-range");
+        $slider.slider("values", 0, 0);
+        $slider.slider("values", 1, 5000);
+    }
+
+
+
+
 
 
 	/*------------------
@@ -172,36 +348,113 @@ $(window).on('load', function() {
 		values: [minPrice, maxPrice],
 		slide: function (event, ui) {
 			minamount.val('$' + ui.values[0]);
-			maxamount.val('$' + ui.values[1]);
+            maxamount.val('$' + ui.values[1]);
+
 		}
 	});
-	minamount.val('$' + rangeSlider.slider("values", 0));
+    minamount.val('$' + rangeSlider.slider("values", 0));
 	maxamount.val('$' + rangeSlider.slider("values", 1));
 
 
 	/*-------------------
 		Quantity change
 	--------------------- */
-    var proQty = $('.pro-qty');
-	proQty.prepend('<span class="dec qtybtn">-</span>');
-	proQty.append('<span class="inc qtybtn">+</span>');
-	proQty.on('click', '.qtybtn', function () {
-		var $button = $(this);
-		var oldValue = $button.parent().find('input').val();
-		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValue > 0) {
-				var newVal = parseFloat(oldValue) - 1;
+    var total = 0;
+    var $proQty = $('.pro-qty');
+	$proQty.prepend('<span class="dec qtybtn">-</span>');
+    $proQty.append('<span class="inc qtybtn">+</span>');
+    $(document).ready(function () {
+        $('.qty').change();
+    })
+	$proQty.on('click', '.qtybtn', function () {
+        var $this = $(this);
+        var $value = +$this.parent().find('input[type="text"]').val();
+
+		if ($this.hasClass('inc')) {
+			$value += 1 ;
+        }
+
+        if ($this.hasClass('dec')) {
+			if ($value > 0) {
+                $value -= 1;    
 			} else {
-				newVal = 0;
+				$value = 0;
 			}
-		}
-		$button.parent().find('input').val(newVal);
-	});
+        }
+        $this.parent().find('input[type="text"]').attr('value', $value);
+        $('.qty').change();
+    });
+
+    $('.qty').on('change', function () {
+        var $this = $(this);
+
+        if (isNaN($this.val())) {
+            $this.val(0);
+        }
+
+        var $index = $('.qty').index(this);
+        var $eachPrice = $('.eachPrice');
+        var $unitPrice = $('.unitPrice');
+        var $value = $this.val() * $($unitPrice[$index]).text();
+
+        updateQuantity($this.next().val(), $this.val());
+        $($eachPrice[$index]).text('$' + $value);
+        $($eachPrice[$index]).val($value);
+        updateTotal();
+    })
+
+    $('.delete').on('click', function () {
+        var $this = $(this);
+        var $cardID = $this.next().val();
+        remove($cardID);
+  //      history.go(0)
+    })
+
+    function updateTotal() {
+        total = 0;
+        var $eachprice = $('.eachPrice');
+        for (var i = 0; i < $eachprice.length; i++) {
+            var $value = $($eachprice[i]).val().split("$")[0]
+            total += +$value;
+        }
+        $('#total').text('$' + total); 
+    }
 
 
+    function updateQuantity(cartID, newQuantity) {
+        $.ajax({
+            cache: "false",
+            type: "POST",
+            url: "/shopCart/UpdateQuantity",
+            data: { cartID: cartID, quantity: newQuantity },
+        });
+
+    }
+
+
+    function remove(ID) {
+        $.ajax({
+            cache: "false",
+            type: "POST",
+            url: "/shopCart/DeleteCart",
+            data: { cartID: ID },
+            success: 
+                function () {
+                    history.go(0)
+                }
+            
+        });
+    }
+
+
+    $('#nextStep').on('click', function () {
+        $('.step1').hide();
+        $('.step2').fadeIn();
+    })
+    $('#preStep').on('click', function () {
+        $('.step2').hide();
+        $('.step1').fadeIn();
+    })
 
 	/*------------------
 		Single Product
@@ -223,3 +476,8 @@ $(window).on('load', function() {
 
 
 })(jQuery);
+
+
+
+
+

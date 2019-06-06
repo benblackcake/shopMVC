@@ -9,16 +9,65 @@
         <div class="card-header ">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Shipments</h5>
+                    <h5 class="card-category">銷售量統計</h5>
                     <h2 class="card-title">銷售量</h2>
                 </div>
             </div>
         </div>
         <div class="card-body">
             <div class="chart-area">
-                <canvas id="chartBig1"></canvas>
+                <canvas id="chartProduct"></canvas>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="col-lg-4">
+    <div class="card card-chart">
+        <div class="card-header">
+            <h5 class="card-category">會員人數統計</h5>
+            <h2 class="card-title">會員人數</h2>
+        </div>
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="CustomerChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4">
+    <div class="card card-chart">
+        <div class="card-header">
+            <h5 class="card-category">Top Sale 統計</h5>
+            <h2 class="card-title">Top Sale</h2>
+
+        </div>
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="TopSaleChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4">
+    <div class="card card-chart">
+        <div class="card-header">  
+            <h5 class="card-category">Total Shipments</h5>
+            <h2 class="card-title"> 營業額</h2>
+        </div>
+    <div class="card-body">
+        <div class="chart-area" >
+            <div>
+                <h1 id="sum" style="text-align:center; font-size:70px;line-height:150px;">
+                    $ 
+                </h1>
+            </div>
+           
+        </div>
+    </div>
     </div>
 </div>
 @*<script src="~/Assest/dashboardAssets/dashboardJs/plugins/chartjs.min.js"></script>

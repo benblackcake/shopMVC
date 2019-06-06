@@ -11,6 +11,7 @@ namespace MVCtest.ViewModels
         public int Category_Id { get; set; }
 
         public string Category_Name { get; set; }
+
         public virtual ICollection<Sub_Categroy> Sub_Categroy { get; set; }
     }
 }

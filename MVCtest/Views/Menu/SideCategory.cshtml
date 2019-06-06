@@ -6,26 +6,24 @@
 @*~/Product/?category=@item.Category_Id*@
 
 @{
-    int counterid = 1;
-    int counterclass = 11;
-    
+
+    int counter = 1;
     foreach (var item in Model.Items)
-    {
-    <div class="@counterid">
-        <a href="~/Product/?category=@item.Category_Id">@item.Category_Name</a>
-        <ul id="@counterclass" class="hidden-list">
-        @*之後會變成foreach資料庫category*@
-            @foreach (var sub in item.Sub_Categroy)
-            {
+{
+
+
+
+    <li><a href="~/shopProduct/Index/?category=@item.Category_Id">@item.Category_Name</a>
+        <ul class="sub-menu">
+            @foreach (var sub in item.Sub_Categroy) {
                 <li>
-                    <a href="~/Product/?subcategory=@sub.Sub_Category_ID" style="font-size:20px;">@sub.Category_Name</a>
+                    <a href="~/shopProduct/Index/?subcategory=@sub.Sub_Category_ID" style="font-size:20px;">@sub.Category_Name</a>
                 </li>
             }
         </ul>
-    </div>
-        
-        counterid = counterid + 1;
-        counterclass = counterclass + 1;
+    </li>
+    
+        counter+=1;
     }
 
 }

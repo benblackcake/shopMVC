@@ -8,12 +8,6 @@ namespace MVCtest.Models
 
     public partial class Shipper
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Shipper()
-        {
-            Orders = new HashSet<Order>();
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Shipper_Id { get; set; }
@@ -23,8 +17,5 @@ namespace MVCtest.Models
 
         [StringLength(10)]
         public string Phone { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

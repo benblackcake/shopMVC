@@ -9,14 +9,7 @@ namespace MVCtest.Models
     [Table("Order")]
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            OrderDetails = new HashSet<OrderDetail>();
-        }
-
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Order_ID { get; set; }
 
         [Column(TypeName = "date")]
@@ -27,13 +20,27 @@ namespace MVCtest.Models
         public int? Shipper_ID { get; set; }
 
         public int? Payment_ID { get; set; }
+
+        //[Required(ErrorMessage ="必須輸入收件人姓名")]
+        [StringLength(10)]
+        public string recipient_Name { get; set; }
+        //[Required(ErrorMessage = "必須輸入收件人手機")]
+        [StringLength(10)]
+        public string recipient_Phone { get; set; }
+        //[Required(ErrorMessage = "必須輸入收件地址")]
+        public string recipient_Adress { get; set; }
+        public string Status { get; set; }   //new add
+
+
+
         public virtual Customer Customer { get; set; }
-
-        public virtual Payment Payment { get; set; }
-
+        public virtual Payment  Payment { get; set; }
         public virtual Shipper Shipper { get; set; }
 
+
+       
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
 }

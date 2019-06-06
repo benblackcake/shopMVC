@@ -13,21 +13,17 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVCtest.Controllers
+namespace MVCtest.Controllers.shopN
 {
-    public class MemberCenterController : Controller
+    public class shopMemberController : Controller
     {
         private const string XsrfKey = "XsrfId";
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
-        // GET: MemberCenter
-        //[AuthorizePlus]
-        public ActionResult index()
+        // GET: shopMember
+        public ActionResult Index()
         {
-            Debug.WriteLine("GET");
             return View();
         }
-
         [HttpPost]
         public ActionResult index(CustomerViewModel input)
         {
@@ -38,21 +34,19 @@ namespace MVCtest.Controllers
             cvm.User_Password = Helper.EncodePassword(input.User_Password);
             cvm.Customer_Phone = input.Customer_Phone;
             CustomerService service = new CustomerService();
-            if (service.Create(cvm))
-            {
-                TempData["message"] = "註冊成功";
-                return RedirectToAction("index", "MemberCenter");
-            }
-            else
-            {
-                TempData["message"] = "註冊失敗";
-                return RedirectToAction("index", "MemberCenter");
+            if (service.Create(cvm)) {
+                TempData["message"] = "新增成功";
+                return RedirectToAction("Index", "shopMember");
+            } else {
+                TempData["message"] = "新增失敗";
+                return RedirectToAction("Index", "shopMember");
             }
 
             Debug.WriteLine(input.Customer_Email.ToString());
-            Debug.WriteLine(Helper.EncodePassword(input.User_Password)); 
+            Debug.WriteLine(Helper.EncodePassword(input.User_Password));
             Debug.WriteLine("POST");
         }
+
         [HttpPost]
         public ActionResult login(CustomerViewModel login)
         {
@@ -75,36 +69,35 @@ namespace MVCtest.Controllers
             //}  
             CustomerService cs = new CustomerService();
             CustomerViewModel cvm = cs.GetMember(login.Customer_Email, login.User_Password);
-            if (cvm != null){
+            if (cvm != null) {
                 Debug.Print(cvm.Customer_Name);
                 string email = cvm.Customer_Email;
                 string name = cvm.Customer_Name;//這邊幫你註改了你再看一下~~~~
                 int id = cvm.Customer_ID;
                 Debug.WriteLine(name);
-                
+
                 Session["auth"] = true;
                 Session["Name"] = name;
                 Session["Email"] = email;
-                Session["ID"]= id;
+                Session["ID"] = id;
                 TempData["message"] = "登入成功。";
-                return RedirectToAction("index", "Home");
+                return RedirectToAction("Index2", "shopIndex");
 
-            }else{
+            } else {
                 TempData["message"] = "帳號密碼錯誤。登入失敗";
-                return RedirectToAction("index", "MemberCenter");
+                return RedirectToAction("index", "shopMember");
             }
 
         }
 
-
-
-        public ActionResult Logout ()
+        [HttpGet]
+        public ActionResult Logout()
         {
             Debug.Print("GET");
             Session["auth"] = false;
             Session["Name"] = "Logout";
             TempData["message"] = "登出成功。";
-            return RedirectToAction("index", "MemberCenter");
+            return RedirectToAction("index", "shopMember");
 
         }
 
@@ -145,7 +138,7 @@ namespace MVCtest.Controllers
             //        ViewBag.ReturnUrl = returnUrl;
             //        ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
             //        Debug.Print("callback____DEBUG____");
-                    
+
             //}
 
             Debug.Print("callback____DEBUG__SUCCESS__");
@@ -164,7 +157,7 @@ namespace MVCtest.Controllers
                 Session["Email"] = email;
                 Session["ID"] = id;
                 TempData["message"] = "登入成功。";
-                return RedirectToAction("index", "Home");
+                return RedirectToAction("Index2", "shopIndex");
 
             } else {
 
@@ -175,9 +168,9 @@ namespace MVCtest.Controllers
 
         //
         //POST: /Account/ExternalLoginConfirmation
-       [HttpPost]
-       [AllowAnonymous]
-       [ValidateAntiForgeryToken]
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             Debug.Print("ExternalLoginConfirmation____DEBUG____");
@@ -187,36 +180,36 @@ namespace MVCtest.Controllers
             //}
 
             //if (ModelState.IsValid) {
-                // 從外部登入提供者處取得使用者資訊
-                //var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                //if (info == null) {
-                //    return View("ExternalLoginFailure");
-                //}
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //var result = await UserManager.CreateAsync(user);
-                //if (result.Succeeded) {
-                //    result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                //    if (result.Succeeded) {
-                //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                //        return RedirectToLocal(returnUrl);
-                //    }
-                //}
-                //AddErrors(result);
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null) {
-                    return View("ExternalLoginFailure");
-                }
-                CustomerViewModel cvm = new CustomerViewModel();
-                cvm.Customer_Email = model.Email;
-                cvm.Customer_Name = model.UserName;
-                CustomerService service = new CustomerService();
-                if (service.Create(cvm)) {
-                    TempData["message"] = "註冊成功";
-                    return RedirectToAction("index", "MemberCenter");
-                } else {
-                    TempData["message"] = "註冊失敗";
-                    return RedirectToAction("index", "MemberCenter");
-                }
+            // 從外部登入提供者處取得使用者資訊
+            //var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+            //if (info == null) {
+            //    return View("ExternalLoginFailure");
+            //}
+            //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            //var result = await UserManager.CreateAsync(user);
+            //if (result.Succeeded) {
+            //    result = await UserManager.AddLoginAsync(user.Id, info.Login);
+            //    if (result.Succeeded) {
+            //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            //        return RedirectToLocal(returnUrl);
+            //    }
+            //}
+            //AddErrors(result);
+            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (info == null) {
+                return View("ExternalLoginFailure");
+            }
+            CustomerViewModel cvm = new CustomerViewModel();
+            cvm.Customer_Email = model.Email;
+            cvm.Customer_Name = model.UserName;
+            CustomerService service = new CustomerService();
+            if (service.Create(cvm)) {
+                TempData["message"] = "註冊成功";
+                return RedirectToAction("Index2", "shopIndex");
+            } else {
+                TempData["message"] = "註冊失敗";
+                return RedirectToAction("Index", "shopMember");
+            }
             //}
 
             ViewBag.ReturnUrl = returnUrl;
@@ -228,7 +221,7 @@ namespace MVCtest.Controllers
             if (Url.IsLocalUrl(returnUrl)) {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index2", "shopIndex");
         }
 
 

@@ -6,20 +6,63 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MVCtest.Fiter;
 using MVCtest.Models;
+using MVCtest.Service;
 
 namespace MVCtest.Controllers.dashboard
 {
     public class OrdersCRUDController : Controller
     {
-        private DBModel db = new DBModel();
+        public DBModel db = new DBModel();
 
         // GET: OrdersCUUD
+        [AuthorizeMaster]
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer).Include(o => o.Payment).Include(o => o.Shipper);
+
+            var orders = db.Orders;
+
             return View(orders.ToList());
         }
+
+        [HttpPost]
+        public ActionResult EditStatus(Order order)
+        {
+            //OrderService os = new OrderService();
+
+            //ViewBag.RowsAffected = db.Database.ExecuteSqlCommand("UPDATE Order SET Status = '已出貨' WHERE Order_ID=", Order_ID);
+            //int Id = od.Order_ID;
+            //string name = od.Customer.Customer_Name;
+            //string payment = od.Payment.Payment_Name;
+            //string shipper = od.Shipper.Shipper_Method_Name;
+            //DateTime? date = od.Order_Date;
+            //string status = od.Status;
+
+            //if (os.UpdateStatus(Order_ID, Status))
+            //{
+            //    return RedirectToAction("Index", "OrdersCRUD");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index", "OrdersCRUD");
+            //}
+
+            if (ModelState.IsValid)
+            {
+                Order od = db.Orders.Find(order.Order_ID);
+                if (od != null)
+                {
+                    od.Status = order.Status;
+                    db.Entry(od).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(order);
+
+        }
+
 
         // GET: OrdersCUUD/Details/5
         public ActionResult Details(int? id)

@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
 @section topCSS {
     <style>
         .categoryex:hover {
@@ -28,7 +27,7 @@
 @*<h2>Order</h2>*@
 <h2>分類控制</h2>
 <div class="col-12">
-    <table class="table">
+    <table class="table" id="check">
         <tr>
             <th>
                 CategoryID
@@ -37,7 +36,8 @@
                 CategoryName
             </th>
             <th>
-                @Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })
+                <input type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" value="Add Category" id="createCate" />
+                @*@Html.ActionLink("Create Category", "Create", new { /* id=item.PrimaryKey */ })*@
             </th>
         </tr>
         @{
@@ -53,14 +53,18 @@
 
                     </td>
                     <td>
-                        @Html.ActionLink("Create SubCategory", "CreateSub", new { /* id=item.PrimaryKey */ }) |                      
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @*<input type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" value="新增分類" />*@
+                        <input type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal2" value="Add SubCategory" />
+                        @*@Html.ActionLink("Create SubCategory", "CreateSub", new { id=item.Category_Id})*@ 
+                        
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Category_Id})*@
                     </td>
                 </tr>
 
                 foreach (var sub in item.Sub_Categroy)
                 {
-                    <tr class="drop_@counter" style="background-color:#95538b;">
+
+                    <tr class="drop_@counter" style="background-color:#95538b; display:none;">
                         <td>
                             @sub.Sub_Category_ID
 
@@ -70,7 +74,11 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            <form action="/dashboardCategory/DeleteSub" method="post" style="margin:0px;">
+                                <button class="btn btn-danger" id="delect" name="delete">Delete</button>
+                                <input type="hidden" name="Sub_Category_ID"  value="@sub.Sub_Category_ID"  />
+                            </form>
+                                @*@Html.ActionLink("Delete", "DeleteSub", new { id = sub.Sub_Category_ID })*@
                         </td>
                     </tr>
                 }
@@ -84,70 +92,174 @@
 
     </table>
 </div>
-@*<div class="col-6">
-    <table class="table">
-        <tr>
-            <th>
-                Sub_CategoryID
-            </th>
-            <th>
-                Sub_CategoryName
-            </th>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
 
-        </tr>
-        @foreach (var item in Model.Items)
-        {
-            foreach (var sub in item.Sub_Categroy)
-            {
-                <tr>
-                    <td>
-                        @sub.Sub_Category_ID
-
-                    <td>
-                        @sub.Category_Name
-
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-
-            }
-
-        }
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            </div>
+            <div class="modal-body container">
+                <div id="signupbox" style="" class="">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
 
 
-    </table>
-</div>*@
+                        </div>
+                        <div class="panel-body">
+                            <!--comment-->
+                            @using (Html.BeginForm("Create", "dashboardCategory", FormMethod.Post))
+                            {
+
+                                <form id="signupform" class="form-horizontal" role="form">
+
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">大分類ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Category_Id" placeholder="大分類ID" required="true" id="CategoryID" style="color:black;">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">大分類</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Category_Name" placeholder="大分類" required="true" style="color:black;">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- Button -->
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button id="btn-signup" type="submit" class="btn btn-info">
+                                                <i class="icon-hand-right"></i> &nbsp 新增
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            }
+
+                            <!--comment-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            </div>
+            <div class="modal-body container">
+                <div id="signupbox" style="" class="">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+
+
+                        </div>
+                        <div class="panel-body">
+                            <!--comment-->
+                            @using (Html.BeginForm("AddSubCategory", "dashboardCategory", FormMethod.Post))
+                            {
+
+                                <form id="signupform" class="form-horizontal" role="form">
+
+
+                                    @*<input name="Category_Id" style="display:none" value="" />
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">子分類ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Sub_Category_ID" placeholder="子分類ID" required="true" style="color:black;">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">子分類</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="Category_Name" placeholder="子分類" required="true" style="color:black;">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">外來鍵</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="outerID" class="form-control" name="Category_ID" placeholder="子分類" required="true" style="color:black;">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- Button -->
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button id="btn-signup" type="submit" class="btn btn-info">
+                                                <i class="icon-hand-right"></i> &nbsp 新增
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            }
+
+                            <!--comment-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @section endJS {
     <script>
-        $(".drop_1").hide();
-        $(".drop_2").hide();
-        $(".drop_3").hide();
-        $(".drop_4").hide();
-        $("#1").click(function () {
-            $(".drop_1").toggle();
 
-        })
-        $("#2").click(function () {
-            $(".drop_2").toggle();
+        var countnow = $("#check tbody>.categoryex").length;
 
-        })
-        $("#3").click(function () {
-            $(".drop_3").toggle();
+        $('.categoryex').on('click', function () {
+            var $this = $(this);
+            var $id = $this.attr('id');
+            $('.drop_' + $id).toggle(400);
 
+            var categoryID = $this.find('td:first-child').text();
+            $('#outerID').val(categoryID.trim());
         })
-        $("#4").click(function () {
-            $(".drop_4").toggle();
+        $('#createCate').on('click', function () {
+            var cateID = parseInt($('.categoryex:last').find('td:first-child').text()) + 1;
+            $('#CategoryID').val(cateID.toString().trim());
         })
 
-        //if ($("body").hasClass("white-content")) {
-        //    $(".drop_2").css("background-color", "aquamarine");
-        //} else {
-        //    $(".drop_2").css("background-color", "black");
-        //}
+
+
 
     </script>
 }

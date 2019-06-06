@@ -1,5 +1,4 @@
-﻿using MVCtest.Fiter;
-using MVCtest.Service;
+﻿using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,11 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVCtest.Controllers
+namespace MVCtest.Controllers.shopN
 {
-    public class ProductController : Controller
+    public class shopProductController : Controller
     {
-        //[AuthorizePlus]
+        // GET: shopProduct
         [HttpGet]
         // GET: Product
         public ActionResult Index()
@@ -26,11 +25,9 @@ namespace MVCtest.Controllers
             //}
             //else psv = ps.GetProducts();
             //Debug.Print(Request.QueryString.AllKeys);
-            foreach (var i in Request.QueryString.AllKeys.ToList())
-            {
+            foreach (var i in Request.QueryString.AllKeys.ToList()) {
                 Debug.Print(i);
-                switch (i)
-                {
+                switch (i) {
                     case "category":
                         psv = ps.GetCategoryProduct(int.Parse(Request.QueryString["category"]));
                         Debug.Print("catrgory");
