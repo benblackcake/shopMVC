@@ -591,7 +591,6 @@
     <Content Include="Views\MemberCenter\index.cshtml" />
     <Content Include="Views\Home\loginView.cshtml" />
     <Content Include="Views\Home\t1.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\ProductParticial.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Home\cart.cshtml" />
@@ -604,7 +603,6 @@
     <Content Include="Views\Menu\CartHover.cshtml" />
     <Content Include="Views\MemberCenter\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
-    <Content Include="Views\dashboardMember\Index.cshtml" />
     <Content Include="Views\Home\history_order.cshtml" />
     <Content Include="Views\OrderDetailsCRUD\Create.cshtml" />
     <Content Include="Views\OrderDetailsCRUD\Delete.cshtml" />
