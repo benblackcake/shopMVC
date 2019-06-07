@@ -60,23 +60,32 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-5">
-                        <form class="header-search-form">
-                            <input type="text" placeholder="Search on style'g ....">
-                            <button><i class="flaticon-search"></i></button>
-                        </form>
+                        @using (Html.BeginForm("Index", "shopProduct", FormMethod.Get))
+                        {
+                            <form>
+                                <div class="header-search-form">
+                                    <input type="text" name="Product_NAME" placeholder="Search on style'g ....">
+                                    <button type="submit"><i class="flaticon-search"></i></button>
+                                </div>
+
+                            </form>
+                        }
                     </div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="user-panel">
 
-                            @if (Convert.ToBoolean(Session["auth"]) == true) {
+                            @if (Convert.ToBoolean(Session["auth"]) == true)
+                            {
                                 <div class="up-item">
                                     <a href="~/Home/memberlist"><i class="flaticon-profile"></i> </a>
                                     Hi~@Session["name"]
                                     <a href="~/shopMember/Logout">Logout</a>
-                                    
+
                                 </div>
                                 @Html.Action("CountCart", "Menu")
-                            } else {
+                            }
+                            else
+                            {
                                 <div class="up-item">
                                     <i class="flaticon-profile"></i>
                                     <a href="~/shopMember/Index">Sign In</a> or <a href="~/shopMember/Index">Create Account</a>

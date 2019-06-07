@@ -34,6 +34,31 @@ namespace MVCtest.Service
             }
             return result;
         }
+        // add for top search
+        public ProductListViewModel SearchProducts(string Product_NAME)
+        {
+            ProductListViewModel result = new ProductListViewModel();
+            result.Items = new List<ProductViewModel>();
+            DBModel contex = new DBModel();
+            DbRepository<Product> repo = new DbRepository<Product>(contex);
+
+            foreach (var item in (repo.GetAll().Where((x) => x.Product_Name.Contains(Product_NAME))))
+            {
+                ProductViewModel p = new ProductViewModel()
+                {
+                    Product_Id = item.Product_Id,
+                    Product_Name = item.Product_Name,
+                    UnitPrice = item.UnitPrice,
+                    Size = item.Size,
+                    Stock = item.Stock,
+                    Category_Id = item.Category_Id,
+                    Product_Image = item.Product_Image
+
+                };
+                result.Items.Add(p);
+            }
+            return result;
+        }
 
         public ProductListViewModel GetSubCategoryProduct(int categoryId) {
             ProductListViewModel result = new ProductListViewModel();
