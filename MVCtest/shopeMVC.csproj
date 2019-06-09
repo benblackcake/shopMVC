@@ -337,7 +337,9 @@
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\bootstrap-notify.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\chartjs.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assest\images\banner-bg.jpg" />
     <Content Include="Assest\images\bg-2.jpg" />
+    <Content Include="Assest\images\cards.png" />
     <Content Include="Assest\images\c\70428.jpg" />
     <Content Include="Assest\images\c\70429.jpg" />
     <Content Include="Assest\images\c\70430.jpg" />
@@ -350,6 +352,7 @@
     <Content Include="Assest\images\img-carousel-3.jpg" />
     <Content Include="Assest\images\index-image\index-big.jpg" />
     <Content Include="Assest\images\index-image\index-big2.jpg" />
+    <Content Include="Assest\images\index-image\load01.jpg" />
     <Content Include="Assest\images\layout_image\2 .jpg" />
     <Content Include="Assest\images\layout_image\3 .jpg" />
     <Content Include="Assest\images\layout_image\4 .jpg" />
