@@ -96,6 +96,7 @@ namespace MVCtest.Service
             DbRepository<Product> repo = new DbRepository<Product>(contex);
 
             Product p =repo.GetAll().FirstOrDefault((x) => x.Product_Id==id);
+            List<string> size = new List<string>();
             ProductViewModel pro = new ProductViewModel() {
                 Product_Id=p.Product_Id,
                 Product_Name=p.Product_Name,

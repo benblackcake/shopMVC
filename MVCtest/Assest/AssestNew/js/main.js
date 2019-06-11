@@ -427,7 +427,7 @@ $(window).on('load', function() {
             cache: "false",
             type: "POST",
             url: "/shopCart/UpdateQuantity",
-            data: { cartID: cartID, quantity: newQuantity },
+            data: { cartID: cartID, quantity: newQuantity }
         });
 
     }
@@ -443,7 +443,6 @@ $(window).on('load', function() {
                 function () {
                     history.go(0)
                 }
-            
         });
     }
 
@@ -456,6 +455,29 @@ $(window).on('load', function() {
         $('.step2').hide();
         $('.step1').fadeIn();
     })
+
+
+    var size = "";
+    $('.size').on('click', function () {
+        var $this = $(this);
+        size = $this.val();
+        getProductID(size);
+    })
+
+    function getProductID(value) {
+
+       $.ajax({
+            type: "POST",
+            cache: "false",
+            data: { "size": value },
+            dataType:"JSON",
+            url: "/shopProduct/GetProductID",
+            success:
+                function (res) {
+                    $('.productNo').text(res.value);
+               }
+        });
+    }
 
 	/*------------------
 		Single Product

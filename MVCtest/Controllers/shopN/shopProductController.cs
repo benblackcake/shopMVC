@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCtest.Models;
 
 namespace MVCtest.Controllers.shopN
 {
@@ -58,6 +59,14 @@ namespace MVCtest.Controllers.shopN
             //ViewBag.Message = "Your contact page.";
             Debug.Print(id.ToString());
             return View(result);
+        }
+
+        [HttpPost]
+        public JsonResult GetProductID(string size)
+        {
+           DBModel db = new DBModel();
+           int value = db.Products.ToList().Find(x => x.Size.Trim() == size).Product_Id;
+           return Json(new {value = value});
         }
 
     }
