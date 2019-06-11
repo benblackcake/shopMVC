@@ -189,6 +189,7 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\Shippers.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
