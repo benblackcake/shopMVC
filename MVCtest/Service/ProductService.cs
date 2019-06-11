@@ -24,8 +24,8 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image=item.Product_Image
                     
@@ -49,8 +49,8 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image = item.Product_Image
 
@@ -73,8 +73,8 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image = item.Product_Image
 
@@ -105,8 +105,8 @@ namespace MVCtest.Service
                           Product_Name = p.Product_Name,
                           Product_Image = p.Product_Image,
                           UnitPrice = p.UnitPrice,
-                          Size = p.Size,
-                          Stock = p.Stock
+                          //Size = p.Size,
+                          //Stock = p.Stock
                       };
 
             foreach (var item in tmp)
