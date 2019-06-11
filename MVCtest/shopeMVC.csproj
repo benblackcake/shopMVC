@@ -178,6 +178,22 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\dashboard\dashboardSaleController.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Product_Detail.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Shippers.cs" />
+    <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="Service\SaleService.cs" />
+    <Compile Include="ViewModels\SaleListViewModel.cs" />
+    <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
@@ -210,12 +226,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Master.cs" />
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\SSub_Category.cs" />
     <Compile Include="Models\Sub_Categroy.cs" />
@@ -318,6 +332,7 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetSale.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\apple-icon.png" />
@@ -630,6 +645,7 @@
     <Content Include="Views\Menu\CountCart.cshtml" />
     <Content Include="Views\shopMember\Index.cshtml" />
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\dashboardSale\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -647,6 +663,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

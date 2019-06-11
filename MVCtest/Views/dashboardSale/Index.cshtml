@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+<div class="container-fluid">
+    <div class="col-11">
+        <input type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" value="新增優惠" id="createCate" />
+        <table id="datatables" class="table table-hover" style=" width:120%">
+            <thead>
+                <tr>
+                    <th>優惠ID</th>
+                    <th>物品名稱</th>
+                    <th>物品價錢</th>
+                    <th>開始日期</th>
+                    <th>結束日期</th>
+                    <th>動作</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+    <div class="modal fade" id="exampleModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal_title"></h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="formEdit" role="form">
+                        <div class="form-group">
+                            <label for="beacon_id"><span class="glyphicon glyphicon-pencil"></span>優惠ID</label>
+                            <input type="text" class="form-control" id="Sale_ID" name="Sale_ID" placeholder=""
+                                   required="true"style="color:black;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>物品名稱</label>
+                            <input type="text" class="form-control" id="Sale_Product" name="Sale_Product" placeholder=""
+                                   required="true"style="color:black;">
+                        </div>
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>物品價錢</label>
+                            <input type="text" class="form-control" id="Sale_UnPrice" name="Sale_UnPrice" placeholder=""
+                                   required="true"style="color:black;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>開始日期</label>
+                            <input type="date" class="form-control" id="Sale_FristDate" name="Sale_FristDate" placeholder=""
+                                   required="true"style="color:black;">
+                        </div>
+                        <div class="form-group">
+                            <label for="beacon_content"><span class="glyphicon glyphicon-pencil"></span>結束日期</label>
+                            <input type="date" class="form-control" id="Sale_LastDate" name="Sale_LastDate" placeholder=""
+                                   required="true"style="color:black;">
+                        </div>
+
+                        <input type="hidden" id="type" name="type" value="">
+                        <button type="submit" class="btn btn-success btn-block">
+                            <span class="glyphicon glyphicon-ok"></span> OK
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--SCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="~/Assest/dashboardAssets/dashboardDemo/GetSale.js"></script>
