@@ -18,7 +18,7 @@ namespace MVCtest.Controllers.dashboard
 
         private Dictionary<string, string> GetAllProductName()
         {
-            var query = db.Products.OrderBy(x => x.Product_Id);
+            var query = db.Product.OrderBy(x => x.Product_Id);
             return query.ToDictionary(x => x.Product_Id.ToString(), x => x.Product_Name);
         }
 

@@ -59,7 +59,7 @@ namespace MVCtest.Controllers.shopN
                 int SearchProduct_Id;
                 using (DBModel db = new DBModel())
                 {
-                    SearchProduct_Id = (from s in db.Products
+                    SearchProduct_Id = (from s in db.Product
                                         where s.Product_Name == Product_NAME
                                         select s.Product_Id).FirstOrDefault();
                 }
@@ -67,7 +67,7 @@ namespace MVCtest.Controllers.shopN
                 {
                     using (DBModel db = new DBModel())
                     {
-                        var result = (from s in db.Products
+                        var result = (from s in db.Product
                                       where s.Product_Id == SearchProduct_Id
                                       select s).ToList();
                     }
