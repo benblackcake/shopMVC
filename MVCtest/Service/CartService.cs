@@ -61,7 +61,8 @@ namespace MVCtest.Service
                  where c.Customer_ID == customerID
                  select
                  new CartViewModel
-                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
+                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Quantity = c.Quantity, ProductImage = p.Product_Image };
+
 
             cartViewModel = result.ToList();
             return cartViewModel;
@@ -131,7 +132,7 @@ namespace MVCtest.Service
                 recipient_Phone = recipient_Phone,
                 recipient_Adress = recipient_Address,
                 
-                OrderDetails = od
+                OrderDetail = od
             };
 
             var allCarts = db.Carts.ToList().FindAll(x => x.Customer_ID == customerID);

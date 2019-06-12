@@ -178,6 +178,23 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\dashboard\dashboardSaleController.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
+    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Product_Detail.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Shippers.cs" />
+    <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="Service\SaleService.cs" />
+    <Compile Include="ViewModels\SaleListViewModel.cs" />
+    <Compile Include="ViewModels\SaleViewModel.cs" />
+    <Compile Include="ViewModels\TestViewModlel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
@@ -210,12 +227,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Master.cs" />
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\OdContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\SSub_Category.cs" />
     <Compile Include="Models\Sub_Categroy.cs" />
@@ -318,6 +333,9 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\GetSale.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\upload.css" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\upload.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\apple-icon.png" />
@@ -337,19 +355,31 @@
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\bootstrap-notify.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\chartjs.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assest\images\banner-bg.jpg" />
     <Content Include="Assest\images\bg-2.jpg" />
+    <Content Include="Assest\images\cards.png" />
     <Content Include="Assest\images\c\70428.jpg" />
     <Content Include="Assest\images\c\70429.jpg" />
     <Content Include="Assest\images\c\70430.jpg" />
     <Content Include="Assest\images\c\70431.jpg" />
     <Content Include="Assest\images\c\70432.jpg" />
     <Content Include="Assest\images\c\70433.jpg" />
+    <Content Include="Assest\images\c\70434.jpg" />
+    <Content Include="Assest\images\c\70435.jpg" />
+    <Content Include="Assest\images\c\70436.jpg" />
+    <Content Include="Assest\images\c\70437.jpg" />
+    <Content Include="Assest\images\c\70438.jpg" />
+    <Content Include="Assest\images\c\70439.jpg" />
+    <Content Include="Assest\images\c\70440.jpg" />
     <Content Include="Assest\images\facebook-logo.png" />
     <Content Include="Assest\images\img-carousel-1.jpg" />
     <Content Include="Assest\images\img-carousel-2.jpg" />
     <Content Include="Assest\images\img-carousel-3.jpg" />
     <Content Include="Assest\images\index-image\index-big.jpg" />
     <Content Include="Assest\images\index-image\index-big2.jpg" />
+    <Content Include="Assest\images\index-image\styleG1-1.jpg" />
+    <Content Include="Assest\images\index-image\styleG3-1.jpg" />
+    <Content Include="Assest\images\index-image\load01.jpg" />
     <Content Include="Assest\images\layout_image\2 .jpg" />
     <Content Include="Assest\images\layout_image\3 .jpg" />
     <Content Include="Assest\images\layout_image\4 .jpg" />
@@ -540,6 +570,13 @@
     <Content Include="Assest\AssestNew\Source\SlickNav-master.zip" />
     <Content Include="Assest\AssestNew\Source\zoom-master.zip" />
     <None Include="Properties\PublishProfiles\shopeMVC20190606035941 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\shopMVConline - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shopMVConline - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -631,6 +668,7 @@
     <Content Include="Views\Menu\CountCart.cshtml" />
     <Content Include="Views\shopMember\Index.cshtml" />
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\dashboardSale\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -648,6 +686,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

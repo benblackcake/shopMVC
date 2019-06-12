@@ -10,5 +10,6 @@ namespace MVCtest.ViewModels
     {
         public List<ProductViewModel> Items { get; set; }
         public List<ProductViewModel> data { get; set; }
+        public List<ProductDetailViewModel> test { get; set; }
     }
 }
