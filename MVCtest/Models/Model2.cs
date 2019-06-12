@@ -4,31 +4,34 @@ namespace MVCtest.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using ViewModels;
 
-    public partial class DBModel : DbContext
+    public partial class Model2 : DbContext
     {
-        public DBModel()
-            : base("name=DBcontext")
+        public Model2()
+            : base("name=Model2")
         {
         }
 
-
-        public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<CategoryGroup> CategoryGroups { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Master> Masters { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Shipper> Shippers { get; set; }
-        public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<CategoryGroup> CategoryGroup { get; set; }
+        public virtual DbSet<Comment> Comment { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Master> Master { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Product_Detail> Product_Detail { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-
         public virtual DbSet<Sale> Sale { get; set; }
+        public virtual DbSet<Shippers> Shippers { get; set; }
+        public virtual DbSet<Sub_Categroy> Sub_Categroy { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRoles>()
