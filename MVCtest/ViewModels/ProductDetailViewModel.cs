@@ -22,10 +22,10 @@ namespace MVCtest.ViewModels
         public virtual ICollection<Product> Product { get; set; }
 
 
-        public string Product_Name { get; set; }
-        public int? Category_Id { get; set; }
-        public string UnitPrice { get; set; }
-        public string Product_Image { get; set; }
+        //public string Product_Name { get; set; }
+        //public int? Category_Id { get; set; }
+        //public string UnitPrice { get; set; }
+        //public string Product_Image { get; set; }
 
     }
 }

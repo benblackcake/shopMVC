@@ -13,7 +13,7 @@ namespace MVCtest.Service
         public ProductListViewModel GetProducts()
         {
             ProductListViewModel result = new ProductListViewModel();
-            result.test = new List<ProductDetailViewModel>();
+            result.Items = new List<ProductViewModel>();
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
             DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
@@ -22,27 +22,27 @@ namespace MVCtest.Service
 
             foreach (var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
             {
-                foreach (var item2 in (repd.GetAll().OrderBy((x) => x.Product_Detail_Id)))
-                {
-                    //var pd = repd.GetAll().Where((x) => x.Product_Id == item.Category_Id);
-                    ProductDetailViewModel p = new ProductDetailViewModel()
+                //foreach (var item2 in (repd.GetAll().OrderBy((x) => x.Product_Detail_Id)))
+                //{
+                    var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
+                    ProductViewModel p = new ProductViewModel()
                     {
                         //Product_Id = item.Product_Id,
                         Product_Name = item.Product_Name,
                         UnitPrice = item.UnitPrice,
                         Category_Id = item.Category_Id,
                         Product_Image = item.Product_Image,
-                        //Product_Detail = pd.ToList()
-                        Product_Detail_Id = item2.Product_Detail_Id,
-                        Product_Id = item2.Product_Id,
-                        Color = item2.Color,
-                        Size = item2.Size,
-                        Stock = item2.Stock
+                        Product_Detail = pd.ToList()
+                        //Product_Detail_Id = item2.Product_Detail_Id,
+                        //Product_Id = item2.Product_Id,
+                        //Color = item2.Color,
+                        //Size = item2.Size,
+                        //Stock = item2.Stock
                        
 
                     };
-                    result.test.Add(p);
-                }
+                    result.Items.Add(p);
+                //}
                
             }
             return result;
