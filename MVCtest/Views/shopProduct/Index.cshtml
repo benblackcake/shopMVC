@@ -106,11 +106,11 @@
                             <div class="col-lg-4 col-sm-6 productItem product-item" data-category="@item.Category_Id" 
                                data-color=@foreach (var test in item.Product_Detail)
                                  {
-                                    @test.Color
+                                    @(test.Color+" ")
                                  }@*data-color="黑色"*@  
                                   data-size=@foreach (var test2 in item.Product_Detail)
                                  {
-                                    @test2.Size
+                                    @(test2.Size+" ")
                                  } 
                                  @*data-size="SMLXL"*@
                                  data-price=@item.UnitPrice>
