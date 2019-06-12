@@ -32,6 +32,27 @@ namespace MVCtest.Service
             return result;
 
         }
+        public bool Create(SaleViewModel input)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sale> repo = new DbRepository<Sale>(context);
+            if (repo.GetAll().FirstOrDefault((x) => x.Sale_ID == input.Sale_ID)==null)
+            {
+                Sale entity = new Sale()
+                {
+                    Sale_Product = input.Sale_Product,
+                    Sale_UnPrice = input.Sale_UnPrice,
+                    Sale_FristDate=input.Sale_FristDate,
+                    Sale_LastDate = input.Sale_LastDate
+                
+                };
+                repo.Create(entity);
+                context.SaveChanges();
+                return true;
+            }
+            else return false;
+
+        }
 
     }
 }
