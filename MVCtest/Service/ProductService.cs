@@ -54,18 +54,21 @@ namespace MVCtest.Service
             result.Items = new List<ProductViewModel>();
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
 
             foreach (var item in (repo.GetAll().Where((x) => x.Product_Name.Contains(Product_NAME))))
-
             {
+                var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
                 ProductViewModel p = new ProductViewModel()
                 {
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
 
+
                     Category_Id = item.Category_Id,
-                    Product_Image = item.Product_Image
+                    Product_Image = item.Product_Image,
+                    Product_Detail = pd.ToList()
 
                 };
                 result.Items.Add(p);
