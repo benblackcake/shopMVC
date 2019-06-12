@@ -102,47 +102,48 @@
                     <!--Product Category for each-->
                     @foreach (var item in Model.Items)
                     {
-                        
-                            <div class="col-lg-4 col-sm-6 productItem product-item" data-category="@item.Category_Id" 
-                               data-color=@foreach (var test in item.Product_Detail)
+
+                        <div class="col-lg-4 col-sm-6 productItem product-item" data-category="@item.Category_Id"
+                             data-color="@foreach (var test in item.Product_Detail)
                                  {
-                                    @(test.Color+" ")
-                                 }@*data-color="黑色"*@  
-                                  data-size=@foreach (var test2 in item.Product_Detail)
+                                    @(test.Color)
+                                 }"
+                             @*data-color="黑色"*@
+                             data-size="@foreach (var test2 in item.Product_Detail)
                                  {
-                                    @(test2.Size+" ")
-                                 } 
-                                 @*data-size="SMLXL"*@
-                                 data-price=@item.UnitPrice>
-                                <div class="pi-pic">
-                                    @*<div class="tag-sale">ON SALE</div>*@
-                                    <a href="~/shopProduct/detail/@item.Product_Id"><img src="@item.Product_Image"></a>
-                                    <div class="pi-links">
-                                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                                    </div>
+                                    @(test2.Size)
+                                 }"
+                             @*data-size="SMLXL"*@
+                             data-price=@item.UnitPrice>
+                            <div class="pi-pic">
+                                @*<div class="tag-sale">ON SALE</div>*@
+                                <a href="~/shopProduct/detail/@item.Product_Id"><img src="@item.Product_Image"></a>
+                                <div class="pi-links">
+                                    <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                                    <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                                 </div>
-                                <div class="pi-text">
+                            </div>
+                            <div class="pi-text">
 
-                                    @*<h3>@item.Product_Id</h3>
-        <h3>@item.Size</h3>*@
+                                @*<h3>@item.Product_Id</h3>
+                                    <h3>@item.Size</h3>*@
 
 
-                                    @foreach (var test in item.Product_Detail)
+                                @* @foreach (var test in item.Product_Detail)
                                     {
-                                        @*<h6>@test.Product_Detail_Id</h6>*@
-                                        <h6>@test.Size</h6>
-                                        @*<h6>@test.Color</h6>*@
-                                    }
-                                    @*<h6>$@item.UnitPrice</h6>
-        <p>@item.Product_Name</p>*@
-
-                                </div>
-
+                                        <h6>@test.Product_Detail_Id</h6>*@
+                                @*<h6>@test.Size</h6>
+                                    <h6>@test.Color</h6>
+                                                            }*@
+                                <h6>$@item.UnitPrice</h6>
+                                <p>@item.Product_Name</p>
 
                             </div>
-                        }
-                    
+
+
+                        </div>
+                    }
+
                     <div class="productItem" style="display:none"></div>
                     <!--Product Category for each- END-->
 

@@ -61,7 +61,7 @@ function fnFilter(condition) {
     filterList.forEach(function (element) {
         for (var i = 0; i < $productItem.length; i++) {
             var test = $($productItem[i]).attr('data-' + condition).val();
-            if ($($productItem[i]).attr('data-' + condition).indexOf(element)>= 1) {
+            if (($($productItem[i]).attr('data-' + condition)).indexOf(element+" ") != -1) {
                
                 $($productItem[i]).addClass('show show-' + condition);
             }

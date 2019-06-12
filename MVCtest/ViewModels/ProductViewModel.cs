@@ -20,7 +20,7 @@ namespace MVCtest.ViewModels
 
         //public string Size { get; set; }
         //public string Color { get; set; }
-        //public string Stock { get; set; }
+        //public int? Stock { get; set; }
         //public string Product_Detail { get; set; }
 
         //public double Weight { get; set; }
