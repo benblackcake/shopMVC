@@ -82,22 +82,10 @@ namespace MVCtest.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderDetail)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<OrderDetail>()
                 .Property(e => e.Product_Name)
                 .IsFixedLength();
 
-            modelBuilder.Entity<OrderDetail>()
-                .Property(e => e.UnitPrice)
-                .IsFixedLength();
-
-            modelBuilder.Entity<OrderDetail>()
-                .Property(e => e.Quantity)
-                .IsFixedLength();
 
             modelBuilder.Entity<Payment>()
                 .Property(e => e.Payment_Name)
@@ -112,10 +100,6 @@ namespace MVCtest.Models
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.OrderDetail)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Product_Detail)
@@ -143,6 +127,11 @@ namespace MVCtest.Models
                 .HasMany(e => e.Product)
                 .WithOptional(e => e.Sub_Categroy)
                 .HasForeignKey(e => e.Category_Id);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Product_Name)
+                .IsFixedLength();
+
         }
     }
 }

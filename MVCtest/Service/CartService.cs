@@ -118,8 +118,8 @@ namespace MVCtest.Service
                 {
                     Product_Id = result1[i].Product_Id,
                     Product_Detail_Id=result1[i].Product_Detail_Id,
-                    Quantity = result1[i].Quantity.ToString(),
-                    UnitPrice = result1[i].UnitPrice,
+                    Quantity = result1[i].Quantity,
+                    UnitPrice =int.Parse(result1[i].UnitPrice),
                     Product_Name=result1[i].Product_Name,
                 });
             }

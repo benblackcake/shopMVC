@@ -21,16 +21,8 @@ namespace MVCtest.Models
 
         public int? Product_Detail_Id { get; set; }
 
-        [StringLength(10)]
-        public string UnitPrice { get; set; }
+        public int? UnitPrice { get; set; }
 
-        [StringLength(10)]
-        public string Quantity { get; set; }
-
-        public virtual Order Order { get; set; }
-
-        public virtual Product_Detail Product_Detail { get; set; }
-
-        public virtual Product Product { get; set; }
+        public int? Quantity { get; set; }
     }
 }

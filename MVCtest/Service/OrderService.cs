@@ -52,19 +52,25 @@ namespace MVCtest.Service
             DbRepository<Order> repoOrder = new DbRepository<Order>(db);
             DbRepository<OrderDetail> repoOrderDetail = new DbRepository<OrderDetail>(db);
             DbRepository<Payment> repoPayment = new DbRepository<Payment>(db);
-            List<OrderTrackingViewModel>  _ordertrackingViewModel;
+
+
             var tmp =
-                from c in repoOrder.GetAll()
-                join p in repoOrderDetail.GetAll()             
-                on c.Order_ID equals p.OrderDetail_Id
-                where c.Customer_ID == customerId
+                from o in repoOrder.GetAll()
+                join od in repoOrderDetail.GetAll()
+                on o.Order_ID equals od.Order_Id
+                where o.Customer_ID == customerId
                 join pay in repoPayment.GetAll()
-                on c.Payment_ID equals pay.Payment_ID
-                select
-                new OrderTrackingViewModel
+                on o.Payment_ID equals pay.Payment_ID
+                group od by new { o.Order_ID, o.Order_Date, o.Status, pay.Payment_Name } into g
+                select new OrderTrackingViewModel
                 {
-                    OrderId = p.OrderDetail_Id, ProductName = p.Product_Name, OrderDate = c.Order_Date, Price = p.UnitPrice, Payment = pay.Payment_Name ,OrderState = c.Status};
-            //_ordertrackingViewModel = result.ToList();
+                    OrderId = g.Key.Order_ID,
+                    OrderDate = g.Key.Order_Date,
+                    Price = (g.Sum(od => od.Quantity * od.UnitPrice)).ToString(),
+                    Payment = g.Key.Payment_Name,
+                    OrderState = g.Key.Status
+                };
+
             foreach (var item in tmp)
             {
                 result.Items.Add(item);
