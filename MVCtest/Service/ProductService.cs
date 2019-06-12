@@ -16,19 +16,59 @@ namespace MVCtest.Service
             result.Items = new List<ProductViewModel>();
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
 
-            foreach(var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
+
+
+            foreach (var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
             {
+                //foreach (var item2 in (repd.GetAll().OrderBy((x) => x.Product_Detail_Id)))
+                //{
+                    var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
+                    ProductViewModel p = new ProductViewModel()
+                    {
+                        //Product_Id = item.Product_Id,
+                        Product_Name = item.Product_Name,
+                        UnitPrice = item.UnitPrice,
+                        Category_Id = item.Category_Id,
+                        Product_Image = item.Product_Image,
+                        Product_Detail = pd.ToList()
+                        //Product_Detail_Id = item2.Product_Detail_Id,
+                        //Product_Id = item2.Product_Id,
+                        //Color = item2.Color,
+                        //Size = item2.Size,
+                        //Stock = item2.Stock
+                       
+
+                    };
+                    result.Items.Add(p);
+                //}
+               
+            }
+            return result;
+        }
+        // add for top search
+        public ProductListViewModel SearchProducts(string Product_NAME)
+        {
+            ProductListViewModel result = new ProductListViewModel();
+            result.Items = new List<ProductViewModel>();
+            DBModel contex = new DBModel();
+            DbRepository<Product> repo = new DbRepository<Product>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
+
+            foreach (var item in (repo.GetAll().Where((x) => x.Product_Name.Contains(Product_NAME))))
+            {
+                var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
                 ProductViewModel p = new ProductViewModel()
                 {
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    //Size = item.Size,
-                    //Stock = item.Stock,
+
                     Category_Id = item.Category_Id,
-                    Product_Image=item.Product_Image
-                    
+                    Product_Image = item.Product_Image,
+                    Product_Detail = pd.ToList()
+
                 };
                 result.Items.Add(p);
             }
@@ -41,18 +81,20 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> Prepo = new DbRepository<Product>(contex);
             DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
+
             foreach (var item in Prepo.GetAll().Where((x)=>x.Category_Id==categoryId))  
             {
+                var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
                 ProductViewModel p = new ProductViewModel()
                 {
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    //Size = item.Size,
-                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
-                    Product_Image = item.Product_Image
+                    Product_Image = item.Product_Image,
 
+                    Product_Detail = pd.ToList()
                 };
                 result.Items.Add(p);
                 
@@ -67,6 +109,7 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> Prepo = new DbRepository<Product>(contex);
             DbRepository<Sub_Categroy> Srepo = new DbRepository<Sub_Categroy>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
 
             var tmp = from p in Prepo.GetAll()
                       join s in Srepo.GetAll()
@@ -84,11 +127,58 @@ namespace MVCtest.Service
                           //Stock = p.Stock
                       };
 
-            foreach (var item in tmp)
+
+
+            foreach (var item in Prepo.GetAll())
+
             {
-                result.Items.Add(item);
+                foreach (var test in Srepo.GetAll().Where((x) => x.Sub_Category_ID == item.Category_Id && x.Category_ID == categoryId))
+                {
+                    var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
+                ProductViewModel p = new ProductViewModel()
+                {
+                    Product_Id = item.Product_Id,
+                    Product_Name = item.Product_Name,
+                    UnitPrice = item.UnitPrice,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
+                    Category_Id = item.Category_Id,
+                    Product_Image = item.Product_Image,
+
+                    Product_Detail = pd.ToList()
+                };
+                result.Items.Add(p);
+                }
+
+
             }
             return result;
+
+            //var tmp = from p in Prepo.GetAll()
+            //          join s in Srepo.GetAll()
+            //          on p.Category_Id equals s.Sub_Category_ID
+            //          join r in repd.GetAll()
+            //          on p.Product_Id equals r.Product_Id
+            //          where s.Category_ID == categoryId
+            //          //join c in Crepo.GetAll()
+            //          //on s.Category_ID equals categoryId
+            //          select new ProductViewModel
+            //          {
+            //              Product_Id = p.Product_Id,
+            //              Product_Name = p.Product_Name,
+            //              Product_Image = p.Product_Image,
+            //              UnitPrice = p.UnitPrice,
+            //              Product_Detail = 
+                         
+            //              //Size = p.Size,
+            //              //Stock = p.Stock
+            //          };
+
+            //foreach (var item in tmp)
+            //{
+            //    result.Items.Add(item);
+            //}
+            //return result;
         }
 
         public ProductViewModel GetProductDetail(int id) {

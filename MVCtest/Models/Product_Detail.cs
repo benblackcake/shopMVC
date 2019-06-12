@@ -15,6 +15,7 @@ namespace MVCtest.Models
             OrderDetail = new HashSet<OrderDetail>();
         }
 
+
         [Key]
         public int Product_Detail_Id { get; set; }
 
@@ -33,6 +34,7 @@ namespace MVCtest.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+
 
         public virtual Product Product { get; set; }
     }

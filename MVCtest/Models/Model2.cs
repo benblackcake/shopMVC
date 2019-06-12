@@ -4,15 +4,13 @@ namespace MVCtest.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using ViewModels;
 
-    public partial class DBModel : DbContext
+    public partial class Model2 : DbContext
     {
-        public DBModel()
-            : base("name=DBcontext")
+        public Model2()
+            : base("name=Model2")
         {
         }
-
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
@@ -82,10 +80,26 @@ namespace MVCtest.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderDetail)
+                .WithRequired(e => e.Order)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<OrderDetail>()
                 .Property(e => e.Product_Name)
                 .IsFixedLength();
 
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Product_Detail)
+                .IsFixedLength();
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.UnitPrice)
+                .IsFixedLength();
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Quantity)
+                .IsFixedLength();
 
             modelBuilder.Entity<Payment>()
                 .Property(e => e.Payment_Name)
@@ -96,11 +110,19 @@ namespace MVCtest.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Product>()
+                .HasMany(e => e.Cart)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Product>()
                 .HasMany(e => e.Comment)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.OrderDetail)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Product_Detail)
@@ -110,11 +132,6 @@ namespace MVCtest.Models
             modelBuilder.Entity<Product_Detail>()
                 .Property(e => e.Size)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Product_Detail>()
-                .HasMany(e => e.Cart)
-                .WithRequired(e => e.Product_Detail)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Sale>()
                 .Property(e => e.Sale_UnPrice)
@@ -128,11 +145,6 @@ namespace MVCtest.Models
                 .HasMany(e => e.Product)
                 .WithOptional(e => e.Sub_Categroy)
                 .HasForeignKey(e => e.Category_Id);
-
-            modelBuilder.Entity<OrderDetail>()
-                .Property(e => e.Product_Name)
-                .IsFixedLength();
-
         }
     }
 }
