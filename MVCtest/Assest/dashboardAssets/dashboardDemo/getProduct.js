@@ -37,7 +37,7 @@ $('#datatables tbody').on('click', '.btn-dark', function () {
     $("#UnitPrice").val(data['UnitPrice']);
     $("#Sub_Category_Name").val(data['Sub_Category_Name']);
     $("#CategoryGroup_Name").val(data['CategoryGroup_Name']);
-    $("#Product_Image").val(data['Product_Image']);
+    $("#imagePreview").css("background-image", "url(" + data['Product_Image']+")");
     $("#myModal").modal();
     ID = data['Product_Id'];
 });
@@ -46,3 +46,25 @@ $("#create").click(function () {
     $("#newModal").modal();
 
 });
+
+
+//$('#formNew').on('submit', function (event) {
+//    console.log("new submit");
+//    event.preventDefault();
+//    // $this=
+//    url = '/api/dashboardMember/UpdateProduct';
+//    method = 'post';
+
+//    $.ajax({
+//        url: url,
+//        contentType: false,
+//        processData: false,
+//        method: method,
+//        data: $(this).serialize(),
+//        success: function (data) {
+//            console.log(data);
+//            location.reload();
+//        }
+//    });
+//});
+

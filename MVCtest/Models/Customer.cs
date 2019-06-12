@@ -12,8 +12,8 @@ namespace MVCtest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            Carts = new HashSet<Cart>();
-            Comments = new HashSet<Comment>();
+            Cart = new HashSet<Cart>();
+            Comment = new HashSet<Comment>();
         }
 
         [Key]
@@ -36,9 +36,9 @@ namespace MVCtest.Models
         public DateTime? Customer_Date { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
     }
 }

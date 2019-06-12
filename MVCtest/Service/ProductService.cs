@@ -17,15 +17,13 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
 
-            foreach(var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
+            foreach(var item in (repo.GetAll())/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
             {
                 ProductViewModel p = new ProductViewModel()
                 {
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image=item.Product_Image
                     
@@ -48,8 +46,6 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image = item.Product_Image
 
@@ -80,8 +76,7 @@ namespace MVCtest.Service
                           Product_Name = p.Product_Name,
                           Product_Image = p.Product_Image,
                           UnitPrice = p.UnitPrice,
-                          Size = p.Size,
-                          Stock = p.Stock
+
                       };
 
             foreach (var item in tmp)

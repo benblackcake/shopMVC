@@ -12,9 +12,10 @@ namespace MVCtest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            Carts = new HashSet<Cart>();
-            Comments = new HashSet<Comment>();
-            OrderDetails = new HashSet<OrderDetail>();
+            Cart = new HashSet<Cart>();
+            Comment = new HashSet<Comment>();
+            OrderDetail = new HashSet<OrderDetail>();
+            Product_Detail = new HashSet<Product_Detail>();
         }
 
         [Key]
@@ -30,31 +31,26 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string UnitPrice { get; set; }
 
-        [StringLength(10)]
-        public string Stock { get; set; }
-
         [StringLength(50)]
         public string Product_Image { get; set; }
-
-        [StringLength(10)]
-        public string Size { get; set; }
-
-        public double? Weight { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? Product_date { get; set; }
 
         [StringLength(10)]
-        public string Product_Color { get; set; }
+        public string Product_Sale { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product_Detail> Product_Detail { get; set; }
 
         public virtual Sub_Categroy Sub_Categroy { get; set; }
     }
