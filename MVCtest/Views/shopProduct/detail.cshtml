@@ -39,17 +39,14 @@
                         @foreach (var i in Model.Size)
                         {
                             <div class="sc-item">
-                                <input type="radio" name="size" id="@i-size" value="@i" class="size">
+                                <input type="radio" name="size" id="@i-size" value="@i" class="size" required oninvalid="setCustomValidity('Cusotm Alert 1');">
                                 <label for="@i-size">@i</label>
                             </div>
                         }
                     </div>
-                    <div class="fw-color-choose">
+                    <div class="fw-color-choose d-flex align-content-center">
                         <p>Color</p>
                         <div class="cs-item">
-                            <label><input type="radio" name="color" value="" class="color">白色</label>
-                            <label><input type="radio" name="color" value="" class="color">白色</label>
-                            <label><input type="radio" name="color" value="" class="color">白色</label>
                         </div>
                     </div>
                     <div class="quantity">

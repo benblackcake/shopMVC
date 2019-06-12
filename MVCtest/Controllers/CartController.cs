@@ -24,7 +24,7 @@ namespace MVCtest.Controllers
         public ActionResult Cart(int productId,int quantity){
                 int id = (int)Session["id"];
                 CartService cs = new CartService();
-                cs.SaveCartDB(productId, id, quantity);
+                //cs.SaveCartDB(productId, id, quantity);
                 Debug.Print("POST");
                 return RedirectToAction("Cart");
 

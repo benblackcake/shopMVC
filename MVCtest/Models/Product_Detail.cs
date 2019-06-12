@@ -8,6 +8,13 @@ namespace MVCtest.Models
 
     public partial class Product_Detail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product_Detail()
+        {
+            Cart = new HashSet<Cart>();
+            OrderDetail = new HashSet<OrderDetail>();
+        }
+
         [Key]
         public int Product_Detail_Id { get; set; }
 
@@ -20,6 +27,12 @@ namespace MVCtest.Models
         public string Size { get; set; }
 
         public int? Stock { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Cart { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
 
         public virtual Product Product { get; set; }
     }

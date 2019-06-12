@@ -20,7 +20,7 @@ namespace MVCtest.Controllers.dashboard
         {
 
             //var orderDetails = db.OrderDetails.Include(o => o.Order).Include(o => o.Product);
-            var orderDetails = db.OrderDetails.ToList();
+            var orderDetails = db.OrderDetail.ToList();
             return View(orderDetails);
         }
 
@@ -31,7 +31,7 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            OrderDetail orderDetail = db.OrderDetail.Find(id);
             if (orderDetail == null)
             {
                 return HttpNotFound();
@@ -42,8 +42,8 @@ namespace MVCtest.Controllers.dashboard
         // GET: OrderDetailsCRUD/Create
         public ActionResult Create()
         {
-            ViewBag.Order_Id = new SelectList(db.Orders, "Order_ID", "Order_ID");
-            ViewBag.Product_Id = new SelectList(db.Products, "Product_Id", "Product_Name");
+            ViewBag.Order_Id = new SelectList(db.Order, "Order_ID", "Order_ID");
+            ViewBag.Product_Id = new SelectList(db.Product, "Product_Id", "Product_Name");
             return View();
         }
 
@@ -56,13 +56,13 @@ namespace MVCtest.Controllers.dashboard
         {
             if (ModelState.IsValid)
             {
-                db.OrderDetails.Add(orderDetail);
+                db.OrderDetail.Add(orderDetail);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Order_Id = new SelectList(db.Orders, "Order_ID", "Order_ID", orderDetail.Order_Id);
-            ViewBag.Product_Id = new SelectList(db.Products, "Product_Id", "Product_Name", orderDetail.Product_Id);
+            ViewBag.Order_Id = new SelectList(db.Order, "Order_ID", "Order_ID", orderDetail.Order_Id);
+            ViewBag.Product_Id = new SelectList(db.Product, "Product_Id", "Product_Name", orderDetail.Product_Id);
             return View(orderDetail);
         }
 
@@ -73,13 +73,13 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            OrderDetail orderDetail = db.OrderDetail.Find(id);
             if (orderDetail == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Order_Id = new SelectList(db.Orders, "Order_ID", "Order_ID", orderDetail.Order_Id);
-            ViewBag.Product_Id = new SelectList(db.Products, "Product_Id", "Product_Name", orderDetail.Product_Id);
+            ViewBag.Order_Id = new SelectList(db.Order, "Order_ID", "Order_ID", orderDetail.Order_Id);
+            ViewBag.Product_Id = new SelectList(db.Product, "Product_Id", "Product_Name", orderDetail.Product_Id);
             return View(orderDetail);
         }
 
@@ -96,8 +96,8 @@ namespace MVCtest.Controllers.dashboard
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Order_Id = new SelectList(db.Orders, "Order_ID", "Order_ID", orderDetail.Order_Id);
-            ViewBag.Product_Id = new SelectList(db.Products, "Product_Id", "Product_Name", orderDetail.Product_Id);
+            ViewBag.Order_Id = new SelectList(db.Order, "Order_ID", "Order_ID", orderDetail.Order_Id);
+            ViewBag.Product_Id = new SelectList(db.Product, "Product_Id", "Product_Name", orderDetail.Product_Id);
             return View(orderDetail);
         }
 
@@ -108,7 +108,7 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
+            OrderDetail orderDetail = db.OrderDetail.Find(id);
             if (orderDetail == null)
             {
                 return HttpNotFound();
@@ -121,8 +121,8 @@ namespace MVCtest.Controllers.dashboard
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            db.OrderDetails.Remove(orderDetail);
+            OrderDetail orderDetail = db.OrderDetail.Find(id);
+            db.OrderDetail.Remove(orderDetail);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

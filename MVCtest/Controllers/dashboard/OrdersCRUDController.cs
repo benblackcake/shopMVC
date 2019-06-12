@@ -21,7 +21,7 @@ namespace MVCtest.Controllers.dashboard
         public ActionResult Index()
         {
 
-            var orders = db.Orders;
+            var orders = db.Order;
 
             return View(orders.ToList());
         }
@@ -50,7 +50,7 @@ namespace MVCtest.Controllers.dashboard
 
             if (ModelState.IsValid)
             {
-                Order od = db.Orders.Find(order.Order_ID);
+                Order od = db.Order.Find(order.Order_ID);
                 if (od != null)
                 {
                     od.Status = order.Status;
@@ -71,7 +71,7 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = db.Order.Find(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace MVCtest.Controllers.dashboard
         // GET: OrdersCUUD/Create
         public ActionResult Create()
         {
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_Name");
-            ViewBag.Payment_ID = new SelectList(db.Payments, "Payment_ID", "Payment_Name");
+            ViewBag.Customer_ID = new SelectList(db.Customer, "Customer_ID", "Customer_Name");
+            ViewBag.Payment_ID = new SelectList(db.Payment, "Payment_ID", "Payment_Name");
             ViewBag.Shipper_ID = new SelectList(db.Shippers, "Shipper_Id", "Shipper_Method_Name");
             return View();
         }
@@ -97,13 +97,13 @@ namespace MVCtest.Controllers.dashboard
         {
             if (ModelState.IsValid)
             {
-                db.Orders.Add(order);
+                db.Order.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_Name", order.Customer_ID);
-            ViewBag.Payment_ID = new SelectList(db.Payments, "Payment_ID", "Payment_Name", order.Payment_ID);
+            ViewBag.Customer_ID = new SelectList(db.Customer, "Customer_ID", "Customer_Name", order.Customer_ID);
+            ViewBag.Payment_ID = new SelectList(db.Payment, "Payment_ID", "Payment_Name", order.Payment_ID);
             ViewBag.Shipper_ID = new SelectList(db.Shippers, "Shipper_Id", "Shipper_Method_Name", order.Shipper_ID);
             return View(order);
         }
@@ -115,13 +115,13 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = db.Order.Find(id);
             if (order == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_Name", order.Customer_ID);
-            ViewBag.Payment_ID = new SelectList(db.Payments, "Payment_ID", "Payment_Name", order.Payment_ID);
+            ViewBag.Customer_ID = new SelectList(db.Customer, "Customer_ID", "Customer_Name", order.Customer_ID);
+            ViewBag.Payment_ID = new SelectList(db.Payment, "Payment_ID", "Payment_Name", order.Payment_ID);
             ViewBag.Shipper_ID = new SelectList(db.Shippers, "Shipper_Id", "Shipper_Method_Name", order.Shipper_ID);
             return View(order);
         }
@@ -139,8 +139,8 @@ namespace MVCtest.Controllers.dashboard
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_Name", order.Customer_ID);
-            ViewBag.Payment_ID = new SelectList(db.Payments, "Payment_ID", "Payment_Name", order.Payment_ID);
+            ViewBag.Customer_ID = new SelectList(db.Customer, "Customer_ID", "Customer_Name", order.Customer_ID);
+            ViewBag.Payment_ID = new SelectList(db.Payment, "Payment_ID", "Payment_Name", order.Payment_ID);
             ViewBag.Shipper_ID = new SelectList(db.Shippers, "Shipper_Id", "Shipper_Method_Name", order.Shipper_ID);
             return View(order);
         }
@@ -152,7 +152,7 @@ namespace MVCtest.Controllers.dashboard
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = db.Order.Find(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -165,8 +165,8 @@ namespace MVCtest.Controllers.dashboard
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            Order order = db.Order.Find(id);
+            db.Order.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

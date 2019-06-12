@@ -22,14 +22,12 @@ namespace MVCtest.Controllers.shopN
         [AuthorizePlus]
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Cart(int productId, int quantity)
+        public ActionResult Cart(int productId, int quantity,string color,string size)
         {
             int id = (int)Session["id"];
             CartService cs = new CartService();
-            cs.SaveCartDB(productId, id, quantity);
+            cs.SaveCartDB(productId, id, quantity,color,size);
             return RedirectToAction("Cart");
-
-
         }
 
         [AuthorizePlus]

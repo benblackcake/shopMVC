@@ -15,20 +15,19 @@ namespace MVCtest.Service
         private DBModel db ;
         private Cart _carts;
 
-        public void SaveCartDB(int productId,int customerId, int quantity)
+        public void SaveCartDB(int productId,int customerId, int quantity,string color,string size)
         {
             db = new DBModel();
 
             DbRepository<Cart> repor = new DbRepository<Cart>(db);
 
-            var value = db.Database.SqlQuery<Cart>(@"select *
-                                                        from Cart c
-                                                        inner join Customer cu on cu.Customer_ID = c.Customer_ID
-                                                        where c.Product_ID = " + productId + " and cu.Customer_ID = " + customerId);
+            var productDetail = db.Product_Detail.Where(x => x.Color == color && x.Size == size && x.Product_Id == productId).FirstOrDefault();
 
-            if (value.Count() !=0 )
+            var value = db.Cart.Where(x => x.Customer_ID == customerId && x.Product_Detail_Id == productDetail.Product_Detail_Id).FirstOrDefault();
+
+            if (value != null )
             {
-              var result = db.Carts.SingleOrDefault(x => x.Product_ID == productId && x.Customer_ID == customerId);
+              var result = db.Cart.SingleOrDefault(x => x.Product_Detail_Id == productDetail.Product_Detail_Id && x.Customer_ID == customerId);
                 result.Quantity += quantity;
                 db.SaveChanges();
                 return;
@@ -37,10 +36,9 @@ namespace MVCtest.Service
 
                 _carts = new Cart()
                 {
-                    Product_ID = productId,
+                    Product_Detail_Id = productDetail.Product_Detail_Id,
                     Customer_ID= customerId,
-                    Quantity= quantity,
-                    
+                    Quantity= quantity                    
                 };
                 repor.Create(_carts);
                 db.SaveChanges();
@@ -58,8 +56,8 @@ namespace MVCtest.Service
             List<CartViewModel> cartViewModel = new List<CartViewModel>();
             var result =
                  from c in repoCart.GetAll()
-                 join p in repoProduct.GetAll() on c.Product_ID equals p.Product_Id
-                 join pd in repoProductDetail.GetAll() on p.Product_Id equals pd.Product_Id 
+                 join pd in repoProductDetail.GetAll() on c.Product_Detail_Id equals pd.Product_Detail_Id
+                 join p in repoProduct.GetAll() on pd.Product_Id equals p.Product_Id
                  where c.Customer_ID == customerID 
                  select
                  new CartViewModel
@@ -69,10 +67,10 @@ namespace MVCtest.Service
             return cartViewModel;
         }
         public void Delete(int id)
-        {
+        {   
             db = new DBModel();
-            _carts = db.Carts.ToList().Find(x=>x.Cart_ID==id);
-            db.Carts.Remove(_carts);
+            _carts = db.Cart.ToList().Find(x=>x.Cart_ID==id);
+            db.Cart.Remove(_carts);
             db.SaveChanges();
         }
         //Testing Use
@@ -91,7 +89,7 @@ namespace MVCtest.Service
         {
             DBModel db = new DBModel();
             DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
-            var result = db.Carts.ToList().Find(x => x.Cart_ID == cartID);
+            var result = db.Cart.ToList().Find(x => x.Cart_ID == cartID);
             result.Quantity = int.Parse(quantity);
             repoCart.Update(result);
             db.SaveChanges();
@@ -101,11 +99,13 @@ namespace MVCtest.Service
         {
             DBModel db = new DBModel();
 
-            var result = from c in db.Carts.ToList().FindAll(x => x.Customer_ID == customerID)
-                          join p in db.Products.ToList()
-                          on c.Product_ID equals p.Product_Id
-                          where c.Customer_ID == customerID
-                          select new { c.Product_ID, c.Quantity, p.UnitPrice,p.Product_Name };
+            var result = from c in db.Cart.ToList().FindAll(x => x.Customer_ID == customerID)
+                         join pd in db.Product_Detail.ToList()
+                         on c.Product_Detail_Id equals pd.Product_Detail_Id
+                         join p in db.Product.ToList()
+                         on pd.Product_Id equals p.Product_Id
+                         where c.Customer_ID == customerID
+                         select new { p.Product_Id , c.Quantity, p.UnitPrice,p.Product_Name,pd.Product_Detail_Id };
 
             var result1 =  result.ToList();
 
@@ -116,7 +116,8 @@ namespace MVCtest.Service
             {
                 od.Add(new OrderDetail()
                 {
-                    Product_Id = result1[i].Product_ID,
+                    Product_Id = result1[i].Product_Id,
+                    Product_Detail_Id=result1[i].Product_Detail_Id,
                     Quantity = result1[i].Quantity.ToString(),
                     UnitPrice = result1[i].UnitPrice,
                     Product_Name=result1[i].Product_Name,
@@ -132,13 +133,14 @@ namespace MVCtest.Service
                 recipient_Name = recipient_Name,
                 recipient_Phone = recipient_Phone,
                 recipient_Adress = recipient_Address,
-                OrderDetails = od
+                OrderDetail = od,
+                Status="未出貨"
             };
 
-            var allCarts = db.Carts.ToList().FindAll(x => x.Customer_ID == customerID);
+            var allCarts = db.Cart.ToList().FindAll(x => x.Customer_ID == customerID);
 
-            db.Orders.Add(order);
-            db.Carts.RemoveRange(allCarts);
+            db.Order.Add(order);
+            db.Cart.RemoveRange(allCarts);
             db.SaveChanges();
         }
     }

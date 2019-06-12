@@ -10,23 +10,16 @@ namespace MVCtest.Models
     public partial class Cart
     {
         [Key]
-        [Column(Order = 0)]
         public int Cart_ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Product_ID { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Customer_ID { get; set; }
 
         public int? Quantity { get; set; }
 
+        public int Product_Detail_Id { get; set; }
+
         public virtual Customer Customer { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Product_Detail Product_Detail { get; set; }
     }
 }

@@ -14,7 +14,8 @@ $(window).on('load', function() {
 		Preloder
 	--------------------*/
 	$(".loader").fadeOut();
-	$("#preloder").delay(400).fadeOut("slow");
+    $("#preloder").delay(400).fadeOut("slow");
+    $($(".size")[0]).click();
 
 });
 
@@ -470,12 +471,19 @@ $(window).on('load', function() {
             url: "/shopProduct/GetColorData",
             success:
                 function (callback) {
-                    console.log(callback);
+                    var text = "";
+                    for (var i = 0; i < callback.length; i++) {
+                        text += "<label><input type='radio' name='color' value='" + callback[i] +"'class='color' required>"+callback[i]+"</label>"
+                    }
+                    $('.fw-color-choose .cs-item').html(text);
+                    $('.color').on('click', function () {
+                        $('.fw-color-choose .color').parent().css({ "background": "#fff", "color": "#414141", "border": "2px solid #414141" });
+                        $('.fw-color-choose .color:checked').parent().css({ "background": "#f51167", "color": "#fff", "border": "none" });
+                    })
+
                 }
         });
     })
-
-
 	/*------------------
 		Single Product
 	--------------------*/
