@@ -184,7 +184,6 @@
     <Compile Include="Models\AspNetUserLogins.cs" />
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\C__MigrationHistory.cs" />
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Model2.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Product_Detail.cs" />
@@ -195,6 +194,7 @@
     <Compile Include="ViewModels\SaleListViewModel.cs" />
     <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\TestViewModlel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
@@ -355,7 +355,9 @@
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\bootstrap-notify.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\chartjs.min.js" />
     <Content Include="Assest\dashboardAssets\dashboardJs\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assest\images\banner-bg.jpg" />
     <Content Include="Assest\images\bg-2.jpg" />
+    <Content Include="Assest\images\cards.png" />
     <Content Include="Assest\images\c\70428.jpg" />
     <Content Include="Assest\images\c\70429.jpg" />
     <Content Include="Assest\images\c\70430.jpg" />
@@ -377,6 +379,7 @@
     <Content Include="Assest\images\index-image\index-big2.jpg" />
     <Content Include="Assest\images\index-image\styleG1-1.jpg" />
     <Content Include="Assest\images\index-image\styleG3-1.jpg" />
+    <Content Include="Assest\images\index-image\load01.jpg" />
     <Content Include="Assest\images\layout_image\2 .jpg" />
     <Content Include="Assest\images\layout_image\3 .jpg" />
     <Content Include="Assest\images\layout_image\4 .jpg" />
@@ -566,19 +569,13 @@
     <Content Include="Assest\AssestNew\Source\sass\style.scss" />
     <Content Include="Assest\AssestNew\Source\SlickNav-master.zip" />
     <Content Include="Assest\AssestNew\Source\zoom-master.zip" />
-
     <None Include="Properties\PublishProfiles\shopMVConline - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\shopMVConline - Web Deploy.pubxml" />
-
-
     <None Include="Properties\PublishProfiles\shopmvc - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\shopmvc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\shopmvc - Web Deploy %282%29.pubxml" />
-
     <None Include="Properties\PublishProfiles\shopmvc - FTP.pubxml" />
-
     <None Include="Properties\PublishProfiles\shopmvc - Web Deploy.pubxml" />
-
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

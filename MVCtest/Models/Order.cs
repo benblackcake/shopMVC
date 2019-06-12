@@ -33,10 +33,17 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string recipient_Phone { get; set; }
 
+
         public string recipient_Adress { get; set; }
+
 
         [StringLength(5)]
         public string Status { get; set; }
+
+        public virtual Customer Customer { get; set; }
+        public virtual Payment Payment { get; set; }
+        public virtual Shipper Shipper { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }

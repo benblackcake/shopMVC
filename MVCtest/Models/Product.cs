@@ -53,5 +53,7 @@ namespace MVCtest.Models
         public virtual ICollection<Product_Detail> Product_Detail { get; set; }
 
         public virtual Sub_Categroy Sub_Categroy { get; set; }
+
+        
     }
 }

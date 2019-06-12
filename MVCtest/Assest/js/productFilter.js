@@ -60,10 +60,13 @@ function fnFilter(condition) {
     //篩選 
     filterList.forEach(function (element) {
         for (var i = 0; i < $productItem.length; i++) {
-            if ($($productItem[i]).attr('data-' + condition) == element) {
+            var test = $($productItem[i]).attr('data-' + condition).val();
+            if (($($productItem[i]).attr('data-' + condition)).indexOf(element+" ") != -1) {
+               
                 $($productItem[i]).addClass('show show-' + condition);
             }
             else {
+               
                 $($productItem[$productItem.length-1]).addClass('show-' + condition)
             }
         }

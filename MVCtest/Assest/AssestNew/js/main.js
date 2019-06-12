@@ -106,21 +106,28 @@ $(window).on('load', function() {
         }
         //篩選 
         filterList.forEach(function (element) {
+            $($productItem).hide();
             for (var i = 0; i < $productItem.length; i++) {
-                if ($($productItem[i]).attr('data-' + condition) == element) {
+                //var test = $($productItem[i]).attr('data-' + condition);
+                //var a = test;
+                if (($($productItem[i]).attr('data-' + condition)).indexOf(element) != -1) {
+                    
                     $($productItem[i]).addClass('show show-' + condition);
+                    $('.show').fadeIn();
                 }
                 else {
                     $($productItem[$productItem.length - 1]).addClass('show-' + condition)
                 }
+                
             }
+            
+           
         })
 
         if ($($productItem).hasClass('show') || filterList.length == 0) {
             fnShow();
         }
-        $($productItem).hide();
-        $('.show').fadeIn();
+        
 
 
         if (fnIsNoItemChoose()) {
