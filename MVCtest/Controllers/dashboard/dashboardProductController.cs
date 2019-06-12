@@ -3,7 +3,9 @@ using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -79,11 +81,68 @@ namespace MVCtest.Controllers.dashboard
             var d = new { datas };
             return Json(d, JsonRequestBehavior.AllowGet);
         }
+
+
+        [HttpPost]
+        public ActionResult createProduct(ProductViewModel pvm){
+            try {
+                ProductViewModel pvmm = new ProductViewModel();
+                var httprequest = HttpContext.Request;
+                string filename = null;
+                foreach (string file in httprequest.Files) {
+                    var postfile = httprequest.Files[file];
+                    if(postfile != null && postfile.ContentLength > 0) {
+                        Debug.Print("upload");
+                        int MaxContentLength = 1024 * 1024 * 1; //Size = 1 MB  
+                        List<string> AllowedFileExtensions = new List<string> { ".jpg", ".gif", ".png" };
+                        var ext = postfile.FileName.Substring(postfile.FileName.LastIndexOf('.'));
+                        var extension = ext.ToLower();
+                        if (!AllowedFileExtensions.Contains(extension)) {
+
+                            var message = string.Format("Please Upload image of type .jpg,.gif,.png.");
+
+
+                            return Json("Please Upload image of type .jpg,.gif,.png.");
+                        } else if (postfile.ContentLength > MaxContentLength) {
+                            return Json("Please Upload a file upto 1 mb.");
+                        } else {
+
+
+
+                            var filePath = HttpContext.Server.MapPath("/Assest/images/c/" + postfile.FileName);
+
+                            postfile.SaveAs(filePath);
+
+                        }
+                    }
+                    //filename = postfile.FileName.Substring(postfile.FileName.LastIndexOf('.'));
+                    filename = postfile.FileName.ToLower();
+                }
+
+                pvmm.Product_Name = pvm.Product_Name;
+                pvmm.UnitPrice = pvm.UnitPrice;
+                pvmm.Sub_Category_Name = pvm.Sub_Category_Name;
+                pvmm.CategoryGroup_Name = pvm.CategoryGroup_Name;
+
+                pvmm.Product_Image = pvm.Product_Image;
+                Debug.Print(pvmm.Product_Name);
+                Debug.Print(pvmm.UnitPrice);
+                Debug.Print(pvmm.Sub_Category_Name);
+                Debug.Print(pvmm.Product_Image);
+
+            } catch (Exception e) {
+
+
+            }
+
+
+            return View();
+        }
         // view 
         [AuthorizeMaster]
         public ActionResult Index()
-        {            
-
+        {
+            
             return View();
         }
 

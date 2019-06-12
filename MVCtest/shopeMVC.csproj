@@ -194,6 +194,7 @@
     <Compile Include="Service\SaleService.cs" />
     <Compile Include="ViewModels\SaleListViewModel.cs" />
     <Compile Include="ViewModels\SaleViewModel.cs" />
+    <Compile Include="ViewModels\TestViewModlel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
@@ -333,6 +334,8 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetSale.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\upload.css" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\upload.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime6.png" />
     <Content Include="Assest\dashboardAssets\dashboardImg\apple-icon.png" />
@@ -554,6 +557,8 @@
     <Content Include="Assest\AssestNew\Source\sass\style.scss" />
     <Content Include="Assest\AssestNew\Source\SlickNav-master.zip" />
     <Content Include="Assest\AssestNew\Source\zoom-master.zip" />
+    <None Include="Properties\PublishProfiles\shopmvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shopmvc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
