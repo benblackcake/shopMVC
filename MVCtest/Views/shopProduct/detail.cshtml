@@ -36,22 +36,20 @@
 
                     <div class="fw-size-choose">
                         <p>Size</p>
-                        <div class="sc-item">
-                            <input type="radio" name="size" id="s-size" value="S" class="size">
-                            <label for="s-size">S</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" name="size" id="m-size" checked="" value="M" class="size">
-                            <label for="m-size">M</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" name="size" id="l-size" value="L" class="size">
-                            <label for="l-size">L</label>
-                        </div>
-
-                        <div class="sc-item">
-                            <input type="radio" name="size" id="xxl-size" value="XL" class="size">
-                            <label for="xxl-size">XL</label>
+                        @foreach (var i in Model.Size)
+                        {
+                            <div class="sc-item">
+                                <input type="radio" name="size" id="@i-size" value="@i" class="size">
+                                <label for="@i-size">@i</label>
+                            </div>
+                        }
+                    </div>
+                    <div class="fw-color-choose">
+                        <p>Color</p>
+                        <div class="cs-item">
+                            <label><input type="radio" name="color" value="" class="color">白色</label>
+                            <label><input type="radio" name="color" value="" class="color">白色</label>
+                            <label><input type="radio" name="color" value="" class="color">白色</label>
                         </div>
                     </div>
                     <div class="quantity">
@@ -59,7 +57,7 @@
                         <div class="pro-qty">
                             <input name="quantity" type="text" value="1">
                         </div>
-                        <input type="hidden" name="productId" value="@Model.Product_Id" />
+                        <input type="hidden" name="productId" value="@Model.Product_Id" id="productId"/>
                         <input type="hidden" name="cartID" value="@Model.Product_Id" />
                     </div>
                     <button type="submit" class="site-btn">SHOP NOW</button>

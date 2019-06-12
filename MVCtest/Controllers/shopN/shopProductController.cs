@@ -57,17 +57,22 @@ namespace MVCtest.Controllers.shopN
             ProductService ps = new ProductService();
             ProductViewModel result = ps.GetProductDetail(id);
             //ViewBag.Message = "Your contact page.";
-            Debug.Print(id.ToString());
             return View(result);
         }
 
-        [HttpPost]
-        public JsonResult GetProductID(string size)
+        public ActionResult GetColorData(string productId,string size)
         {
-           DBModel db = new DBModel();
-           int value = db.Products.ToList().Find(x => x.Size.Trim() == size).Product_Id;
-           return Json(new {value = value});
-        }
+            DBModel db = new DBModel();
+            var id = int.Parse(productId);
+            var value = db.Product_Detail.Where(x => x.Product_Id == id && x.Size == size).ToList();
+            var result = new List<string>();
 
+            foreach(var i in value)
+            {
+                result.Add(i.Color);
+            }
+
+            return Json(result,JsonRequestBehavior.AllowGet);
+        }
     }
 }

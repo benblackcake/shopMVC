@@ -26,6 +26,7 @@
                                             <th class="productname-th">商品名稱</th>
                                             <th class="size-th">編號</th>
                                             <th class="size-th">規格</th>
+                                            <th class="size-th">顏色</th>
                                             <th class="total-th">單價</th>
                                             <th class="quy-th">數量</th>
                                             <th class="total-th">小計</th>
@@ -36,33 +37,34 @@
 
                                         @foreach (var item in Model)
                                         {
-                                            <tr class="tests">
-                                                <td class="product-col">
-                                                    <img src="@item.ProductImage" alt="商品圖片">
-                                                    @*<div class="pc-title">
-                                            <h4>@item.ProductName</h4>
-                                        </div>*@
-                                                </td>
-                                                <td class="size-col"><h6>@item.ProductName</h6></td>
-                                                <td class="size-col"><h6>@item.ProductNo</h6></td>
-                                                <td class="size-col"><h6>@item.Size</h6></td>
-                                                <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
-                                                <td class="quy-col">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="text" class="qty" value="@item.Quantity">
-                                                            <input type="hidden" name="cartID" value="@item.CartId" />
-                                                        </div>
+                                        <tr class="tests">
+                                            <td class="product-col">
+                                                <img src="@item.ProductImage" alt="商品圖片">
+                                                @*<div class="pc-title">
+                <h4>@item.ProductName</h4>
+            </div>*@
+                                            </td>
+                                            <td class="size-col"><h6>@item.ProductName</h6></td>
+                                            <td class="size-col"><h6>@item.ProductNo</h6></td>
+                                            <td class="size-col"><h6>@item.Size</h6></td>
+                                            <td class="size-col"><h6>@item.Color</h6></td>
+                                            <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
+                                            <td class="quy-col">
+                                                <div class="quantity">
+                                                    <div class="pro-qty">
+                                                        <input type="text" class="qty" value="@item.Quantity">
+                                                        <input type="hidden" name="cartID" value="@item.CartId" />
                                                     </div>
-                                                </td>
-                                                <td class="total-col">
-                                                    <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
-                                                </td>
-                                                <td>
-                                                    <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
-                                                    <input type="hidden" name="cartID" value="@item.CartId" />
-                                                </td>
-                                            </tr>
+                                                </div>
+                                            </td>
+                                            <td class="total-col">
+                                                <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
+                                            </td>
+                                            <td>
+                                                <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
+                                                <input type="hidden" name="cartID" value="@item.CartId" />
+                                            </td>
+                                        </tr>
                                         }
 
                                     </tbody>

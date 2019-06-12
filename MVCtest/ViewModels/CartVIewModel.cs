@@ -15,5 +15,6 @@ namespace MVCtest.ViewModels
         public int? Quantity { get; set; }
         public int Sum { get; set; }
         public string ProductImage { get; set; }
+        public string Color { get; set; }
     }
 }

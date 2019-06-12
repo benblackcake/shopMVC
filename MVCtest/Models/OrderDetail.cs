@@ -9,6 +9,9 @@ namespace MVCtest.Models
     [Table("OrderDetail")]
     public partial class OrderDetail
     {
+        [Key]
+        public int OrderDetail_Id { get; set; }
+
         public int Order_Id { get; set; }
 
         public int Product_Id { get; set; }
@@ -25,10 +28,7 @@ namespace MVCtest.Models
         [StringLength(10)]
         public string Quantity { get; set; }
 
-        [Key]
-        public int OrderDetail_Id { get; set; }
-
-        public virtual Order Order { get; set; }
+        public virtual Order Orders { get; set; }
 
         public virtual Product Product { get; set; }
     }

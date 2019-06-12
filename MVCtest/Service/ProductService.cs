@@ -24,8 +24,8 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image=item.Product_Image
                     
@@ -48,8 +48,8 @@ namespace MVCtest.Service
                     Product_Id = item.Product_Id,
                     Product_Name = item.Product_Name,
                     UnitPrice = item.UnitPrice,
-                    Size = item.Size,
-                    Stock = item.Stock,
+                    //Size = item.Size,
+                    //Stock = item.Stock,
                     Category_Id = item.Category_Id,
                     Product_Image = item.Product_Image
 
@@ -80,8 +80,8 @@ namespace MVCtest.Service
                           Product_Name = p.Product_Name,
                           Product_Image = p.Product_Image,
                           UnitPrice = p.UnitPrice,
-                          Size = p.Size,
-                          Stock = p.Stock
+                          //Size = p.Size,
+                          //Stock = p.Stock
                       };
 
             foreach (var item in tmp)
@@ -93,15 +93,29 @@ namespace MVCtest.Service
 
         public ProductViewModel GetProductDetail(int id) {
             DBModel contex = new DBModel();
-            DbRepository<Product> repo = new DbRepository<Product>(contex);
+            DbRepository<Product> repoProduct = new DbRepository<Product>(contex);
+            DbRepository<Product_Detail> repoProductDetail = new DbRepository<Product_Detail>(contex);
 
-            Product p =repo.GetAll().FirstOrDefault((x) => x.Product_Id==id);
+            Product p =repoProduct.GetAll().FirstOrDefault((x) => x.Product_Id==id);
             List<string> size = new List<string>();
+
+            var result = repoProduct.GetAll().Join(repoProductDetail.GetAll(),
+                                                  t1 => t1.Product_Id,
+                                                  t2 => t2.Product_Id,
+                                                 (t1, t2) => new { id = t1.Product_Id, size = t2.Size })
+                                                 .Where(x=>x.id==id)
+                                                 .GroupBy(x => new { x.size });                                                 
+            foreach(var i in result)
+            {
+                size.Add(i.Key.size);
+            }
+                
             ProductViewModel pro = new ProductViewModel() {
                 Product_Id=p.Product_Id,
                 Product_Name=p.Product_Name,
                 UnitPrice=p.UnitPrice,
-                Product_Image=p.Product_Image
+                Product_Image=p.Product_Image,
+                Size = size
             };
             return pro;
         }

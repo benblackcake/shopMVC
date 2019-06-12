@@ -53,15 +53,17 @@ namespace MVCtest.Service
             db = new DBModel();
             DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
             DbRepository<Product> repoProduct = new DbRepository<Product>(db);
+            DbRepository<Product_Detail> repoProductDetail = new DbRepository<Product_Detail>(db);
+
             List<CartViewModel> cartViewModel = new List<CartViewModel>();
             var result =
                  from c in repoCart.GetAll()
-                 join p in repoProduct.GetAll()
-                 on c.Product_ID equals p.Product_Id
-                 where c.Customer_ID == customerID
+                 join p in repoProduct.GetAll() on c.Product_ID equals p.Product_Id
+                 join pd in repoProductDetail.GetAll() on p.Product_Id equals pd.Product_Id 
+                 where c.Customer_ID == customerID 
                  select
                  new CartViewModel
-                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = p.Size, Quantity = c.Quantity, ProductImage = p.Product_Image };
+                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = pd.Size, Quantity = c.Quantity, ProductImage = p.Product_Image,Color=pd.Color };
 
             cartViewModel = result.ToList();
             return cartViewModel;
@@ -130,7 +132,6 @@ namespace MVCtest.Service
                 recipient_Name = recipient_Name,
                 recipient_Phone = recipient_Phone,
                 recipient_Adress = recipient_Address,
-                
                 OrderDetails = od
             };
 

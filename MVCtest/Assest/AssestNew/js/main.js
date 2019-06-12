@@ -457,27 +457,24 @@ $(window).on('load', function() {
     })
 
 
-    var size = "";
+    //ProductDetail
     $('.size').on('click', function () {
         var $this = $(this);
-        size = $this.val();
-        getProductID(size);
-    })
-
-    function getProductID(value) {
-
-       $.ajax({
+        var $size = $this.val();
+        var $productId = $('#productId').val();
+        $.ajax({
             type: "POST",
             cache: "false",
-            data: { "size": value },
-            dataType:"JSON",
-            url: "/shopProduct/GetProductID",
+            dataType: "JSON",
+            data: { "productId": $productId, "size": $size },
+            url: "/shopProduct/GetColorData",
             success:
-                function (res) {
-                    $('.productNo').text(res.value);
-               }
+                function (callback) {
+                    console.log(callback);
+                }
         });
-    }
+    })
+
 
 	/*------------------
 		Single Product

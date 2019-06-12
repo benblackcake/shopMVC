@@ -13,7 +13,7 @@ namespace MVCtest.ViewModels
         public string UnitPrice { get; set; }
         public string Stock { get; set; }
         public string Product_Image { get; set; }
-        public string Size { get; set; }
+        public List<string> Size { get; set; }
 
         public double Weight { get; set; }
 

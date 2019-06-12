@@ -6,26 +6,21 @@ namespace MVCtest.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Sub_Categroy
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sub_Categroy()
+        public AspNetRoles()
         {
-            Product = new HashSet<Product>();
+            AspNetUsers = new HashSet<AspNetUsers>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Sub_Category_ID { get; set; }
+        public string Id { get; set; }
 
-        [StringLength(50)]
-        public string Category_Name { get; set; }
-
-        public int? Category_ID { get; set; }
-
-        public virtual CategoryGroup CategoryGroup { get; set; }
+        [Required]
+        [StringLength(256)]
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }
