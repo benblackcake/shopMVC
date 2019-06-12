@@ -80,7 +80,14 @@ namespace MVCtest.Controllers
             return View(olv);
         }
 
+        public ActionResult GetOrderDetail(int orderId)
+        {
+            int id = (int)Session["id"];
+            OrderService os = new OrderService();
+            var result = os.GetOrderDetaul(id, orderId);
 
+            return View(result);
+        }
 
     }
 }

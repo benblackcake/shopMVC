@@ -187,6 +187,7 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\Shippers.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="ViewModels\OrderDetailViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
@@ -638,6 +639,7 @@
     <Content Include="Views\Menu\CountCart.cshtml" />
     <Content Include="Views\shopMember\Index.cshtml" />
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\GetOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -89,5 +89,28 @@ namespace MVCtest.Service
         //    return true;
             
         //}
+        public List<OrderDetailViewModel> GetOrderDetaul(int customerId,int orderId)
+        {
+            DBModel db = new DBModel();
+            var result =
+                from o in db.Order.ToList()
+                join od in db.OrderDetail.ToList()
+                on o.Order_ID equals od.Order_Id
+                join pd in db.Product_Detail.ToList()
+                on od.Product_Detail_Id equals pd.Product_Detail_Id
+                where o.Customer_ID == customerId && o.Order_ID==orderId
+                select
+                new OrderDetailViewModel
+                {
+                    orderId = o.Order_ID,
+                    productName = od.Product_Name,
+                    quantity = od.Quantity,
+                    unitPrice = od.UnitPrice,
+                    color = pd.Color,
+                    size = pd.Size
+                };
+
+            return result.ToList();
+        }
     }
 }
