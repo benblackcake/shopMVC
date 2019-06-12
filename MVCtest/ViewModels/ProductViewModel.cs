@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCtest.ViewModels
 {
-    public class ProductViewModel
+    public  class  ProductViewModel
     {
         public int Product_Id { get; set; }
         public string Product_Name { get; set; }
