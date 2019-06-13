@@ -38,9 +38,33 @@
         },
         {
             "data": null,
-            "defaultContent": '<button type="button" class="btn btn-dark">Edit</button>'
+            "defaultContent": '<button type="button" class="btn btn-primary">Edit</button>'
                 + '&nbsp;&nbsp' +
-                '<button type="button" class="btn btn-danger">Delete</button>'
+                '<button type="button" class="btn btn-danger delete">Delete</button>'
         }
     ]
 });
+var value = "";
+var value2 = "";
+$('#datatables tbody').on('click', '.btn-danger', function () {
+    var $this = $(this);
+    value = $this.parent().parent().find('td:first-child').text();
+    value2 = $this.parent().parent().find('td:first-child').next().text();
+    deleteSale(value, value2);
+    
+    
+});
+
+function deleteSale(value,value2) {
+    $.ajax({
+        cache: "false",
+        type: "POST",
+        url: "/dashboardSale/DeleteSale",
+        data: { Sale_ID: value,Sale_Product: value2 },
+        success:
+            function () {
+                history.go(0)
+            }
+    });
+
+}

@@ -78,7 +78,7 @@ namespace MVCtest.Service
         {
             DBModel context = new DBModel();
             DbRepository<Cart> repoCart = new DbRepository<Cart>(context);
-
+            
             Cart cus = repoCart.GetAll().FirstOrDefault((x) => x.Cart_ID == CartId);
             repoCart.Delete(cus);
             context.SaveChanges();
