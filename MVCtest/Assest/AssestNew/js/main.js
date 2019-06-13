@@ -491,6 +491,13 @@ $(window).on('load', function() {
                 }
         });
     })
+
+    $('.add-card-btn').on('click', function () {
+        var $color = $('.color');
+        if ($color.is(':checked') == false) {
+            alert('請選擇一個顏色!');
+        }
+    })
 	/*------------------
 		Single Product
 	--------------------*/

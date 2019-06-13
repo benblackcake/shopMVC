@@ -62,6 +62,7 @@ namespace MVCtest.Service
                 join pay in repoPayment.GetAll()
                 on o.Payment_ID equals pay.Payment_ID
                 group od by new { o.Order_ID, o.Order_Date, o.Status, pay.Payment_Name } into g
+                orderby g.Key.Order_ID descending
                 select new OrderTrackingViewModel
                 {
                     OrderId = g.Key.Order_ID,
