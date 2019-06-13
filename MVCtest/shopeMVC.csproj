@@ -334,8 +334,8 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetCustomer.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
-    <Content Include="Assest\dashboardAssets\dashboardDemo\GetProductDetailId.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetSale.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\SaveOrderDetail.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\upload.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\upload.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />

@@ -10,7 +10,7 @@ namespace MVCtest.Controllers.dashboard
 {
     public class dashboardUpdateOdController : Controller
     {
-        // GET: dashboardUpdateOd
+        //// GET: dashboardUpdateOd
         public ActionResult Index()
         {
             return View();
@@ -55,6 +55,7 @@ namespace MVCtest.Controllers.dashboard
             value.Quantity = int.Parse(quantity);
             db.SaveChanges();
             return RedirectToAction("Index","dashboardUpdateOd");
+
         }
 
         public ActionResult DeleteOrderDetail(int odId)
