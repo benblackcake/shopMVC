@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/_shop.cshtml";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- cart section end -->
+
+<link href="~/Assest/AssestNew/css/CartRWD.css" rel="stylesheet" />
+
+<!-- cart section end -->
 <section class="cart-section spad">
     <div class="container">
         <div class="row">
@@ -19,72 +22,97 @@
                         @if (Model.Count != 0)
                         {
                             <div class="cart-table-warp">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="product-th">商品圖片</th>
-                                            <th class="productname-th">商品名稱</th>
-                                            <th class="size-th">編號</th>
-                                            <th class="size-th">規格</th>
-                                            <th class="size-th">顏色</th>
-                                            <th class="total-th">單價</th>
-                                            <th class="quy-th">數量</th>
-                                            <th class="total-th">小計</th>
-                                            <th class="total-th">刪除</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <div class="table">
+                                    <div class="thead">
+                                        <div class="tr">
+                                            <h6 class="product-th">商品圖片</h6>
+                                            <div class="item-flex">
+                                                <h6 class="productname-th">商品名稱</h6>
+                                                <h6 class="size-th">編號</h6>
+                                                <h6 class="size-th">規格</h6>
+                                                <h6 class="size-th">顏色</h6>
+                                                <h6 class="total-th">單價</h6>
+                                            </div>
+                                            <div  class="backRWD">
+                                                <h6 class="quy-th">數量</h6>
+                                                <h6 class="total-th">小計</h6>
+                                                <h6 class="total-th">刪除</h6>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="tbody">
 
                                         @foreach (var item in Model)
                                         {
-                                        <tr class="tests">
-                                            <td class="product-col">
-                                                <img src="@item.ProductImage" alt="商品圖片">
-                                                @*<div class="pc-title">
-                <h4>@item.ProductName</h4>
-            </div>*@
-                                            </td>
-                                            <td class="size-col"><h6>@item.ProductName</h6></td>
-                                            <td class="size-col"><h6>@item.ProductNo</h6></td>
-                                            <td class="size-col"><h6>@item.Size</h6></td>
-                                            <td class="size-col"><h6>@item.Color</h6></td>
-                                            <td class="total-col unitPrice"><h6>@item.Unitprice</h6></td>
-                                            <td class="quy-col">
-                                                <div class="quantity">
-                                                    <div class="pro-qty">
-                                                        <input type="text" class="qty" value="@item.Quantity">
-                                                        <input type="hidden" name="cartID" value="@item.CartId" />
+                                            <div class="tests">
+                                                <div class="item product-col">
+                                                    <img src="@item.ProductImage" alt="商品圖片">
+                                                    @*<div class="pc-title">
+                                                            <h4>@item.ProductName</h4>
+                                                        </div>*@
+                                                </div>
+                                                <div class="item-flex">
+                                                    <div class="item" id="product-name">
+                                                        <h6>@item.ProductName</h6>
+                                                    </div>
+                                                    <div class="item">
+                                                        <h6 style="color:gray;">@item.ProductNo</h6>
+                                                    </div>
+                                                    <div class="item" >
+                                                        <h6>@item.Size</h6>
+                                                    </div>
+                                                    <div class="item">
+                                                        <h6>@item.Color</h6>
+                                                    </div>
+                                                    <div class="item total-col unitPrice">
+                                                        <h6>@item.Unitprice</h6>
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td class="total-col">
-                                                <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
-                                            </td>
-                                            <td>
-                                                <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
-                                                <input type="hidden" name="cartID" value="@item.CartId" />
-                                            </td>
-                                        </tr>
+                                                
+
+                                                <section class="backRWD">
+                                                    <div class="item" id="pdsize">
+                                                        <div class="quantity">
+                                                            <div class="pro-qty">
+                                                                <input type="text" class="qty" value="@item.Quantity">
+                                                                <input type="hidden" name="cartID" value="@item.CartId" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item" id="pdcolor">
+                                                        <h6 class="eachPrice">$@(item.Quantity * int.Parse(item.Unitprice))</h6>
+                                                    </div>
+                                                    <div class="item" id="pdprice">
+                                                        <sapn class="delete" name="delete"><i class="fa fa-trash-o"></i></sapn>
+                                                        <input type="hidden" name="cartID" value="@item.CartId" />
+                                                    </div>
+                                                </section>
+                                                
+                                            </div>
                                         }
 
-                                    </tbody>
-                                </table>
+                                    </div>
+                                </div>
                             </div>
                             <div class="total-cost">
-                                <h6>Total <span id="total">$0</span></h6>
+                                <h6>
+                                    Total
+                                    <span id="total">$0</span>
+                                </h6>
                             </div>
                         }
                     </div>
                     @if (Model.Count != 0)
                     {
-                        <div class="d-flex justify-content-lg-end bottom-btn">
+                        <div class="d-flex justify-content-lg-end bottom-btn" id="end">
                             <a href="~/shopIndex/Index2" class="site-btn sb-dark">繼續購物</a>
                             <span class="site-btn checkout" id="nextStep">下一步</span>
                         </div>
                     }
                     @if (Model.Count == 0)
                     {
-                        <div class="d-flex justify-content-lg-end bottom-btn">
+                        <div class="d-flex justify-content-lg-end bottom-btn" id="end2">
                             <a href="~/shopIndex/Index2" class="site-btn sb-dark">繼續購物</a>
                         </div>
 
@@ -92,63 +120,63 @@
                 </div>
 
                 <form action="/shopCart/SaveOrder" method="post">
-                <div class="step2" style="display:none;">
-                    <div class="cart-table">
-                        <h3>Please provide information about the recipient</h3>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            選擇配送方式:
-                                            <select name="shipperID" required="required">
-                                                <option value=""></option>
-                                                <option value="1">7-11超商</option>
-                                                <option value="2">全家超商</option>
-                                                <option value="3">黑貓宅急便</option>
-                                            </select>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            選擇付款方式:
-                                            <select name="paymentID" required="required">
-                                                <option value=""></option>
-                                                <option value="1">信用卡</option>
-                                                <option value="2">貨到付款</option>
-                                                <option value="3">分期</option>
-                                            </select>
-                                        </label>
-                                    </td>
-                                </tr>
+                    <div class="step2" style="display:none;">
+                        <div class="cart-table">
+                            <h3>Please provide information about the recipient</h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                選擇配送方式:
+                                                <select name="shipperID" required="required">
+                                                    <option value=""></option>
+                                                    <option value="1">7-11超商</option>
+                                                    <option value="2">全家超商</option>
+                                                    <option value="3">黑貓宅急便</option>
+                                                </select>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                選擇付款方式:
+                                                <select name="paymentID" required="required">
+                                                    <option value=""></option>
+                                                    <option value="1">信用卡</option>
+                                                    <option value="2">貨到付款</option>
+                                                    <option value="3">分期</option>
+                                                </select>
+                                            </label>
+                                        </td>
+                                    </tr>
 
-                                <tr>
-                                    <td>
-                                        <label><span>收件人姓名:</span> <input type="text" name="recipient_Name" value="" required="required"/></label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label><span>手機號碼:</span><input type="tel" name="recipient_Phone" value="" required="required"/></label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label><span>超商地址:</span> <input type="text" name="recipient_Address" value="" class="input-address" required="required"/></label>
-                                    </td>
-                                </tr>
-                                <tr></tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>
+                                            <label><span>收件人姓名:</span> <input type="text" name="recipient_Name" value="" required="required" /></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label><span>手機號碼:</span><input type="tel" name="recipient_Phone" value="" required="required" /></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label><span>超商地址:</span> <input type="text" name="recipient_Address" value="" class="input-address" required="required" /></label>
+                                        </td>
+                                    </tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-lg-end bottom-btn">
+                            <span class="site-btn sb-dark" id="preStep">上ㄧ步</span>
+                            <input type="submit" name="name" value="完成" class="site-btn checkout" />
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-lg-end bottom-btn">
-                        <span class="site-btn sb-dark" id="preStep">上ㄧ步</span>
-                        <input type="submit" name="name" value="完成" class="site-btn checkout"/>
-                    </div>
-                </div>
-                    </form>
+                </form>
             </div>
         </div>
     </div>
