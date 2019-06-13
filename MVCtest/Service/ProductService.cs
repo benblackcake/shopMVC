@@ -17,9 +17,7 @@ namespace MVCtest.Service
             DBModel contex = new DBModel();
             DbRepository<Product> repo = new DbRepository<Product>(contex);
             DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
-
-
-
+           
             foreach (var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
             {
                 //foreach (var item2 in (repd.GetAll().OrderBy((x) => x.Product_Detail_Id)))
@@ -47,6 +45,45 @@ namespace MVCtest.Service
             }
             return result;
         }
+
+        public ProductListViewModel GetSalesProducts()
+        {
+            ProductListViewModel result = new ProductListViewModel();
+            result.Items = new List<ProductViewModel>();
+            DBModel contex = new DBModel();
+            DbRepository<Product> repo = new DbRepository<Product>(contex);
+            DbRepository<Product_Detail> repd = new DbRepository<Product_Detail>(contex);
+
+            foreach (var item in (repo.GetAll().OrderBy((x) => x.Product_Id))/*.Take(4)*/)    /* 增加 take(4)  --> 首頁取4筆*/
+            {
+                //foreach (var item2 in (repd.GetAll().OrderBy((x) => x.Product_Detail_Id)))
+                //{
+                if (item.Product_Sale == "1")
+                {
+                    var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
+                    ProductViewModel p = new ProductViewModel()
+                    {
+                        //Product_Id = item.Product_Id,
+                        Product_Name = item.Product_Name,
+                        UnitPrice = item.UnitPrice,
+                        Category_Id = item.Category_Id,
+                        Product_Image = item.Product_Image,
+                        Product_Detail = pd.ToList()
+                        //Product_Detail_Id = item2.Product_Detail_Id,
+                        //Product_Id = item2.Product_Id,
+                        //Color = item2.Color,
+                        //Size = item2.Size,
+                        //Stock = item2.Stock
+                    };
+                    result.Items.Add(p);
+                }               
+                //}
+            }
+            return result;
+        }
+
+
+
         // add for top search
         public ProductListViewModel SearchProducts(string Product_NAME)
         {

@@ -35,9 +35,18 @@ namespace MVCtest.Controllers.shopN
                     switch (i)
                     {
                         case "category":
-                            psv = ps.GetCategoryProduct(int.Parse(Request.QueryString["category"]));
-                            Debug.Print("catrgory");
-                            break;
+                            if (int.Parse(Request.QueryString["category"]) == 124)
+                            {
+                                psv = ps.GetSalesProducts();
+                                break;
+                            }
+                            else
+                            {
+                                psv = ps.GetCategoryProduct(int.Parse(Request.QueryString["category"]));
+                                Debug.Print("catrgory");
+                                break;
+                            }
+                           
 
                         case "subcategory":
                             psv = ps.GetSubCategoryProduct(int.Parse(Request.QueryString["subcategory"]));
@@ -51,6 +60,7 @@ namespace MVCtest.Controllers.shopN
                     return View(psv);
 
                 }
+                
                 psv = ps.GetProducts();
                 return View(psv);
             }
