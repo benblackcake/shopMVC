@@ -60,6 +60,7 @@ namespace MVCtest.Service
             DbRepository<Sale> repo = new DbRepository<Sale>(context);
             Sale cus = repo.GetAll().FirstOrDefault((x) => x.Sale_ID == id);
             repo.Delete(cus);
+           
             context.SaveChanges();
             
         }

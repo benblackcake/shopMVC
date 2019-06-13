@@ -76,14 +76,14 @@ namespace MVCtest.Controllers.dashboard
 
         }
         [HttpPost]
-        public ActionResult DeleteSale(string Sale_ID)
+        public ActionResult DeleteSale(int Sale_ID, string Sale_Product)
         {
 
             ProductService os = new ProductService();
             SaleService service = new SaleService();
             DBModel db = new DBModel();
-            var sid = int.Parse(Sale_ID);
-            service.Delete(sid);
+            os.updatesale1(Sale_Product);
+            service.Delete(Sale_ID);
             //var value = db.Sale.Where(x => x.Sale_ID == sid).FirstOrDefault();
             //db.Sale.Remove(value);
             //db.SaveChanges();

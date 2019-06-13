@@ -50,16 +50,17 @@ $('#datatables tbody').on('click', '.btn-danger', function () {
     var $this = $(this);
     value = $this.parent().parent().find('td:first-child').text();
     value2 = $this.parent().parent().find('td:first-child').next().text();
-    deleteSale(value);
+    deleteSale(value, value2);
+    
     
 });
 
-function deleteSale(value) {
+function deleteSale(value,value2) {
     $.ajax({
         cache: "false",
         type: "POST",
         url: "/dashboardSale/DeleteSale",
-        data: { Sale_ID: value },
+        data: { Sale_ID: value,Sale_Product: value2 },
         success:
             function () {
                 history.go(0)

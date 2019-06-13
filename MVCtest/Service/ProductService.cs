@@ -227,27 +227,18 @@ namespace MVCtest.Service
         public void updatesale(string Sale_Product)
         {
 
-            DBModel contex = new DBModel();
-            
-              
-            var result = contex.Product.FirstOrDefault(b => b.Product_Name == Sale_Product);
-            if(contex.Product.FirstOrDefault((x)=>x.Product_Sale=="0")!=null)
-            {
+            DBModel context = new DBModel();
+            var result = context.Product.SingleOrDefault(x => x.Product_Name == Sale_Product && x.Product_Sale == "0");
+                result.Product_Sale ="1";
+                context.SaveChanges();
+        }
+        public void updatesale1(string Sale_Product)
+        {
 
-                    result.Product_Sale = "1";
-                    contex.SaveChanges();
-                   
-
-            }else if(contex.Product.FirstOrDefault((x) => x.Product_Sale == "0") == null)
-            {
-
-                result.Product_Sale = "0";
-                contex.SaveChanges();
-                
-
-            }
-                   
-          
+            DBModel context = new DBModel();
+            var result = context.Product.SingleOrDefault(x => x.Product_Name == Sale_Product && x.Product_Sale == "1");
+            result.Product_Sale = "0";
+            context.SaveChanges();
         }
 
         //API GetProduct
