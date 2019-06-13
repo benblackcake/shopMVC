@@ -199,6 +199,7 @@
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\TopSaleListViewModel.cs" />
     <Compile Include="ViewModels\TopSaleViewModel.cs" />
+    <Content Include="Assest\AssestNew\css\CartRWD.css" />
     <Content Include="Assest\dashboardAssets\dashboardCss\dashboardindex.css" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
