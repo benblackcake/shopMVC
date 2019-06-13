@@ -224,6 +224,31 @@ namespace MVCtest.Service
                 return false;
             }
         }
+        public void updatesale(string Sale_Product)
+        {
+
+            DBModel contex = new DBModel();
+            
+              
+            var result = contex.Product.FirstOrDefault(b => b.Product_Name == Sale_Product);
+            if(contex.Product.FirstOrDefault((x)=>x.Product_Sale=="0")!=null)
+            {
+
+                    result.Product_Sale = "1";
+                    contex.SaveChanges();
+                   
+
+            }else if(contex.Product.FirstOrDefault((x) => x.Product_Sale == "0") == null)
+            {
+
+                result.Product_Sale = "0";
+                contex.SaveChanges();
+                
+
+            }
+                   
+          
+        }
 
         //API GetProduct
         public ProductListViewModel GetAllProduct(){

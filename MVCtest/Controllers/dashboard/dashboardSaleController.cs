@@ -5,6 +5,7 @@ using MVCtest.Service;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -50,28 +51,46 @@ namespace MVCtest.Controllers.dashboard
         }
         [HttpPost]
         public ActionResult Create(SaleViewModel input)
-        {
+        {            
             SaleViewModel cvm = new SaleViewModel();
             cvm.Sale_Product = input.Sale_Product;
             cvm.Sale_UnPrice = input.Sale_UnPrice;
             cvm.Sale_FristDate = input.Sale_FristDate;
             cvm.Sale_LastDate = input.Sale_LastDate;
             SaleService service = new SaleService();
-            if (cvm.Sale_Product==input.Sale_Product)
+            ProductService os = new ProductService();
+            if (service.Create(cvm))
             {
 
-
-                TempData["message"] = "有此產品了";
+               
+                os.updatesale(input.Sale_Product);
                 return RedirectToAction("Index", "dashboardSale");
             }
             else
             {
-                service.Create(cvm);
+                
+                TempData["message"] = "有此產品了";
                 return RedirectToAction("Index", "dashboardSale");
             }
 
 
         }
+        [HttpPost]
+        public ActionResult DeleteSale(string Sale_ID)
+        {
+
+            ProductService os = new ProductService();
+            SaleService service = new SaleService();
+            DBModel db = new DBModel();
+            var sid = int.Parse(Sale_ID);
+            service.Delete(sid);
+            //var value = db.Sale.Where(x => x.Sale_ID == sid).FirstOrDefault();
+            //db.Sale.Remove(value);
+            //db.SaveChanges();
+            return RedirectToAction("Index", "dashboardSale");
+
+        }
+
 
     }
 }
