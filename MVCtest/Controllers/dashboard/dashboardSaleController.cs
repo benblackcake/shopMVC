@@ -88,7 +88,7 @@ namespace MVCtest.Controllers.dashboard
             //db.Sale.Remove(value);
             //db.SaveChanges();
             return RedirectToAction("Index", "dashboardSale");
-
+                   
         }
 
 
