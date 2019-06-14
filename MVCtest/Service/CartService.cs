@@ -47,24 +47,57 @@ namespace MVCtest.Service
 
         public List<CartViewModel> GetListCart(int customerID)
         {
-
             db = new DBModel();
             DbRepository<Cart> repoCart = new DbRepository<Cart>(db);
             DbRepository<Product> repoProduct = new DbRepository<Product>(db);
             DbRepository<Product_Detail> repoProductDetail = new DbRepository<Product_Detail>(db);
 
-            List<CartViewModel> cartViewModel = new List<CartViewModel>();
-            var result =
+            List<CartViewModel> cartViewModelList = new List<CartViewModel>();
+            var value =
                  from c in repoCart.GetAll()
                  join pd in repoProductDetail.GetAll() on c.Product_Detail_Id equals pd.Product_Detail_Id
                  join p in repoProduct.GetAll() on pd.Product_Id equals p.Product_Id
-                 where c.Customer_ID == customerID 
+                 where c.Customer_ID == customerID
                  select
-                 new CartViewModel
-                { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = pd.Size, Quantity = c.Quantity, ProductImage = p.Product_Image,Color=pd.Color };
+                 new //CartViewModel
+                 { CartId = c.Cart_ID, ProductName = p.Product_Name, ProductNo = p.Product_Id, Unitprice = p.UnitPrice, Size = pd.Size, Quantity = c.Quantity, ProductImage = p.Product_Image, Color = pd.Color };
 
-            cartViewModel = result.ToList();
-            return cartViewModel;
+            var result = value.ToList();
+            for (var i = 0; i < result.Count(); i++)
+            {
+                var price = "";
+                var valueprice = db.Product.ToList().Join(db.Sale.ToList(),
+                                    t1 => t1.Product_Name,
+                                    t2 => t2.Sale_Product,
+                                    (t1, t2) => new { pid = t1.Product_Id, t1.Product_Sale, t2.Sale_UnPrice })
+                                    .FirstOrDefault(x => x.pid == result[i].ProductNo && x.Product_Sale == "1");
+
+
+
+                if (valueprice != null)
+                {
+                    price = valueprice.Sale_UnPrice;
+                }
+                else
+                {
+                    price = result[i].Unitprice;
+                }
+
+                CartViewModel cartViewModel = new CartViewModel()
+                {
+                    CartId = result[i].CartId,
+                    ProductName = result[i].ProductName,
+                    ProductNo = result[i].ProductNo,
+                    Unitprice = price,
+                    Size = result[i].Size,
+                    Color = result[i].Color,
+                    Quantity = result[i].Quantity,
+                    ProductImage = result[i].ProductImage,
+                };
+                cartViewModelList.Add(cartViewModel);
+            }
+
+            return cartViewModelList;
         }
         public void Delete(int id)
         {   

@@ -86,7 +86,7 @@ namespace MVCtest.Service
                         var pd = repd.GetAll().Where((x) => x.Product_Id == item.Product_Id);
                         ProductViewModel p = new ProductViewModel()
                         {
-                           
+                            Product_Id = item.Product_Id,
                             Product_Name = item.Product_Name,
                             UnitPrice = item2.Sale_UnPrice,
                             Category_Id = item.Category_Id,
@@ -297,6 +297,22 @@ namespace MVCtest.Service
             DbRepository<Product_Detail> repoProductDetail = new DbRepository<Product_Detail>(contex);
 
             Product p =repoProduct.GetAll().FirstOrDefault((x) => x.Product_Id==id);
+            var price = contex.Product.ToList().Join(contex.Sale.ToList(),
+                                                     t1 => t1.Product_Name,
+                                                     t2 => t2.Sale_Product,
+                                                     (t1, t2) => new { pid = t1.Product_Id, t1.Product_Sale, t2.Sale_UnPrice })
+                                                     .FirstOrDefault(x => x.pid == id && x.Product_Sale == "1");
+            var realprice = p.UnitPrice;
+            if (price != null)
+            {
+                realprice = price.Sale_UnPrice;
+            }
+            else
+            {
+                realprice = p.UnitPrice;
+            }
+
+
             List<string> size = new List<string>();
 
             var result = repoProduct.GetAll().Join(repoProductDetail.GetAll(),
@@ -313,7 +329,7 @@ namespace MVCtest.Service
             ProductViewModel pro = new ProductViewModel() {
                 Product_Id=p.Product_Id,
                 Product_Name=p.Product_Name,
-                UnitPrice=p.UnitPrice,
+                UnitPrice=realprice,
                 Product_Image=p.Product_Image,
                 Size = size
             };
