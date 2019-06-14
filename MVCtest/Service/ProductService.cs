@@ -187,6 +187,22 @@ namespace MVCtest.Service
             DbRepository<Product_Detail> repoProductDetail = new DbRepository<Product_Detail>(contex);
 
             Product p =repoProduct.GetAll().FirstOrDefault((x) => x.Product_Id==id);
+            var pp = contex.Product.ToList().Join(contex.Sale.ToList(),
+                                                t1 => t1.Product_Name,
+                                                t2 => t2.Sale_Product,
+                                                (t1, t2) => new { pid = t1.Product_Id, t1.Product_Sale, t2.Sale_UnPrice })
+                                                .FirstOrDefault(x => x.pid == id && x.Product_Sale == "1");
+
+            var price = "";
+
+            if(pp!=null)
+            {
+                price = pp.Sale_UnPrice;
+            }
+            else
+            {
+                price = p.UnitPrice;
+            }
             List<string> size = new List<string>();
 
             var result = repoProduct.GetAll().Join(repoProductDetail.GetAll(),
@@ -203,7 +219,7 @@ namespace MVCtest.Service
             ProductViewModel pro = new ProductViewModel() {
                 Product_Id=p.Product_Id,
                 Product_Name=p.Product_Name,
-                UnitPrice=p.UnitPrice,
+                UnitPrice=price,
                 Product_Image=p.Product_Image,
                 Size = size
             };
