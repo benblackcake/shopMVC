@@ -1,34 +1,78 @@
 ﻿@model List<MVCtest.ViewModels.OrderDetailViewModel>
 @{
     ViewBag.Title = "GetOrderDetail";
-    Layout = null;
 }
 
+@section topCSS{
+<style>
+    .order-table{
+        background:#ddd;
+        margin: 0 200px 80px 200px;
+        height:500px;
+        border-radius:30px;
+        text-align:center;
+        overflow:hidden;
+    }
+    .back-order {
+        margin: 80px 200px 10px;
+        display:inline-block;
+    }
+    .order-table .orderid{
+        padding:20px;    
+        background:#f51167;
+        color:#fff;
+        font-size:36px;
+    }
+    .order-table table{
+        margin:10px;    
+        width:1059px;
+    }
+    .order-table table tr{
+        display:flex;
+        justify-content:center;
+        margin-bottom:10px;
+        border-bottom:#000000 2px solid;
+        padding:10px;
+    }
 
-<div class="container-fluid text-center">
-    <h1>訂單編號:@Model[0].orderId</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>產品名稱</th>
-                <th>顏色</th>
-                <th>尺寸</th>
-                <th>單價</th>
-                <th>數量</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var i in Model)
-            {
+    .order-table table tr th{
+        width:200px;
+    }
+    .order-table table tr td{
+        width:200px;
+    }
+
+
+</style>
+}
+    <a href="@Url.Action("history_order","Home")" class="back-order">&lt&lt BACK</a>
+    <div class="order-table">
+        <div class="orderid">
+            訂單編號:  @Model[0].orderId
+        </div>
+        <table>
+            <thead>
                 <tr>
-                    <td>@i.productName</td>
-                    <td>@i.color</td>
-                    <td>@i.size</td>
-                    <td>@i.unitPrice</td>
-                    <td>@i.quantity</td>
+                    <th>產品名稱</th>
+                    <th>顏色</th>
+                    <th>尺寸</th>
+                    <th>單價</th>
+                    <th>數量</th>
                 </tr>
-            }
-        </tbody>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.productName</td>
+                        <td>@i.color</td>
+                        <td>@i.size</td>
+                        <td>@i.unitPrice</td>
+                        <td>@i.quantity</td>
+                    </tr>
+                }
+            </tbody>
 
-    </table>
-</div>
+        </table>
+
+    </div>

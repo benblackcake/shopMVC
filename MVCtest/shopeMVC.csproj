@@ -179,6 +179,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\dashboard\dashboardSaleController.cs" />
+    <Compile Include="Controllers\dashboard\dashboardUpdateOdController.cs" />
     <Compile Include="Models\AspNetRoles.cs" />
     <Compile Include="Models\AspNetUserClaims.cs" />
     <Compile Include="Models\AspNetUserLogins.cs" />
@@ -335,6 +336,7 @@
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetMaster.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\getProduct.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\GetSale.js" />
+    <Content Include="Assest\dashboardAssets\dashboardDemo\SaveOrderDetail.js" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\upload.css" />
     <Content Include="Assest\dashboardAssets\dashboardDemo\upload.js" />
     <Content Include="Assest\dashboardAssets\dashboardImg\anime3.png" />
@@ -671,6 +673,7 @@
     <Content Include="Views\shopMember\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\GetOrderDetail.cshtml" />
     <Content Include="Views\dashboardSale\Index.cshtml" />
+    <Content Include="Views\dashboardUpdateOd\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

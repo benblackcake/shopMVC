@@ -1,0 +1,126 @@
+﻿@model List<MVCtest.ViewModels.OrderDetailViewModel>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section topCSS{
+    <style>
+        label {
+            font-size: 25px;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            border-radius: 5px;
+            margin: 0 20px;
+            width: 100px;
+            text-align: center;
+        }
+
+        span {
+            color: #fff;
+        }
+
+        .top-title-od {
+            margin-top: 20px ;
+            font-size: 30px;
+            width: 1200px;
+            border-bottom: #fff 2px solid;
+            padding-bottom: 10px;
+        }
+
+            .top-title-od span {
+                width: 150px;
+                display: inline-block;
+                margin: 0 10px;
+            }
+
+            .top-title-od .productName {
+                margin-right: 85px;
+            }
+
+            .top-title-od .productSize {
+                width: 110px;
+            }
+
+            .top-title-od .producColor {
+                margin-right: 70px;
+            }
+
+        .body-od {
+            font-size: 20px;
+            border-bottom: #fff 2px solid;
+            padding:20px 0;
+            width: 1200px;
+        }
+
+            .body-od span {
+                margin-right: 90px;
+            }
+
+            .body-od .first-span-od {
+                display: inline-block;
+                width: 160px;
+            }
+
+            .body-od select {
+                margin-right: 100px;
+                width: 150px;
+                padding-left: 30px;
+            }
+
+            .body-od input[type="text"] {
+                margin-right: 100px;
+            }
+
+            .body-od .save {
+                margin: 0;
+            }
+    </style>
+}
+@section endJS{
+
+    <script src="~/Assest/dashboardAssets/dashboardDemo/SaveOrderDetail.js"></script>
+}
+<form action="/dashboardUpdateOd/Index" method="post">
+    <label>請輸入訂單編號:<input type="text" name="orderId" value="" /></label>
+    <input type="submit" name="submit" value="查詢訂單明細" />
+</form>
+@if (Model != null)
+{
+    <div class="top-title-od">
+        <span class="productName">產品名稱</span>
+        <span class="producColor">顏色-尺寸</span>
+        <span class="productPrice">單價</span>
+        <span class="productQuantity">數量</span>
+    </div>
+    foreach (var i in Model)
+    {
+        <div class="body-od">
+            <input type="hidden" name="odId" value="@i.orderId" class="odId" />
+            <span class="first-span-od">@i.productName</span>
+            <input type="hidden" name="#" value="@i.pdId" class="pdId" />
+            <select name="pdId" class="option-pdId">
+                @foreach (var j in i.productDetailList)
+                {
+                    if (i.pdId == j.Product_Detail_Id)
+                    {
+                        <option value="@j.Product_Detail_Id" selected>@j.Color-@j.Size</option>
+
+                    }
+                    else
+                    {
+                        <option value="@j.Product_Detail_Id">@j.Color-@j.Size</option>
+                    }
+                }
+            </select>
+            <span>@i.unitPrice</span>
+            <input type="text" name="quantity" value="@i.quantity" />
+            <span class="btn btn-success save">儲存</span>
+            <span class="btn btn-danger delete-od">刪除</span>
+        </div>
+    }
+}

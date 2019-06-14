@@ -3,6 +3,7 @@ using MVCtest.Repository;
 using MVCtest.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -36,7 +37,7 @@ namespace MVCtest.Service
         {
             DBModel context = new DBModel();
             DbRepository<Sale> repo = new DbRepository<Sale>(context);
-            if (repo.GetAll().FirstOrDefault((x) => x.Sale_ID == input.Sale_ID)==null)
+            if (repo.GetAll().FirstOrDefault((x) => x.Sale_Product == input.Sale_Product)==null)
             {
                 Sale entity = new Sale()
                 {
@@ -53,6 +54,18 @@ namespace MVCtest.Service
             else return false;
 
         }
+        public void Delete(int id)
+        {
+            DBModel context = new DBModel();
+            DbRepository<Sale> repo = new DbRepository<Sale>(context);
+            Sale cus = repo.GetAll().FirstOrDefault((x) => x.Sale_ID == id);
+            repo.Delete(cus);
+           
+            context.SaveChanges();
+            
+        }
+
+
 
     }
 }

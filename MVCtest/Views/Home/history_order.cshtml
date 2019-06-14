@@ -171,7 +171,7 @@
                             <div class="card-detail col-md-2">@item.Payment</div>
                             <div class="card-detail col-md-2">NTD. @item.Price</div>
                             <div class="card-detail col-md-2">@item.OrderState</div>
-                            <div class="card-detail col-md-2"><a href="@Url.Action("GetOrderDetail","Home",new {orderId=item.OrderId })" target="_blank">點此查看</a></div>
+                            <div class="card-detail col-md-2"><a href="@Url.Action("GetOrderDetail","Home",new {orderId=item.OrderId })">點此查看</a></div>
                         </div>
                     </div>
                 }
