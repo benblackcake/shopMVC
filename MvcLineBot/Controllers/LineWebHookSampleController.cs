@@ -20,6 +20,7 @@ namespace MvcLineBot.Controllers
         {
             try
             {
+                
                 //設定ChannelAccessToken(或抓取Web.Config)
                 this.ChannelAccessToken = channelAccessToken;
                 //取得Line Event(範例，只取第一個)
@@ -67,8 +68,8 @@ namespace MvcLineBot.Controllers
 
                             //建立actions，作為ButtonTemplate的用戶回覆行為
                             var actions = new List<isRock.LineBot.TemplateActionBase>();
-                            actions.Add(new isRock.LineBot.UriAction() { label = "TOP", uri = new Uri("https://shopmvc.azurewebsites.net/shopProduct/Index/?subcategory=12101") });
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Base Layer", uri = new Uri("https://shopmvc.azurewebsites.net/shopProduct/Index/?subcategory=12102") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "TOP", uri = new Uri("line://app/1584515870-0rgamNBP") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Base Layer", uri = new Uri("line://app/1584515870-2aqBK8kA") });
 
                             //單一Button Template Message
                             var ButtonTemplate = new isRock.LineBot.ButtonsTemplate()
@@ -90,8 +91,8 @@ namespace MvcLineBot.Controllers
 
                             //建立actions，作為ButtonTemplate的用戶回覆行為
                             var actions = new List<isRock.LineBot.TemplateActionBase>();
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Pants", uri = new Uri("https://shopmvc.azurewebsites.net/shopProduct/Index/?subcategory=12103") });
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Skirt", uri = new Uri("https://shopmvc.azurewebsites.net/shopProduct/Index/?subcategory=12104") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Pants", uri = new Uri("line://app/1584515870-NjD7Xxbg") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Skirt", uri = new Uri("line://app/1584515870-GVYN4jqE") });
 
                             //單一Button Template Message
                             var ButtonTemplate = new isRock.LineBot.ButtonsTemplate()
@@ -113,9 +114,9 @@ namespace MvcLineBot.Controllers
 
                             //建立actions，作為ButtonTemplate的用戶回覆行為
                             var actions = new List<isRock.LineBot.TemplateActionBase>();
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Dresses", uri = new Uri("http://www.google.com") });
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Suit", uri = new Uri("http://www.google.com") });
-                            actions.Add(new isRock.LineBot.UriAction() { label = "Jeans", uri = new Uri("http://www.google.com") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Dresses", uri = new Uri("line://app/1584515870-Br8zqK3D") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Suit", uri = new Uri("line://app/1584515870-5krwv2Lx") });
+                            actions.Add(new isRock.LineBot.UriAction() { label = "Jeans", uri = new Uri("line://app/1584515870-WVpYoxrG") });
                             //單一Button Template Message
                             var ButtonTemplate = new isRock.LineBot.ButtonsTemplate()
                             {
